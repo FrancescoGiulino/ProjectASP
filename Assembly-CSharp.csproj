@@ -60,11 +60,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Users\franc\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.1\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\franc\OneDrive\Desktop\VR\ProgettiUnity\StealthGame\Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Memory.dll" />
+    <Analyzer Include="C:\Users\franc\OneDrive\Desktop\VR\ProgettiUnity\StealthGame\Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Buffers.dll" />
+    <Analyzer Include="C:\Users\franc\OneDrive\Desktop\VR\ProgettiUnity\StealthGame\Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngine.dll" />
+    <Analyzer Include="C:\Users\franc\OneDrive\Desktop\VR\ProgettiUnity\StealthGame\Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Analyzer Include="C:\Users\franc\OneDrive\Desktop\VR\ProgettiUnity\StealthGame\Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll" />
+    <Analyzer Include="C:\Users\franc\OneDrive\Desktop\VR\ProgettiUnity\StealthGame\Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll" />
+    <Analyzer Include="C:\Users\franc\OneDrive\Desktop\VR\ProgettiUnity\StealthGame\Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll" />
+    <Analyzer Include="C:\Users\franc\OneDrive\Desktop\VR\ProgettiUnity\StealthGame\Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Numerics.Vectors.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.28f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.28f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.28f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\StateChangeable\WideDoor.cs" />
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Scripts\StateChangeable\StateChangeable.cs" />
     <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
