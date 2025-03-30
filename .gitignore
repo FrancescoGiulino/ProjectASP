@@ -1,0 +1,13 @@
+# Unity
+[Aa]ssets/AssetStoreTools*
+[Ll]ibrary/
+[Ll]ogs/
+[Tt]emp/
+[Tt]argets/
+.vs/
+.idea/
+.vscode/
+.gradle/
+*.suo
+*.user
+*.userprefs
