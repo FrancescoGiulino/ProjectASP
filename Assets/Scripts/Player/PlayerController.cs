@@ -1,70 +1,81 @@
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    [Header("Movement Settings")]
     [SerializeField] private float speed = 7f;
+
+    [Header("Interaction Settings")]
+    [SerializeField] private float interactDistance = 2f;
+    [SerializeField] private LayerMask interactiveLayerMask;
+
+    [Header("Input")]
     [SerializeField] private GameInput gameInput;
 
     private Interactable lastInteractable; // Memorizza l'ultimo oggetto interagibile
-    [SerializeField] private float interactDistance=2f;
-    [SerializeField] private LayerMask interactiveLayerMask;
-
-    private Vector3 lastInteractDir;
+    private Vector2 input; // Input del giocatore
+    private Vector3 moveDir; // Direzione del movimento
+    private Vector3 lastInteractDir; // Direzione dell'ultima interazione
     private CharacterController characterController;
 
-    void Start() {
+    private void Start() {
         characterController = GetComponent<CharacterController>();
-        gameInput.OnInteractAction+=Event_GameInputOnInteractAction;
+        if (characterController == null) {
+            Debug.LogError("CharacterController non trovato! Assicurati che il componente sia presente.");
+        }
+
+        gameInput.OnInteractAction += HandleInteractAction;
     }
 
-    void Update() {
+    private void Update() {
         HandleMovement();
-        UpdateLastInteractable();
+        HandleInteraction();
     }
 
-    private void HandleMovement(){
-        Vector2 input = gameInput.GetInputVectorNormalized();
-        Vector3 moveDir = new Vector3(input.x, 0f, input.y).normalized;
+    // Gestisce il movimento del giocatore.
+    private void HandleMovement() {
+        input = gameInput.GetInputVectorNormalized();
+        moveDir = new Vector3(input.x, 0f, input.y).normalized;
 
+        // Movimento
         float moveDistance = speed * Time.deltaTime;
-        characterController.Move(moveDir * moveDistance); // Usa CharacterController per gestire il movimento
+        characterController.Move(moveDir * moveDistance);
 
-        if (moveDir != Vector3.zero) { // Ruota solo se ci si sta muovendo
-            float rotSpeed = 15f;
-            transform.forward = Vector3.Slerp(transform.forward, moveDir, rotSpeed * Time.deltaTime);
+        // Rotazione
+        if (moveDir != Vector3.zero) {
+            float rotationSpeed = 15f;
+            transform.forward = Vector3.Slerp(transform.forward, moveDir, rotationSpeed * Time.deltaTime);
         }
     }
 
-    public bool IsMoving() {
-        return gameInput.GetInputVectorNormalized() != Vector2.zero;
-    }
-
-    private void UpdateLastInteractable() {
-        // Ottieni l'input normalizzato del giocatore
-        Vector2 input = gameInput.GetInputVectorNormalized();
-        Vector3 moveDir = new Vector3(input.x, 0f, input.y);
-
+    // Gestisce l'interazione con oggetti interagibili.
+    private void HandleInteraction() {
         // Aggiorna la direzione dell'interazione se il giocatore si sta muovendo
         if (moveDir != Vector3.zero) {
             lastInteractDir = moveDir;
         }
+
         // Lancia un raggio nella direzione dell'ultima interazione
-        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, interactiveLayerMask)) {
-            // Controlla se l'oggetto colpito è di tipo Interactable
-            if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
-                if (interactable == lastInteractable) return; // Se l'oggetto è lo stesso dell'ultimo interagibile, esci
-                else{
-                    lastInteractable?.DisableOutline(); // Disabilita l'outline dell'oggetto interagibile precedente
+        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit hit, interactDistance, interactiveLayerMask)) {
+            if (hit.transform.TryGetComponent(out Interactable interactable)) {
+                if (interactable != lastInteractable) {
+                    lastInteractable?.DisableOutline(); // Disabilita l'outline dell'ultimo oggetto
+                    lastInteractable = interactable; // Aggiorna l'ultimo oggetto interagibile
+                    lastInteractable.EnableOutline(); // Abilita l'outline del nuovo oggetto
                 }
-                lastInteractable=interactable; // Aggiorna l'ultimo oggetto interagibile
-                lastInteractable.EnableOutline(); // Abilita l'outline dell'oggetto interactable attuale
             }
-        }else{
-            lastInteractable?.DisableOutline(); // Disabilita l'outline se non è un oggetto interagibile
-            lastInteractable = null; // Resetta l'ultimo interagibile se non è più valido
+        } else {
+            // Se non c'è un oggetto interagibile, disabilita l'outline
+            lastInteractable?.DisableOutline();
+            lastInteractable = null;
         }
     }
 
-    private void Event_GameInputOnInteractAction(object sender, System.EventArgs e){
+    // Gestisce l'azione di interazione.
+    private void HandleInteractAction(object sender, System.EventArgs e) {
         lastInteractable?.Interact(); // Chiama il metodo Interact() sull'oggetto interagibile
+    }
+
+    public bool IsMoving(){
+        return input != Vector2.zero; // Restituisce true se il giocatore si sta muovendo
     }
 }

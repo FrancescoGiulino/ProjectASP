@@ -260,7 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3608329341484394503}
   - component: {fileID: 369163184363596279}
-  - component: {fileID: 8601895320604993181}
+  - component: {fileID: 6674161260239509653}
   m_Layer: 6
   m_Name: Lever
   m_TagString: Untagged
@@ -305,7 +305,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 1, z: 1.7}
   m_Center: {x: 0, y: 0.5, z: -0.2}
---- !u!114 &8601895320604993181
+--- !u!114 &6674161260239509653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,9 +314,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8439070080021298148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290853f3cebb43541a896f0efee656bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 79a226ae81844b9439860feb88e13884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationNames: []
   active: 0
   activateAnimationName: LeverActivateAnimation
   deactivateAnimationName: LeverDeactivateAnimation
