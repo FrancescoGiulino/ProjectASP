@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Movement Settings")]
     [SerializeField] private float speed = 7f;
     [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private float gravityMultiplier = 3.5f;
+    [SerializeField] private float gravityMultiplier = 4f;
     private float velocity;
 
     [Header("Interaction Settings")]
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
 
     private void HandleGravity() {
         if (IsGrounded() && velocity < 0.0f) {
-            velocity = -2f; // Manteniamo una leggera forza verso il basso per evitare "rimbalzi"
+            velocity = gravity; // Manteniamo una leggera forza verso il basso per evitare "rimbalzi"
         } else {
             velocity += gravity * gravityMultiplier * Time.deltaTime;
         }
