@@ -19,6 +19,10 @@ public class Button : Interactable {
         }
     }
 
+    private void Start(){
+        CheckMaterial();
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             Interact();
@@ -28,6 +32,10 @@ public class Button : Interactable {
 
     public override void Interact(){
         base.Interact();
+        CheckMaterial();
+    }
+
+    private void CheckMaterial(){
         if (active) ChangeMaterial(activeMaterial);
         else ChangeMaterial(inactiveMaterial);
     }
