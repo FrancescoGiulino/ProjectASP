@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 
         // CheckSphere per controllare il contatto con il terreno
         bool grounded = Physics.CheckSphere(origin, groundCheckRadius);
-        Debug.Log($"IsGrounded: {grounded}, Velocity: {velocity}");
+        //Debug.Log($"IsGrounded: {grounded}, Velocity: {velocity}");
         return grounded;
     }
 
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour {
         Vector3 gravityMovement = new Vector3(0f, velocity, 0f);
         characterController.Move(gravityMovement * Time.deltaTime);
 
-        Debug.Log($"IsGrounded: {IsGrounded()} - Velocity: {velocity}");
+        //Debug.Log($"IsGrounded: {IsGrounded()} - Velocity: {velocity}");
     }
 
     // Gestisce l'interazione con oggetti interagibili.

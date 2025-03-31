@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StateChangeable : GenericAnimationStateController {
     [SerializeField] protected Interactable[] dependency;
-    [SerializeField] protected string activeAnimationName, inactiveAnimationName;
+    [SerializeField] protected string activeAnimationName,inactiveAnimationName;
     protected bool state;
 
     protected override void Awake() {

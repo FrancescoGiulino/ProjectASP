@@ -7,6 +7,8 @@ public abstract class GenericAnimationStateController : MonoBehaviour {
         animator = GetComponentInChildren<Animator>();
         if (animator == null) {
             Debug.LogError($"Animator non trovato su {gameObject.name}. Assicurati che il componente Animator sia presente.");
+        }else{
+            Debug.Log($"Animator trovato su {gameObject.name}.");
         }
     }
 

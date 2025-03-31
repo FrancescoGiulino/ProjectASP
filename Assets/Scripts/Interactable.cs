@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Interactable : GenericAnimationStateController {
     protected Outline outlineComponent;
-    [SerializeField] protected bool active;
+    [SerializeField] protected bool active=false;
     [SerializeField] protected string activateAnimationName, deactivateAnimationName;
 
     protected override void Awake() {
@@ -10,48 +10,35 @@ public class Interactable : GenericAnimationStateController {
         outlineComponent = GetComponentInChildren<Outline>();
 
         if (active && animator != null) {
-            PlayAnimation(activateAnimationName); // Gioca l'animazione di attivazione iniziale
+            PlayAnimation(activateAnimationName);
         }
     }
 
-    public bool IsActive() {
-        return active; // Restituisce lo stato attivo dell'oggetto interagibile
-    }
-
-    public void SetActive(bool value) {
-        active = value; // Imposta lo stato attivo dell'oggetto interagibile
-    }
-
+    public bool IsActive() {return active;}
+    public void SetActive(bool value) {active = value;}
     public void EnableOutline() {
         if (outlineComponent != null) {
-            outlineComponent.enabled = true; // Attiva il componente Outline
+            outlineComponent.enabled = true;
         }
     }
-
     public void DisableOutline() {
         if (outlineComponent != null) {
-            outlineComponent.enabled = false; // Disattiva il componente Outline
+            outlineComponent.enabled = false;
         }
     }
 
     public override void HandleState() {
-        // Gestisce lo stato e le animazioni per Interactable
         if (active) {
+            Debug.Log("riproduco l'animazione: " + activateAnimationName);
             PlayAnimation(activateAnimationName);
         } else {
+            Debug.Log("riproduco l'animazione: " + deactivateAnimationName);
             PlayAnimation(deactivateAnimationName);
         }
     }
 
-    public void Interact() {
-        // Cambia lo stato attivo
+    public virtual void Interact() {
         active = !active;
-
-        // Riproduce l'animazione corretta in base al nuovo stato
-        if (active) {
-            PlayAnimation(activateAnimationName);
-        } else {
-            PlayAnimation(deactivateAnimationName);
-        }
+        HandleState();
     }
 }
