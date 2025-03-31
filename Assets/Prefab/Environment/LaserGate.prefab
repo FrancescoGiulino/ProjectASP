@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6345021669140217458}
   - component: {fileID: 1645953390396026914}
   - component: {fileID: 7466221522768911301}
+  - component: {fileID: 2972934866832957973}
+  - component: {fileID: 6961884760762979691}
   m_Layer: 6
   m_Name: LaserGate
   m_TagString: Untagged
@@ -76,6 +78,43 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8, y: 5, z: 1}
   m_Center: {x: -2.8, y: 2.5, z: 0}
+--- !u!95 &2972934866832957973
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298869825224776265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dffc37d3394e35048ba8879470492891, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6961884760762979691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298869825224776265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 020913f670e096248b34094a2a20bc0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependency: []
+  activeAnimationName: LaserGateActivateAnimation
+  inactiveAnimationName: LaserGateDeactivateAnimation
 --- !u!1001 &386994824728847733
 PrefabInstance:
   m_ObjectHideFlags: 0
