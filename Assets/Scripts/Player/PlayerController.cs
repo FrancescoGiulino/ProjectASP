@@ -3,6 +3,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     [Header("Movement Settings")]
     [SerializeField] private float speed = 7f;
+    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float gravityMultiplier = 3.5f;
+    private float velocity;
 
     [Header("Interaction Settings")]
     [SerializeField] private float interactDistance = 2f;
@@ -23,10 +26,11 @@ public class PlayerController : MonoBehaviour {
             Debug.LogError("CharacterController non trovato! Assicurati che il componente sia presente.");
         }
 
-        gameInput.OnInteractAction += HandleInteractAction;
+        gameInput.OnInteractAction += InteractEvent;
     }
 
     private void Update() {
+        HandleGravity();
         HandleMovement();
         HandleInteraction();
     }
@@ -36,7 +40,7 @@ public class PlayerController : MonoBehaviour {
         input = gameInput.GetInputVectorNormalized();
         moveDir = new Vector3(input.x, 0f, input.y).normalized;
 
-        // Movimento
+        // Movimento orizzontale
         float moveDistance = speed * Time.deltaTime;
         characterController.Move(moveDir * moveDistance);
 
@@ -45,6 +49,29 @@ public class PlayerController : MonoBehaviour {
             float rotationSpeed = 15f;
             transform.forward = Vector3.Slerp(transform.forward, moveDir, rotationSpeed * Time.deltaTime);
         }
+    }
+
+    private bool IsGrounded() {
+        float groundCheckRadius = 0.3f; // Raggio della sfera
+        Vector3 origin = transform.position + Vector3.down * 0.5f; // Origine del controllo (leggermente sotto il giocatore)
+
+        // CheckSphere per controllare il contatto con il terreno
+        bool grounded = Physics.CheckSphere(origin, groundCheckRadius);
+        Debug.Log($"IsGrounded: {grounded}, Velocity: {velocity}");
+        return grounded;
+    }
+
+    private void HandleGravity() {
+        if (IsGrounded() && velocity < 0.0f) {
+            velocity = -2f; // Manteniamo una leggera forza verso il basso per evitare "rimbalzi"
+        } else {
+            velocity += gravity * gravityMultiplier * Time.deltaTime;
+        }
+
+        Vector3 gravityMovement = new Vector3(0f, velocity, 0f);
+        characterController.Move(gravityMovement * Time.deltaTime);
+
+        Debug.Log($"IsGrounded: {IsGrounded()} - Velocity: {velocity}");
     }
 
     // Gestisce l'interazione con oggetti interagibili.
@@ -71,11 +98,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Gestisce l'azione di interazione.
-    private void HandleInteractAction(object sender, System.EventArgs e) {
+    private void InteractEvent(object sender, System.EventArgs e) {
         lastInteractable?.Interact(); // Chiama il metodo Interact() sull'oggetto interagibile
     }
 
-    public bool IsMoving(){
+    public bool IsMoving() {
         return input != Vector2.zero; // Restituisce true se il giocatore si sta muovendo
     }
 }

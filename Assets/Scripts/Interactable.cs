@@ -37,10 +37,8 @@ public class Interactable : GenericAnimationStateController {
     public override void HandleState() {
         // Gestisce lo stato e le animazioni per Interactable
         if (active) {
-            Debug.Log("Interagibile attivo");
             PlayAnimation(activateAnimationName);
         } else {
-            Debug.Log("Interagibile inattivo");
             PlayAnimation(deactivateAnimationName);
         }
     }
@@ -55,7 +53,5 @@ public class Interactable : GenericAnimationStateController {
         } else {
             PlayAnimation(deactivateAnimationName);
         }
-
-        Debug.Log($"Interactable stato cambiato: {(active ? "Attivo" : "Inattivo")}");
     }
 }

@@ -11,8 +11,6 @@ public class StateChangeable : GenericAnimationStateController {
 
     protected virtual void Update() {
         HandleState();
-        if (state){Debug.Log("Porta APERTA");}
-        else{Debug.Log("Porta CHIUSA");}
     }
 
     public override void HandleState() {
