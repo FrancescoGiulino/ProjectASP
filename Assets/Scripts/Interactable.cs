@@ -29,10 +29,8 @@ public class Interactable : GenericAnimationStateController {
 
     public override void HandleState() {
         if (active) {
-            Debug.Log("riproduco l'animazione: " + activateAnimationName);
             PlayAnimation(activateAnimationName);
         } else {
-            Debug.Log("riproduco l'animazione: " + deactivateAnimationName);
             PlayAnimation(deactivateAnimationName);
         }
     }

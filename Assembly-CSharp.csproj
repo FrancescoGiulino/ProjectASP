@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerAnimationStateController.cs" />
     <Compile Include="Assets\Scripts\GenericAnimationStateController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\SecurityCameraDetectPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\GameInput.cs" />
     <Compile Include="Assets\AI\ThinkEngineer\ThinkEngine\Scripts\ThinkEngineTrigger.cs" />
     <Compile Include="Assets\Scripts\Player\InteractableHandler.cs" />
@@ -87,6 +88,7 @@
     <None Include="Assets\AI\ThinkEnginePlugin\Assets\Scripts\SensorTemplate.txt" />
     <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll" />
     <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Numerics.Vectors.dll" />
+    <None Include="Assets\Textures\UrbanNightSky\Readme.txt" />
     <None Include="Assets\QuickOutline\Readme.txt" />
     <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Buffers.dll" />
     <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll" />
