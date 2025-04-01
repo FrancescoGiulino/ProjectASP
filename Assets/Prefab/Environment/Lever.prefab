@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a226ae81844b9439860feb88e13884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationNames: []
+  animated: 1
   active: 0
   activateAnimationName: LeverActivateAnimation
   deactivateAnimationName: LeverDeactivateAnimation

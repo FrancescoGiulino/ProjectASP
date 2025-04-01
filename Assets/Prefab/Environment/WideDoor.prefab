@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c486fc35e2d0e4ab843409c6756a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animated: 1
   dependency: []
   activeAnimationName: WideDoorOpening
   inactiveAnimationName: WideDoorClosing
