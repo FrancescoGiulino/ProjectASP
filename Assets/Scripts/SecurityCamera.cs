@@ -51,7 +51,7 @@ public class SecurityCamera : StateChangeable {
         if (sphereCollider == null) {
             Debug.LogError("Componente SphereCollider non trovato nella gerarchia di " + gameObject.name);
         }
-
+        
         // Imposta l'angolo iniziale e la direzione iniziale
         currentAngle = Mathf.Clamp(initialAngle, minAngle, maxAngle);
         rotationDirection = Mathf.Clamp(initialDirection, -1, 1);
@@ -62,25 +62,16 @@ public class SecurityCamera : StateChangeable {
         base.Update();
 
         // Ruota solo se lo stato è attivo
-        if (state && cameraHead != null) {
-            RotateCameraHead();
-        }
+        if (state && cameraHead != null) { RotateCameraHead(); }
 
         // Abilita/disabilita la luce in base allo stato
-        if (state && securityLight != null) {
-            securityLight.enabled = true;
-        } else if (!state && securityLight != null) {
-            securityLight.enabled = false;
-        }
+        if (securityLight != null) { securityLight.enabled = state; }
 
         // Cambia il materiale di OnOffLight in base allo stato
-        if (onOffLightRenderer != null) {
-            if (state) {
-                onOffLightRenderer.material = activeMaterial; // Stato attivo
-            } else {
-                onOffLightRenderer.material = inactiveMaterial; // Stato inattivo
-            }
-        }
+        if (onOffLightRenderer != null) { onOffLightRenderer.material = state ? activeMaterial : inactiveMaterial; }
+
+        // Abilita/disabilita il rilevamento delle collisioni in base allo stato
+        if (sphereCollider != null) { sphereCollider.enabled = state; }
     }
 
     private void RotateCameraHead() {
