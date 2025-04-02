@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Button : Interactable {
     private Renderer buttonTopRenderer;
+    [SerializeField] private LayerMask layerMask;
 
     [SerializeField] private Material activeMaterial; // Materiale per lo stato attivo
     [SerializeField] private Material inactiveMaterial; // Materiale per lo stato inattivo
@@ -23,16 +24,30 @@ public class Button : Interactable {
         CheckMaterial();
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Player")) {
-            Interact();
+    private void OnTriggerEnter(Collider other){
+        // Controlla se l'oggetto appartiene al layer specificato nella LayerMask
+        if (((1 << other.gameObject.layer) & layerMask) != 0) {
+            //Interact();
+            active = true;
+            CheckMaterial();
+            HandleState();
             Debug.Log("Pulsante premuto! --> Active: " + active);
         }
     }
 
+    private void OnTriggerExit(Collider other){
+        // Controlla se l'oggetto appartiene al layer specificato nella LayerMask
+        if (((1 << other.gameObject.layer) & layerMask) != 0) {
+            //Interact();
+            active = false;
+            CheckMaterial();
+            HandleState();
+            Debug.Log("Pulsante lasciato! --> Active: " + active);
+        }
+    }
+
     public override void Interact(){
-        base.Interact();
-        CheckMaterial();
+        // non fare nulla.
     }
 
     private void CheckMaterial(){

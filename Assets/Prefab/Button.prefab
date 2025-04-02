@@ -52,6 +52,9 @@ MonoBehaviour:
   active: 0
   activateAnimationName: ButtonActivateAnimation
   deactivateAnimationName: ButtonDeactivateAnimation
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
   activeMaterial: {fileID: 2100000, guid: c324dac74f921064f94ee7146f8d787c, type: 2}
   inactiveMaterial: {fileID: 2100000, guid: 73f97135d44d75548ad888fc73bec8ea, type: 2}
 --- !u!65 &5293163005412536692
@@ -176,8 +179,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 0.1, z: 1.5}
-  m_Center: {x: 0, y: 0.05, z: 0}
+  m_Size: {x: 1.5, y: 0.05, z: 1.5}
+  m_Center: {x: 0, y: 0.025, z: 0}
 --- !u!1 &8270402892367156593
 GameObject:
   m_ObjectHideFlags: 0
