@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991261c090e5c224c9616b6fbd113e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animated: 1
   active: 0
   activateAnimationName: ButtonActivateAnimation
   deactivateAnimationName: ButtonDeactivateAnimation
@@ -175,8 +176,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 0.3, z: 1.5}
-  m_Center: {x: 0, y: 0.15, z: 0}
+  m_Size: {x: 1.5, y: 0.1, z: 1.5}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!1 &8270402892367156593
 GameObject:
   m_ObjectHideFlags: 0

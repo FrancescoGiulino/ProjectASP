@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     [Header("Movement Settings")]
-    [SerializeField] private float speed = 7f;
-    [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private float gravityMultiplier = 4f;
-    private float velocity;
+    [SerializeField] private float speed = 160f;
+    [SerializeField] private float rotationSpeed = 15f;
 
     [Header("Interaction Settings")]
     [SerializeField] private float interactDistance = 2f;
@@ -14,95 +12,94 @@ public class PlayerController : MonoBehaviour {
     [Header("Input")]
     [SerializeField] private GameInput gameInput;
 
-    private Interactable lastInteractable; // Memorizza l'ultimo oggetto interagibile
-    private Vector2 input; // Input del giocatore
-    private Vector3 moveDir; // Direzione del movimento
-    private Vector3 lastInteractDir; // Direzione dell'ultima interazione
-    private CharacterController characterController;
+    private Interactable lastInteractable;
+    private Vector2 input;
+    private Vector3 moveDir;
+    private Vector3 lastInteractDir;
+    private Rigidbody rb;
 
     private void Start() {
-        characterController = GetComponent<CharacterController>();
-        if (characterController == null) {
-            Debug.LogError("CharacterController non trovato! Assicurati che il componente sia presente.");
+        rb = GetComponent<Rigidbody>();
+        if (rb == null) {
+            Debug.LogError("Rigidbody non trovato! Assicurati che il componente sia presente.");
         }
+
+        // Configura il Rigidbody
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         gameInput.OnInteractAction += InteractEvent;
     }
 
-    private void Update() {
-        HandleGravity();
+    private void FixedUpdate() {
+        HandleInput();
         HandleMovement();
         HandleInteraction();
+
+        // Applica un damping personalizzato per rallentare il movimento orizzontale
+        ApplyHorizontalDamping();
     }
 
-    // Gestisce il movimento del giocatore.
-    private void HandleMovement() {
+    private void HandleInput() {
         input = gameInput.GetInputVectorNormalized();
         moveDir = new Vector3(input.x, 0f, input.y).normalized;
+    }
 
-        // Movimento orizzontale
-        float moveDistance = speed * Time.deltaTime;
-        characterController.Move(moveDir * moveDistance);
-
-        // Rotazione
+    private void HandleMovement() {
         if (moveDir != Vector3.zero) {
-            float rotationSpeed = 15f;
-            transform.forward = Vector3.Slerp(transform.forward, moveDir, rotationSpeed * Time.deltaTime);
+            // Applica una forza per muovere il giocatore
+            Vector3 force = moveDir * speed;
+            rb.AddForce(force, ForceMode.Force);
+
+            // Limita la velocità massima
+            if (rb.linearVelocity.magnitude > speed) {
+                rb.linearVelocity = rb.linearVelocity.normalized * speed;
+            }
+
+            // Rotazione del giocatore
+            Quaternion targetRotation = Quaternion.LookRotation(moveDir);
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
         }
     }
 
-    private bool IsGrounded() {
-        float groundCheckRadius = 0.3f; // Raggio della sfera
-        Vector3 origin = transform.position + Vector3.down * 0.5f; // Origine del controllo (leggermente sotto il giocatore)
+    private void ApplyHorizontalDamping() {
+        // Ottieni la velocità attuale del Rigidbody
+        Vector3 velocity = rb.linearVelocity;
 
-        // CheckSphere per controllare il contatto con il terreno
-        bool grounded = Physics.CheckSphere(origin, groundCheckRadius);
-        //Debug.Log($"IsGrounded: {grounded}, Velocity: {velocity}");
-        return grounded;
+        // Applica il damping solo alle componenti X e Z (movimento orizzontale)
+        velocity.x *= 0.9f; // Riduci gradualmente la velocità sull'asse X
+        velocity.z *= 0.9f; // Riduci gradualmente la velocità sull'asse Z
+
+        // Mantieni la componente verticale (Y) invariata per non influenzare la gravità
+        rb.linearVelocity = new Vector3(velocity.x, rb.linearVelocity.y, velocity.z);
     }
 
-    private void HandleGravity() {
-        if (IsGrounded() && velocity < 0.0f) {
-            velocity = gravity; // Manteniamo una leggera forza verso il basso per evitare "rimbalzi"
-        } else {
-            velocity += gravity * gravityMultiplier * Time.deltaTime;
-        }
-
-        Vector3 gravityMovement = new Vector3(0f, velocity, 0f);
-        characterController.Move(gravityMovement * Time.deltaTime);
-
-        //Debug.Log($"IsGrounded: {IsGrounded()} - Velocity: {velocity}");
-    }
-
-    // Gestisce l'interazione con oggetti interagibili.
     private void HandleInteraction() {
-        // Aggiorna la direzione dell'interazione se il giocatore si sta muovendo
         if (moveDir != Vector3.zero) {
             lastInteractDir = moveDir;
         }
 
-        // Lancia un raggio nella direzione dell'ultima interazione
-        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit hit, interactDistance, interactiveLayerMask)) {
+        Vector3 rayOrigin = transform.position + Vector3.up * 1.0f;
+        if (Physics.Raycast(rayOrigin, lastInteractDir, out RaycastHit hit, interactDistance, interactiveLayerMask)) {
             if (hit.transform.TryGetComponent(out Interactable interactable)) {
                 if (interactable != lastInteractable) {
-                    lastInteractable?.DisableOutline(); // Disabilita l'outline dell'ultimo oggetto
-                    lastInteractable = interactable; // Aggiorna l'ultimo oggetto interagibile
-                    lastInteractable.EnableOutline(); // Abilita l'outline del nuovo oggetto
+                    lastInteractable?.DisableOutline();
+                    lastInteractable = interactable;
+                    lastInteractable.EnableOutline();
                 }
             }
         } else {
-            // Se non c'è un oggetto interagibile, disabilita l'outline
             lastInteractable?.DisableOutline();
             lastInteractable = null;
         }
     }
 
-    // Gestisce l'azione di interazione.
     private void InteractEvent(object sender, System.EventArgs e) {
-        lastInteractable?.Interact(); // Chiama il metodo Interact() sull'oggetto interagibile
+        lastInteractable?.Interact();
     }
 
     public bool IsMoving() {
-        return input != Vector2.zero; // Restituisce true se il giocatore si sta muovendo
+        return moveDir != Vector3.zero;
     }
 }
