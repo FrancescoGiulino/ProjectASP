@@ -3,9 +3,9 @@ using UnityEngine;
 public class Button : Interactable {
     private Renderer buttonTopRenderer;
     [SerializeField] private LayerMask layerMask;
-
     [SerializeField] private Material activeMaterial; // Materiale per lo stato attivo
     [SerializeField] private Material inactiveMaterial; // Materiale per lo stato inattivo
+    private int collidingObjectsCount = 0; // Contatore per gli oggetti in collisione
 
     protected override void Awake() {
         base.Awake();
@@ -24,26 +24,30 @@ public class Button : Interactable {
         CheckMaterial();
     }
 
-    private void OnTriggerEnter(Collider other){
+    private void OnTriggerEnter(Collider other) {
         // Controlla se l'oggetto appartiene al layer specificato nella LayerMask
         if (((1 << other.gameObject.layer) & layerMask) != 0) {
-            //Interact();
-            active = true;
-            CheckMaterial();
-            HandleState();
-            Debug.Log("Pulsante premuto! --> Active: " + active);
+            collidingObjectsCount++; // Incrementa il contatore
+            UpdateButtonState();
+            Debug.Log("Oggetto entrato nel bottone. Contatore: " + collidingObjectsCount);
         }
     }
 
-    private void OnTriggerExit(Collider other){
+    private void OnTriggerExit(Collider other) {
         // Controlla se l'oggetto appartiene al layer specificato nella LayerMask
         if (((1 << other.gameObject.layer) & layerMask) != 0) {
-            //Interact();
-            active = false;
-            CheckMaterial();
-            HandleState();
-            Debug.Log("Pulsante lasciato! --> Active: " + active);
+            collidingObjectsCount = Mathf.Max(0, collidingObjectsCount - 1); // Decrementa il contatore, ma non scende sotto 0
+            UpdateButtonState();
+            Debug.Log("Oggetto uscito dal bottone. Contatore: " + collidingObjectsCount);
         }
+    }
+
+    private void UpdateButtonState() {
+        // Attiva o disattiva il bottone in base al numero di oggetti in collisione
+        active = collidingObjectsCount > 0;
+        CheckMaterial();
+        HandleState();
+        Debug.Log("Stato del bottone aggiornato. Active: " + active);
     }
 
     public override void Interact(){

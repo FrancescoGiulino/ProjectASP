@@ -25,6 +25,7 @@ public class StateChangeable : GenericAnimationStateController {
             }
         }
         state = true;
+        
         PlayAnimation(activeAnimationName);
     }
 }
