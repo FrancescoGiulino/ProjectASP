@@ -73,6 +73,7 @@
     <Compile Include="Assets\InputSystem\PlayerInputActions.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimationStateController.cs" />
     <Compile Include="Assets\Scripts\GenericAnimationStateController.cs" />
+    <Compile Include="Assets\Scripts\BoxFactory.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SecurityCameraDetectPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\GameInput.cs" />

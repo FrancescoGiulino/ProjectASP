@@ -29,7 +29,6 @@ public class Button : Interactable {
         if (((1 << other.gameObject.layer) & layerMask) != 0) {
             collidingObjectsCount++; // Incrementa il contatore
             UpdateButtonState();
-            Debug.Log("Oggetto entrato nel bottone. Contatore: " + collidingObjectsCount);
         }
     }
 
@@ -38,7 +37,6 @@ public class Button : Interactable {
         if (((1 << other.gameObject.layer) & layerMask) != 0) {
             collidingObjectsCount = Mathf.Max(0, collidingObjectsCount - 1); // Decrementa il contatore, ma non scende sotto 0
             UpdateButtonState();
-            Debug.Log("Oggetto uscito dal bottone. Contatore: " + collidingObjectsCount);
         }
     }
 
@@ -47,7 +45,6 @@ public class Button : Interactable {
         active = collidingObjectsCount > 0;
         CheckMaterial();
         HandleState();
-        Debug.Log("Stato del bottone aggiornato. Active: " + active);
     }
 
     public override void Interact(){
