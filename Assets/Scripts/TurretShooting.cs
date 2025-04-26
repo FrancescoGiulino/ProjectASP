@@ -4,43 +4,19 @@ public class TurretShooting : MonoBehaviour
 {
     public GameObject projectilePrefab; // Prefab del proiettile
     public Transform[] firePoints; // Array di punti da cui sparare
-    public Transform target; // Bersaglio della torretta
     public float fireRate = 1f; // Intervallo tra i colpi (in secondi)
     public float projectileSpeed = 10f; // Velocità del proiettile
-    public float activationRange = 15f; // Raggio di attivazione della torretta
-
     private float fireCooldown = 0f;
+    private bool isActive = false; // Flag per controllare se la torretta è attiva
 
     void Update()
     {
-        if (target != null)
+        // Gestisci il cooldown e spara
+        fireCooldown -= Time.deltaTime;
+        if (fireCooldown <= 0f && isActive)
         {
-            // Calcola la distanza tra la torretta e il bersaglio
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-            // Controlla se il bersaglio è entro il raggio di attivazione
-            if (distanceToTarget <= activationRange)
-            {
-                // Calcola la direzione verso il bersaglio
-                Vector3 direction = target.position - transform.position;
-
-                // Mantieni solo la componente Y della rotazione
-                direction.y = 0f;
-
-                // Calcola la rotazione verso il bersaglio
-                Quaternion rotation = Quaternion.LookRotation(direction);
-
-                // Applica la rotazione limitata sull'asse Y
-                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5f);
-
-                // Gestisci il cooldown e spara
-                fireCooldown -= Time.deltaTime;
-                if (fireCooldown <= 0f)
-                {
-                    Shoot();
-                    fireCooldown = 1f / fireRate;
-                }
-            }
+            Shoot();
+            fireCooldown = 1f / fireRate;
         }
     }
 
@@ -57,10 +33,19 @@ public class TurretShooting : MonoBehaviour
                     Rigidbody rb = projectile.GetComponent<Rigidbody>();
                     if (rb != null)
                     {
-                        rb.linearVelocity = firePoint.forward * projectileSpeed;
+                        rb.velocity = firePoint.forward * projectileSpeed;
                     }
                 }
             }
+        }
+    }
+
+    public void SetActive(bool active)
+    {
+        isActive = active;
+        if (!isActive)
+        {
+            fireCooldown = 0f; // Resetta il cooldown quando la torretta non è attiva
         }
     }
 }

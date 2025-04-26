@@ -71,6 +71,7 @@
     <Compile Include="Assets/Scripts/Interactable.cs" />
     <Compile Include="Assets/Scripts/Button.cs" />
     <Compile Include="Assets/InputSystem/PlayerInputActions.cs" />
+    <Compile Include="Assets/Scripts/DoubleTurret.cs" />
     <Compile Include="Assets/Scripts/TurretShooting.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerAnimationStateController.cs" />
     <Compile Include="Assets/Scripts/GenericAnimationStateController.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets/Scripts/Player/InteractableHandler.cs" />
     <Compile Include="Assets/Scripts/Player/CameraHolderMovement.cs" />
     <Compile Include="Assets/Scripts/SecurityCamera.cs" />
+    <Compile Include="Assets/Scripts/TurretDetectPlayer.cs" />
     <Compile Include="Assets/Scripts/BulletLife.cs" />
   </ItemGroup>
   <ItemGroup>
