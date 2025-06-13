@@ -33,7 +33,7 @@ public class TurretShooting : MonoBehaviour
                     Rigidbody rb = projectile.GetComponent<Rigidbody>();
                     if (rb != null)
                     {
-                        rb.velocity = firePoint.forward * projectileSpeed;
+                        rb.linearVelocity = firePoint.forward * projectileSpeed;
                     }
                 }
             }
