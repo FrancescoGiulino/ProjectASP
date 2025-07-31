@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 1ff27919ea9b60249a2e8d1cac9f18d2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -6538903991835684241, guid: 6364e349e9399a049bd2f4f2d4062c97, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 1ff27919ea9b60249a2e8d1cac9f18d2, type: 3}
       propertyPath: m_SelectedEditorRenderState
       value: 2
       objectReference: {fileID: 0}
@@ -473,7 +477,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4
+  m_VersionIndex: 13
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -509,15 +513,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: -2.9341397
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.55
+      value: 2.7535481
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -525,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalRotation.y
@@ -547,6 +551,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -6538903991835684241, guid: 6364e349e9399a049bd2f4f2d4062c97, type: 3}
     - target: {fileID: 919132149155446097, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_Name
       value: WideDoor
