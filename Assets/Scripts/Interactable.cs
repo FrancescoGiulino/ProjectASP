@@ -1,42 +1,55 @@
+using System;
 using UnityEngine;
 
-public class Interactable : GenericAnimationStateController {
-    protected Outline outlineComponent;
-    [SerializeField] protected bool active=false;
-    [SerializeField] protected string activateAnimationName, deactivateAnimationName;
+public class Interactable : MonoBehaviour
+{
+    [SerializeField] public bool State { get; protected set; } = false;
+    [SerializeField] protected bool animated = true;
+    [SerializeField] protected AnimationController animationController;
 
-    protected override void Awake() {
-        base.Awake();
-        outlineComponent = GetComponentInChildren<Outline>();
+    [SerializeField] private bool changeColor = true;
+    [SerializeField] private Renderer[] objsChangeColor;
+    [SerializeField] private Material activeMaterial;
+    [SerializeField] private Material inactiveMaterial;
 
-        if (active && animator != null) {
-            PlayAnimation(activateAnimationName);
+    protected virtual void Start()
+    {
+        if (animated)
+            if (!animationController)
+                animationController = GetComponent<AnimationController>();
+        
+        HandleAnimation();
+        HandleColorChange();
+    }
+
+    public virtual void Interact()
+    {
+        State = !State;
+        HandleAnimation();
+        HandleColorChange();
+    }
+
+    protected virtual void HandleAnimation()
+    {
+        if (animated && animationController.GetAnimator() != null)
+        {
+            if (State)
+                animationController.PlayAnimation("Activate");
+            else
+                animationController.PlayAnimation("Deactivate");
         }
     }
 
-    public bool IsActive() {return active;}
-    public void SetActive(bool value) {active = value;}
-    public void EnableOutline() {
-        if (outlineComponent != null) {
-            outlineComponent.enabled = true;
+    protected virtual void HandleColorChange()
+    {
+        if (changeColor && objsChangeColor.Length > 0)
+        {
+            Material matToApply = State ? activeMaterial : inactiveMaterial;
+            foreach (var obj in objsChangeColor)
+            {
+                if (obj != null)
+                    obj.material = matToApply;
+            }
         }
-    }
-    public void DisableOutline() {
-        if (outlineComponent != null) {
-            outlineComponent.enabled = false;
-        }
-    }
-
-    public override void HandleState() {
-        if (active) {
-            PlayAnimation(activateAnimationName);
-        } else {
-            PlayAnimation(deactivateAnimationName);
-        }
-    }
-
-    public virtual void Interact() {
-        active = !active;
-        HandleState();
     }
 }

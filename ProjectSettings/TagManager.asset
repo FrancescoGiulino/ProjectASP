@@ -11,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - InteractiveObjectLayer
-  - RigidBodiesLayer
-  - PickableLayer
+  - Interactable
+  - 
+  - 
   - 
   - 
   - 

@@ -1,0 +1,129 @@
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
+public class PlayerController : MonoBehaviour
+{
+    [Header("Movement Settings")]
+    [SerializeField] public float MaxSpeed { get; } = 30f;
+    [SerializeField] private float rotationSpeed = 15f;
+
+    [Header("Interaction Settings")]
+    [SerializeField] private float interactDistance = 2f;
+    [SerializeField] private LayerMask interactiveLayerMask;
+
+    [Header("Input")]
+    [SerializeField] private GameInput gameInput;
+    //[SerializeField] private HealthController healthController;
+
+    [Header("Collider Settings")]
+    [SerializeField] private CapsuleCollider capsuleCollider;
+
+    private Vector2 input;
+    private float inputMagnitude; // valore tra 0 e 1, indica l'inclinamento della levetta analogica
+    private Vector3 moveDir;
+    private Rigidbody rb;
+
+    private Interactable lastInteractable; // L'ultimo oggetto interagibile
+    private Vector3 lastInteractDir; // Direzione dell'ultima interazione
+
+    public bool CanMove { get; set; } = true;
+    public bool IsMoving { get { return moveDir != Vector3.zero; } }
+
+    private void Start()
+    {
+        if (!rb) rb = GetComponent<Rigidbody>();
+        if (!capsuleCollider) capsuleCollider = GetComponent<CapsuleCollider>();
+    }
+
+    private void OnEnable()
+    {
+        gameInput.OnInteractAction += InteractEvent;
+    }
+
+    private void OnDisable()
+    {
+        gameInput.OnInteractAction -= InteractEvent;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!CanMove) return;
+        HandleInput();
+        HandleMovement();
+        HandleInteraction();
+    }
+
+    // =============== INPUT HANDLING ===============
+    private void HandleInput()
+    {  
+        input = gameInput.GetInputVector();
+
+        inputMagnitude = input.magnitude; // tra 0 e 1
+        if (inputMagnitude < 0.2f) inputMagnitude = 0f; // evita movimenti lenti
+        else if (inputMagnitude > 0.9f) inputMagnitude = 1f; // limita a 1
+
+        if (inputMagnitude > 0f)
+            moveDir = new Vector3(input.x, 0f, input.y).normalized;
+    }
+
+    private void HandleMovement()
+    {
+        if (moveDir != Vector3.zero)
+        {
+            float currentSpeed = MaxSpeed;
+
+            //Debug.Log("Input Magnitude: " + inputMagnitude);
+            Vector3 force = moveDir * currentSpeed * inputMagnitude;
+            rb.AddForce(force, ForceMode.Force);
+
+            // Limita la velocità massima
+            if (rb.linearVelocity.magnitude > MaxSpeed)
+            {
+                rb.linearVelocity = rb.linearVelocity.normalized * MaxSpeed;
+            }
+
+            // Rotazione del giocatore
+            Quaternion targetRotation = Quaternion.LookRotation(moveDir);
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    // =============== INTERACTION HANDLING ===============
+    private void HandleInteraction()
+    {
+        if (moveDir != Vector3.zero)
+            lastInteractDir = moveDir;
+
+        Vector3 rayOrigin = transform.position + Vector3.up * 0.2f;
+        if (Physics.Raycast(rayOrigin, lastInteractDir, out RaycastHit hit, interactDistance, interactiveLayerMask))
+        {
+            if (hit.transform.TryGetComponent(out Interactable interactable))
+            {
+                if (interactable != lastInteractable)
+                {
+                    //lastInteractable?.DisableOutline();
+                    lastInteractable = interactable;
+                    //lastInteractable.YellowOutline();
+                }
+            }
+        }
+        else
+        {
+            //lastInteractable?.DisableOutline();
+            lastInteractable = null;
+        }
+
+        Debug.DrawRay(rayOrigin, lastInteractDir * interactDistance, Color.red); 
+    }
+
+    // =============== EVENT HANDLING ===============
+    private void InteractEvent(object sender, System.EventArgs e)
+    {
+        //Debug.Log("Interact action triggered");
+        lastInteractable?.Interact();
+    }
+
+    // =============== PUBLIC METHODS ===============
+    public Rigidbody GetRigidbody() => rb;
+}

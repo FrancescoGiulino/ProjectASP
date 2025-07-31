@@ -65,43 +65,18 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\StateChangeable.cs" />
-    <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\Scripts\WideDoor.cs" />
+    <Compile Include="Assets\InputActions\PlayerInputActions.cs" />
+    <Compile Include="Assets\Scripts\AnimationController.cs" />
+    <Compile Include="Assets\Scripts\PlayerAndCamera\GameInput.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
-    <Compile Include="Assets\Scripts\Button.cs" />
-    <Compile Include="Assets\InputSystem\PlayerInputActions.cs" />
-    <Compile Include="Assets\Scripts\DoubleTurret.cs" />
-    <Compile Include="Assets\Scripts\TurretShooting.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerAnimationStateController.cs" />
-    <Compile Include="Assets\Scripts\GenericAnimationStateController.cs" />
-    <Compile Include="Assets\Scripts\BoxFactory.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\SecurityCameraDetectPlayer.cs" />
-    <Compile Include="Assets\Scripts\Player\GameInput.cs" />
-    <Compile Include="Assets\AI\ThinkEngineer\ThinkEngine\Scripts\ThinkEngineTrigger.cs" />
-    <Compile Include="Assets\Scripts\Player\InteractableHandler.cs" />
-    <Compile Include="Assets\Scripts\Player\CameraHolderMovement.cs" />
-    <Compile Include="Assets\Scripts\SecurityCamera.cs" />
-    <Compile Include="Assets\Scripts\Inventory.cs" />
-    <Compile Include="Assets\Scripts\TurretDetectPlayer.cs" />
-    <Compile Include="Assets\Scripts\BulletLife.cs" />
+    <Compile Include="Assets\Scripts\Lever.cs" />
+    <Compile Include="Assets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />
+    <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />
+    <Compile Include="Assets\Scripts\Interactor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Memory.dll" />
-    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll" />
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\Scripts\SensorTemplate.txt" />
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll" />
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Numerics.Vectors.dll" />
-    <None Include="Assets\Textures\UrbanNightSky\Readme.txt" />
-    <None Include="Assets\QuickOutline\Readme.txt" />
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Buffers.dll" />
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll" />
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngine.dll" />
-    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
-    <None Include="Assets\AI\Scripts\SensorTemplate.txt" />
-    <None Include="Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll" />
+    <None Include="Assets\Sounds\BackgroudMusic\Sc-Fi Music\Note.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -576,28 +551,12 @@
       <HintPath>Library\PackageCache\com.unity.ext.nunit@031a54704bff\net40\unity-custom\nunit.framework.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ThinkEngine">
-      <HintPath>Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@7dcdc439b230\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Antlr4.Runtime.Standard">
-      <HintPath>Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Collections.Immutable">
-      <HintPath>Assets\AI\ThinkEnginePlugin\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1096,16 +1055,16 @@
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.AI.Navigation">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
@@ -1168,14 +1127,6 @@
       <HintPath>Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1186,10 +1137,6 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
@@ -1250,10 +1197,6 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
