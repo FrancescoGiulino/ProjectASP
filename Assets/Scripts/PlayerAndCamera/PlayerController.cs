@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     // =============== INPUT HANDLING ===============
     private void HandleInput()
-    {  
+    {
         input = gameInput.GetInputVector();
 
         inputMagnitude = input.magnitude; // tra 0 e 1
@@ -102,19 +102,19 @@ public class PlayerController : MonoBehaviour
             {
                 if (interactable != lastInteractable)
                 {
-                    //lastInteractable?.DisableOutline();
+                    lastInteractable?.DeactivateOutline();
                     lastInteractable = interactable;
-                    //lastInteractable.YellowOutline();
+                    lastInteractable.ActivateOutline();
                 }
             }
         }
         else
         {
-            //lastInteractable?.DisableOutline();
+            lastInteractable?.DeactivateOutline();
             lastInteractable = null;
         }
 
-        Debug.DrawRay(rayOrigin, lastInteractDir * interactDistance, Color.red); 
+        Debug.DrawRay(rayOrigin, lastInteractDir * interactDistance, Color.red);
     }
 
     // =============== EVENT HANDLING ===============
@@ -126,4 +126,5 @@ public class PlayerController : MonoBehaviour
 
     // =============== PUBLIC METHODS ===============
     public Rigidbody GetRigidbody() => rb;
+    public float GetInputMagnitude() => inputMagnitude;
 }
