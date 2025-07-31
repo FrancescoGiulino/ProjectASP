@@ -32,15 +32,15 @@ public class Button : Interactable
     protected void UpdateButtonState()
     {
         if (pressCount > 0)
-            State = true;
+            state = true;
         else
-            State = false;
+            state = false;
 
         HandleAnimation();
         HandleColorChange();
         HandleLight();
 
         Debug.Log($"Button --> pressCount: {pressCount}");
-        Debug.Log($"Button --> State: {State}");
+        Debug.Log($"Button --> State: {state}");
     }
 }

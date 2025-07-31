@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] public bool State { get; protected set; } = false;
+    [SerializeField] protected bool state = false;
 
     [Header("Animation Settings")]
     [SerializeField] protected bool animated = true;
@@ -35,14 +35,14 @@ public class Interactable : MonoBehaviour
         if (useLight && !lightComponent)
             lightComponent = GetComponent<Light>();
 
-
         HandleAnimation();
         HandleColorChange();
+        HandleLight();
     }
 
     public virtual void Interact()
     {
-        State = !State;
+        state = !state;
         HandleAnimation();
         HandleColorChange();
         HandleLight();
@@ -52,7 +52,7 @@ public class Interactable : MonoBehaviour
     {
         if (animated && animationController.GetAnimator() != null)
         {
-            if (State)
+            if (state)
                 animationController.PlayAnimation("Activate");
             else
                 animationController.PlayAnimation("Deactivate");
@@ -63,7 +63,7 @@ public class Interactable : MonoBehaviour
     {
         if (changeColor && objsChangeColor.Length > 0)
         {
-            Material matToApply = State ? activeMaterial : inactiveMaterial;
+            Material matToApply = state ? activeMaterial : inactiveMaterial;
             foreach (var obj in objsChangeColor)
             {
                 if (obj != null)
@@ -76,8 +76,8 @@ public class Interactable : MonoBehaviour
     {
         if (useLight && lightComponent != null)
         {
-            lightComponent.color = State ? activeLightColor : inactiveLightColor;
-            lightComponent.enabled = State;
+            lightComponent.color = state ? activeLightColor : inactiveLightColor;
+            lightComponent.enabled = state;
         }
     }
 
@@ -86,10 +86,12 @@ public class Interactable : MonoBehaviour
         if (outline && outlineComponent != null)
             outlineComponent.enabled = true;
     }
-    
+
     public void DeactivateOutline()
     {
         if (outline && outlineComponent != null)
             outlineComponent.enabled = false;
     }
+    
+    public bool GetState() => state;
 }
