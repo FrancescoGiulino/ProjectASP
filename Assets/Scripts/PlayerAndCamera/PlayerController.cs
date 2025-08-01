@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Input")]
     [SerializeField] private GameInput gameInput;
-    //[SerializeField] private HealthController healthController;
 
     [Header("Collider Settings")]
     [SerializeField] private CapsuleCollider capsuleCollider;

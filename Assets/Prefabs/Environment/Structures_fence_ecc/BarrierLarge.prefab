@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 850632182256236450}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BarrierLarge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5600445980924234815}
   - component: {fileID: 7664054248124987637}
   - component: {fileID: 1946897701446952944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrier_Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}

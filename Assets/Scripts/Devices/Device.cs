@@ -34,7 +34,6 @@ public class Device : MonoBehaviour
 
     protected virtual void HandleAnimation()
     {
-        Debug.Log($"Device --> Active: {active}");
         if (animated && animationController.GetAnimator() != null)
         {
             if (active)

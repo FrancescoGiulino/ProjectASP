@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4085534378089313461}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Structure4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

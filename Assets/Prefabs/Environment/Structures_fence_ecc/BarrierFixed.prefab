@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8717390044646704327}
   - component: {fileID: 6854077615949574157}
   - component: {fileID: 1845813068330913340}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrier_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7392106456012945848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BarrierFixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

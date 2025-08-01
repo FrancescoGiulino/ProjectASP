@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3678057901764884914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrashContainerOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7169530294941924937}
   - component: {fileID: 4943754578940840579}
   - component: {fileID: 3259927479205693668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrashContainer_Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}

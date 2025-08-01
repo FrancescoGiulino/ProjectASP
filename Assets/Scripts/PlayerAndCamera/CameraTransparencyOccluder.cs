@@ -1,70 +1,79 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ObstructionFader : MonoBehaviour
+public class CameraTransparencyOccluder : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private LayerMask obstructionMask;
-    [SerializeField] private float fadeSpeed = 2f;
-    [SerializeField] private float targetAlpha = 0.3f;
+    [SerializeField] private float checkInterval = 0.05f;
+    [SerializeField] private Material transparentMaterial;
 
-    private Dictionary<Renderer, float> fadingObjects = new();
-    private List<Renderer> currentlyHit = new();
+    private class OriginalRenderData
+    {
+        public Renderer renderer;
+        public Material[] originalMaterials;
+    }
+
+    private readonly List<OriginalRenderData> currentObstructions = new();
+    private readonly Dictionary<Renderer, Material[]> originalMaterialsMap = new();
+
+    private float timer;
 
     void Update()
     {
-        Vector3 camToPlayer = player.position - transform.position;
-        Ray ray = new(transform.position, camToPlayer);
-        float distance = camToPlayer.magnitude;
+        timer += Time.deltaTime;
+        if (timer < checkInterval) return;
+        timer = 0f;
 
-        currentlyHit.Clear();
-        RaycastHit[] hits = Physics.RaycastAll(ray, distance, obstructionMask);
+        RestorePreviousObstructions();
 
-        foreach (RaycastHit hit in hits)
+        Vector3 direction = player.position - transform.position;
+        float distance = direction.magnitude;
+
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, direction, distance, obstructionMask);
+
+        HashSet<GameObject> processed = new();
+
+        foreach (var hit in hits)
         {
-            Renderer rend = hit.collider.GetComponent<Renderer>();
-            if (rend != null)
-            {
-                currentlyHit.Add(rend);
-                if (!fadingObjects.ContainsKey(rend))
-                    fadingObjects[rend] = 1f; // alpha originale
+            GameObject go = hit.collider.gameObject;
+            if (processed.Contains(go)) continue;
+            processed.Add(go);
 
-                FadeTo(rend, targetAlpha);
+            // Cambia materiale a tutti i renderer figli, 
+            // ma **escludi quelli con nome "ShadowCaster"**
+            foreach (Renderer rend in go.GetComponentsInChildren<Renderer>())
+            {
+                if (rend.gameObject.name == "ShadowCaster")
+                    continue; // salta il renderer "ShadowCaster"
+
+                if (!originalMaterialsMap.ContainsKey(rend))
+                {
+                    originalMaterialsMap[rend] = rend.sharedMaterials;
+                    Material[] transparentMats = new Material[rend.sharedMaterials.Length];
+                    for (int i = 0; i < transparentMats.Length; i++)
+                        transparentMats[i] = transparentMaterial;
+
+                    rend.materials = transparentMats;
+                    currentObstructions.Add(new OriginalRenderData
+                    {
+                        renderer = rend,
+                        originalMaterials = originalMaterialsMap[rend]
+                    });
+                }
             }
         }
-
-        // Ripristina oggetti che non sono più occludenti
-        List<Renderer> toRestore = new();
-        foreach (var rend in fadingObjects.Keys)
-        {
-            if (!currentlyHit.Contains(rend))
-            {
-                FadeTo(rend, 1f);
-                if (Mathf.Approximately(rend.material.color.a, 1f))
-                    toRestore.Add(rend); // ripristinato
-            }
-        }
-
-        foreach (var r in toRestore)
-            fadingObjects.Remove(r);
     }
 
-    void FadeTo(Renderer rend, float alphaTarget)
+    private void RestorePreviousObstructions()
     {
-        Material mat = rend.material;
-        Color c = mat.color;
-        float newAlpha = Mathf.MoveTowards(c.a, alphaTarget, fadeSpeed * Time.deltaTime);
-        c.a = newAlpha;
-        mat.color = c;
+        foreach (var data in currentObstructions)
+        {
+            if (data.renderer != null)
+                data.renderer.materials = data.originalMaterials;
+        }
 
-        // Assicura che il materiale supporti trasparenza
-        mat.SetFloat("_Surface", 1); // Transparent
-        mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        mat.SetInt("_ZWrite", 0);
-        mat.DisableKeyword("_ALPHATEST_ON");
-        mat.EnableKeyword("_ALPHABLEND_ON");
-        mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+        currentObstructions.Clear();
+        originalMaterialsMap.Clear();
     }
 }
