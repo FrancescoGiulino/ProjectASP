@@ -1292,6 +1292,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6188142656829866974, guid: 340ef7b67a7e7e243a5c3f63ef859a71, type: 3}
   m_PrefabInstance: {fileID: 1092323595}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &767365437 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 691824028125065235, guid: 465a974b019afc643aad55193be85232, type: 3}
+  m_PrefabInstance: {fileID: 8602490796212467065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &768682084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1470,7 +1475,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2562698386294867436, guid: 465a974b019afc643aad55193be85232, type: 3}
   m_PrefabInstance: {fileID: 8602490796212467065}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &896396866
+--- !u!114 &896396867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1479,15 +1484,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 896396864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 540f66f17b1137a49ace6754a855e25b, type: 3}
+  m_Script: {fileID: 11500000, guid: f3c16977052b41e45999bef092b7eebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 1
-  dipendencies:
-  - {fileID: 1899992055}
-  animated: 0
-  animationController: {fileID: 0}
-  rotationPatrol: {fileID: 1393152239}
+  lightComponent: {fileID: 767365437}
+  lightOnAtStart: 1
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &930009955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,17 +2181,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c2d680e799fe32b4e8a8c5a410237782, type: 3}
   m_PrefabInstance: {fileID: 1374959102}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1393152239 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4571212467025674281, guid: 465a974b019afc643aad55193be85232, type: 3}
-  m_PrefabInstance: {fileID: 8602490796212467065}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69961949129940f49a94e9f91c9802cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1438194480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3139,7 +3130,7 @@ PrefabInstance:
       objectReference: {fileID: 1898622885}
     - target: {fileID: 802174357772616606, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_VersionIndex
-      value: 19
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1515498418836419747, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3458,10 +3449,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1327519516}
     m_Modifications:
-    - target: {fileID: 691824028125065235, guid: 465a974b019afc643aad55193be85232, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1761380518205246381, guid: 465a974b019afc643aad55193be85232, type: 3}
       propertyPath: m_Name
       value: SecurityCamera
@@ -3506,17 +3493,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4571212467025674281, guid: 465a974b019afc643aad55193be85232, type: 3}
-      propertyPath: rotationSpeed
-      value: 10
+    - target: {fileID: 8576707862732288496, guid: 465a974b019afc643aad55193be85232, type: 3}
+      propertyPath: active
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8576707862732288496, guid: 465a974b019afc643aad55193be85232, type: 3}
+      propertyPath: lightController
+      value: 
+      objectReference: {fileID: 896396867}
+    - target: {fileID: 8576707862732288496, guid: 465a974b019afc643aad55193be85232, type: 3}
+      propertyPath: hasLightController
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8576707862732288496, guid: 465a974b019afc643aad55193be85232, type: 3}
+      propertyPath: 'dipendencies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1899992055}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1761380518205246381, guid: 465a974b019afc643aad55193be85232, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 896396866}
+      addedObject: {fileID: 896396867}
   m_SourcePrefab: {fileID: 100100000, guid: 465a974b019afc643aad55193be85232, type: 3}
 --- !u!1001 &8994719771843368908
 PrefabInstance:

@@ -9,6 +9,10 @@ public class Device : MonoBehaviour
     [SerializeField] protected bool animated = true;
     [SerializeField] protected AnimationController animationController;
 
+    [Header("Light Controller Settings")]
+    [SerializeField] protected bool hasLightController = false;
+    [SerializeField] protected LightController lightController;
+
     protected void Start()
     {
         if (animated && !animationController)
@@ -21,8 +25,9 @@ public class Device : MonoBehaviour
     protected virtual void Update()
     {
         CalculateState();
-        HandleAnimation();
         HandleLogic();
+        HandleAnimation();
+        HandleLightController();
     }
 
     protected virtual void CalculateState()
@@ -49,6 +54,17 @@ public class Device : MonoBehaviour
                 animationController.PlayAnimation("Deactivate");
         }
     }
+    
+    protected virtual void HandleLightController()
+    {
+        if (hasLightController && lightController != null)
+        {
+            if (active)
+                lightController.TurnOn();
+            else
+                lightController.TurnOff();
+        }
+    }
 
-    protected virtual void HandleLogic(){ }
+    protected virtual void HandleLogic() { }
 }

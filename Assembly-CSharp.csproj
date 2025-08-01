@@ -72,6 +72,7 @@
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Scripts\Devices\SecurityCamera\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
+    <Compile Include="Assets\Scripts\ModularControllers\LightController.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
