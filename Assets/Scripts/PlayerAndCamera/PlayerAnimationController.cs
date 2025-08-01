@@ -7,7 +7,7 @@ public class PlayerAnimationController : AnimationController
 
     [SerializeField] private Transform[] stealthBendTargets;
     [SerializeField] private float stealthBendAngle = 25f;
-    [SerializeField] private float bendSpeed = 120f;
+    [SerializeField] private float bendSpeed = 140f;
 
     private Quaternion[] initialLocalRotations;
     private Quaternion[] stealthRotations;

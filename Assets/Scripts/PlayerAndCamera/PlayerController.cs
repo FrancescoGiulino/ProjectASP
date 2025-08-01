@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Collider Settings")]
     [SerializeField] private CapsuleCollider capsuleCollider;
+    [SerializeField] private float normalCapsuleHeight = 1.4f;
+    [SerializeField] private Vector3 normalCapsuleCenter = new Vector3(0f, 0.7f, 0f);
+    [SerializeField] private float stealthCapsuleHeight = 1.2f;
+    [SerializeField] private Vector3 stealthCapsuleCenter = new Vector3(0f, 0.6f, 0f);
 
     private Vector2 input;
     private float inputMagnitude; // valore tra 0 e 1, indica l'inclinamento della levetta analogica
@@ -130,6 +134,18 @@ public class PlayerController : MonoBehaviour
     {
         stealth = !stealth;
         Debug.Log("Stealth action triggered --> stealth: " + stealth);
+
+        // Modifica dimensioni e centro del CapsuleCollider
+        if (stealth)
+        {
+            capsuleCollider.height = stealthCapsuleHeight;
+            capsuleCollider.center = stealthCapsuleCenter;
+        }
+        else
+        {
+            capsuleCollider.height = normalCapsuleHeight;
+            capsuleCollider.center = normalCapsuleCenter;
+        }
     }
 
     // =============== PUBLIC METHODS ===============
