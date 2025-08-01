@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] public float MaxSpeed { get; } = 30f;
+    [SerializeField] private float maxSpeed = 30f;
+    [SerializeField] private float maxStealthSpeed = 20f;
     [SerializeField] private float rotationSpeed = 15f;
 
     [Header("Interaction Settings")]
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private float inputMagnitude; // valore tra 0 e 1, indica l'inclinamento della levetta analogica
     private Vector3 moveDir;
     private Rigidbody rb;
+    private bool stealth = false;
 
     private Interactable lastInteractable; // L'ultimo oggetto interagibile
     private Vector3 lastInteractDir; // Direzione dell'ultima interazione
@@ -38,11 +40,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         gameInput.OnInteractAction += InteractEvent;
+        gameInput.OnStealthAction += StealthEvent;
     }
 
     private void OnDisable()
     {
         gameInput.OnInteractAction -= InteractEvent;
+        gameInput.OnStealthAction += StealthEvent;
     }
 
     private void FixedUpdate()
@@ -70,16 +74,16 @@ public class PlayerController : MonoBehaviour
     {
         if (moveDir != Vector3.zero)
         {
-            float currentSpeed = MaxSpeed;
+            float currentSpeed = IsStealth() ? maxStealthSpeed : maxSpeed;
 
             //Debug.Log("Input Magnitude: " + inputMagnitude);
             Vector3 force = moveDir * currentSpeed * inputMagnitude;
             rb.AddForce(force, ForceMode.Force);
 
             // Limita la velocità massima
-            if (rb.linearVelocity.magnitude > MaxSpeed)
+            if (rb.linearVelocity.magnitude > maxSpeed)
             {
-                rb.linearVelocity = rb.linearVelocity.normalized * MaxSpeed;
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
             }
 
             // Rotazione del giocatore
@@ -119,11 +123,17 @@ public class PlayerController : MonoBehaviour
     // =============== EVENT HANDLING ===============
     private void InteractEvent(object sender, System.EventArgs e)
     {
-        //Debug.Log("Interact action triggered");
         lastInteractable?.Interact();
+    }
+
+    private void StealthEvent(object sender, System.EventArgs e)
+    {
+        stealth = !stealth;
+        Debug.Log("Stealth action triggered --> stealth: " + stealth);
     }
 
     // =============== PUBLIC METHODS ===============
     public Rigidbody GetRigidbody() => rb;
     public float GetInputMagnitude() => inputMagnitude;
+    public bool IsStealth() => stealth;
 }

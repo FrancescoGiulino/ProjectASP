@@ -16,11 +16,7 @@ public class GameInput : MonoBehaviour{
         playerInputActions.Player.Stealth.performed += Event_StealthPerformed;
     }
 
-    private void Event_InteractPerformed(InputAction.CallbackContext obj)
-    {
-        OnInteractAction?.Invoke(this, EventArgs.Empty);
-    }
-
+    private void Event_InteractPerformed(InputAction.CallbackContext obj) => OnInteractAction?.Invoke(this, EventArgs.Empty);
     private void Event_StealthPerformed(InputAction.CallbackContext obj) => OnStealthAction?.Invoke(this, EventArgs.Empty);
 
     public Vector2 GetInputVector()
