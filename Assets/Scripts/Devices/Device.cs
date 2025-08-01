@@ -9,27 +9,34 @@ public class Device : MonoBehaviour
     [SerializeField] protected bool animated = true;
     [SerializeField] protected AnimationController animationController;
 
-    private void Start()
+    protected void Start()
     {
         if (animated && !animationController)
             animationController = GetComponent<AnimationController>();
 
         HandleAnimation();
+        HandleLogic();
     }
 
-    public virtual void Update()
+    protected virtual void Update()
+    {
+        CalculateState();
+        HandleAnimation();
+        HandleLogic();
+    }
+
+    protected virtual void CalculateState()
     {
         for (int i = 0; i < dipendencies.Length; i++)
         {
             if (dipendencies[i] != null && !dipendencies[i].GetState())
             {
                 active = false;
-                HandleAnimation();
                 return;
             }
         }
         active = true;
-        HandleAnimation();
+        return;
     }
 
     protected virtual void HandleAnimation()
@@ -42,4 +49,6 @@ public class Device : MonoBehaviour
                 animationController.PlayAnimation("Deactivate");
         }
     }
+
+    protected virtual void HandleLogic(){ }
 }

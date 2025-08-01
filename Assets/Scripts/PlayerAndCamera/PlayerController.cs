@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
             lastInteractable = null;
         }
 
-        Debug.DrawRay(rayOrigin, lastInteractDir * interactDistance, Color.red);
+        //Debug.DrawRay(rayOrigin, lastInteractDir * interactDistance, Color.red);
     }
 
     // =============== EVENT HANDLING ===============
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
     private void StealthEvent(object sender, System.EventArgs e)
     {
         stealth = !stealth;
-        Debug.Log("Stealth action triggered --> stealth: " + stealth);
+        //Debug.Log("Stealth action triggered --> stealth: " + stealth);
 
         // Modifica dimensioni e centro del CapsuleCollider
         if (stealth)
