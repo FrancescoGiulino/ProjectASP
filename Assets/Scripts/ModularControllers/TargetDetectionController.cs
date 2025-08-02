@@ -11,13 +11,22 @@ public class TargetDetectionController : MonoBehaviour
     [SerializeField] private Vector3 sphereOffset = Vector3.zero;
     [SerializeField] private float sphereRadius = 1f;
 
+    [Header("Raycast Target Offsets")]
+    [SerializeField] private float lowOffset = 0.2f;
+    [SerializeField] private float midOffset = 0.7f;
+    [SerializeField] private float highOffset = 1.2f;
+
     private Collider[] targetsInRange;
     private Vector3 spherePosition;
+
+    private void Awake()
+    {
+        CalculateSpherePosition();
+    }
 
     private void Update()
     {
         CalculateSpherePosition();
-        //CheckForTargets();
     }
 
     public bool CheckForTargets()
@@ -28,7 +37,6 @@ public class TargetDetectionController : MonoBehaviour
         {
             if (IsTargetVisible(target))
             {
-                Debug.Log($"Target visibile: {target.name}");
                 return true;
             }
         }
@@ -38,23 +46,45 @@ public class TargetDetectionController : MonoBehaviour
 
     private bool IsTargetVisible(Collider target)
     {
-        Vector3 rayOrigin = transform.position;
-        Vector3 directionToTarget = (target.transform.position - rayOrigin);
-        float distanceToTarget = directionToTarget.magnitude;
-        Vector3 direction = directionToTarget.normalized;
-
-        // Raycast contro ostacoli e target
+        Vector3 origin = transform.position;
         int combinedMask = obstacleLayer | targetLayer;
 
-        if (Physics.Raycast(rayOrigin, direction, out RaycastHit hit, distanceToTarget, combinedMask))
-        {
-            if (debugMode)
-                Debug.DrawLine(rayOrigin, hit.point, Color.red);
+        float[] offsets = { lowOffset, midOffset, highOffset };
 
-            // Se ha colpito direttamente il target, è visibile
-            return hit.collider.gameObject == target.gameObject;
+        foreach (float offset in offsets)
+        {
+            Vector3 targetPoint = target.transform.position + Vector3.up * offset;
+            Vector3 direction = (targetPoint - origin).normalized;
+            float distance = Vector3.Distance(origin, targetPoint);
+
+            if (Physics.Raycast(origin, direction, out RaycastHit hit, distance, combinedMask))
+            {
+                if (debugMode)
+                {
+                    Color color = hit.collider.gameObject == target.gameObject ? Color.green : Color.red;
+                    Debug.DrawLine(origin, hit.point, color);
+                }
+
+                if (hit.collider.gameObject == target.gameObject)
+                    return true;
+            }
+            else
+            {
+                // Se non colpisce nulla, presumiamo che ci sia un ostacolo mancato = target non visibile
+                if (debugMode)
+                    Debug.DrawLine(origin, origin + direction * distance, Color.gray);
+            }
         }
-        return true;
+
+        return false;
+    }
+
+    public Vector3 GetDetectedTargetPosition()
+    {
+        if (targetsInRange != null && targetsInRange.Length > 0)
+            return targetsInRange[0].transform.position;
+
+        return Vector3.zero;
     }
 
     private void CalculateSpherePosition()
@@ -65,8 +95,8 @@ public class TargetDetectionController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!debugMode) return;
         CalculateSpherePosition();
+        if (!debugMode) return;
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(spherePosition, sphereRadius);
     }

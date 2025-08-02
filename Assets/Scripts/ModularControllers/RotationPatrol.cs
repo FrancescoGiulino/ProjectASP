@@ -2,31 +2,42 @@ using UnityEngine;
 
 public class RotationPatrol : MonoBehaviour
 {
-    [Header("Rotation Settings")]
-    [SerializeField] private Vector3 rotationAxis = Vector3.up;
-    [SerializeField] private float maxAngle = 45f;      // angolo massimo da ciascun lato (es. 45° -> ruota tra -45 e +45)
-    [SerializeField] private float rotationSpeed = 10f;  // gradi al secondo
-    public bool Active { get; set; } = true;
+    [SerializeField] private float rotationSpeed = 30f;
+    [SerializeField] private float rotationAngle = 45f;
 
-    private float currentAngle = 0f;
-    private int direction = 1;
+    private float startY;
+    private bool rotatingRight = true;
+    private bool active = true;
+    private float angle;
 
-    private void Update()
+    void Start() { startY = transform.eulerAngles.y; }
+
+    void Update() { PatrolRotation(); }
+
+    private void PatrolRotation()
     {
-        if (!Active) return;
+        if (!active) return;
+        angle = Mathf.DeltaAngle(startY, transform.eulerAngles.y);
 
-        float deltaAngle = rotationSpeed * Time.deltaTime * direction;
-        currentAngle += deltaAngle;
-
-        // Inverti direzione se superiamo l'angolo massimo
-        if (Mathf.Abs(currentAngle) > maxAngle)
+        if (rotatingRight)
         {
-            currentAngle = Mathf.Clamp(currentAngle, -maxAngle, maxAngle);
-            direction *= -1;
-            deltaAngle = 0f; // evita un piccolo scatto oltre il limite
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+            if (angle >= rotationAngle) rotatingRight = false;
         }
-
-        // Applica la rotazione
-        transform.Rotate(rotationAxis, deltaAngle, Space.Self);
+        else
+        {
+            transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
+            if (angle <= -rotationAngle) rotatingRight = true;
+        }
     }
+
+    public void AimAt(Vector3 targetPos)
+    {
+        Vector3 dir = (targetPos - transform.position).normalized;
+        Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, GetRotationSpeed() * Time.deltaTime);
+    }
+
+    public float GetRotationSpeed() => rotationSpeed;
+    public void SetActive(bool _active) => active = _active;
 }

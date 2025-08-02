@@ -67,17 +67,21 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Devices\Device.cs" />
     <Compile Include="Assets\InputActions\PlayerInputActions.cs" />
+    <Compile Include="Assets\Scripts\Devices\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\AnimationController.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\GameInput.cs" />
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\Scripts\Devices\SecurityCamera\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Devices\Turret.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\LightController.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\TargetDetectionController.cs" />
+    <Compile Include="Assets\Scripts\ModularControllers\Shooter.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />
+    <Compile Include="Assets\Scripts\ModularControllers\Bullet.cs" />
+    <Compile Include="Assets\Scripts\ModularControllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\Interactable\Button.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\RotationPatrol.cs" />
   </ItemGroup>

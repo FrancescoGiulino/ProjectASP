@@ -132,15 +132,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540f66f17b1137a49ace6754a855e25b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   dipendencies:
   - {fileID: 0}
   animated: 0
   animationController: {fileID: 0}
   hasLightController: 1
   lightController: {fileID: 7785048264124510446}
-  rotationPatrol: {fileID: 4571212467025674281}
+  hasTargetDetectionController: 1
   targetDetectionController: {fileID: 6286456826021335762}
+  hasRotationPatrol: 1
+  rotationPatrol: {fileID: 4571212467025674281}
 --- !u!114 &7785048264124510446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,9 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69961949129940f49a94e9f91c9802cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationAxis: {x: 0, y: 1, z: 0}
-  maxAngle: 45
   rotationSpeed: 10
+  rotationAngle: 45
 --- !u!114 &6286456826021335762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,9 +488,12 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 3840
-  debugMode: 0
+  debugMode: 1
   sphereOffset: {x: 0, y: -3, z: 5.5}
   sphereRadius: 3
+  lowOffset: 0
+  midOffset: 0.3
+  highOffset: 0.7
 --- !u!1 &5766801288228754745
 GameObject:
   m_ObjectHideFlags: 0

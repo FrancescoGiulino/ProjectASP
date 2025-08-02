@@ -13,10 +13,22 @@ public class Device : MonoBehaviour
     [SerializeField] protected bool hasLightController = false;
     [SerializeField] protected LightController lightController;
 
+    [Header("Target Detection Settings")]
+    [SerializeField] protected bool hasTargetDetectionController = false;
+    [SerializeField] protected TargetDetectionController targetDetectionController;
+
+    [Header("Rotation Patrol Settings")]
+    [SerializeField] protected bool hasRotationPatrol = false;
+    [SerializeField] protected RotationPatrol rotationPatrol;
+
     protected void Start()
     {
         if (animated && !animationController)
             animationController = GetComponent<AnimationController>();
+        
+        // check if targetDetectionController is assigned
+        if (hasTargetDetectionController && !targetDetectionController)
+            targetDetectionController = GetComponent<TargetDetectionController>();
 
         HandleAnimation();
         HandleLogic();
@@ -64,6 +76,19 @@ public class Device : MonoBehaviour
             else
                 lightController.TurnOff();
         }
+    }
+
+    // NB: This method MUST be called in HandleLogic() of derived classes
+    protected virtual void HandleTargetDetection()
+    {
+        if (!hasTargetDetectionController || targetDetectionController == null) return;
+        if (!active) return;
+
+        if (hasLightController)
+            if (targetDetectionController.CheckForTargets())
+                lightController.SetColor(Color.red);
+            else
+                lightController.SetColor(Color.white);
     }
 
     protected virtual void HandleLogic() { }
