@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c3a53794554454c4e8461d8156e6420d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5000005
+      value: -7.9341397
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3a53794554454c4e8461d8156e6420d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3a53794554454c4e8461d8156e6420d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -1.4164518
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3a53794554454c4e8461d8156e6420d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -51,6 +51,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c3a53794554454c4e8461d8156e6420d, type: 3}
       propertyPath: m_Name
       value: BoxSmall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3a53794554454c4e8461d8156e6420d, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c3a53794554454c4e8461d8156e6420d, type: 3}
       propertyPath: m_TagString

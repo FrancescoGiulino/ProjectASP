@@ -39,8 +39,5 @@ public class Button : Interactable
         HandleAnimation();
         HandleColorChange();
         HandleLight();
-
-        Debug.Log($"Button --> pressCount: {pressCount}");
-        Debug.Log($"Button --> State: {state}");
     }
 }
