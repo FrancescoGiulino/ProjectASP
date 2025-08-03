@@ -34,12 +34,12 @@ public class TargetDetectionController : MonoBehaviour
         targetsInRange = Physics.OverlapSphere(spherePosition, sphereRadius, targetLayer);
 
         foreach (Collider target in targetsInRange)
-        {
             if (IsTargetVisible(target))
             {
-                return true;
+                if (target.TryGetComponent(out HealthController healthController) && !healthController.IsDead)
+                    return true;
+                else return false;
             }
-        }
 
         return false;
     }

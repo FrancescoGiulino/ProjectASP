@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [Header("Input")]
     [SerializeField] private GameInput gameInput;
 
+    [Header("Health Settings")]
+    [SerializeField] private HealthController healthController;
+
     [Header("Collider Settings")]
     [SerializeField] private CapsuleCollider capsuleCollider;
     [SerializeField] private float normalCapsuleHeight = 1.4f;
@@ -35,27 +38,30 @@ public class PlayerController : MonoBehaviour
     public bool CanMove { get; set; } = true;
     public bool IsMoving { get { return moveDir != Vector3.zero; } }
 
-    private void Start()
+    private void Awake()
     {
         if (!rb) rb = GetComponent<Rigidbody>();
         if (!capsuleCollider) capsuleCollider = GetComponent<CapsuleCollider>();
+        if (!healthController) GetComponent<HealthController>();
     }
 
     private void OnEnable()
     {
         gameInput.OnInteractAction += InteractEvent;
         gameInput.OnStealthAction += StealthEvent;
+        healthController.OnDeathAction += DeathEvent;
     }
 
     private void OnDisable()
     {
         gameInput.OnInteractAction -= InteractEvent;
-        gameInput.OnStealthAction += StealthEvent;
+        gameInput.OnStealthAction -= StealthEvent;
+        healthController.OnDeathAction -= DeathEvent;
     }
 
     private void FixedUpdate()
     {
-        if (!CanMove) return;
+        if (!CanMove || healthController.IsDead) return;
         HandleInput();
         HandleMovement();
         HandleInteraction();
@@ -120,8 +126,6 @@ public class PlayerController : MonoBehaviour
             lastInteractable?.DeactivateOutline();
             lastInteractable = null;
         }
-
-        //Debug.DrawRay(rayOrigin, lastInteractDir * interactDistance, Color.red);
     }
 
     // =============== EVENT HANDLING ===============
@@ -133,7 +137,6 @@ public class PlayerController : MonoBehaviour
     private void StealthEvent(object sender, System.EventArgs e)
     {
         stealth = !stealth;
-        //Debug.Log("Stealth action triggered --> stealth: " + stealth);
 
         // Modifica dimensioni e centro del CapsuleCollider
         if (stealth)
@@ -148,8 +151,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void DeathEvent()
+    {
+        Debug.Log("Player has died.");
+        CanMove = false;
+        rb.isKinematic = true; // Disable Rigidbody physics
+    }
+
     // =============== PUBLIC METHODS ===============
     public Rigidbody GetRigidbody() => rb;
+    public HealthController GetHealthController() => healthController;
     public float GetInputMagnitude() => inputMagnitude;
     public bool IsStealth() => stealth;
 }

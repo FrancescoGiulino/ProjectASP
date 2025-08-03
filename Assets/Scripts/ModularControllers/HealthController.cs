@@ -9,7 +9,7 @@ public class HealthController : MonoBehaviour
     public float MaxHealth => maxHealth;
     public bool IsDead => currentHealth <= 0f;
 
-    public event Action OnDeath;
+    public event Action OnDeathAction;
 
     void Awake() {
         currentHealth = maxHealth;
@@ -19,7 +19,7 @@ public class HealthController : MonoBehaviour
     {
         if (IsDead) return;
         currentHealth -= amount;
-        Debug.Log($"Damage taken: {amount}. Current health: {currentHealth}");
+        //Debug.Log($"Damage taken: {amount}. Current health: {currentHealth}");
         if (currentHealth <= 0f) Die();
     }
 
@@ -30,6 +30,6 @@ public class HealthController : MonoBehaviour
     }
 
     protected virtual void Die() {
-        OnDeath?.Invoke();
+        OnDeathAction?.Invoke();
     }
 }

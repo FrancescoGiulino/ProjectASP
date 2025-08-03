@@ -4769,6 +4769,10 @@ PrefabInstance:
       propertyPath: gameInput
       value: 
       objectReference: {fileID: 594623875}
+    - target: {fileID: 1487613210585491493, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: healthController
+      value: 
+      objectReference: {fileID: 1960500877}
     - target: {fileID: 2436660111118661555, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3

@@ -37,6 +37,9 @@ public class PlayerAnimationController : AnimationController
 
     private void LateUpdate()
     {
+        animator.SetBool("IsDead", playerController.GetHealthController().IsDead);
+        if (playerController.GetHealthController().IsDead) return; // If the player is dead, skip the rest of the update.
+
         animator.SetFloat("Speed", playerController.GetInputMagnitude());
         animator.SetBool("IsStealth", playerController.IsStealth());
 
