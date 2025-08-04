@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float stealthCapsuleHeight = 1.2f;
     [SerializeField] private Vector3 stealthCapsuleCenter = new Vector3(0f, 0.6f, 0f);
 
+    [Header("Sound Settings")]
+    [SerializeField] private SoundEventComponent soundEventComponent;
+
     private Vector2 input;
     private float inputMagnitude; // valore tra 0 e 1, indica l'inclinamento della levetta analogica
     private Vector3 moveDir;
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
         if (!rb) rb = GetComponent<Rigidbody>();
         if (!capsuleCollider) capsuleCollider = GetComponent<CapsuleCollider>();
         if (!healthController) GetComponent<HealthController>();
+        if (!soundEventComponent) soundEventComponent = GetComponent<SoundEventComponent>();
     }
 
     private void OnEnable()
@@ -156,6 +160,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player has died.");
         CanMove = false;
         rb.isKinematic = true; // Disable Rigidbody physics
+        soundEventComponent.PlaySound(SoundType.Death); // Play death sound
     }
 
     // =============== PUBLIC METHODS ===============

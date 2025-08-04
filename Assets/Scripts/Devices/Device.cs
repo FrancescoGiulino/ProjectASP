@@ -21,17 +21,27 @@ public class Device : MonoBehaviour
     [SerializeField] protected bool hasRotationPatrol = false;
     [SerializeField] protected RotationPatrol rotationPatrol;
 
+    [Header("Sound Emission Settings")]
+    [SerializeField] protected bool hasSoundEmission = false;
+    [SerializeField] protected SoundEventComponent soundEventComponent;
+    bool previousActiveState = false;
+
     protected void Start()
     {
         if (animated && !animationController)
             animationController = GetComponent<AnimationController>();
-        
+
         // check if targetDetectionController is assigned
         if (hasTargetDetectionController && !targetDetectionController)
             targetDetectionController = GetComponent<TargetDetectionController>();
 
+        // check if sound emission is assigned
+        if (hasSoundEmission && !soundEventComponent)
+            soundEventComponent = GetComponent<SoundEventComponent>();
+
         HandleAnimation();
         HandleLogic();
+        previousActiveState = active;
     }
 
     protected virtual void Update()
@@ -40,6 +50,7 @@ public class Device : MonoBehaviour
         HandleLogic();
         HandleAnimation();
         HandleLightController();
+        HandleSoundEmission();
     }
 
     protected virtual void CalculateState()
@@ -89,6 +100,21 @@ public class Device : MonoBehaviour
                 lightController.SetColor(Color.red);
             else
                 lightController.SetColor(Color.white);
+    }
+
+    protected virtual void HandleSoundEmission()
+    {
+        if (!hasSoundEmission || soundEventComponent == null) return;
+
+        if (active != previousActiveState)
+        {
+            if (active)
+                soundEventComponent.PlaySound(SoundType.Activate);
+            else
+                soundEventComponent.PlaySound(SoundType.Deactivate);
+
+            previousActiveState = active;
+        }
     }
 
     protected virtual void HandleLogic() { }

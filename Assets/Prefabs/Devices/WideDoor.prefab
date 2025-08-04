@@ -477,7 +477,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 13
+  m_VersionIndex: 34
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -513,7 +513,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9341397
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -521,7 +521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.7535481
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -559,6 +559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WideDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -578,6 +582,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3631350488410218299}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3375556368041452371}
   m_SourcePrefab: {fileID: 100100000, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
 --- !u!4 &1515498418836419747 stripped
 Transform:
@@ -607,6 +614,14 @@ MonoBehaviour:
   - {fileID: 0}
   animated: 1
   animationController: {fileID: 3315172732464502092}
+  hasLightController: 0
+  lightController: {fileID: 0}
+  hasTargetDetectionController: 0
+  targetDetectionController: {fileID: 0}
+  hasRotationPatrol: 0
+  rotationPatrol: {fileID: 0}
+  hasSoundEmission: 1
+  soundEventComponent: {fileID: 3375556368041452371}
 --- !u!114 &3315172732464502092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,3 +679,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3375556368041452371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180852059779722777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 4
+    clip: {fileID: 8300000, guid: 7a96dff03352e554195723631b6bd1e8, type: 3}
+  - soundType: 5
+    clip: {fileID: 8300000, guid: 7a96dff03352e554195723631b6bd1e8, type: 3}

@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -108,6 +108,9 @@ PrefabInstance:
       addedObject: {fileID: 1909913754953360616}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 8279769881299269957}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6898150622823783907}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
@@ -118,6 +121,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6596279086449543768}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7473522659942857117}
   m_SourcePrefab: {fileID: 100100000, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
 --- !u!1 &3070067201452485897 stripped
 GameObject:
@@ -144,11 +150,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameInput: {fileID: 0}
+  healthController: {fileID: 8279769881299269957}
   capsuleCollider: {fileID: 1846034268749237853}
   normalCapsuleHeight: 1.4
   normalCapsuleCenter: {x: 0, y: 0.7, z: 0}
   stealthCapsuleHeight: 1.1
   stealthCapsuleCenter: {x: 0, y: 0.55, z: 0}
+  soundEventComponent: {fileID: 0}
 --- !u!114 &1909913754953360616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +175,19 @@ MonoBehaviour:
   - {fileID: 3272754383244362150}
   stealthBendAngle: 25
   bendSpeed: 140
+--- !u!114 &8279769881299269957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070067201452485897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f017a58bca8084299bc7ad15dddf33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!54 &6898150622823783907
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -257,6 +278,21 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7473522659942857117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070067201452485897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 3
+    clip: {fileID: 8300000, guid: 0b986599edf6c7b4e9069a4b83e7f20d, type: 3}
 --- !u!4 &3272754383244362150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8416857379038555650, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
