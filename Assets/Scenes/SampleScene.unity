@@ -2936,6 +2936,7 @@ Transform:
   m_Children:
   - {fileID: 1999366258}
   - {fileID: 896396865}
+  - {fileID: 2981499288039784906}
   m_Father: {fileID: 162736307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1344757933
@@ -4340,7 +4341,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1327519516}
     m_Modifications:
     - target: {fileID: 5986808716167474727, guid: 263137ddbb74b5144ae8a52948211361, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4391,6 +4392,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 263137ddbb74b5144ae8a52948211361, type: 3}
+--- !u!4 &2981499288039784906 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5986808716167474727, guid: 263137ddbb74b5144ae8a52948211361, type: 3}
+  m_PrefabInstance: {fileID: 2981499288039784905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5334554086995712872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4995,18 +5001,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6286456826021335762, guid: 465a974b019afc643aad55193be85232, type: 3}
-      propertyPath: lowOffset
-      value: -0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6286456826021335762, guid: 465a974b019afc643aad55193be85232, type: 3}
-      propertyPath: midOffset
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6286456826021335762, guid: 465a974b019afc643aad55193be85232, type: 3}
-      propertyPath: highOffset
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 8576707862732288496, guid: 465a974b019afc643aad55193be85232, type: 3}
       propertyPath: 'dipendencies.Array.data[0]'
       value: 
@@ -5088,4 +5082,3 @@ SceneRoots:
   - {fileID: 594623876}
   - {fileID: 8994719771843368908}
   - {fileID: 162736307}
-  - {fileID: 2981499288039784905}

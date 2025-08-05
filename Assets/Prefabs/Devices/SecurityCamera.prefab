@@ -143,6 +143,8 @@ MonoBehaviour:
   targetDetectionController: {fileID: 6286456826021335762}
   hasRotationPatrol: 1
   rotationPatrol: {fileID: 4571212467025674281}
+  hasSoundEmission: 0
+  soundEventComponent: {fileID: 0}
 --- !u!114 &7785048264124510446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,11 +491,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3840
   debugMode: 1
-  sphereOffset: {x: 0, y: -3, z: 5.5}
-  sphereRadius: 3
-  lowOffset: 0
-  midOffset: 0.3
-  highOffset: 0.7
+  sphereOffset: {x: 0, y: -3, z: 5.75}
+  sphereRadius: 2.5
+  lowOffset: -0.3
+  midOffset: 0
+  highOffset: 0.3
 --- !u!1 &5766801288228754745
 GameObject:
   m_ObjectHideFlags: 0
