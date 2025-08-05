@@ -135,17 +135,19 @@ public class SoundManager : MonoBehaviour, IManager
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat(musicVolumeParam, Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20f);
+        float dB = volume <= 0f ? -80f : Mathf.Log10(volume) * 20f;
+        audioMixer.SetFloat(musicVolumeParam, dB);
         PlayerPrefs.SetFloat(MusicPrefKey, volume);
     }
 
     public void SetSoundVolume(float volume)
     {
-        audioMixer.SetFloat(soundVolumeParam, Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20f);
+        float dB = volume <= 0f ? -80f : Mathf.Log10(volume) * 20f;
+        audioMixer.SetFloat(soundVolumeParam, dB);
         PlayerPrefs.SetFloat(SoundPrefKey, volume);
     }
 
-    public float GetMusicVolume() => PlayerPrefs.GetFloat(MusicPrefKey, 1f);
 
+    public float GetMusicVolume() => PlayerPrefs.GetFloat(MusicPrefKey, 1f);
     public float GetSoundVolume() => PlayerPrefs.GetFloat(SoundPrefKey, 1f);
 }
