@@ -33,7 +33,7 @@ public class RbImpactSoundHandler : MonoBehaviour
             if (normalizedVolume < 0.1f) normalizedVolume = 0.1f; // volume minimo udibile
             soundEventComponent.Volume = normalizedVolume;
 
-            Debug.Log($"[ImpactSound] Forza: {impactForce:F2}, Volume: {normalizedVolume:F2}, Oggetto colpito: {collision.collider.name}");
+            //Debug.Log($"[ImpactSound] Forza: {impactForce:F2}, Volume: {normalizedVolume:F2}, Oggetto colpito: {collision.collider.name}");
 
             soundEventComponent.PlaySoundWithVolume(impactSoundType);
             lastSoundTime = Time.time;
@@ -49,7 +49,7 @@ public class RbImpactSoundHandler : MonoBehaviour
         {
             soundEventComponent.Volume = 1f;
 
-            Debug.Log($"[ImpactTrigger] Colpito da proiettile: {other.name}");
+            //Debug.Log($"[ImpactTrigger] Colpito da proiettile: {other.name}");
 
             soundEventComponent.PlaySoundWithVolume(impactSoundType);
             lastSoundTime = Time.time;

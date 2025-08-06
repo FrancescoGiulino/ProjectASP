@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MusicManager : MonoBehaviour
+public class MusicManager : MonoBehaviour, IManager
 {
     [Header("Fading")]
     [SerializeField] private float fadeDuration = 1.5f;
@@ -9,12 +11,16 @@ public class MusicManager : MonoBehaviour
     [Header("Audio Source")]
     [SerializeField] private AudioSource musicSource;
 
+    [Header("Music Clips")]
+    [SerializeField] private AudioClip menuMusic;
+    [SerializeField] private AudioClip gameplayNeutralMusic;
+
     private Coroutine fadeCoroutine;
     private AudioClip currentClip;
 
     private float currentVolume = 1f;
 
-    private void Awake()
+    public void Init() // prima era in awake
     {
         if (musicSource == null)
         {
@@ -27,6 +33,36 @@ public class MusicManager : MonoBehaviour
             musicSource.volume = currentVolume;
         }
         currentClip = null;
+
+        //HandleMusicForCurrentScene();
+
+        // Registrazione all'evento quando nuove scene vengono caricate
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy() => SceneManager.sceneLoaded -= OnSceneLoaded;
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"[OnSceneLoaded] --> MusicManager: scena caricata: {scene.name}");
+        HandleMusicForCurrentScene();
+    }
+
+    public void HandleMusicForCurrentScene()
+    {
+        string sceneName = SceneManager.GetActiveScene().name.ToLower();
+        Debug.Log($"[MusicManager] Gestisco musica per la scena: {sceneName}");
+
+        if (sceneName.Contains("menu"))
+        {
+            Debug.Log("Riproduco musica del menu.");
+            PlayMusic(menuMusic);
+        }
+        else
+        {
+            Debug.Log("Riproduco musica della scena di gioco.");
+            PlayMusic(gameplayNeutralMusic);
+        }
     }
 
     // Metodo per aggiornare il volume da un AudioManager esterno o altro
@@ -127,3 +163,5 @@ public class MusicManager : MonoBehaviour
     // Getter del volume attuale
     public float GetVolume() => musicSource != null ? musicSource.volume : 0f;
 }
+
+

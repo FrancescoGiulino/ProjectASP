@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
 
     private void InitializeManagers()
     {
+        if (audioManager != null) audioManager.Init();
+        else Debug.LogWarning("AudioManager non assegnato nel GameManager!");
+
+        if (musicManager != null) musicManager.Init();
+        else Debug.LogWarning("SoundManager non assegnato nel GameManager!");
+
         if (soundManager != null) soundManager.Init();
         else Debug.LogWarning("SoundManager non assegnato nel GameManager!");
     }

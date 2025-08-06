@@ -11,7 +11,7 @@ public class MenuHandler : MonoBehaviour
     public void Play()
     {
         //Debug.Log("Starting the game...");
-        AsyncLoader.LoadScene("SampleScene");
+        AsyncLoader.LoadScene(this, "SampleScene");
         mainMenuUI.SetActive(false);
         loadingScreen.SetActive(true);
     }
@@ -54,7 +54,7 @@ public class MenuHandler : MonoBehaviour
     public void LoadMainMenu()
     {
         //Debug.Log("Loading main menu...");
-        AsyncLoader.LoadScene("MainMenu");
+        AsyncLoader.LoadScene(this, "MainMenu");
     }
 
     private void LoadVolumeSettings()

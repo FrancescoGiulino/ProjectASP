@@ -29,14 +29,14 @@ public class SecurityCamera : Device
             canEmitAlarm = false;
             StartCoroutine(ResetAlarmCooldown());
 
-            Debug.Log("[SecurityCamera] Allarme riprodotto");
+            //Debug.Log("[SecurityCamera] Allarme riprodotto");
         }
 
         if (!detected && targetDetected)
         {
             soundEventComponent.StopAllSounds();
             canEmitAlarm = true;
-            Debug.Log("[SecurityCamera] Allarme interrotto");
+            //Debug.Log("[SecurityCamera] Allarme interrotto");
         }
 
         targetDetected = detected;

@@ -32,6 +32,6 @@ public class SettingsManager : MonoBehaviour
         GameManager.Instance.GetMusicManager().UpdateVolume(musicSlider.value);
         GameManager.Instance.GetSoundManager().UpdateVolume(soundSlider.value);
 
-        Debug.Log($"MusicVolume: {PlayerPrefs.GetFloat("MusicVolume", 1.0f)}\nSoundVolume: {PlayerPrefs.GetFloat("SoundVolume", 1.0f)}");
+        //Debug.Log($"MusicVolume: {PlayerPrefs.GetFloat("MusicVolume", 1.0f)}\nSoundVolume: {PlayerPrefs.GetFloat("SoundVolume", 1.0f)}");
     }
 }

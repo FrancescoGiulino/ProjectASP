@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IManager
 {
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
     public event Action<float> OnMusicVolumeChanged;
     public event Action<float> OnSoundVolumeChanged;
 
-    private void Awake()
+    public void Init()
     {
         LoadVolumes();
         ApplyVolumesToMixer();
