@@ -1823,6 +1823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b084ac5ddc17a884ea09bae5effe988f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  musicManager: {fileID: 0}
   soundManager: {fileID: 1018126318}
 --- !u!4 &744926749
 Transform:
@@ -2583,11 +2585,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1018126321}
+  - component: {fileID: 1018126323}
+  - component: {fileID: 1018126322}
   - component: {fileID: 1018126318}
   - component: {fileID: 1018126320}
   - component: {fileID: 1018126319}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2605,10 +2609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127979e259affbd46a6e82ca0135be8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 027de88349afaff46b2e3dd6d768ebc6, type: 2}
-  musicVolumeParam: MusicVolume
-  soundVolumeParam: SoundVolume
-  musicSource: {fileID: 1018126320}
+  audioManager: {fileID: 0}
   soundSource: {fileID: 1018126319}
   poolSize: 10
   soundMixerGroup: {fileID: -6140796077385884568, guid: 027de88349afaff46b2e3dd6d768ebc6, type: 2}
@@ -2821,6 +2822,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 744926749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1018126322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018126317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4813445e2c1ad2847a63819055778731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1.5
+  musicSource: {fileID: 1018126320}
+--- !u!114 &1018126323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018126317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f37fd977390224293a536ae84f19c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 027de88349afaff46b2e3dd6d768ebc6, type: 2}
+  musicVolumeParam: MusicVolume
+  soundVolumeParam: SoundVolume
 --- !u!4 &1030479426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4770866526658394063, guid: eb3724a554dff5c4ab136d1d4fe0737e, type: 3}
@@ -6583,7 +6613,7 @@ PrefabInstance:
     - target: {fileID: 7473522659942857117, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
       propertyPath: soundEntries.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 5e265270fb85126479eef52d8fce3b08, type: 3}
+      objectReference: {fileID: 8300000, guid: b37306392d48a69429ba8f3bb6ccf6bf, type: 3}
     - target: {fileID: 7473522659942857117, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
       propertyPath: soundEntries.Array.data[1].clip
       value: 

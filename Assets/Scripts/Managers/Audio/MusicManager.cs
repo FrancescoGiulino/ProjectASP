@@ -3,16 +3,47 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public static MusicManager Instance { get; private set; }
-
-    [Header("Configurazione fading")]
+    [Header("Fading")]
     [SerializeField] private float fadeDuration = 1.5f;
-    private AudioSource musicSource;
+
+    [Header("Audio Source")]
+    [SerializeField] private AudioSource musicSource;
+
     private Coroutine fadeCoroutine;
     private AudioClip currentClip;
 
-    // Riproduce una traccia musicale con fading.
-    // Se è già in riproduzione la stessa clip, non fa nulla.
+    private float currentVolume = 1f;
+
+    private void Awake()
+    {
+        if (musicSource == null)
+        {
+            Debug.LogWarning("MusicManager: AudioSource non assegnato, aggiungilo via inspector.");
+        }
+        else
+        {
+            musicSource.loop = true;
+            musicSource.playOnAwake = false;
+            musicSource.volume = currentVolume;
+        }
+        currentClip = null;
+    }
+
+    // Metodo per aggiornare il volume da un AudioManager esterno o altro
+    public void UpdateVolume(float volume)
+    {
+        currentVolume = Mathf.Clamp01(volume);
+        ApplyVolume();
+    }
+
+    // Applica il volume corrente all'AudioSource
+    private void ApplyVolume()
+    {
+        if (musicSource != null)
+            musicSource.volume = currentVolume;
+    }
+
+    // Riproduce musica con fading, se clip diversa da quella corrente
     public void PlayMusic(AudioClip clip)
     {
         if (clip == null)
@@ -21,7 +52,7 @@ public class MusicManager : MonoBehaviour
             return;
         }
         if (clip == currentClip)
-            return; // stessa musica, niente da fare
+            return;
 
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
@@ -29,7 +60,7 @@ public class MusicManager : MonoBehaviour
         fadeCoroutine = StartCoroutine(FadeToNewClip(clip));
     }
 
-    // Ferma la musica con fade out.
+    // Ferma la musica con fade out
     public void StopMusic()
     {
         if (fadeCoroutine != null)
@@ -38,19 +69,10 @@ public class MusicManager : MonoBehaviour
         fadeCoroutine = StartCoroutine(FadeOutAndStop());
     }
 
-    // Cambia il volume istantaneamente.
-    public void SetVolume(float volume)
-    {
-        musicSource.volume = Mathf.Clamp01(volume);
-    }
-
-    public float GetVolume() => musicSource.volume;
-
-    // Coroutine per fare fade out della musica corrente e fade in della nuova
+    // Coroutine per fade out clip corrente e fade in nuovo clip
     private IEnumerator FadeToNewClip(AudioClip newClip)
     {
-        // Faccio fade out del clip attuale
-        if (musicSource.isPlaying)
+        if (musicSource != null && musicSource.isPlaying)
         {
             float startVolume = musicSource.volume;
             float elapsed = 0f;
@@ -63,28 +85,29 @@ public class MusicManager : MonoBehaviour
             musicSource.Stop();
         }
 
-        // Cambio clip e riproduco
-        musicSource.clip = newClip;
-        currentClip = newClip;
-        musicSource.Play();
-
-        // Fade in
-        float targetVolume = 1f; // puoi modificare per leggere da config
-        float elapsedIn = 0f;
-        while (elapsedIn < fadeDuration)
+        if (musicSource != null)
         {
-            elapsedIn += Time.deltaTime;
-            musicSource.volume = Mathf.Lerp(0f, targetVolume, elapsedIn / fadeDuration);
-            yield return null;
-        }
+            musicSource.clip = newClip;
+            currentClip = newClip;
+            musicSource.Play();
 
-        musicSource.volume = targetVolume;
+            float targetVolume = currentVolume;
+            float elapsedIn = 0f;
+            while (elapsedIn < fadeDuration)
+            {
+                elapsedIn += Time.deltaTime;
+                musicSource.volume = Mathf.Lerp(0f, targetVolume, elapsedIn / fadeDuration);
+                yield return null;
+            }
+
+            musicSource.volume = targetVolume;
+        }
     }
 
-    // Coroutine per fade out e stop
+    // Coroutine per fade out e stop della musica
     private IEnumerator FadeOutAndStop()
     {
-        if (!musicSource.isPlaying)
+        if (musicSource == null || !musicSource.isPlaying)
             yield break;
 
         float startVolume = musicSource.volume;
@@ -100,4 +123,7 @@ public class MusicManager : MonoBehaviour
         musicSource.clip = null;
         currentClip = null;
     }
+
+    // Getter del volume attuale
+    public float GetVolume() => musicSource != null ? musicSource.volume : 0f;
 }

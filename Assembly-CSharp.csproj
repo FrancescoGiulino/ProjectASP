@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\ModularControllers\Shooter.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Managers\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\UI\AsyncLoader.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\SoundEventComponent.cs" />
