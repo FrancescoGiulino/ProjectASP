@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
     {
         float divider = 1f;
         if (stealth) divider = 2f;
-        
+
         if (soundEventComponent != null)
             soundEventComponent.Volume = inputMagnitude / divider;
         else

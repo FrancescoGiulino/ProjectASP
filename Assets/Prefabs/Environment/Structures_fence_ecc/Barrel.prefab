@@ -114,6 +114,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dcd99af0d16f780458087f66e8902a58, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2462841131830691581}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dcd99af0d16f780458087f66e8902a58, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3916367809506135950}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dcd99af0d16f780458087f66e8902a58, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1165496950875627179}
   m_SourcePrefab: {fileID: 100100000, guid: dcd99af0d16f780458087f66e8902a58, type: 3}
 --- !u!4 &5927237752771921070 stripped
 Transform:
@@ -155,7 +161,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6415966979704823316}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.75
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -174,3 +180,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3916367809506135950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415966979704823316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 2
+    clip: {fileID: 8300000, guid: 89a6fcc59bddba3468dace60a6198d95, type: 3}
+  addPitch: 0.3
+--- !u!114 &1165496950875627179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415966979704823316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2cd7094959ea24180ffe65ea409a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minImpactForce: 0.1
+  maxImpactForce: 5
+  impactSoundType: 2

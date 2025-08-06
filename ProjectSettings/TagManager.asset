@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Rigidbody
+  - Bullet
   layers:
   - Default
   - TransparentFX

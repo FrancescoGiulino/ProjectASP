@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Managers\Audio\SoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\Interactable\Button.cs" />
     <Compile Include="Assets\Scripts\UI\MenuHandler.cs" />
+    <Compile Include="Assets\Scripts\Managers\Audio\RbImpactSoundManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\RotationPatrol.cs" />
   </ItemGroup>
   <ItemGroup>

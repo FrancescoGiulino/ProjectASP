@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 8138637540858651733}
   - component: {fileID: 3591439989469468194}
   - component: {fileID: 6596681909563417696}
+  - component: {fileID: 1350791765043451540}
+  - component: {fileID: 4507571667256369463}
   m_Layer: 11
   m_Name: Fence
   m_TagString: Rigidbody
@@ -169,3 +171,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4596239184023814631, guid: 805d4e5c90207f9489eee23a0b27f984, type: 3}
+--- !u!114 &1350791765043451540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778494775218816384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 2
+    clip: {fileID: 8300000, guid: 89a6fcc59bddba3468dace60a6198d95, type: 3}
+  addPitch: 0.3
+--- !u!114 &4507571667256369463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778494775218816384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2cd7094959ea24180ffe65ea409a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minImpactForce: 0.1
+  maxImpactForce: 5
+  impactSoundType: 2
