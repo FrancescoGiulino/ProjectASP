@@ -24,7 +24,8 @@ public class Device : MonoBehaviour
     [Header("Sound Emission Settings")]
     [SerializeField] protected bool hasSoundEmission = false;
     [SerializeField] protected SoundEventComponent soundEventComponent;
-    bool previousActiveState = false;
+
+    protected bool previousActiveState = false;
 
     protected void Start()
     {

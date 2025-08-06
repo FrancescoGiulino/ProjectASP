@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\Audio\MusicManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\TargetDetectionController.cs" />
     <Compile Include="Assets\Scripts\Managers\IManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\Shooter.cs" />

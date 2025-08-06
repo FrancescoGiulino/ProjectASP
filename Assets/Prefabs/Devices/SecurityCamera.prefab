@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2562698386294867436}
   - component: {fileID: 8576707862732288496}
   - component: {fileID: 7785048264124510446}
+  - component: {fileID: 2818428545453873363}
   m_Layer: 0
   m_Name: SecurityCamera
   m_TagString: Untagged
@@ -143,8 +144,9 @@ MonoBehaviour:
   targetDetectionController: {fileID: 6286456826021335762}
   hasRotationPatrol: 1
   rotationPatrol: {fileID: 4571212467025674281}
-  hasSoundEmission: 0
-  soundEventComponent: {fileID: 0}
+  hasSoundEmission: 1
+  soundEventComponent: {fileID: 2818428545453873363}
+  alarmCooldown: 8
 --- !u!114 &7785048264124510446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +162,22 @@ MonoBehaviour:
   lightComponent: {fileID: 691824028125065235}
   lightOnAtStart: 1
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &2818428545453873363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761380518205246381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 4
+    clip: {fileID: 8300000, guid: 9d0df0063ccf3424bb03cedece8e7903, type: 3}
+  addPitch: 0
 --- !u!1 &1829168849530812693
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +503,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3840
   debugMode: 1
-  sphereOffset: {x: 0, y: -3, z: 5.75}
+  sphereOffset: {x: 0, y: -5, z: 4}
   sphereRadius: 2.5
   lowOffset: -0.3
   midOffset: 0

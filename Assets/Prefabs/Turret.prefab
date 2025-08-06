@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 902603557460746720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33, y: 0.12, z: 0.28}
+  m_LocalPosition: {x: -0.33, y: 0.12, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1236634097093720305}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 0.12, z: 0.28}
+  m_LocalPosition: {x: 0.33, y: 0.12, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 3579134262723778320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33, y: 0.27, z: 0.28}
+  m_LocalPosition: {x: -0.33, y: 0.27, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 7249160920584564708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 0.27, z: 0.28}
+  m_LocalPosition: {x: 0.33, y: 0.27, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,6 +329,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c2a221b2b739c15fa97da4a0c229794, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5811428267721135955}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c2a221b2b739c15fa97da4a0c229794, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1076085800899579087}
     - targetCorrespondingSourceObject: {fileID: -3293336427984311689, guid: 0c2a221b2b739c15fa97da4a0c229794, type: 3}
       insertIndex: -1
       addedObject: {fileID: 964395167665133514}
@@ -425,7 +428,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  dipendencies: []
+  dipendencies:
+  - {fileID: 0}
   animated: 0
   animationController: {fileID: 0}
   hasLightController: 1
@@ -434,6 +438,8 @@ MonoBehaviour:
   targetDetectionController: {fileID: 6390927500284415481}
   hasRotationPatrol: 1
   rotationPatrol: {fileID: 964395167665133514}
+  hasSoundEmission: 1
+  soundEventComponent: {fileID: 1076085800899579087}
   shooter: {fileID: 8288453063453917000}
   fireRate: 1
 --- !u!114 &1259557196723419140
@@ -472,3 +478,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.59999996, y: 0.7, z: 0.59999996}
   m_Center: {x: 0, y: 0.35, z: 0}
+--- !u!114 &1076085800899579087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367731854492021917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 4
+    clip: {fileID: 8300000, guid: 44ba1dd293964494f8b0fd2efb81f3e8, type: 3}
+  - soundType: 5
+    clip: {fileID: 8300000, guid: 44ba1dd293964494f8b0fd2efb81f3e8, type: 3}
+  - soundType: 1
+    clip: {fileID: 8300000, guid: 45e5a2d015897d34780787ab6e691387, type: 3}
+  addPitch: 0.2

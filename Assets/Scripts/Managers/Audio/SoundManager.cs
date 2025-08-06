@@ -65,31 +65,23 @@ public class SoundManager : MonoBehaviour, IManager
 
     // --- Play 3D sound da posizione ---
 
-    public void Play3DSound(AudioClip clip, Vector3 position, float volume = 1f, float pitch = 1f)
+    public AudioSource Play3DSound(AudioClip clip, Vector3 position, float volume = 1f, float pitch = 1f)
     {
-        if (clip == null)
-        {
-            Debug.LogWarning("Play3DSound: clip nullo");
-            return;
-        }
+        GameObject go = new GameObject("3DSound");
+        go.transform.position = position;
+        AudioSource source = go.AddComponent<AudioSource>();
 
-        AudioSource src = GetAvailable3DAudioSource();
-        if (src == null)
-        {
-            Debug.LogWarning("Play3DSound: nessun AudioSource disponibile nel pool");
-            return;
-        }
+        source.clip = clip;
+        source.spatialBlend = 1f;
+        source.volume = volume;
+        source.pitch = pitch;
+        source.Play();
 
-        src.transform.position = position;
-        src.volume = volume;
-        src.pitch = pitch;
-        src.clip = clip;
-        src.spatialBlend = 1f;
-        src.gameObject.SetActive(true);
-        src.Play();
+        Destroy(go, clip.length / pitch);
 
-        StartCoroutine(DeactivateAfterPlaying(src));
+        return source;
     }
+
 
 
     // --- Pool gestione AudioSource 3D ---

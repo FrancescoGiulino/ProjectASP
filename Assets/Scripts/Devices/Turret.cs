@@ -18,11 +18,13 @@ public class Turret : Device
             if (targetDetectionController.CheckForTargets())
             {
                 rotationPatrol.AimAt(targetDetectionController.GetDetectedTargetPosition());
-                
+
                 if (Time.time >= nextFireTime)
                 {
                     nextFireTime = Time.time + 1f / fireRate;
                     shooter.Shoot();
+                    
+                    soundEventComponent?.PlaySound(SoundType.Attack); // emit sound
                 }
             }
         }
