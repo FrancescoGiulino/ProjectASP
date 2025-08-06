@@ -36,8 +36,6 @@ public class Button : Interactable
         else
             state = false;
 
-        HandleAnimation();
-        HandleColorChange();
-        HandleLight();
+        Action();
     }
 }

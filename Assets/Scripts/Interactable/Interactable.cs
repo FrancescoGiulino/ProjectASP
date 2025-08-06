@@ -24,6 +24,10 @@ public class Interactable : MonoBehaviour
     [SerializeField] private Color activeLightColor = Color.green;
     [SerializeField] private Color inactiveLightColor = Color.red;
 
+    [Header("Sound Settings")]
+    [SerializeField] private bool useSound = true;
+    [SerializeField] private SoundEventComponent soundEvent;
+
     protected virtual void Start()
     {
         if (animated && !animationController)
@@ -35,17 +39,26 @@ public class Interactable : MonoBehaviour
         if (useLight && !lightComponent)
             lightComponent = GetComponent<Light>();
 
+        if (useSound && !soundEvent)
+            soundEvent = GetComponent<SoundEventComponent>();
+
         HandleAnimation();
         HandleColorChange();
         HandleLight();
+        HandleSound();
     }
 
     public virtual void Interact()
     {
         state = !state;
+        Action();
+    }
+
+    public virtual void Action(){
         HandleAnimation();
         HandleColorChange();
         HandleLight();
+        HandleSound();
     }
 
     protected virtual void HandleAnimation()
@@ -79,6 +92,19 @@ public class Interactable : MonoBehaviour
             lightComponent.color = state ? activeLightColor : inactiveLightColor;
             lightComponent.enabled = state;
         }
+    }
+
+    protected virtual void HandleSound()
+    {
+        if (soundEvent != null)
+        {
+            if (state)
+                soundEvent.PlaySound(SoundType.Activate);
+            else
+                soundEvent.PlaySound(SoundType.Deactivate);
+        }
+        else
+            Debug.LogWarning("SoundEventComponent not found on Interactable object.");
     }
 
     public void ActivateOutline()

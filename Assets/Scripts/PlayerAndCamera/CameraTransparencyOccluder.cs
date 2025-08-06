@@ -27,10 +27,11 @@ public class CameraTransparencyOccluder : MonoBehaviour
 
         RestorePreviousObstructions();
 
-        Vector3 direction = player.position - transform.position;
+        Vector3 direction = player.position + (Vector3.up * 1.1f) - transform.position;
         float distance = direction.magnitude;
 
         RaycastHit[] hits = Physics.RaycastAll(transform.position, direction, distance, obstructionMask);
+        Debug.DrawRay(transform.position, direction, Color.red, 1f);
 
         HashSet<GameObject> processed = new();
 

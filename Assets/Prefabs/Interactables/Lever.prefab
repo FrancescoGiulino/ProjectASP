@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 0.06586027
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.24645184
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -83,6 +83,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 45e19fccf6720674c9510e5777189527, type: 3}
       insertIndex: -1
       addedObject: {fileID: 737905199830254616}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 45e19fccf6720674c9510e5777189527, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7048343413659408618}
   m_SourcePrefab: {fileID: 100100000, guid: 45e19fccf6720674c9510e5777189527, type: 3}
 --- !u!23 &68567904953110108 stripped
 MeshRenderer:
@@ -128,15 +131,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6d4a1932fe125439e72cb34cb95d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   animated: 1
   animationController: {fileID: 1554055805120626825}
   changeColor: 1
   objsChangeColor:
   - {fileID: 68567904953110108}
-  activeMaterial: {fileID: 2100000, guid: 7fda1940a1ca54744b7d6833b16ac712, type: 2}
-  inactiveMaterial: {fileID: 2100000, guid: 6b70f19bfe6e7e341986d8271d43ec6f, type: 2}
+  activeMaterial: {fileID: 2100000, guid: 6b70f19bfe6e7e341986d8271d43ec6f, type: 2}
+  inactiveMaterial: {fileID: 2100000, guid: 7fda1940a1ca54744b7d6833b16ac712, type: 2}
   outline: 1
   outlineComponent: {fileID: 737905199830254616}
+  useLight: 0
+  lightComponent: {fileID: 0}
+  activeLightColor: {r: 0, g: 1, b: 0, a: 1}
+  inactiveLightColor: {r: 1, g: 0, b: 0, a: 1}
+  useSound: 1
+  soundEvent: {fileID: 7048343413659408618}
 --- !u!114 &1554055805120626825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +195,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 0.7768101, b: 0, a: 1}
-  outlineWidth: 2
+  outlineWidth: 4
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7048343413659408618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690131980622206648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 4
+    clip: {fileID: 8300000, guid: 7595b027b93505a4f8fd4aa10f271250, type: 3}
+  - soundType: 5
+    clip: {fileID: 8300000, guid: 7595b027b93505a4f8fd4aa10f271250, type: 3}
+  addPitch: 0

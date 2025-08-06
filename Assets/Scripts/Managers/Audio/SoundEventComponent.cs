@@ -24,6 +24,12 @@ public class SoundEventComponent : MonoBehaviour
     [SerializeField]
     private List<SoundTypeClipPair> soundEntries = new List<SoundTypeClipPair>();
 
+    [Tooltip("Pitch da applicare quando si riproduce un suono.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float addPitch = 0f;
+
+    public float AddPitch => addPitch;
+
     public AudioClip GetClip(SoundType soundType)
     {
         foreach (var entry in soundEntries)
@@ -38,8 +44,9 @@ public class SoundEventComponent : MonoBehaviour
         if (clip != null)
         {
             SoundManager sm = GameManager.Instance.GetSoundManager();
+            var applyPitch = UnityEngine.Random.Range(1f - addPitch, 1f + addPitch);
             if (sm != null)
-                sm.Play3DSound(clip, transform.position);
+                sm.Play3DSound(clip, transform.position, 1f, applyPitch);
         }
         else
         {
@@ -47,3 +54,4 @@ public class SoundEventComponent : MonoBehaviour
         }
     }
 }
+

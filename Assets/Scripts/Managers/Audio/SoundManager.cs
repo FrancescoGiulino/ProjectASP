@@ -65,7 +65,7 @@ public class SoundManager : MonoBehaviour, IManager
 
     // --- Play 3D sound da posizione ---
 
-    public void Play3DSound(AudioClip clip, Vector3 position, float volume = 1f)
+    public void Play3DSound(AudioClip clip, Vector3 position, float volume = 1f, float pitch = 1f)
     {
         if (clip == null)
         {
@@ -82,13 +82,15 @@ public class SoundManager : MonoBehaviour, IManager
 
         src.transform.position = position;
         src.volume = volume;
+        src.pitch = pitch;
         src.clip = clip;
-        src.spatialBlend = 1f; // 3D
+        src.spatialBlend = 1f;
         src.gameObject.SetActive(true);
         src.Play();
 
         StartCoroutine(DeactivateAfterPlaying(src));
     }
+
 
     // --- Pool gestione AudioSource 3D ---
 

@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float maxSpeed = 30f;
-    [SerializeField] private float maxStealthSpeed = 20f;
+    [SerializeField] private float maxSpeed = 15f;
+    [SerializeField] private float maxStealthSpeed = 10f;
     [SerializeField] private float rotationSpeed = 15f;
 
     [Header("Interaction Settings")]
@@ -86,23 +86,36 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        float currentSpeed = IsStealth() ? maxStealthSpeed : maxSpeed;
+
+        // Raycast per proiezione su terreno
+        Vector3 origin = transform.position + Vector3.up * 0.1f;
+        float rayDistance = 1.5f;
+
+        Vector3 moveDirection = moveDir;
+
+        if (Physics.Raycast(origin, Vector3.down, out RaycastHit hit, rayDistance))
+        {
+            Vector3 groundNormal = hit.normal;
+            moveDirection = Vector3.ProjectOnPlane(moveDir, groundNormal).normalized;
+        }
+
+        // Calcolo della velocità desiderata orizzontale
+        Vector3 desiredVelocity = moveDirection * currentSpeed * inputMagnitude;
+
+        // Calcolo della differenza tra velocità desiderata e attuale
+        Vector3 currentVelocity = rb.linearVelocity;
+        Vector3 velocityChange = desiredVelocity - new Vector3(currentVelocity.x, 0, currentVelocity.z);
+
+        // Applica la forza come accelerazione (indipendente dalla massa)
+        rb.AddForce(velocityChange, ForceMode.Acceleration);
+
+        // Rotazione fluida solo se stiamo muovendoci
         if (moveDir != Vector3.zero)
         {
-            float currentSpeed = IsStealth() ? maxStealthSpeed : maxSpeed;
-
-            //Debug.Log("Input Magnitude: " + inputMagnitude);
-            Vector3 force = moveDir * currentSpeed * inputMagnitude;
-            rb.AddForce(force, ForceMode.Force);
-
-            // Limita la velocità massima
-            if (rb.linearVelocity.magnitude > maxSpeed)
-            {
-                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
-            }
-
-            // Rotazione del giocatore
             Quaternion targetRotation = Quaternion.LookRotation(moveDir);
-            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+            Quaternion smoothRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(Quaternion.Euler(0, smoothRotation.eulerAngles.y, 0));
         }
     }
 

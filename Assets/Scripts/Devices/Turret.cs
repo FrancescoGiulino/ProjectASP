@@ -12,15 +12,18 @@ public class Turret : Device
         if (!rotationPatrol) return;
         rotationPatrol.SetActive(active);
         HandleTargetDetection();
-
-        if (targetDetectionController.CheckForTargets())
+        
+        if (active)
         {
-            rotationPatrol.AimAt(targetDetectionController.GetDetectedTargetPosition());
-            
-            if (Time.time >= nextFireTime)
+            if (targetDetectionController.CheckForTargets())
             {
-                nextFireTime = Time.time + 1f / fireRate;
-                shooter.Shoot();
+                rotationPatrol.AimAt(targetDetectionController.GetDetectedTargetPosition());
+                
+                if (Time.time >= nextFireTime)
+                {
+                    nextFireTime = Time.time + 1f / fireRate;
+                    shooter.Shoot();
+                }
             }
         }
     }

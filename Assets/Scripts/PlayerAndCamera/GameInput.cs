@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class GameInput : MonoBehaviour{
     public event EventHandler OnInteractAction;
     public event EventHandler OnStealthAction;
+    public event EventHandler OnPauseAction;
     private PlayerInputActions playerInputActions;
 
     private void Awake()
@@ -14,10 +15,12 @@ public class GameInput : MonoBehaviour{
 
         playerInputActions.Player.Interact.performed += Event_InteractPerformed;
         playerInputActions.Player.Stealth.performed += Event_StealthPerformed;
+        playerInputActions.Player.Pause.performed += ctx => OnPauseAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void Event_InteractPerformed(InputAction.CallbackContext obj) => OnInteractAction?.Invoke(this, EventArgs.Empty);
     private void Event_StealthPerformed(InputAction.CallbackContext obj) => OnStealthAction?.Invoke(this, EventArgs.Empty);
+    private void Event_PausePerformed(InputAction.CallbackContext obj) => OnPauseAction?.Invoke(this, EventArgs.Empty);
 
     public Vector2 GetInputVector()
     {

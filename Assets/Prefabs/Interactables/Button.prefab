@@ -3486,7 +3486,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 50
+  m_VersionIndex: 65
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3501,7 +3501,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -5.9341397
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3509,7 +3509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.24645184
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3517,7 +3517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3596,6 +3596,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4272373184919530443}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1286649695472881249}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: d1231371815a6964e87a3b02c7f95b70, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9015355196016024821}
@@ -9884,7 +9887,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 50
+  m_VersionIndex: 65
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9924,6 +9927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f219eed7c6f8c34e94a728350159bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   animated: 1
   animationController: {fileID: 4318888534262543088}
   changeColor: 1
@@ -9937,6 +9941,8 @@ MonoBehaviour:
   lightComponent: {fileID: 1136608867995369239}
   activeLightColor: {r: 0, g: 1, b: 0, a: 1}
   inactiveLightColor: {r: 1, g: 0, b: 0, a: 1}
+  useSound: 1
+  soundEvent: {fileID: 1286649695472881249}
 --- !u!95 &783314922542869045
 Animator:
   serializedVersion: 7
@@ -10068,3 +10074,21 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1286649695472881249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9147790831891127183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 4
+    clip: {fileID: 8300000, guid: 00f301340f36f0542bca606f1f322bfc, type: 3}
+  - soundType: 5
+    clip: {fileID: 8300000, guid: 5c50ea775bf88674d86a8456e3d0b098, type: 3}
+  addPitch: 0
