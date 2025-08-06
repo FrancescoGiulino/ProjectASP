@@ -31,7 +31,7 @@ public class CameraTransparencyOccluder : MonoBehaviour
         float distance = direction.magnitude;
 
         RaycastHit[] hits = Physics.RaycastAll(transform.position, direction, distance, obstructionMask);
-        Debug.DrawRay(transform.position, direction, Color.red, 1f);
+        //Debug.DrawRay(transform.position, direction, Color.red, 1f);
 
         HashSet<GameObject> processed = new();
 

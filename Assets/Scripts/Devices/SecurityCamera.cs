@@ -7,5 +7,8 @@ public class SecurityCamera : Device
         if (!rotationPatrol) return;
         rotationPatrol.SetActive(active);
         HandleTargetDetection();
+
+        if (targetDetectionController.CheckForTargets())
+            rotationPatrol.AimAt(targetDetectionController.GetDetectedTargetPosition());
     }
 }

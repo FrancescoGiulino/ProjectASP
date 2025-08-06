@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
         HandleInput();
         HandleMovement();
         HandleInteraction();
+        HandleVolume(); // serve a settare il volume del suono in base al valore di inputMagnitude
     }
 
     // =============== INPUT HANDLING ===============
@@ -117,6 +118,17 @@ public class PlayerController : MonoBehaviour
             Quaternion smoothRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
             rb.MoveRotation(Quaternion.Euler(0, smoothRotation.eulerAngles.y, 0));
         }
+    }
+
+    private void HandleVolume()
+    {
+        float divider = 1f;
+        if (stealth) divider = 2f;
+        
+        if (soundEventComponent != null)
+            soundEventComponent.Volume = inputMagnitude / divider;
+        else
+            Debug.LogWarning("SoundEventComponent non assegnato al PlayerController.");
     }
 
     // =============== INTERACTION HANDLING ===============

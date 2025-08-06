@@ -10,7 +10,10 @@ public class RotationPatrol : MonoBehaviour
     private bool active = true;
     private float angle;
 
-    void Start() { startY = transform.eulerAngles.y; }
+    void Start()
+    {
+        startY = transform.eulerAngles.y;
+    }
 
     void Update() { PatrolRotation(); }
 
@@ -34,7 +37,8 @@ public class RotationPatrol : MonoBehaviour
     public void AimAt(Vector3 targetPos)
     {
         Vector3 dir = (targetPos - transform.position).normalized;
-        Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
+        dir.y = 0;
+        Quaternion lookRot = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, GetRotationSpeed() * Time.deltaTime);
     }
 

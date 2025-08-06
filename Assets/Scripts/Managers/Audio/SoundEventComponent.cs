@@ -22,13 +22,15 @@ public class SoundTypeClipPair
 public class SoundEventComponent : MonoBehaviour
 {
     [SerializeField]
-    private List<SoundTypeClipPair> soundEntries = new List<SoundTypeClipPair>();
+    protected List<SoundTypeClipPair> soundEntries = new List<SoundTypeClipPair>();
 
     [Tooltip("Pitch da applicare quando si riproduce un suono.")]
     [Range(0f, 1f)]
-    [SerializeField] private float addPitch = 0f;
-
+    [SerializeField] protected float addPitch = 0f;
     public float AddPitch => addPitch;
+
+    private float volume = 1f;
+    public float Volume { get => volume; set => volume = Mathf.Clamp01(value); }
 
     public AudioClip GetClip(SoundType soundType)
     {
@@ -51,6 +53,22 @@ public class SoundEventComponent : MonoBehaviour
         else
         {
             Debug.LogWarning($"Clip per {soundType} non definito in {gameObject.name}");
+        }
+    }
+
+    public void PlaySoundWithVolume(SoundType soundType)
+    {
+        AudioClip clip = GetClip(soundType);
+        if (clip != null)
+        {
+            SoundManager sm = GameManager.Instance.GetSoundManager();
+            var applyPitch = UnityEngine.Random.Range(1f - addPitch, 1f + addPitch);
+            if (sm != null)
+                sm.Play3DSound(clip, transform.position, volume, applyPitch);
+        }
+        else
+        {
+            Debug.LogWarning($"Clip per Walk non definito in {gameObject.name}");
         }
     }
 }
