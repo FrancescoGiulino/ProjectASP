@@ -72,7 +72,6 @@
     <Compile Include="Assets\Scripts\PlayerAndCamera\GameInput.cs" />
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Scripts\UI\SceneHandling\SceneEvents.cs" />
     <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Devices\Turret.cs" />
@@ -89,13 +88,13 @@
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\Bullet.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\UI\SceneHandling\AsyncLoader.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\SoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\Interactable\Button.cs" />
     <Compile Include="Assets\Scripts\UI\MenuHandler.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\RbImpactSoundManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\RotationPatrol.cs" />
+    <Compile Include="Assets\Scripts\SceneHandling\AsyncLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -39,30 +39,30 @@ public class MusicManager : MonoBehaviour, IManager
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[MusicManager - OnSceneLoaded] --> MusicManager: scena caricata: {scene.name}");
+        //Debug.Log($"[MusicManager - OnSceneLoaded] --> MusicManager: scena caricata: {scene.name}");
         StartCoroutine(DelayedHandleMusic());
     }
 
     private IEnumerator DelayedHandleMusic()
     {
         yield return null; // aspetta un frame
-        Debug.Log($"[MusicManager - DelayedHandleMusic] --> Scene attiva dopo delay: {SceneManager.GetActiveScene().name}");
+        //Debug.Log($"[MusicManager - DelayedHandleMusic] --> Scene attiva dopo delay: {SceneManager.GetActiveScene().name}");
         HandleMusicForCurrentScene();
     }
 
     public void HandleMusicForCurrentScene()
     {
         string sceneName = SceneManager.GetActiveScene().name.ToLower();
-        Debug.Log($"[MusicManager - HandleMusicForCurrentScene] --> Gestisco musica per la scena: {sceneName}");
+        //Debug.Log($"[MusicManager - HandleMusicForCurrentScene] --> Gestisco musica per la scena: {sceneName}");
 
         if (sceneName.Contains("menu"))
         {
-            Debug.Log("[MusicManager - HandleMusicForCurrentScene] --> Riproduco musica del menu.");
+            //Debug.Log("[MusicManager - HandleMusicForCurrentScene] --> Riproduco musica del menu.");
             PlayMusic(menuMusic);
         }
         else
         {
-            Debug.Log("[MusicManager - HandleMusicForCurrentScene] --> Riproduco musica della scena di gioco.");
+            //Debug.Log("[MusicManager - HandleMusicForCurrentScene] --> Riproduco musica della scena di gioco.");
             PlayMusic(gameplayNeutralMusic);
         }
     }
