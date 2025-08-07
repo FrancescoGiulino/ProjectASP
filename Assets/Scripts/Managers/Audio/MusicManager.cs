@@ -16,7 +16,7 @@ public class MusicManager : MonoBehaviour, IManager
 
     private Coroutine fadeCoroutine;
 
-    private float currentVolume = 1f;
+    //private float currentVolume = 1f;
 
     public void Init()
     {
@@ -28,7 +28,7 @@ public class MusicManager : MonoBehaviour, IManager
         {
             musicSource.loop = true;
             musicSource.playOnAwake = false;
-            musicSource.volume = currentVolume;
+            //musicSource.volume = currentVolume;
         }
 
         // Registrazione all'evento quando nuove scene vengono caricate
@@ -68,7 +68,7 @@ public class MusicManager : MonoBehaviour, IManager
     }
 
     // Metodo per aggiornare il volume da un AudioManager esterno o altro
-    public void UpdateVolume(float sliderValue)
+    /*public void UpdateVolume(float sliderValue)
     {
         if (sliderValue <= 0.0001f)
             currentVolume = 0f;
@@ -79,14 +79,15 @@ public class MusicManager : MonoBehaviour, IManager
         }
 
         ApplyVolume();
-    }
+    }*/
 
     // Applica il volume corrente all'AudioSource
-    private void ApplyVolume()
+   /*private void ApplyVolume()
     {
         if (musicSource != null)
             musicSource.volume = currentVolume;
     }
+    */
 
     // Riproduce musica con fading, se clip diversa da quella corrente
     public void PlayMusic(AudioClip newClip)
@@ -101,7 +102,7 @@ public class MusicManager : MonoBehaviour, IManager
 
         musicSource.Stop();
         musicSource.clip = newClip;
-        musicSource.volume = currentVolume;
+        //musicSource.volume = currentVolume;
         musicSource.Play();
     }
 

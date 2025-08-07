@@ -30,14 +30,14 @@ public class SettingsManager : MonoBehaviour
 
     private void Start()
     {
+        Resolutions.Initialize(); // popola il dizionario
         if (resolutionDropdown != null)
-        {
-            Resolutions.Initialize(); // popola il dizionario
             PopulateResolutionDropdown();
-        }
-        LoadVolumeSettings();
-        LoadFullScreenSetting();
         LoadResolutionSetting();
+
+        LoadVolumeSettings();
+        
+        LoadFullScreenSetting();
     }
 
     private void PopulateResolutionDropdown()
@@ -120,14 +120,15 @@ public class SettingsManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("MusicVolume", volume);
         PlayerPrefs.Save();
-        GameManager.Instance.GetMusicManager().UpdateVolume(volume);
+        GameManager.Instance.GetAudioManager().MusicVolume = volume;
     }
+
 
     public void SaveSoundVolume(float volume)
     {
         PlayerPrefs.SetFloat("SoundVolume", volume);
         PlayerPrefs.Save();
-        GameManager.Instance.GetSoundManager().UpdateVolume(volume);
+        GameManager.Instance.GetAudioManager().SoundVolume = volume;
     }
 
     public void LoadVolumeSettings()
@@ -138,8 +139,8 @@ public class SettingsManager : MonoBehaviour
         musicSlider.value = musicVolume;
         soundSlider.value = soundVolume;
 
-        GameManager.Instance.GetMusicManager().UpdateVolume(musicVolume);
-        GameManager.Instance.GetSoundManager().UpdateVolume(soundVolume);
+        GameManager.Instance.GetAudioManager().MusicVolume = musicVolume;
+        GameManager.Instance.GetAudioManager().SoundVolume = soundVolume;
     }
 
     public void SaveFullScreen(bool isFullScreen)

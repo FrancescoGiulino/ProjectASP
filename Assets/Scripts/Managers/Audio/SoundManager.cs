@@ -17,20 +17,20 @@ public class SoundManager : MonoBehaviour, IManager
     private List<AudioSource> sound3DPool;
     private Transform poolParent;
 
-    private float currentVolume = 1f;
+    //private float currentVolume = 1f;
 
     public void Init()
     {
         if (audioManager != null)
         {
-            currentVolume = audioManager.SoundVolume;
-            ApplyVolume();
+            //currentVolume = audioManager.SoundVolume;
+            //ApplyVolume();
         }
         Create3DSoundPool();
     }
 
     // Applica il volume corrente alle sorgenti
-    private void ApplyVolume()
+    /*private void ApplyVolume()
     {
         if (soundSource != null)
             soundSource.volume = currentVolume;
@@ -40,10 +40,10 @@ public class SoundManager : MonoBehaviour, IManager
             if (src != null)
                 src.volume = currentVolume;
         }
-    }
+    }*/
 
     // Metodo pubblico per aggiornare il volume da AudioManager
-    public void UpdateVolume(float sliderValue)
+    /*public void UpdateVolume(float sliderValue)
     {
         if (sliderValue <= 0.0001f)
             currentVolume = 0f;
@@ -54,8 +54,7 @@ public class SoundManager : MonoBehaviour, IManager
         }
 
         ApplyVolume();
-    }
-
+    }*/
 
     // --- Play 2D sound one-shot ---
     public void PlaySound(AudioClip clip)
@@ -65,7 +64,7 @@ public class SoundManager : MonoBehaviour, IManager
             Debug.LogWarning("PlaySound: clip nullo");
             return;
         }
-        soundSource.PlayOneShot(clip, currentVolume);
+        soundSource.PlayOneShot(clip);
     }
 
     // --- Play 3D sound from position ---
@@ -98,7 +97,7 @@ public class SoundManager : MonoBehaviour, IManager
         source.gameObject.SetActive(true);
         source.transform.position = position;
         source.clip = clip;
-        source.volume = volume * currentVolume;
+        //source.volume = volume * currentVolume;
         source.pitch = pitch;
         source.Play();
 
@@ -134,14 +133,13 @@ public class SoundManager : MonoBehaviour, IManager
         source.gameObject.SetActive(true);
         source.transform.position = position;
         source.clip = clip;
-        source.volume = volume * currentVolume;
+        //source.volume = volume * currentVolume;
         source.pitch = pitch;
         source.loop = true;
         source.Play();
 
         return source;
     }
-
 
     // --- Pool gestione AudioSource 3D ---
     private void Create3DSoundPool()

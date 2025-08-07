@@ -124,6 +124,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7825449639736409721, guid: e2f14c7c0baa5de40b6ab9bfa3643c6f, type: 3}
   m_PrefabInstance: {fileID: 768682084}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &28881226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3343943138536248893, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
+  m_PrefabInstance: {fileID: 8538810499891947341}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &34394534
 Mesh:
   m_ObjectHideFlags: 0
@@ -4974,6 +4985,10 @@ PrefabInstance:
       propertyPath: fullScreenToggle
       value: 
       objectReference: {fileID: 1057228809}
+    - target: {fileID: 970884576620292848, guid: 277ab21613031a348a034b61c725bc02, type: 3}
+      propertyPath: resolutionDropdown
+      value: 
+      objectReference: {fileID: 28881226}
     - target: {fileID: 3825700114769996783, guid: 277ab21613031a348a034b61c725bc02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.6741953
@@ -5610,7 +5625,7 @@ PrefabInstance:
     - target: {fileID: 3764488497414013228, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1968512696}
     - target: {fileID: 3864911284574552918, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
