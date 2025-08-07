@@ -5,7 +5,6 @@ public class SecurityCamera : Device
 {
     private bool targetDetected = false;
     private bool canEmitAlarm = true;
-    [SerializeField] private float alarmCooldown = 8.1f;
 
     protected override void HandleLogic()
     {
@@ -25,26 +24,16 @@ public class SecurityCamera : Device
 
         if (detected && canEmitAlarm)
         {
-            soundEventComponent.PlaySound(SoundType.Activate);
             canEmitAlarm = false;
-            StartCoroutine(ResetAlarmCooldown());
-
-            //Debug.Log("[SecurityCamera] Allarme riprodotto");
+            soundEventComponent.PlayLoopingSound(SoundType.Activate);
         }
 
         if (!detected && targetDetected)
         {
-            soundEventComponent.StopAllSounds();
             canEmitAlarm = true;
-            //Debug.Log("[SecurityCamera] Allarme interrotto");
+            soundEventComponent.StopAllSounds();
         }
 
         targetDetected = detected;
-    }
-
-    private IEnumerator ResetAlarmCooldown()
-    {
-        yield return new WaitForSeconds(alarmCooldown);
-        canEmitAlarm = true;
     }
 }

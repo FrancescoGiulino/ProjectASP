@@ -52,6 +52,25 @@ public class SoundEventComponent : MonoBehaviour
         PlayInternal(soundType, volume);
     }
 
+    public void PlayLoopingSound(SoundType soundType)
+    {
+        AudioClip clip = GetClip(soundType);
+        if (clip != null)
+        {
+            SoundManager sm = GameManager.Instance.GetSoundManager();
+            var applyPitch = UnityEngine.Random.Range(1f - addPitch, 1f + addPitch);
+            if (sm != null)
+            {
+                AudioSource source = sm.Play3DSoundLoop(clip, transform.position, volume, applyPitch);
+                if (source != null)
+                    activeSources.Add(source);
+            }
+        }
+        else
+            Debug.LogWarning($"Looping clip per {soundType} non definito in {gameObject.name}");
+    }
+
+
     private void PlayInternal(SoundType soundType, float customVolume)
     {
         AudioClip clip = GetClip(soundType);

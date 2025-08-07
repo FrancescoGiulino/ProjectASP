@@ -105,6 +105,44 @@ public class SoundManager : MonoBehaviour, IManager
         return source;
     }
 
+    public AudioSource Play3DSoundLoop(AudioClip clip, Vector3 position, float volume = 1f, float pitch = 1f)
+    {
+        if (clip == null)
+        {
+            Debug.LogWarning("Play3DSoundLoop: clip nullo");
+            return null;
+        }
+
+        AudioSource source = GetAvailable3DAudioSource();
+
+        // Se nessuna sorgente libera, creane una nuova e aggiungila al pool
+        if (source == null)
+        {
+            GameObject go = new GameObject($"3DAudioSource_ExtraLoop_{sound3DPool.Count}");
+            go.transform.SetParent(poolParent);
+            source = go.AddComponent<AudioSource>();
+
+            source.outputAudioMixerGroup = soundMixerGroup;
+            source.spatialBlend = 1f;
+            source.rolloffMode = AudioRolloffMode.Logarithmic;
+            source.minDistance = 1f;
+            source.maxDistance = 50f;
+
+            sound3DPool.Add(source);
+        }
+
+        source.gameObject.SetActive(true);
+        source.transform.position = position;
+        source.clip = clip;
+        source.volume = volume * currentVolume;
+        source.pitch = pitch;
+        source.loop = true;
+        source.Play();
+
+        return source;
+    }
+
+
     // --- Pool gestione AudioSource 3D ---
     private void Create3DSoundPool()
     {
