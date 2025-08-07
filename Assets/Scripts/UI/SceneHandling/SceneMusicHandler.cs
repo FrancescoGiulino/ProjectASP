@@ -1,10 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class SceneMusicHandler : MonoBehaviour
+public class SceneEventsDispatcher : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
-        Debug.Log("[SceneMusicHandler] Start called, handling music for current scene.");
-        GameManager.Instance.GetMusicManager().HandleMusicForCurrentScene();
+        StartCoroutine(DelayedHandleMusic());
+    }
+
+    private IEnumerator DelayedHandleMusic()
+    {
+        yield return null; // Aspetta un frame per assicurarti che la scena sia completamente attiva
+        Debug.Log($"[SceneEventsDispatcher] Scena attiva confermata: {SceneManager.GetActiveScene().name}");
+        GameManager.Instance.GetMusicManager()?.HandleMusicForCurrentScene();
     }
 }

@@ -16,7 +16,7 @@ public class MusicManager : MonoBehaviour, IManager
     [SerializeField] private AudioClip gameplayNeutralMusic;
 
     private Coroutine fadeCoroutine;
-    private AudioClip currentClip;
+    //private AudioClip currentClip;
 
     private float currentVolume = 1f;
 
@@ -32,35 +32,43 @@ public class MusicManager : MonoBehaviour, IManager
             musicSource.playOnAwake = false;
             musicSource.volume = currentVolume;
         }
-        currentClip = null;
+        //currentClip = null;
 
         //HandleMusicForCurrentScene();
 
         // Registrazione all'evento quando nuove scene vengono caricate
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDestroy() => SceneManager.sceneLoaded -= OnSceneLoaded;
+    //private void OnDestroy() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[OnSceneLoaded] --> MusicManager: scena caricata: {scene.name}");
+        Debug.Log($"[MusicManager - OnSceneLoaded] --> MusicManager: scena caricata: {scene.name}");
+        StartCoroutine(DelayedHandleMusic());
+    }
+
+    private IEnumerator DelayedHandleMusic()
+    {
+        yield return null; // aspetta un frame
+        Debug.Log($"[MusicManager - DelayedHandleMusic] --> Scene attiva dopo delay: {SceneManager.GetActiveScene().name}");
         HandleMusicForCurrentScene();
     }
+
 
     public void HandleMusicForCurrentScene()
     {
         string sceneName = SceneManager.GetActiveScene().name.ToLower();
-        Debug.Log($"[MusicManager] Gestisco musica per la scena: {sceneName}");
+        Debug.Log($"[MusicManager - HandleMusicForCurrentScene] --> Gestisco musica per la scena: {sceneName}");
 
         if (sceneName.Contains("menu"))
         {
-            Debug.Log("Riproduco musica del menu.");
+            Debug.Log("[MusicManager - HandleMusicForCurrentScene] --> Riproduco musica del menu.");
             PlayMusic(menuMusic);
         }
         else
         {
-            Debug.Log("Riproduco musica della scena di gioco.");
+            Debug.Log("[MusicManager - HandleMusicForCurrentScene] --> Riproduco musica della scena di gioco.");
             PlayMusic(gameplayNeutralMusic);
         }
     }
@@ -80,20 +88,20 @@ public class MusicManager : MonoBehaviour, IManager
     }
 
     // Riproduce musica con fading, se clip diversa da quella corrente
-    public void PlayMusic(AudioClip clip)
+    public void PlayMusic(AudioClip newClip)
     {
-        if (clip == null)
+        if (musicSource == null) return;
+
+        if (musicSource.isPlaying && musicSource.clip == newClip)
         {
-            Debug.LogWarning("MusicManager: PlayMusic clip nullo");
+            Debug.Log("[MusicManager - PlayMusic] --> clip già in riproduzione");
             return;
         }
-        if (clip == currentClip)
-            return;
 
-        if (fadeCoroutine != null)
-            StopCoroutine(fadeCoroutine);
-
-        fadeCoroutine = StartCoroutine(FadeToNewClip(clip));
+        musicSource.Stop();
+        musicSource.clip = newClip;
+        musicSource.volume = currentVolume;
+        musicSource.Play();
     }
 
     // Ferma la musica con fade out
@@ -103,41 +111,6 @@ public class MusicManager : MonoBehaviour, IManager
             StopCoroutine(fadeCoroutine);
 
         fadeCoroutine = StartCoroutine(FadeOutAndStop());
-    }
-
-    // Coroutine per fade out clip corrente e fade in nuovo clip
-    private IEnumerator FadeToNewClip(AudioClip newClip)
-    {
-        if (musicSource != null && musicSource.isPlaying)
-        {
-            float startVolume = musicSource.volume;
-            float elapsed = 0f;
-            while (elapsed < fadeDuration)
-            {
-                elapsed += Time.deltaTime;
-                musicSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / fadeDuration);
-                yield return null;
-            }
-            musicSource.Stop();
-        }
-
-        if (musicSource != null)
-        {
-            musicSource.clip = newClip;
-            currentClip = newClip;
-            musicSource.Play();
-
-            float targetVolume = currentVolume;
-            float elapsedIn = 0f;
-            while (elapsedIn < fadeDuration)
-            {
-                elapsedIn += Time.deltaTime;
-                musicSource.volume = Mathf.Lerp(0f, targetVolume, elapsedIn / fadeDuration);
-                yield return null;
-            }
-
-            musicSource.volume = targetVolume;
-        }
     }
 
     // Coroutine per fade out e stop della musica
@@ -157,7 +130,7 @@ public class MusicManager : MonoBehaviour, IManager
 
         musicSource.Stop();
         musicSource.clip = null;
-        currentClip = null;
+        //currentClip = null;
     }
 
     // Getter del volume attuale
