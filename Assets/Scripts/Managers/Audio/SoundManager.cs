@@ -43,11 +43,19 @@ public class SoundManager : MonoBehaviour, IManager
     }
 
     // Metodo pubblico per aggiornare il volume da AudioManager
-    public void UpdateVolume(float volume)
+    public void UpdateVolume(float sliderValue)
     {
-        currentVolume = Mathf.Clamp01(volume);
+        if (sliderValue <= 0.0001f)
+            currentVolume = 0f;
+        else
+        {
+            float dB = Mathf.Lerp(-40f, 0f, sliderValue); // da -40 dB a 0 dB
+            currentVolume = Mathf.Pow(10f, dB / 20f);     // converti dB in volume lineare
+        }
+
         ApplyVolume();
     }
+
 
     // --- Play 2D sound one-shot ---
     public void PlaySound(AudioClip clip)

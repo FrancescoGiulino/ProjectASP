@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,11 +15,10 @@ public class MusicManager : MonoBehaviour, IManager
     [SerializeField] private AudioClip gameplayNeutralMusic;
 
     private Coroutine fadeCoroutine;
-    //private AudioClip currentClip;
 
     private float currentVolume = 1f;
 
-    public void Init() // prima era in awake
+    public void Init()
     {
         if (musicSource == null)
         {
@@ -32,15 +30,12 @@ public class MusicManager : MonoBehaviour, IManager
             musicSource.playOnAwake = false;
             musicSource.volume = currentVolume;
         }
-        //currentClip = null;
-
-        //HandleMusicForCurrentScene();
 
         // Registrazione all'evento quando nuove scene vengono caricate
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    //private void OnDestroy() => SceneManager.sceneLoaded -= OnSceneLoaded;
+    private void OnDestroy() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -54,7 +49,6 @@ public class MusicManager : MonoBehaviour, IManager
         Debug.Log($"[MusicManager - DelayedHandleMusic] --> Scene attiva dopo delay: {SceneManager.GetActiveScene().name}");
         HandleMusicForCurrentScene();
     }
-
 
     public void HandleMusicForCurrentScene()
     {
@@ -74,9 +68,16 @@ public class MusicManager : MonoBehaviour, IManager
     }
 
     // Metodo per aggiornare il volume da un AudioManager esterno o altro
-    public void UpdateVolume(float volume)
+    public void UpdateVolume(float sliderValue)
     {
-        currentVolume = Mathf.Clamp01(volume);
+        if (sliderValue <= 0.0001f)
+            currentVolume = 0f;
+        else
+        {
+            float dB = Mathf.Lerp(-40f, 0f, sliderValue); // da -40 dB a 0 dB
+            currentVolume = Mathf.Pow(10f, dB / 20f);     // converti dB in volume lineare
+        }
+
         ApplyVolume();
     }
 
