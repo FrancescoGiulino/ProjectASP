@@ -69,6 +69,7 @@
     <Compile Include="Assets\InputActions\PlayerInputActions.cs" />
     <Compile Include="Assets\Scripts\Devices\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\AnimationController.cs" />
+    <Compile Include="Assets\Scripts\UI\ScrollToSelected.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\GameInput.cs" />
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\MusicManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\TargetDetectionController.cs" />
+    <Compile Include="Assets\Scripts\UI\DropdownScroller.cs" />
     <Compile Include="Assets\Scripts\Managers\IManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\Shooter.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />

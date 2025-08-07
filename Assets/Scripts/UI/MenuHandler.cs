@@ -1,16 +1,32 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MenuHandler : MonoBehaviour
 {
+    [Header("Menu")]
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private GameObject loadingScreen;
 
-    //[SerializeField] private SettingsManager settingsManager;
+    [Header("Navigation System")]
+    [SerializeField] private GameObject defaultButton_MainMenu;
+    [SerializeField] private GameObject defaultButton_Settings;
+
+    [Header("Dropdown Fix")]
+    [SerializeField] private TMP_Dropdown dropdown;
+    private DropdownScroller dropdownScroller;
+
+
+    private void Start()
+    {
+        EventSystem.current.SetSelectedGameObject(defaultButton_MainMenu);
+        if (dropdown != null)
+            dropdownScroller = dropdown.GetComponent<DropdownScroller>();
+    }
 
     public void Play()
     {
-        //Debug.Log("Starting the game...");
         AsyncLoader.LoadScene(this, "SampleScene");
         mainMenuUI.SetActive(false);
         loadingScreen.SetActive(true);
@@ -21,7 +37,17 @@ public class MenuHandler : MonoBehaviour
         mainMenuUI.SetActive(false);
         optionsUI.SetActive(true);
 
+        EventSystem.current.SetSelectedGameObject(defaultButton_Settings);
+
         LoadVolumeSettings();
+
+        Debug.Log($"dropdown!=null : {dropdown!=null} - dropdownScroller!=null : {dropdownScroller!=null}");
+        if (dropdown != null && dropdownScroller != null)
+        {
+            Debug.Log("Options --> dropdown.Show()");
+            //dropdown.Show();
+            dropdownScroller.OnDropdownShown();
+        }
     }
 
     public void Quit()
@@ -36,6 +62,8 @@ public class MenuHandler : MonoBehaviour
         if (optionsUI != null)
             optionsUI.SetActive(false);
         mainMenuUI.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(defaultButton_MainMenu);
 
         LoadVolumeSettings();
     }
