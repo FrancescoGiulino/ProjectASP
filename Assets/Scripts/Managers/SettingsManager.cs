@@ -31,12 +31,11 @@ public class SettingsManager : MonoBehaviour
     private void Start()
     {
         Resolutions.Initialize(); // popola il dizionario
-        if (resolutionDropdown != null)
-            PopulateResolutionDropdown();
+        PopulateResolutionDropdown();
         LoadResolutionSetting();
 
         LoadVolumeSettings();
-        
+
         LoadFullScreenSetting();
     }
 
@@ -112,7 +111,7 @@ public class SettingsManager : MonoBehaviour
         string savedResolution = PlayerPrefs.GetString("Resolution", "1280x720");
         if (Resolutions.dict.TryGetValue(savedResolution, out Vector2Int size))
         {
-            Screen.SetResolution(size.x, size.y, Screen.fullScreen);
+            SetResolution(size, Screen.fullScreen); // usa la tua funzione con logica di scalatura
         }
     }
 
