@@ -21,40 +21,8 @@ public class SoundManager : MonoBehaviour, IManager
 
     public void Init()
     {
-        if (audioManager != null)
-        {
-            //currentVolume = audioManager.SoundVolume;
-            //ApplyVolume();
-        }
         Create3DSoundPool();
     }
-
-    // Applica il volume corrente alle sorgenti
-    /*private void ApplyVolume()
-    {
-        if (soundSource != null)
-            soundSource.volume = currentVolume;
-
-        foreach (var src in sound3DPool)
-        {
-            if (src != null)
-                src.volume = currentVolume;
-        }
-    }*/
-
-    // Metodo pubblico per aggiornare il volume da AudioManager
-    /*public void UpdateVolume(float sliderValue)
-    {
-        if (sliderValue <= 0.0001f)
-            currentVolume = 0f;
-        else
-        {
-            float dB = Mathf.Lerp(-40f, 0f, sliderValue); // da -40 dB a 0 dB
-            currentVolume = Mathf.Pow(10f, dB / 20f);     // converti dB in volume lineare
-        }
-
-        ApplyVolume();
-    }*/
 
     // --- Play 2D sound one-shot ---
     public void PlaySound(AudioClip clip)
@@ -97,7 +65,6 @@ public class SoundManager : MonoBehaviour, IManager
         source.gameObject.SetActive(true);
         source.transform.position = position;
         source.clip = clip;
-        //source.volume = volume * currentVolume;
         source.pitch = pitch;
         source.Play();
 
@@ -133,7 +100,6 @@ public class SoundManager : MonoBehaviour, IManager
         source.gameObject.SetActive(true);
         source.transform.position = position;
         source.clip = clip;
-        //source.volume = volume * currentVolume;
         source.pitch = pitch;
         source.loop = true;
         source.Play();
@@ -173,5 +139,24 @@ public class SoundManager : MonoBehaviour, IManager
                 return src;
         }
         return null;
+    }
+
+    public void StopAllSounds()
+    {
+        // Ferma il suono 2D
+        if (soundSource.isPlaying)
+            soundSource.Stop();
+
+        // Ferma e disattiva tutte le sorgenti 3D attive
+        foreach (var source in sound3DPool)
+        {
+            if (source != null)
+            {
+                source.Stop();
+                source.loop = false; // nel dubbio
+                source.clip = null;
+                source.gameObject.SetActive(false);
+            }
+        }
     }
 }

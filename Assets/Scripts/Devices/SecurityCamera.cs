@@ -10,10 +10,13 @@ public class SecurityCamera : Device
     {
         if (!rotationPatrol) return;
         rotationPatrol.SetActive(active);
-        HandleTargetDetection();
 
-        if (targetDetectionController.CheckForTargets())
-            rotationPatrol.AimAt(targetDetectionController.GetDetectedTargetPosition());
+        if (active)
+            HandleTargetDetection();
+
+        if (active)
+            if (targetDetectionController.CheckForTargets())
+                rotationPatrol.AimAt(targetDetectionController.GetDetectedTargetPosition());
     }
 
     protected override void HandleSoundEmission()
@@ -28,7 +31,7 @@ public class SecurityCamera : Device
             soundEventComponent.PlayLoopingSound(SoundType.Activate);
         }
 
-        if (!detected && targetDetected)
+        if ((!detected && targetDetected) || (!active))
         {
             canEmitAlarm = true;
             soundEventComponent.StopAllSounds();

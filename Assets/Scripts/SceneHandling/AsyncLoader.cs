@@ -6,6 +6,7 @@ public static class AsyncLoader
 {
     public static void LoadScene(MonoBehaviour caller, string sceneName)
     {
+        GameManager.Instance.GetSoundManager().StopAllSounds();
         caller.StartCoroutine(LoadSceneAsync(sceneName));
     }
 
