@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\PlayerAndCamera\GameInput.cs" />
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UIHoverSelector.cs" />
     <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Devices\Turret.cs" />

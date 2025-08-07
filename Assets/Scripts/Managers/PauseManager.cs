@@ -53,7 +53,9 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = isPaused ? 0f : 1f;
 
         if (pauseMenuUI != null)
+        {
             pauseMenuUI.SetActive(isPaused);
+        }
     }
 
     public bool IsPaused() => isPaused;
