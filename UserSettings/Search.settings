@@ -9,7 +9,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"picker_window_position_offset.075BCD15" = "25,59998;179,2;320;550,4"
+	"picker_window_position_offset.075BCD15" = "-20,79993;179,2;320;550,4"
 	"picker_visibility_flags.075BCD15" = "264"
 	"picker_item_size.075BCD15" = "96"
 	"picker_inspector.075BCD15" = "0"
@@ -69,6 +69,8 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	""
+	"Packages/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/DefaultInputActions.inputactions"
 ]
 searchItemFavorites = [
 ]

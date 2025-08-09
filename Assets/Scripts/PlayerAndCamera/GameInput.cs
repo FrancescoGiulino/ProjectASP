@@ -6,6 +6,7 @@ public class GameInput : MonoBehaviour{
     public event EventHandler OnInteractAction;
     public event EventHandler OnStealthAction;
     public event EventHandler OnPauseAction;
+    public event EventHandler OnToggleSidePanel;
     private PlayerInputActions playerInputActions;
 
     private void Awake()
@@ -16,11 +17,13 @@ public class GameInput : MonoBehaviour{
         playerInputActions.Player.Interact.performed += Event_InteractPerformed;
         playerInputActions.Player.Stealth.performed += Event_StealthPerformed;
         playerInputActions.Player.Pause.performed += ctx => OnPauseAction?.Invoke(this, EventArgs.Empty);
+        playerInputActions.Player.ToggleSidePanel.performed += Event_ToggleSidePanelPerformed;
     }
 
     private void Event_InteractPerformed(InputAction.CallbackContext obj) => OnInteractAction?.Invoke(this, EventArgs.Empty);
     private void Event_StealthPerformed(InputAction.CallbackContext obj) => OnStealthAction?.Invoke(this, EventArgs.Empty);
     private void Event_PausePerformed(InputAction.CallbackContext obj) => OnPauseAction?.Invoke(this, EventArgs.Empty);
+    private void Event_ToggleSidePanelPerformed(InputAction.CallbackContext obj) => OnToggleSidePanel?.Invoke(this, EventArgs.Empty);
 
     public Vector2 GetInputVector()
     {

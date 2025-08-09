@@ -4,7 +4,12 @@ using UnityEngine.UI;
 
 public class UIHoverSelector : MonoBehaviour, IPointerEnterHandler, ISelectHandler
 {
-    private MenuHandler menuHandler => GetComponentInParent<MenuHandler>();
+    private MenuHandler menuHandler;
+
+    private void Awake()
+    {
+        menuHandler = GetComponentInParent<MenuHandler>();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -14,5 +19,9 @@ public class UIHoverSelector : MonoBehaviour, IPointerEnterHandler, ISelectHandl
         EventSystem.current.SetSelectedGameObject(gameObject);
     }
 
-    public void OnSelect(BaseEventData eventData) => menuHandler.PlayHoverSound();
+    public void OnSelect(BaseEventData eventData)
+    {
+        if (menuHandler)
+            menuHandler.PlayHoverSound();
+    }
 }
