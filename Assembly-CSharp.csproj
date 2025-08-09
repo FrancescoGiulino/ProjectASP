@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Devices\Device.cs" />
     <Compile Include="Assets\InputActions\PlayerInputActions.cs" />
+    <Compile Include="Assets\Scripts\Managers\HealthBarController.cs" />
     <Compile Include="Assets\Scripts\Devices\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\AnimationController.cs" />
     <Compile Include="Assets\Scripts\UI\ScrollToSelected.cs" />

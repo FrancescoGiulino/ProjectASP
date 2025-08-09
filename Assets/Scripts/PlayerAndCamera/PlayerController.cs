@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3 normalCapsuleCenter = new Vector3(0f, 0.7f, 0f);
     [SerializeField] private float stealthCapsuleHeight = 1.2f;
     [SerializeField] private Vector3 stealthCapsuleCenter = new Vector3(0f, 0.6f, 0f);
+    [SerializeField] private LayerMask obstacleLayerMask;
 
     [Header("Sound Settings")]
     [SerializeField] private SoundEventComponent soundEventComponent;
@@ -40,6 +41,9 @@ public class PlayerController : MonoBehaviour
 
     public bool CanMove { get; set; } = true;
     public bool IsMoving { get { return moveDir != Vector3.zero; } }
+
+    private bool isPaused = false;
+    public bool IsPaused { set { isPaused = value; } }
 
     private void Awake()
     {
@@ -69,7 +73,7 @@ public class PlayerController : MonoBehaviour
         HandleInput();
         HandleMovement();
         HandleInteraction();
-        HandleVolume(); // serve a settare il volume del suono in base al valore di inputMagnitude
+        HandleStepVolume(); // serve a settare il volume del suono in base al valore di inputMagnitude
     }
 
     // =============== INPUT HANDLING ===============
@@ -120,7 +124,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void HandleVolume()
+    public bool CanExitStealth()
+    {
+        float radius = capsuleCollider.radius;
+
+        // Altezza e centro nella modalità normale
+        float height = normalCapsuleHeight;
+        Vector3 center = normalCapsuleCenter;
+
+        // Punti del capsule in world space
+        Vector3 worldCenter = transform.position + center;
+        Vector3 point1 = worldCenter + Vector3.up * (height / 2f - radius);
+        Vector3 point2 = worldCenter - Vector3.up * (height / 2f - radius);
+
+        // Check ignorando il layer del player
+        bool blocked = Physics.CheckCapsule(
+            point1,
+            point2,
+            radius,
+            obstacleLayerMask,
+            QueryTriggerInteraction.Ignore
+        );
+
+        return !blocked;
+    }
+
+    private void HandleStepVolume()
     {
         float divider = 1f;
         if (stealth) divider = 2f;
@@ -160,14 +189,24 @@ public class PlayerController : MonoBehaviour
     // =============== EVENT HANDLING ===============
     private void InteractEvent(object sender, System.EventArgs e)
     {
+        if (isPaused) return;
         lastInteractable?.Interact();
     }
 
     private void StealthEvent(object sender, System.EventArgs e)
     {
+        if (isPaused) return;
+
+        if (stealth)
+        {
+            // Prima di rialzarti controlla se c'è spazio
+            if (!CanExitStealth())
+                return; // Non c'è spazio, resta in stealth
+        }
+
         stealth = !stealth;
 
-        // Modifica dimensioni e centro del CapsuleCollider
+        // Aggiorna dimensioni e centro del CapsuleCollider
         if (stealth)
         {
             capsuleCollider.height = stealthCapsuleHeight;

@@ -136,7 +136,11 @@ public class SoundManager : MonoBehaviour, IManager
         foreach (var src in sound3DPool)
         {
             if (src != null && !src.isPlaying)
+            {
+                if (!src.gameObject.activeSelf)
+                    src.gameObject.SetActive(true); // Assicura che sia attivo
                 return src;
+            }
         }
         return null;
     }

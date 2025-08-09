@@ -4,6 +4,8 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private PlayerController playerController;
+    private bool isPaused = false;
 
     private void Start()
     {
@@ -13,10 +15,10 @@ public class PauseManager : MonoBehaviour
 
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
+
+        if (!playerController)
+            Debug.LogWarning("PlayerController is null.");
     }
-
-
-    private bool isPaused = false;
 
     private void OnEnable()
     {
@@ -50,12 +52,14 @@ public class PauseManager : MonoBehaviour
     private void TogglePause()
     {
         isPaused = !isPaused;
+
+        if (isPaused) playerController.IsPaused = true;
+        else playerController.IsPaused = false;
+
         Time.timeScale = isPaused ? 0f : 1f;
 
         if (pauseMenuUI != null)
-        {
             pauseMenuUI.SetActive(isPaused);
-        }
     }
 
     public bool IsPaused() => isPaused;
