@@ -5629,18 +5629,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1968512696}
-    - target: {fileID: 3126561380963295020, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3767846805126799635, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1968512696}
-    - target: {fileID: 4541554329709498117, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6950526912670703428, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5803,10 +5795,6 @@ PrefabInstance:
       propertyPath: gameInput
       value: 
       objectReference: {fileID: 594623875}
-    - target: {fileID: 1487613210585491493, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
-      propertyPath: obstacleLayerMask.m_Bits
-      value: 1792
-      objectReference: {fileID: 0}
     - target: {fileID: 2436660111118661555, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -5851,49 +5839,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8279769881299269957, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
-      propertyPath: hasHealthbar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8279769881299269957, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
-      propertyPath: healthbarController
+    - target: {fileID: 7719310533874504511, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: healthbar
       value: 
-      objectReference: {fileID: 8994719771843368910}
+      objectReference: {fileID: 2120242939}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3070067201452485897, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 8994719771843368910}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
---- !u!1 &8994719771843368909 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3070067201452485897, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
-  m_PrefabInstance: {fileID: 8994719771843368908}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8994719771843368910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994719771843368909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6191d070594232f4290001732acf0872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthbar: {fileID: 2120242939}
-  smoothSpeed: 15
-  fullHealthColor: {r: 1, g: 0.7490196, b: 0, a: 1}
-  lowHealthColor: {r: 0.4188679, g: 0.31374025, b: 0, a: 1}
 --- !u!114 &8994719771843368918 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1487613210585491493, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
   m_PrefabInstance: {fileID: 8994719771843368908}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994719771843368909}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26009b69431a0b34c9ae0271e1bc76bf, type: 3}

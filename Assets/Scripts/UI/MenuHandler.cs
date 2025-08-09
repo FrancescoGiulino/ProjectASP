@@ -17,6 +17,10 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private TMP_Dropdown dropdown;
     private DropdownScroller dropdownScroller;
 
+    [Header("UI Sound")]
+    [SerializeField] private AudioClip clickSound;
+    [SerializeField] private AudioClip hooverSound;
+
     // Memorizza ultimo oggetto selezionato valido
     private GameObject lastSelectedBeforeNull;
 
@@ -93,6 +97,7 @@ public class MenuHandler : MonoBehaviour
 
     public void Play()
     {
+        PlayClickSound();
         AsyncLoader.LoadScene(this, "SampleScene");
         mainMenuUI.SetActive(false);
         loadingScreen.SetActive(true);
@@ -100,6 +105,7 @@ public class MenuHandler : MonoBehaviour
 
     public void Options()
     {
+        PlayClickSound();
         mainMenuUI.SetActive(false);
         optionsUI.SetActive(true);
         SetSelectedWithDelay(defaultButton_Settings);
@@ -113,12 +119,14 @@ public class MenuHandler : MonoBehaviour
 
     public void Quit()
     {
+        PlayClickSound();
         Debug.Log("Quitting the game...");
         Application.Quit();
     }
 
     public void BackToMainMenu()
     {
+        PlayClickSound();
         if (optionsUI != null)
             optionsUI.SetActive(false);
         mainMenuUI.SetActive(true);
@@ -149,5 +157,19 @@ public class MenuHandler : MonoBehaviour
             return;
         }
         settingsManager.LoadVolumeSettings();
+    }
+
+    public void PlayClickSound()
+    {
+        var sm = GameManager.Instance.GetSoundManager();
+        if (sm != null && clickSound != null)
+            sm.PlaySound(clickSound);
+    }
+
+    public void PlayHoverSound()
+    {
+        var sm = GameManager.Instance.GetSoundManager();
+        if (sm != null && hooverSound != null)
+            sm.PlaySound(hooverSound);
     }
 }

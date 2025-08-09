@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
   gameInput: {fileID: 0}
+  playerController: {fileID: 0}

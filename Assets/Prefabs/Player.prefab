@@ -607,6 +607,9 @@ PrefabInstance:
       addedObject: {fileID: 8279769881299269957}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 7719310533874504511}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6898150622823783907}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
@@ -652,6 +655,9 @@ MonoBehaviour:
   normalCapsuleCenter: {x: 0, y: 0.7, z: 0}
   stealthCapsuleHeight: 1.1
   stealthCapsuleCenter: {x: 0, y: 0.55, z: 0}
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 1792
   soundEventComponent: {fileID: 7473522659942857117}
 --- !u!114 &1909913754953360616
 MonoBehaviour:
@@ -684,6 +690,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  hasHealthbar: 1
+  healthbarController: {fileID: 7719310533874504511}
+--- !u!114 &7719310533874504511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070067201452485897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6191d070594232f4290001732acf0872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  smoothSpeed: 15
+  fullHealthColor: {r: 1, g: 0.7490196, b: 0, a: 1}
+  lowHealthColor: {r: 0.4188679, g: 0.31374025, b: 0, a: 1}
 --- !u!54 &6898150622823783907
 Rigidbody:
   m_ObjectHideFlags: 0
