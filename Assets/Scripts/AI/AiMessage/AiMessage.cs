@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 public class AIMessage
 {
@@ -24,12 +23,11 @@ public class AIMessage
 
         // Esempio di formattazione
         List<string> paramStrings = new List<string>();
-        foreach (var kvp in Parameters)
+        foreach (var par in Parameters)
         {
-            paramStrings.Add($"{kvp.Key}: {kvp.Value}");
+            paramStrings.Add($"{par.Key}: {par.Value}");
         }
 
         return string.Join(", ", paramStrings);
     }
-
 }
