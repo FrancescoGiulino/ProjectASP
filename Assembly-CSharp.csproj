@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Managers\Audio\SoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\Interactable\Button.cs" />
     <Compile Include="Assets\Scripts\UI\MenuHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelUIManager.cs" />
     <Compile Include="Assets\Scripts\AI\AiMessage.cs" />
     <Compile Include="Assets\Scripts\UI\AiMessage\AiMessageDisplayController.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\RbImpactSoundManager.cs" />

@@ -5,7 +5,6 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private GameObject aiMessageDisplay;
     private bool isPaused = false;
 
     private void Start()
@@ -54,18 +53,12 @@ public class PauseManager : MonoBehaviour
     {
         isPaused = !isPaused;
 
-        if (isPaused)
+        /*if (isPaused)
         {
-            playerController.IsPaused = true;
             if (aiMessageDisplay)
                 aiMessageDisplay.SetActive(false);
             else Debug.LogWarning("AiMessageDisplay is null");
-        }
-        else
-        {
-            playerController.IsPaused = false;
-            playerController.CanMove = true;
-        }
+        }*/
 
         Time.timeScale = isPaused ? 0f : 1f;
 

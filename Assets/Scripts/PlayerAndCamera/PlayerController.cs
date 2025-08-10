@@ -41,15 +41,22 @@ public class PlayerController : MonoBehaviour
 
     public bool CanMove { get; set; } = true;
     public bool IsMoving { get { return moveDir != Vector3.zero; } }
-
-    private bool isPaused = false;
-    public bool IsPaused { set; get; }
+    
+    // SINGLETON:
+    public static PlayerController Instance { get; private set; }
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         if (!rb) rb = GetComponent<Rigidbody>();
         if (!capsuleCollider) capsuleCollider = GetComponent<CapsuleCollider>();
-        if (!healthController) GetComponent<HealthController>();
+        if (!healthController) healthController = GetComponent<HealthController>();
         if (!soundEventComponent) soundEventComponent = GetComponent<SoundEventComponent>();
     }
 
@@ -189,13 +196,13 @@ public class PlayerController : MonoBehaviour
     // =============== EVENT HANDLING ===============
     private void InteractEvent(object sender, System.EventArgs e)
     {
-        if (isPaused) return;
+        if (LevelUIManager.Instance.PauseManager.IsPaused()) return;
         lastInteractable?.Interact();
     }
 
     private void StealthEvent(object sender, System.EventArgs e)
     {
-        if (isPaused) return;
+        if (LevelUIManager.Instance.PauseManager.IsPaused()) return;
 
         if (stealth)
         {

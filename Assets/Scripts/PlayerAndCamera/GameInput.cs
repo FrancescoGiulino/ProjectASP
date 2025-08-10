@@ -2,15 +2,26 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameInput : MonoBehaviour{
+public class GameInput : MonoBehaviour
+{
+    public static GameInput Instance { get; private set; }
+
     public event EventHandler OnInteractAction;
     public event EventHandler OnStealthAction;
     public event EventHandler OnPauseAction;
     public event EventHandler OnToggleSidePanel;
+
     private PlayerInputActions playerInputActions;
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
@@ -34,7 +45,6 @@ public class GameInput : MonoBehaviour{
     public Vector2 GetInputVectorNormalized()
     {
         Vector2 input = playerInputActions.Player.Move.ReadValue<Vector2>();
-        input = input.normalized;
-        return input;
+        return input.normalized;
     }
 }
