@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public bool IsMoving { get { return moveDir != Vector3.zero; } }
 
     private bool isPaused = false;
-    public bool IsPaused { set { isPaused = value; } }
+    public bool IsPaused { set; get; }
 
     private void Awake()
     {

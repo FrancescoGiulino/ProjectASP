@@ -39,14 +39,26 @@ public class AiMessagePanelController : MonoBehaviour
             return;
         }
 
+        PlayerController player = FindFirstObjectByType<PlayerController>();
+        if (player != null && player.IsPaused)
+        {
+            // Gioco in pausa → non aprire/chiudere il pannello IA
+            return;
+        }
+
         bool isActive = !aiMessageDisplay.activeSelf;
         aiMessageDisplay.SetActive(isActive);
+
+        // Disattiva/attiva movimento player
+        if (player != null)
+            player.CanMove = !isActive;
 
         if (isActive)
             selectionController.SelectLastMessage();
         else
             selectionController.ResetSelection();
     }
+
 
     public void DisplayMessage(AIMessage message)
     {
@@ -59,4 +71,6 @@ public class AiMessagePanelController : MonoBehaviour
         // Registra il messaggio senza modificare scroll o selezione
         selectionController.RegisterNewMessage(newMessage);
     }
+
+    public GameObject GetAiMessageDisplay() => aiMessageDisplay;
 }

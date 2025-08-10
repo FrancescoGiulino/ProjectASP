@@ -124,6 +124,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7825449639736409721, guid: e2f14c7c0baa5de40b6ab9bfa3643c6f, type: 3}
   m_PrefabInstance: {fileID: 768682084}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &30364084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3913457939127628221, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
+  m_PrefabInstance: {fileID: 8538810499891947341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &34394534
 Mesh:
   m_ObjectHideFlags: 0
@@ -5596,6 +5601,10 @@ PrefabInstance:
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 1589673413}
+    - target: {fileID: 7666201763167077945, guid: 6893a37d0ccd55b498c65f669dc029ac, type: 3}
+      propertyPath: aiMessageDisplay
+      value: 
+      objectReference: {fileID: 30364084}
     - target: {fileID: 7666201763167077945, guid: 6893a37d0ccd55b498c65f669dc029ac, type: 3}
       propertyPath: playerController
       value: 
