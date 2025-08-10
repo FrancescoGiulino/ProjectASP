@@ -4172,7 +4172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiMessagePanelController: {fileID: 1309465508}
-  interval: 5
+  interval: 2
 --- !u!4 &1960500870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2436660111118661555, guid: d06851eae023c8047adf7c67d26dd307, type: 3}

@@ -5,17 +5,31 @@ public class AIMessage
 {
     public AIMessageType Type { get; }
     public string SenderName { get; }
-    public Dictionary<string, object> Params { get; }
+    public string SenderType { get; }
+    public Dictionary<string, object> Parameters { get; }
 
-    public AIMessage(AIMessageType type, string senderName, Dictionary<string, object> parameters)
+    public AIMessage(AIMessageType type, string senderName, string senderType, Dictionary<string, object> parameters)
     {
         Type = type;
         SenderName = senderName;
-        Params = parameters;
+        SenderType = senderType;
+        Parameters = parameters;
     }
 
-    public string GetFormattedText()
+    public string GetParameters()
     {
-        return string.Format(Type.text, Params.Values.ToArray());
+        // Solo i parametri, senza il testo principale
+        if (Parameters == null || Parameters.Count == 0)
+            return "";
+
+        // Esempio di formattazione
+        List<string> paramStrings = new List<string>();
+        foreach (var kvp in Parameters)
+        {
+            paramStrings.Add($"{kvp.Key}: {kvp.Value}");
+        }
+
+        return string.Join(", ", paramStrings);
     }
+
 }

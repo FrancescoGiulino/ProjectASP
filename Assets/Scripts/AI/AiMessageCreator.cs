@@ -30,15 +30,16 @@ public class AiMessageCreator : MonoBehaviour
 
     public void WriteMessage()
     {
+        Debug.Log("[WriteMessage] writing message.");
         // Carica il tipo di messaggio
         int randomIndex = Random.Range(0, allMessageTypes.Length);
         AIMessageType type = allMessageTypes[randomIndex];
-
 
         // Crea un messaggio di esempio
         AIMessage message = new AIMessage(
             type,
             "Lumen Sentinel",
+            "Eco-Sentinel",
             new Dictionary<string, object>
             {
                 { "coordinates", "(x:??, y:??, z:??)" }
@@ -50,7 +51,6 @@ public class AiMessageCreator : MonoBehaviour
             Debug.LogError("AIMessageCreator: tipo messaggio 'TargetDetectedMsg' non trovato nella cartella Resources/AIMessages!");
             return;
         }
-
 
         // Mostra il messaggio nel pannello
         aiMessagePanelController.DisplayMessage(message);

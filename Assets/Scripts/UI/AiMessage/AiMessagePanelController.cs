@@ -43,17 +43,14 @@ public class AiMessagePanelController : MonoBehaviour
         aiMessageDisplay.SetActive(isActive);
 
         if (isActive)
-        {
             selectionController.SelectLastMessage();
-        }
         else
-        {
             selectionController.ResetSelection();
-        }
     }
 
     public void DisplayMessage(AIMessage message)
     {
+        Debug.Log("[DisplayMessage] message displayed.");
         GameObject newMessage = messageController.CreateMessage(message);
 
         if (selectionController.FirstSelectable == null)
