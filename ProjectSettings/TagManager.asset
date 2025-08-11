@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rigidbody
   - Bullet
+  - BatteryChargingStation
   layers:
   - Default
   - TransparentFX

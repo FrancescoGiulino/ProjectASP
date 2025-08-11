@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\UI\CustomScrollRect.cs" />
     <Compile Include="Assets\Scripts\UI\AiMessage\AiSelectionController.cs" />
     <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
+    <Compile Include="Assets\Scripts\ModularControllers\ParticleEmitter.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Devices\Turret.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\LightController.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Assets\Scripts\UI\AiMessage\AiMessageDisplayController.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\RbImpactSoundManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\RotationPatrol.cs" />
+    <Compile Include="Assets\Scripts\HealthAndBulletRefilling\BatteryChargerDetector.cs" />
     <Compile Include="Assets\Scripts\SceneHandling\AsyncLoader.cs" />
   </ItemGroup>
   <ItemGroup>
