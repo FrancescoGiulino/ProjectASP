@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class ParticleEmitter : MonoBehaviour
 {
-    [Serializable]
-    public enum ParticleType
+    [Serializable] public enum ParticleType
     {
         Heal,
         Damage,
         Walking
     }
 
-    [Serializable]
-    public class ParticleEntry
+    [Serializable] public class ParticleEntry
     {
         public ParticleType type;
         public ParticleSystem prefab;
+        public Vector3 offset = Vector3.zero; // <-- offset personalizzato
     }
 
     [Header("Particle Library")]
@@ -31,8 +30,9 @@ public class ParticleEmitter : MonoBehaviour
         {
             if (entry.prefab != null && !particleLibrary.ContainsKey(entry.type))
             {
-                // Istanzio il prefab come figlio
+                // Istanzio il prefab come figlio, con offset
                 ParticleSystem instance = Instantiate(entry.prefab, transform);
+                instance.transform.localPosition = entry.offset;
                 instance.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                 particleLibrary.Add(entry.type, instance);
             }
