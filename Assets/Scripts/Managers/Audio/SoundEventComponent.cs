@@ -9,7 +9,8 @@ public enum SoundType
     Hit,
     Death,
     Activate,
-    Deactivate
+    Deactivate,
+    Heal
 }
 
 [Serializable]

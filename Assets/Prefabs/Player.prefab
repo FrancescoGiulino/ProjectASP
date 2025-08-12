@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -623,6 +623,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7473522659942857117}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1935567761389523453}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6563659025876737726}
   m_SourcePrefab: {fileID: 100100000, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
 --- !u!1 &3070067201452485897 stripped
 GameObject:
@@ -815,7 +821,44 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b37306392d48a69429ba8f3bb6ccf6bf, type: 3}
   - soundType: 3
     clip: {fileID: 8300000, guid: 0b986599edf6c7b4e9069a4b83e7f20d, type: 3}
+  - soundType: 6
+    clip: {fileID: 8300000, guid: 7b7dbf99f7d47d147a101ce261ef5539, type: 3}
   addPitch: 0.25
+--- !u!114 &1935567761389523453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070067201452485897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b804ba8b6481f44a3e75b09d42d406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 2
+  chargingStationTag: BatteryChargingStation
+  healthController: {fileID: 8279769881299269957}
+  healAmount: 10
+  healCooldown: 1
+  soundEventComponent: {fileID: 7473522659942857117}
+  particleEmitter: {fileID: 6563659025876737726}
+--- !u!114 &6563659025876737726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070067201452485897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f21bcc6506540142a7abef1661eda45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEntries:
+  - type: 0
+    prefab: {fileID: 6787994657273804420, guid: 95873de2893d48f4e899d93e0dafcf8f, type: 3}
+    offset: {x: 0, y: 0.7, z: 0}
 --- !u!4 &3272754383244362150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8416857379038555650, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}

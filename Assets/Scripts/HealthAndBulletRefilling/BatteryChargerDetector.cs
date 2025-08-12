@@ -11,6 +11,9 @@ public class BatteryChargerDetector : MonoBehaviour
     [SerializeField] private float healAmount = 10f;
     [SerializeField] private float healCooldown = 1f; // intervallo tra una cura e l'altra
 
+    [Header("Sounds")]
+    [SerializeField] private SoundEventComponent soundEventComponent;
+
     [Header("Particles")]
     [SerializeField] private ParticleEmitter particleEmitter;
 
@@ -39,8 +42,11 @@ public class BatteryChargerDetector : MonoBehaviour
                 if (particleEmitter != null)
                     particleEmitter.Play(ParticleEmitter.ParticleType.Heal);
 
+                if (soundEventComponent != null)
+                    soundEventComponent.PlaySound(SoundType.Heal);
+
                 // Avvia cooldown
-                canHeal = false;
+                    canHeal = false;
                 Invoke(nameof(ResetHeal), healCooldown);
 
                 break;
