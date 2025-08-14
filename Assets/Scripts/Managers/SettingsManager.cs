@@ -82,7 +82,7 @@ public class SettingsManager : MonoBehaviour
             PlayerPrefs.SetString("Resolution", key);
             PlayerPrefs.Save();
 
-            Debug.Log($"Impostata risoluzione a {size.x}x{size.y}, fullscreen: {isFullScreen}");
+            //Debug.Log($"Impostata risoluzione a {size.x}x{size.y}, fullscreen: {isFullScreen}");
         }
     }
 
@@ -100,7 +100,7 @@ public class SettingsManager : MonoBehaviour
         {
             targetWidth /= 2;
             targetHeight /= 2;
-            Debug.Log($"Risoluzione ridotta per modalità finestra: {targetWidth}x{targetHeight} (screen: {screenWidth}x{screenHeight})");
+            //Debug.Log($"Risoluzione ridotta per modalità finestra: {targetWidth}x{targetHeight} (screen: {screenWidth}x{screenHeight})");
         }
 
         Screen.SetResolution(targetWidth, targetHeight, isFullScreen);

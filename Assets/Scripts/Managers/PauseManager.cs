@@ -51,14 +51,13 @@ public class PauseManager : MonoBehaviour
 
     private void TogglePause()
     {
-        isPaused = !isPaused;
-
-        /*if (isPaused)
+        if (PlayerController.Instance.GetHealthController().IsDead)
         {
-            if (aiMessageDisplay)
-                aiMessageDisplay.SetActive(false);
-            else Debug.LogWarning("AiMessageDisplay is null");
-        }*/
+            isPaused = true;
+            return;
+        }
+
+        isPaused = !isPaused;
 
         Time.timeScale = isPaused ? 0f : 1f;
 

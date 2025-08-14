@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -8,10 +9,12 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private GameObject gameOverUI;
 
     [Header("Navigation System")]
     [SerializeField] private GameObject defaultButton_MainMenu;
     [SerializeField] private GameObject defaultButton_Settings;
+    [SerializeField] private GameObject defaultButton_GameOver;
 
     [Header("Dropdown Fix")]
     [SerializeField] private TMP_Dropdown dropdown;
@@ -23,6 +26,9 @@ public class MenuHandler : MonoBehaviour
 
     // Memorizza ultimo oggetto selezionato valido
     private GameObject lastSelectedBeforeNull;
+
+    // Flag per evitare che Update sovrascriva la selezione appena impostata
+    private bool forceDefaultSelection;
 
     private void Start()
     {
@@ -44,17 +50,25 @@ public class MenuHandler : MonoBehaviour
             loadingScreen.SetActive(false);
     }
 
-    private void SetSelectedWithDelay(GameObject target) => StartCoroutine(DelaySelect(target));
+    private void SetSelectedWithDelay(GameObject target)
+    {
+        forceDefaultSelection = true;
+        StartCoroutine(DelaySelect(target));
+    }
 
     private System.Collections.IEnumerator DelaySelect(GameObject target)
     {
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(target);
+        yield return null;
+        forceDefaultSelection = false;
     }
 
     private void Update()
     {
+        if (forceDefaultSelection) return;
+
         var current = EventSystem.current.currentSelectedGameObject;
 
         // Aggiorna "memoria" se la selezione è valida
@@ -64,7 +78,6 @@ public class MenuHandler : MonoBehaviour
         }
         else if (current != null && !current.activeInHierarchy)
         {
-            // se è disattivato, lo annullo
             EventSystem.current.SetSelectedGameObject(null);
             current = null;
         }
@@ -78,18 +91,18 @@ public class MenuHandler : MonoBehaviour
 
             if (inputDetected)
             {
-                // Se ho un ultimo selezionato valido, ripristino quello
                 if (lastSelectedBeforeNull != null && lastSelectedBeforeNull.activeInHierarchy)
                 {
                     EventSystem.current.SetSelectedGameObject(lastSelectedBeforeNull);
                 }
                 else
                 {
-                    // altrimenti uso il default
-                    if (optionsUI.activeInHierarchy)
+                    if (optionsUI!=null && optionsUI.activeInHierarchy)
                         EventSystem.current.SetSelectedGameObject(defaultButton_Settings);
-                    else if (mainMenuUI.activeInHierarchy)
+                    else if (mainMenuUI!=null && mainMenuUI.activeInHierarchy)
                         EventSystem.current.SetSelectedGameObject(defaultButton_MainMenu);
+                    else if (gameOverUI!=null && gameOverUI.activeInHierarchy)
+                        EventSystem.current.SetSelectedGameObject(defaultButton_GameOver);
                 }
             }
         }
@@ -98,7 +111,7 @@ public class MenuHandler : MonoBehaviour
     public void Play()
     {
         PlayClickSound();
-        AsyncLoader.LoadScene(this, "SampleScene");
+        AsyncLoader.LoadScene(this, "Level1");
         mainMenuUI.SetActive(false);
         loadingScreen.SetActive(true);
     }
@@ -148,6 +161,12 @@ public class MenuHandler : MonoBehaviour
         AsyncLoader.LoadScene(this, "MainMenu");
     }
 
+    public void ReloadCurrentScene()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        AsyncLoader.LoadScene(this, currentSceneName);
+    }
+
     private void LoadVolumeSettings()
     {
         SettingsManager settingsManager = FindFirstObjectByType<SettingsManager>();
@@ -157,6 +176,15 @@ public class MenuHandler : MonoBehaviour
             return;
         }
         settingsManager.LoadVolumeSettings();
+    }
+
+    public void ShowGameOverScreen()
+    {
+        PlayClickSound();
+        mainMenuUI.SetActive(false);
+        optionsUI.SetActive(false);
+        gameOverUI.SetActive(true);
+        SetSelectedWithDelay(defaultButton_GameOver);
     }
 
     public void PlayClickSound()

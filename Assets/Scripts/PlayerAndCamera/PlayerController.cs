@@ -232,6 +232,9 @@ public class PlayerController : MonoBehaviour
         CanMove = false;
         rb.isKinematic = true; // Disable Rigidbody physics
         soundEventComponent.PlaySound(SoundType.Death); // Play death sound
+
+        LevelUIManager.Instance.ActivatePauseMenu();
+        LevelUIManager.Instance.GetMenuHandler().ShowGameOverScreen();
     }
 
     // =============== PUBLIC METHODS ===============
