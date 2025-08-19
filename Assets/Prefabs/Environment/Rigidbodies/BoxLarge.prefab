@@ -74,6 +74,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b03bf64e84eb5b469852aac5677e938, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8762458875090007449}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b03bf64e84eb5b469852aac5677e938, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5935910010200112448}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b03bf64e84eb5b469852aac5677e938, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 932541491453338377}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b03bf64e84eb5b469852aac5677e938, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6222099778415579468}
   m_SourcePrefab: {fileID: 100100000, guid: 1b03bf64e84eb5b469852aac5677e938, type: 3}
 --- !u!1 &974980574687264860 stripped
 GameObject:
@@ -128,3 +137,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2499999, y: 0.62499994, z: 1.2499999}
   m_Center: {x: 0, y: 0.31249997, z: 0}
+--- !u!208 &5935910010200112448
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974980574687264860}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.625, y: 0.312, z: 0.625}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.312, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &932541491453338377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974980574687264860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 2
+    clip: {fileID: 8300000, guid: ecf22c7caa5905649bedd1592faa5bbf, type: 3}
+  addPitch: 0.3
+--- !u!114 &6222099778415579468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974980574687264860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2cd7094959ea24180ffe65ea409a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minImpactForce: 1
+  maxImpactForce: 7
+  impactSoundType: 2

@@ -45,6 +45,9 @@ GameObject:
   - component: {fileID: 8786596368513345357}
   - component: {fileID: 2051012465602321256}
   - component: {fileID: 1394184705407744943}
+  - component: {fileID: 2442102581472460365}
+  - component: {fileID: 7367745263977308432}
+  - component: {fileID: 1697946851565642823}
   m_Layer: 11
   m_Name: Fence_Long
   m_TagString: Rigidbody
@@ -169,3 +172,50 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2442102581472460365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129407839819663000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 2
+    clip: {fileID: 8300000, guid: 89a6fcc59bddba3468dace60a6198d95, type: 3}
+  addPitch: 0.3
+--- !u!114 &7367745263977308432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129407839819663000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2cd7094959ea24180ffe65ea409a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minImpactForce: 1
+  maxImpactForce: 7
+  impactSoundType: 2
+--- !u!208 &1697946851565642823
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129407839819663000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.4250001, y: 0.29200003, z: 0.497}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.497}
+  m_TimeToStationary: 0.5

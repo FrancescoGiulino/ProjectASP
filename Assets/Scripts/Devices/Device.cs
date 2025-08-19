@@ -27,7 +27,7 @@ public class Device : MonoBehaviour
 
     protected bool previousActiveState = false;
 
-    protected void Start()
+    protected virtual void Start()
     {
         if (animated && !animationController)
             animationController = GetComponent<AnimationController>();
