@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\ModularControllers\TargetDetectionController.cs" />
     <Compile Include="Assets\Resources\ScriptableObjects\AiMessageType.cs" />
     <Compile Include="Assets\Scripts\Devices\Door.cs" />
+    <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\UI\DropdownScroller.cs" />
     <Compile Include="Assets\Scripts\Managers\IManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\Shooter.cs" />
