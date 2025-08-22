@@ -3,28 +3,28 @@ using UnityEngine;
 public class TargetDetectionController : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private LayerMask targetLayer;
-    [SerializeField] private LayerMask obstacleLayer;
-    [SerializeField] private bool debugMode = false;
+    [SerializeField] protected LayerMask targetLayer;
+    [SerializeField] protected LayerMask obstacleLayer;
+    [SerializeField] protected bool debugMode = false;
 
     [Header("Sphere Settings")]
-    [SerializeField] private Vector3 sphereOffset = Vector3.zero;
-    [SerializeField] private float sphereRadius = 1f;
+    [SerializeField] protected Vector3 sphereOffset = Vector3.zero;
+    [SerializeField] protected float sphereRadius = 1f;
 
     [Header("Raycast Target Offsets")]
-    [SerializeField] private float lowOffset = 0.2f;
-    [SerializeField] private float midOffset = 0.7f;
-    [SerializeField] private float highOffset = 1.2f;
+    [SerializeField] protected float lowOffset = 0.2f;
+    [SerializeField] protected float midOffset = 0.7f;
+    [SerializeField] protected float highOffset = 1.2f;
 
-    private Collider[] targetsInRange;
-    private Vector3 spherePosition;
+    protected Collider[] targetsInRange;
+    protected Vector3 spherePosition;
 
-    private void Awake()
+    protected void Awake()
     {
         CalculateSpherePosition();
     }
 
-    private void Update()
+    protected void Update()
     {
         CalculateSpherePosition();
     }
@@ -44,7 +44,7 @@ public class TargetDetectionController : MonoBehaviour
         return false;
     }
 
-    private bool IsTargetVisible(Collider target)
+    protected bool IsTargetVisible(Collider target)
     {
         Vector3 origin = transform.position;
         int combinedMask = obstacleLayer | targetLayer;
@@ -87,13 +87,13 @@ public class TargetDetectionController : MonoBehaviour
         return Vector3.zero;
     }
 
-    private void CalculateSpherePosition()
+    protected void CalculateSpherePosition()
     {
         Vector3 worldOffset = transform.rotation * sphereOffset;
         spherePosition = transform.position + worldOffset;
     }
 
-    private void OnDrawGizmos()
+    protected void OnDrawGizmos()
     {
         CalculateSpherePosition();
         if (!debugMode) return;
