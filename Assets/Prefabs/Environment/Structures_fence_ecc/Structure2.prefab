@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1493194334856926583}
   - component: {fileID: 5147622044607102616}
   - component: {fileID: 4399855493453609465}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Structure_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,8 +66,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -5243988174349660497, guid: c453a0eb855eb8b4383d4f22222bfac0, type: 3}
-  - {fileID: -2653651044934150266, guid: c453a0eb855eb8b4383d4f22222bfac0, type: 3}
-  - {fileID: -2505642851634945670, guid: c453a0eb855eb8b4383d4f22222bfac0, type: 3}
+  - {fileID: 2100000, guid: 45fe784924954f44db84f17f9d5d618d, type: 2}
+  - {fileID: 2100000, guid: 904e73b0dc20fec4bbb9ebe7988ddaea, type: 2}
   - {fileID: -1444460858095362738, guid: c453a0eb855eb8b4383d4f22222bfac0, type: 3}
   - {fileID: 4253588671899480465, guid: c453a0eb855eb8b4383d4f22222bfac0, type: 3}
   - {fileID: 3312050983373826766, guid: c453a0eb855eb8b4383d4f22222bfac0, type: 3}

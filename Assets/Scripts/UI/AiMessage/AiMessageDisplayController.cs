@@ -100,7 +100,7 @@ public class AiMessageDisplayController : MonoBehaviour
         {
             parametersText = parametersTransform.GetComponent<TextMeshProUGUI>();
             if (parametersText!=null)
-                parametersText.text = message.GetParameters();
+                parametersText.text = message.ParametersText;
         }
 
         if (imageTransform != null)

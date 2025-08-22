@@ -1,23 +1,23 @@
 using UnityEngine;
 
-public class IdleState : IEnemyState
+public class LookState : IEnemyState
 {
-    private float idleTimer;
-    private float idleToPatrolTimer;
+    private float lookTimer;
+    private float lookToPatrolTimer;
     private Quaternion targetRotation;
 
     public void Enter(EnemyStateController enemy)
     {
         enemy.Agent.ResetPath();
-        idleTimer = 0f;
-        idleToPatrolTimer = 0f;
+        lookTimer = 0f;
+        lookToPatrolTimer = 0f;
         targetRotation = enemy.transform.rotation;
     }
 
     public void Update(EnemyStateController enemy)
     {
-        idleTimer += Time.deltaTime;
-        idleToPatrolTimer += Time.deltaTime;
+        lookTimer += Time.deltaTime;
+        lookToPatrolTimer += Time.deltaTime;
 
         // Rotazione graduale
         enemy.transform.rotation = Quaternion.RotateTowards(
@@ -27,9 +27,9 @@ public class IdleState : IEnemyState
         );
 
         // Nuova rotazione ogni tot secondi
-        if (idleTimer >= enemy.IdleRotationTime)
+        if (lookTimer >= enemy.LookRotationTime)
         {
-            idleTimer = 0f;
+            lookTimer = 0f;
             float angle = Random.value > 0.5f ? 90f : -90f;
             targetRotation = Quaternion.Euler(0, enemy.transform.eulerAngles.y + angle, 0);
         }
@@ -43,8 +43,8 @@ public class IdleState : IEnemyState
         }
 
 
-        // Se troppo in idle → Patrol
-        if (idleToPatrolTimer >= enemy.MaxIdleTime)
+        // Se troppo in look → Patrol
+        if (lookToPatrolTimer >= enemy.MaxLookTime)
         {
             enemy.GoToClosestPatrolPoint();
             enemy.ChangeState(new PatrolState());

@@ -78,7 +78,7 @@ public class Device : MonoBehaviour
                 animationController.PlayAnimation("Deactivate");
         }
     }
-    
+
     protected virtual void HandleLightController()
     {
         if (hasLightController && lightController != null)
@@ -119,4 +119,6 @@ public class Device : MonoBehaviour
     }
 
     protected virtual void HandleLogic() { }
+
+    public TargetDetectionController GetTargetDetectionController() => targetDetectionController;    
 }

@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Messages Types:
+    - AmmoDeplatedMsg
+    - BatteryDeplatedMsg
+    - LowAmmoMsg
+    - LowBatteryMsg
+    - SuspiciousMovementMsg
+    - TargetDamagedMsg
+    - TargetDetectedMsg
+*/
+
 public class AiMessageCreator : MonoBehaviour
 {
     [SerializeField] private AiMessagePanelController aiMessagePanelController;
@@ -14,7 +25,7 @@ public class AiMessageCreator : MonoBehaviour
         allMessageTypes = Resources.LoadAll<AIMessageType>("ScriptableObjects");
         if (allMessageTypes == null || allMessageTypes.Length == 0)
             Debug.LogError("Nessun AIMessageType trovato in Resources/ScriptableObjects!");
-        
+
         StartCoroutine(CreateMessagesRoutine());
     }
 
@@ -40,10 +51,8 @@ public class AiMessageCreator : MonoBehaviour
             type,
             "Lumen Sentinel",
             "Eco-Sentinel",
-            new Dictionary<string, object>
-            {
-                { "coordinates", "(x:??, y:??, z:??)" }
-            }
+            $"coordinates: x:??; y:??; z:??",
+            new Dictionary<string, string> { { "coordinates", "??, ??, ??" } }
         );
 
         if (type == null)

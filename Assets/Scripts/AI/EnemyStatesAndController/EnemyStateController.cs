@@ -18,10 +18,13 @@ public class EnemyStateController : MonoBehaviour
     [SerializeField] private Vector3[] patrolPoints;
     private int currentPatrolIndex = 0;
 
-    [Header("Idle Settings")]
-    [SerializeField] private float idleRotationTime = 1.5f;
+    [Header("Look Settings")]
+    [SerializeField] private float lookRotationTime = 1.5f;
     [SerializeField] private float rotationSpeed = 120f;
-    [SerializeField] private float maxIdleTime = 4f;
+    [SerializeField] private float maxLookTime = 4f;
+
+    [Header("Shooter")]
+    [SerializeField] private Shooter shooter;
 
     [Header("EnemyFXController")]
     [SerializeField] private EnemyFXController enemyFXController;
@@ -31,14 +34,15 @@ public class EnemyStateController : MonoBehaviour
 
     public bool IsWalking { get; private set; }
     public bool IsRunning { get; private set; }
+    public Shooter Shooter { get { return shooter; } }
 
     // Variabili accessibili dagli stati
     public Transform Target => target;
     public NavMeshAgent Agent => navMeshAgent;
     public EnemyTargetDetectionController Detection => targetDetectionController;
-    public float IdleRotationTime => idleRotationTime;
+    public float LookRotationTime => lookRotationTime;
     public float RotationSpeed => rotationSpeed;
-    public float MaxIdleTime => maxIdleTime;
+    public float MaxLookTime => maxLookTime;
     public Vector3 CheckPosition { get; private set; }
 
     private void Awake()
@@ -70,7 +74,7 @@ public class EnemyStateController : MonoBehaviour
     {
         if (patrolPoints.Length == 0)
         {
-            ChangeState(new IdleState());
+            ChangeState(new LookState());
             return;
         }
 

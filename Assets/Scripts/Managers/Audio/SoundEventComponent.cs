@@ -26,11 +26,9 @@ public class SoundTypeClipPair
 
 public class SoundEventComponent : MonoBehaviour
 {
-    [SerializeField]
-    protected List<SoundTypeClipPair> soundEntries = new List<SoundTypeClipPair>();
+    [SerializeField] protected List<SoundTypeClipPair> soundEntries = new List<SoundTypeClipPair>();
 
-    [Tooltip("Pitch da applicare quando si riproduce un suono.")]
-    [Range(0f, 1f)]
+    [Tooltip("Pitch da applicare quando si riproduce un suono.")] [Range(0f, 1f)]
     [SerializeField] protected float addPitch = 0f;
     public float AddPitch => addPitch;
 

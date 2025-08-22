@@ -70,6 +70,7 @@
     <Compile Include="Assets\InputActions\PlayerInputActions.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\ChaseState.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\IEnemyState.cs" />
+    <Compile Include="Assets\Scripts\Managers\Audio\CameraSoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\EnemyTargetDetectionController.cs" />
     <Compile Include="Assets\Scripts\Devices\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\EnemyFXController.cs" />
@@ -95,8 +96,8 @@
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\EnemySoundListener.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\IdleState.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
+    <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\LookState.cs" />
     <Compile Include="Assets\Scripts\UI\AiMessage\AiMessagePanelController.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\MusicManager.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\TargetDetectionController.cs" />

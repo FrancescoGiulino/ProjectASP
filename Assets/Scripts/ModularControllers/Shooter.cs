@@ -17,8 +17,6 @@ public class Shooter : MonoBehaviour
             Debug.LogWarning("ProjectileShooter: Nessun prefab di proiettile assegnato!");
             return;
         }
-        
-        //Debug.Log("Shoot() chiamato");
 
         // Se non ci sono shootPoint, usa il transform dell'oggetto
         if (shootPoint == null || shootPoint.Length == 0)

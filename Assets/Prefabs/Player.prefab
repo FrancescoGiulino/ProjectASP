@@ -604,6 +604,9 @@ PrefabInstance:
       addedObject: {fileID: 1909913754953360616}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 8549732723777722697}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 8279769881299269957}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
@@ -620,9 +623,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6596279086449543768}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7473522659942857117}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb9880ced2ede8a4c8a5d2281e5b374d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1935567761389523453}
@@ -664,7 +664,7 @@ MonoBehaviour:
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 1792
-  soundEventComponent: {fileID: 7473522659942857117}
+  soundEventComponent: {fileID: 0}
 --- !u!114 &1909913754953360616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,6 +683,33 @@ MonoBehaviour:
   - {fileID: 3272754383244362150}
   stealthBendAngle: 25
   bendSpeed: 140
+--- !u!114 &8549732723777722697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070067201452485897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a2220d90b19414183880f70cb8edbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 0
+    clip: {fileID: 8300000, guid: b37306392d48a69429ba8f3bb6ccf6bf, type: 3}
+    suspicious: 1
+    range: 2
+  - soundType: 3
+    clip: {fileID: 8300000, guid: 0b986599edf6c7b4e9069a4b83e7f20d, type: 3}
+    suspicious: 0
+    range: 0
+  - soundType: 6
+    clip: {fileID: 8300000, guid: 7b7dbf99f7d47d147a101ce261ef5539, type: 3}
+    suspicious: 0
+    range: 0
+  addPitch: 0.25
+  player: {fileID: 1487613210585491493}
 --- !u!114 &8279769881299269957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,26 +831,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &7473522659942857117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3070067201452485897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4327f2210b2543a4d8ed51610453600d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEntries:
-  - soundType: 0
-    clip: {fileID: 8300000, guid: b37306392d48a69429ba8f3bb6ccf6bf, type: 3}
-  - soundType: 3
-    clip: {fileID: 8300000, guid: 0b986599edf6c7b4e9069a4b83e7f20d, type: 3}
-  - soundType: 6
-    clip: {fileID: 8300000, guid: 7b7dbf99f7d47d147a101ce261ef5539, type: 3}
-  addPitch: 0.25
 --- !u!114 &1935567761389523453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,7 +848,7 @@ MonoBehaviour:
   healthController: {fileID: 8279769881299269957}
   healAmount: 10
   healCooldown: 1
-  soundEventComponent: {fileID: 7473522659942857117}
+  soundEventComponent: {fileID: 0}
   particleEmitter: {fileID: 6563659025876737726}
 --- !u!114 &6563659025876737726
 MonoBehaviour:

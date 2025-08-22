@@ -14,6 +14,7 @@ public class EnemyFXController : MonoBehaviour
     public void SetLightColor(string currentState)
     {
         if (currentState == "ChaseState") lightController?.SetColor(Color.red);
+        else if (currentState == "LookState" || currentState == "CheckState") lightController?.SetColor(Color.yellow);
         else lightController?.SetColor(Color.white);
     }
 }

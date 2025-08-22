@@ -11,7 +11,7 @@ public class ChaseState : IEnemyState
     {
         if (!enemy.Detection.IsTargetInChaseRange())
         {
-            enemy.ChangeState(new IdleState());
+            enemy.ChangeState(new LookState());
             return;
         }
 
