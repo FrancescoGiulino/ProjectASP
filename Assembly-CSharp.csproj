@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
+    <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\EnemySoundListener.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\IdleState.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\Scripts\UI\AiMessage\AiMessagePanelController.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Assets\Scripts\ModularControllers\Bullet.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\CheckState.cs" />
+    <Compile Include="Assets\Scripts\Managers\Audio\PlayerSoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\SoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\Interactable\Button.cs" />

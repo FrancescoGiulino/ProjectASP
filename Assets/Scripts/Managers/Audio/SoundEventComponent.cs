@@ -18,6 +18,10 @@ public class SoundTypeClipPair
 {
     public SoundType soundType;
     public AudioClip clip;
+
+    [Header("AI parameters")]
+    public bool suspicious; // se vero --> i nemici possono "sentire"
+    public float range = 5f; // raggio della percezione sonora
 }
 
 public class SoundEventComponent : MonoBehaviour
@@ -35,11 +39,11 @@ public class SoundEventComponent : MonoBehaviour
 
     private List<AudioSource> activeSources = new List<AudioSource>();
 
-    public AudioClip GetClip(SoundType soundType)
+    private SoundTypeClipPair GetEntry(SoundType soundType)
     {
         foreach (var entry in soundEntries)
             if (entry.soundType == soundType)
-                return entry.clip;
+                return entry;
         return null;
     }
 
@@ -55,40 +59,61 @@ public class SoundEventComponent : MonoBehaviour
 
     public void PlayLoopingSound(SoundType soundType)
     {
-        AudioClip clip = GetClip(soundType);
-        if (clip != null)
+        var entry = GetEntry(soundType);
+        if (entry?.clip != null)
         {
             SoundManager sm = GameManager.Instance.GetSoundManager();
             var applyPitch = UnityEngine.Random.Range(1f - addPitch, 1f + addPitch);
             if (sm != null)
             {
-                AudioSource source = sm.Play3DSoundLoop(clip, transform.position, volume, applyPitch);
+                AudioSource source = sm.Play3DSoundLoop(entry.clip, transform.position, volume, applyPitch);
                 if (source != null)
                     activeSources.Add(source);
+
+                // Se il suono è sospetto → notifica i nemici
+                if (entry.suspicious)
+                    EmitSoundWave(entry.range);
             }
         }
         else
             Debug.LogWarning($"Looping clip per {soundType} non definito in {gameObject.name}");
     }
 
-
     private void PlayInternal(SoundType soundType, float customVolume)
     {
-        AudioClip clip = GetClip(soundType);
-        if (clip != null)
+        var entry = GetEntry(soundType);
+        if (entry?.clip != null)
         {
             SoundManager sm = GameManager.Instance.GetSoundManager();
             var applyPitch = UnityEngine.Random.Range(1f - addPitch, 1f + addPitch);
             if (sm != null)
             {
-                AudioSource source = sm.Play3DSound(clip, transform.position, customVolume, applyPitch);
+                AudioSource source = sm.Play3DSound(entry.clip, transform.position, customVolume, applyPitch);
                 if (source != null)
                     activeSources.Add(source);
+
+                // Se il suono è sospetto --> notifica i nemici
+                if (entry.suspicious)
+                    EmitSoundWave(entry.range);
             }
         }
         else
         {
             Debug.LogWarning($"Clip per {soundType} non definito in {gameObject.name}");
+        }
+    }
+
+    protected virtual void EmitSoundWave(float range)
+    {
+        // Trova tutti i colliders nel raggio
+        Collider[] hits = Physics.OverlapSphere(transform.position, range);
+
+        foreach (var hit in hits)
+        {
+            // Cerca anche nei parent (utile se EnemySoundListener è sul root e il collider su un figlio)
+            EnemySoundListener listener = hit.GetComponentInParent<EnemySoundListener>();
+            if (listener != null)
+                listener.OnSoundHeard(transform.position);
         }
     }
 

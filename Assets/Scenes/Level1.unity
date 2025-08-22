@@ -4822,7 +4822,7 @@ PrefabInstance:
       objectReference: {fileID: 1917318058}
     - target: {fileID: 802174357772616606, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_VersionIndex
-      value: 67
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1515498418836419747, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17229,6 +17229,14 @@ PrefabInstance:
       propertyPath: gameInput
       value: 
       objectReference: {fileID: 917484756}
+    - target: {fileID: 1487613210585491493, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: soundEventComponent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935567761389523453, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: soundEventComponent
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2436660111118661555, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24
@@ -17277,21 +17285,45 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7473522659942857117, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: soundEntries.Array.data[0].range
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473522659942857117, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: soundEntries.Array.data[1].range
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473522659942857117, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: soundEntries.Array.data[2].range
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473522659942857117, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: soundEntries.Array.data[0].suspicious
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473522659942857117, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      propertyPath: soundEntries.Array.data[1].suspicious
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7719310533874504511, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1500361470}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7473522659942857117, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3070067201452485897, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1495191951}
   m_SourcePrefab: {fileID: 100100000, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
 --- !u!114 &827035077 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1487613210585491493, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
   m_PrefabInstance: {fileID: 827035076}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1495191940}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26009b69431a0b34c9ae0271e1bc76bf, type: 3}
@@ -19167,6 +19199,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 943008748}
+    - target: {fileID: 6634124780627063683, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 8482718911018713397, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19211,6 +19247,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1481863812}
+    - target: {fileID: 9015355196016024821, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 9147790831891127183, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_Name
       value: Door2Button2
@@ -19256,6 +19296,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 360680260}
+    - target: {fileID: 6634124780627063683, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 8482718911018713397, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 68
@@ -19300,6 +19344,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1428854268}
+    - target: {fileID: 9015355196016024821, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 9147790831891127183, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_Name
       value: Door5Button
@@ -21127,8 +21175,12 @@ MonoBehaviour:
   soundEntries:
   - soundType: 1
     clip: {fileID: 8300000, guid: 18d6a007b013c9d4ebf7f7c44e1e5f06, type: 3}
+    suspicious: 0
+    range: 5
   - soundType: 6
     clip: {fileID: 8300000, guid: 7b7dbf99f7d47d147a101ce261ef5539, type: 3}
+    suspicious: 0
+    range: 0
   addPitch: 0.1
 --- !u!136 &1036023649
 CapsuleCollider:
@@ -21227,6 +21279,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightController: {fileID: 1036023646}
   soundEventComponent: {fileID: 1036023648}
+--- !u!114 &1036023656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036023644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb0d433cc3170249b52c524012d4347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactionDelay: 0.2
+  debugLog: 1
 --- !u!4 &1036464163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7710561793134441841, guid: 63eb9f4f1dcba7841bef29c54b28741c, type: 3}
@@ -23033,6 +23099,9 @@ PrefabInstance:
       addedObject: {fileID: 1036023648}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1036023656}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1036023649}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
@@ -23527,7 +23596,7 @@ PrefabInstance:
       objectReference: {fileID: 1612648296}
     - target: {fileID: 6634124780627063683, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_VersionIndex
-      value: 68
+      value: 71
       objectReference: {fileID: 0}
     - target: {fileID: 8482718911018713397, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23575,7 +23644,7 @@ PrefabInstance:
       objectReference: {fileID: 2035595200}
     - target: {fileID: 9015355196016024821, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_VersionIndex
-      value: 68
+      value: 71
       objectReference: {fileID: 0}
     - target: {fileID: 9147790831891127183, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_Name
@@ -26765,7 +26834,7 @@ PrefabInstance:
       objectReference: {fileID: 655694613}
     - target: {fileID: 802174357772616606, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_VersionIndex
-      value: 67
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1515498418836419747, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27504,6 +27573,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1454960596}
+    - target: {fileID: 6634124780627063683, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 8482718911018713397, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14
@@ -27548,6 +27621,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1172322475}
+    - target: {fileID: 9015355196016024821, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 9147790831891127183, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_Name
       value: Turret1Button
@@ -27869,7 +27946,7 @@ PrefabInstance:
       objectReference: {fileID: 1804015741}
     - target: {fileID: 802174357772616606, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_VersionIndex
-      value: 67
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1515498418836419747, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29712,6 +29789,38 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1495191940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3070067201452485897, guid: d06851eae023c8047adf7c67d26dd307, type: 3}
+  m_PrefabInstance: {fileID: 827035076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1495191951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495191940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a2220d90b19414183880f70cb8edbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEntries:
+  - soundType: 0
+    clip: {fileID: 8300000, guid: b37306392d48a69429ba8f3bb6ccf6bf, type: 3}
+    suspicious: 1
+    range: 2
+  - soundType: 3
+    clip: {fileID: 8300000, guid: 0b986599edf6c7b4e9069a4b83e7f20d, type: 3}
+    suspicious: 0
+    range: 0
+  - soundType: 6
+    clip: {fileID: 8300000, guid: 7b7dbf99f7d47d147a101ce261ef5539, type: 3}
+    suspicious: 0
+    range: 0
+  addPitch: 0.25
+  player: {fileID: 827035077}
 --- !u!1001 &1500361463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33511,7 +33620,7 @@ PrefabInstance:
       objectReference: {fileID: 671901760}
     - target: {fileID: 802174357772616606, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_VersionIndex
-      value: 67
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1515498418836419747, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38876,6 +38985,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1275194492}
+    - target: {fileID: 6634124780627063683, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 8482718911018713397, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12
@@ -38920,6 +39033,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1131602410}
+    - target: {fileID: 9015355196016024821, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 9147790831891127183, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_Name
       value: Camera1Button
@@ -41962,6 +42079,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 332816294}
+    - target: {fileID: 6634124780627063683, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 8482718911018713397, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -42006,6 +42127,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 916894137}
+    - target: {fileID: 9015355196016024821, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 9147790831891127183, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_Name
       value: Door2Button1
@@ -42430,6 +42555,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1068468307}
+    - target: {fileID: 6634124780627063683, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 8482718911018713397, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.5
@@ -42474,6 +42603,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1598548022}
+    - target: {fileID: 9015355196016024821, guid: a58713aca76a57e4695338739a03f843, type: 3}
+      propertyPath: m_VersionIndex
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 9147790831891127183, guid: a58713aca76a57e4695338739a03f843, type: 3}
       propertyPath: m_Name
       value: Door3Button
@@ -43126,7 +43259,7 @@ PrefabInstance:
       objectReference: {fileID: 2065418700}
     - target: {fileID: 802174357772616606, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_VersionIndex
-      value: 67
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1515498418836419747, guid: 22d654013e4b6c74ea84e370df6d103a, type: 3}
       propertyPath: m_LocalPosition.x

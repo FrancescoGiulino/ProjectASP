@@ -55,7 +55,6 @@ public class EnemyStateController : MonoBehaviour
     {
         currentState?.Update(this);
         UpdateMovementFlags();
-        Debug.Log($"Battery: {Resources.battery}");
     }
 
     public void ChangeState(IEnemyState newState)
