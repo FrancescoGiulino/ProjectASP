@@ -24157,25 +24157,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1190818180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-  m_PrefabInstance: {fileID: 8185141681759206555}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1190818181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190818180}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cb0c3487d404842b8e0f1e6542802d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiMessagePanelController: {fileID: 2017776991}
-  interval: 2
 --- !u!43 &1190856159
 Mesh:
   m_ObjectHideFlags: 0
@@ -43539,13 +43520,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6914888187787743585, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: aiMessagePanelController
+      value: 
+      objectReference: {fileID: 2017776991}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      insertIndex: 9
-      addedObject: {fileID: 1190818181}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
