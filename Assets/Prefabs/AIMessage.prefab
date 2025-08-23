@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 270, y: -50}
-  m_SizeDelta: {x: 690, y: 100}
+  m_SizeDelta: {x: 670, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2510979650637292745
 CanvasRenderer:
@@ -171,7 +171,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 270, y: -150}
-  m_SizeDelta: {x: 690, y: 100}
+  m_SizeDelta: {x: 670, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2744118699058961986
 CanvasRenderer:
@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 3080615475448551790}
   - component: {fileID: 8945697403243746277}
   - component: {fileID: 8849521637731685076}
+  - component: {fileID: 5975886770608726916}
   m_Layer: 5
   m_Name: AIMessage
   m_TagString: Untagged
@@ -490,6 +491,24 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 3080615475448551790}
+--- !u!114 &5975886770608726916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366961429940483838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2762cb76599ea614289d22d26fc2c2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyNameText: {fileID: 6730873860780497022}
+  messageStateText: {fileID: 2359366737094952693}
+  messageText: {fileID: 2656347275808362519}
+  parametersText: {fileID: 1946213484271871015}
+  iconImage: {fileID: 4613832968867793042}
+  bgImage: {fileID: 3080615475448551790}
 --- !u!1 &2438640050745135248
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +657,7 @@ GameObject:
   - component: {fileID: 2385740607336669877}
   - component: {fileID: 2359366737094952693}
   m_Layer: 5
-  m_Name: EnemyType
+  m_Name: MessageState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -661,7 +680,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 610, y: 0}
-  m_SizeDelta: {x: 350, y: 50}
+  m_SizeDelta: {x: 330, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2385740607336669877
 CanvasRenderer:
@@ -691,7 +710,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Type: Null'
+  m_text: 'State: Null'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d8f51c5a1553f0f478c990761f14dbbf, type: 2}
   m_sharedMaterial: {fileID: 4639870809691748276, guid: d8f51c5a1553f0f478c990761f14dbbf, type: 2}
@@ -725,7 +744,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 3
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

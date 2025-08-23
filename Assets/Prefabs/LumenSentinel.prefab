@@ -542,7 +542,7 @@ PrefabInstance:
       addedObject: {fileID: 2519417913679888451}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6914888187787743585}
+      addedObject: {fileID: 8201241324635604304}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4055266374921121532}
@@ -698,7 +698,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactionDelay: 0.2
-  debugLog: 1
 --- !u!114 &2519417913679888451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,20 +715,21 @@ MonoBehaviour:
   - {fileID: 8018694546865785155}
   bulletSpeed: 20
   bulletFireRate: 1
---- !u!114 &6914888187787743585
+--- !u!114 &8201241324635604304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168199519798174706}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cb0c3487d404842b8e0f1e6542802d, type: 3}
+  m_Script: {fileID: 11500000, guid: cf9e879b27b16b44280666d67d1bb174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiMessagePanelController: {fileID: 0}
-  interval: 2
+  visualDetection: {fileID: 3072177655860989917}
+  soundDetection: {fileID: 4945562079594784341}
+  enemy: {fileID: 3822256668198755552}
 --- !u!114 &4055266374921121532
 MonoBehaviour:
   m_ObjectHideFlags: 0

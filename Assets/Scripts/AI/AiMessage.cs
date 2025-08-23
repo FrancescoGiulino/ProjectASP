@@ -1,18 +1,18 @@
 using System.Collections.Generic;
 
-public class AIMessage
+public class AiMessage
 {
-    public AIMessageType Type { get; }
-    public string SenderName { get; }
-    public string SenderType { get; }
-    public string ParametersText { get; }
-    public Dictionary<string, string> Parameters { get; }
+    public AIMessageType Type { get; set; }
+    public string SenderName { get; set; }
+    public string MessageState { get; set; }
+    public string ParametersText { get; set; }
+    public Dictionary<string, string> Parameters { get; set; }
 
-    public AIMessage(AIMessageType type, string senderName, string senderType, string parametersText, Dictionary<string, string> parameters)
+    public AiMessage(AIMessageType type, string senderName, string messageState, string parametersText, Dictionary<string, string> parameters)
     {
         Type = type;
         SenderName = senderName;
-        SenderType = senderType;
+        MessageState = messageState;
         ParametersText = parametersText;
         Parameters = parameters;
     }

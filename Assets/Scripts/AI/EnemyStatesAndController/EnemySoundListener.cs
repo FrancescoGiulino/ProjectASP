@@ -1,12 +1,14 @@
 using UnityEngine;
+using System;
 
 public class EnemySoundListener : MonoBehaviour
 {
     [Header("Sensibilità del nemico")]
-    [SerializeField] private float reactionDelay = 0.2f; // serve per aggiungere un piccolo ritardo prima di reagire
-    [SerializeField] private bool debugLog = true;
+    [SerializeField] private float reactionDelay = 0.2f;
 
     private EnemyStateController enemy;
+
+    public event Action<Vector3> OnSuspiciousSoundHeard;
 
     private void Awake()
     {
@@ -15,14 +17,8 @@ public class EnemySoundListener : MonoBehaviour
 
     public void OnSoundHeard(Vector3 soundPosition)
     {
-        if (debugLog)
-            Debug.Log($"{gameObject.name} ha sentito un suono a {soundPosition}");
-
-        // avvia la reazione del nemico
-        Invoke(nameof(ReactToSound), reactionDelay);
-
-        // salva la posizione del suono per la reazione
         lastHeardSound = soundPosition;
+        Invoke(nameof(ReactToSound), reactionDelay);
     }
 
     private Vector3 lastHeardSound;
@@ -30,7 +26,15 @@ public class EnemySoundListener : MonoBehaviour
     private void ReactToSound()
     {
         if (enemy == null) return;
-        if (enemy.GetCurrentState()!="ChaseState")
+
+        if (enemy.GetCurrentState() != "ChaseState")
+        {
+            // Notifica chi ascolta questo evento (EnemyMessenger)
+            if (enemy.GetCurrentState()!="CheckState" && enemy.GetCurrentState()!="ChaseState")
+                OnSuspiciousSoundHeard?.Invoke(lastHeardSound);
+            
+            // Vai a controllare la posizione del suono
             enemy.GoCheckPosition(lastHeardSound);
+        }
     }
 }

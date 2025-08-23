@@ -56,7 +56,7 @@ public class AiMessagePanelController : MonoBehaviour
         }
     }
 
-    public void DisplayMessage(AIMessage message)
+    public void DisplayMessage(AiMessage message)
     {
         Debug.Log("[DisplayMessage] message displayed.");
         GameObject newMessage = messageController.CreateMessage(message);

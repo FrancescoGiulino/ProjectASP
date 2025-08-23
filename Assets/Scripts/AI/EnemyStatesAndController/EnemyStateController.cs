@@ -144,8 +144,5 @@ public class EnemyStateController : MonoBehaviour
     }
 
     // Getters
-    public string GetCurrentState()
-    {
-        return currentState?.ToString();
-    }
+    public string GetCurrentState() => currentState?.ToString();
 }

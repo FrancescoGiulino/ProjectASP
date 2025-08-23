@@ -59,7 +59,7 @@
     <UnityVersion>6000.0.44f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\franc\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\franc\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.3\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -91,8 +91,8 @@
     <Compile Include="Assets\Scripts\Devices\Turret.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\LightController.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />
-    <Compile Include="Assets\Scripts\AI\AiMessageCreator.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\AI\EnemyMessanger.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\EnemySoundListener.cs" />
@@ -113,6 +113,7 @@
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\CheckState.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\PlayerSoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\UI\EnemyBatteryBar.cs" />
+    <Compile Include="Assets\Scripts\AI\AiMessageEmitter.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\SoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\Interactable\Button.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\Scripts\UI\AiMessage\AiMessageDisplayController.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\EnemyResources.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\RbImpactSoundManager.cs" />
+    <Compile Include="Assets\Scripts\AI\MessageUIController.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\RotationPatrol.cs" />
     <Compile Include="Assets\Scripts\HealthAndBulletRefilling\BatteryChargerDetector.cs" />
     <Compile Include="Assets\Scripts\SceneHandling\AsyncLoader.cs" />
