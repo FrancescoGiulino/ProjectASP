@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\Managers\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStatesAndController\CheckState.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\PlayerSoundEventComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\EnemyBatteryBar.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\SoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\Interactable\Button.cs" />
