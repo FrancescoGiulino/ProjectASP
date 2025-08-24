@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 8849521637731685076}
   - component: {fileID: 5975886770608726916}
   m_Layer: 5
-  m_Name: AIMessage
+  m_Name: UiMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

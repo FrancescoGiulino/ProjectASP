@@ -30945,7 +30945,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 194083589}
     m_Modifications:
     - target: {fileID: 2463415208323046397, guid: 136c906fba2cf2b49af005b2cc460b72, type: 3}
-      propertyPath: aiMessageDisplay
+      propertyPath: messageDisplay
       value: 
       objectReference: {fileID: 1500361472}
     - target: {fileID: 2790295436735467063, guid: 136c906fba2cf2b49af005b2cc460b72, type: 3}
@@ -30972,10 +30972,6 @@ PrefabInstance:
       propertyPath: contentRoot
       value: 
       objectReference: {fileID: 1500361464}
-    - target: {fileID: 7628884992763123209, guid: 136c906fba2cf2b49af005b2cc460b72, type: 3}
-      propertyPath: selectionController
-      value: 
-      objectReference: {fileID: 2017776994}
     - target: {fileID: 7770616167206319889, guid: 136c906fba2cf2b49af005b2cc460b72, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -40553,17 +40549,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1876937468021457454, guid: 0fd3e8f9ab678494dbc902b83ceef496, type: 3}
   m_PrefabInstance: {fileID: 2016778559}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2017776994 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7313680096912996909, guid: 136c906fba2cf2b49af005b2cc460b72, type: 3}
-  m_PrefabInstance: {fileID: 1571767906}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d92cdd0ed0e3044a47578afc853cf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &2035595200
 Mesh:
   m_ObjectHideFlags: 0

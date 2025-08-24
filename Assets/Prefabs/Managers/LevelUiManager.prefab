@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 7628884992763123209}
   - component: {fileID: 7313680096912996909}
   m_Layer: 5
-  m_Name: AiMessagePanelManager
+  m_Name: MessagePanelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b30067134b8ce4dae133be29f56c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiMessageDisplay: {fileID: 0}
+  messageDisplay: {fileID: 0}
   selectionController: {fileID: 7313680096912996909}
   messageController: {fileID: 7628884992763123209}
 --- !u!114 &7628884992763123209
@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messagePrefab: {fileID: 2366961429940483838, guid: f65efafb56223d54893ce5f62a904267, type: 3}
   contentRoot: {fileID: 0}
+  selectionController: {fileID: 7313680096912996909}
+  refreshInterval: 0.5
 --- !u!114 &7313680096912996909
 MonoBehaviour:
   m_ObjectHideFlags: 0
