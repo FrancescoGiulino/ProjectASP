@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +7,9 @@ public class AiMessageEmitter : MonoBehaviour
     // Singleton non persistente
     public static AiMessageEmitter Instance { get; private set; }
 
-    [SerializeField] private AiMessagePanelController aiMessagePanelController;
     private AIMessageType[] allMessageTypes;
     private List<AiMessage> aiMessages;
+    [SerializeField] private float expirationTime = 10f;
 
     public Dictionary<string, int> MessageTypes = new Dictionary<string, int>() {
         { "AmmoDepletedMsg", 0 },
@@ -39,6 +40,7 @@ public class AiMessageEmitter : MonoBehaviour
             Debug.LogError("Nessun AIMessageType trovato in Resources/ScriptableObjects!");
     }
 
+    // Crea un nuovo messaggio e lo aggiunge alla lista. La UI verrà aggiornata leggendo la lista.
     public AiMessage EmitMessage(string messageType, string senderName, string parametersString, Dictionary<string, string> parametersData, string initialState = "Pending")
     {
         if (!MessageTypes.ContainsKey(messageType))
@@ -59,13 +61,26 @@ public class AiMessageEmitter : MonoBehaviour
 
         aiMessages.Add(message);
 
-        // Mostra subito il messaggio sul pannello
-        if (aiMessagePanelController != null)
-            aiMessagePanelController.DisplayMessage(message);
-        else
-            Debug.LogWarning("AiMessageEmitter: aiMessagePanelController non assegnato!");
+        // Non chiamiamo più DisplayMessage/UpdateMessage qui
+        // La UI legge direttamente la lista di AiMessageEmitter.Instance.GetAiMessages()
+
+        StartCoroutine(ExpireMessageAfterDelay(message, expirationTime));
 
         return message;
+    }
+
+    private IEnumerator ExpireMessageAfterDelay(AiMessage message, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Se il messaggio è ancora pending, diventa expired
+        if (message.MessageState == "Pending")
+        {
+            message.MessageState = "Expired";
+
+            // Non chiamiamo più UpdateMessage qui
+            // Chi vuole aggiornare la UI può chiamare: AiMessagePanelController.RefreshAllMessages()
+        }
     }
 
     public List<AiMessage> GetAiMessages() => aiMessages;

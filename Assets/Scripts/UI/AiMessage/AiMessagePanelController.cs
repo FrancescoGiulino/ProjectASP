@@ -14,7 +14,7 @@ public class AiMessagePanelController : MonoBehaviour
     {
         gameInput = FindFirstObjectByType<GameInput>();
         if (gameInput == null)
-            Debug.LogError("SidePanelHandler: nessun GameInput trovato.");
+            Debug.LogError("AiMessagePanelController: nessun GameInput trovato.");
     }
 
     private void OnEnable()
@@ -35,7 +35,7 @@ public class AiMessagePanelController : MonoBehaviour
     {
         if (aiMessageDisplay == null)
         {
-            Debug.LogWarning("SidePanelHandler: sidePanel non assegnato.");
+            Debug.LogWarning("AiMessagePanelController: aiMessageDisplay non assegnato.");
             return;
         }
 
@@ -47,6 +47,11 @@ public class AiMessagePanelController : MonoBehaviour
         if (isActive)
         {
             PlayerController.Instance.CanMove = false;
+
+            // Aggiorna tutta la UI leggendo la lista dei messaggi
+            if (messageController != null)
+                messageController.DisplayMessages();
+
             selectionController.SelectLastMessage();
         }
         else
@@ -56,16 +61,12 @@ public class AiMessagePanelController : MonoBehaviour
         }
     }
 
-    public void DisplayMessage(AiMessage message)
+    // Aggiorna la UI leggendo la lista dei messaggi.
+    // Non crea messaggi singoli.
+    public void RefreshAllMessages()
     {
-        Debug.Log("[DisplayMessage] message displayed.");
-        GameObject newMessage = messageController.CreateMessage(message);
-
-        if (selectionController.FirstSelectable == null)
-            selectionController.FirstSelectable = newMessage;
-
-        // Registra il messaggio senza modificare scroll o selezione
-        selectionController.RegisterNewMessage(newMessage);
+        if (messageController != null)
+            messageController.DisplayMessages();
     }
 
     public GameObject GetAiMessageDisplay() => aiMessageDisplay;

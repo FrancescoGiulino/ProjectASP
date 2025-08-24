@@ -13,6 +13,9 @@ public class MessageUIController : MonoBehaviour
     [SerializeField] private Image iconImage;
     [SerializeField] private Image bgImage;
 
+    // Espongo il messaggio per permettere i controlli da fuori
+    public AiMessage Message => message;
+
     public void Init(AiMessage msg)
     {
         message = msg;
@@ -30,6 +33,13 @@ public class MessageUIController : MonoBehaviour
 
         if (iconImage != null && message.Type != null) iconImage.sprite = message.Type.image;
         if (bgImage != null && message.Type != null) bgImage.color = message.Type.backgroundColor;
+    }
+
+    // aggiorna con un messaggio già esistente
+    public void Refresh(AiMessage updatedMessage)
+    {
+        message = updatedMessage;
+        RefreshUI();
     }
 
     public void ChangeState(string newState)
