@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiMessageEmitter : MonoBehaviour
+public class MessageBus : MonoBehaviour
 {
     // Singleton non persistente
-    public static AiMessageEmitter Instance { get; private set; }
+    public static MessageBus Instance { get; private set; }
 
     private AIMessageType[] allMessageTypes;
-    private List<AiMessage> aiMessages;
+    private List<MessageData> aiMessages;
     [SerializeField] private float expirationTime = 10f;
 
     public Dictionary<string, int> MessageTypes = new Dictionary<string, int>() {
@@ -30,7 +30,7 @@ public class AiMessageEmitter : MonoBehaviour
         }
         Instance = this;
 
-        aiMessages = new List<AiMessage>();
+        aiMessages = new List<MessageData>();
     }
 
     private void Start()
@@ -41,7 +41,7 @@ public class AiMessageEmitter : MonoBehaviour
     }
 
     // Crea un nuovo messaggio e lo aggiunge alla lista. La UI verrà aggiornata leggendo la lista.
-    public AiMessage EmitMessage(string messageType, string senderName, string parametersString, Dictionary<string, string> parametersData, string initialState = "Pending")
+    public MessageData EmitMessage(string messageType, string senderName, string parametersString, Dictionary<string, string> parametersData, string initialState = "Pending")
     {
         if (!MessageTypes.ContainsKey(messageType))
         {
@@ -51,7 +51,7 @@ public class AiMessageEmitter : MonoBehaviour
 
         var type = allMessageTypes[MessageTypes[messageType]];
 
-        AiMessage message = new AiMessage(
+        MessageData message = new MessageData(
             type,
             senderName,
             initialState,
@@ -69,7 +69,7 @@ public class AiMessageEmitter : MonoBehaviour
         return message;
     }
 
-    private IEnumerator ExpireMessageAfterDelay(AiMessage message, float delay)
+    private IEnumerator ExpireMessageAfterDelay(MessageData message, float delay)
     {
         yield return new WaitForSeconds(delay);
 
@@ -83,6 +83,6 @@ public class AiMessageEmitter : MonoBehaviour
         }
     }
 
-    public List<AiMessage> GetAiMessages() => aiMessages;
-    public AiMessage GetAiMessageAt(int pos) => aiMessages[pos];
+    public List<MessageData> GetAiMessages() => aiMessages;
+    public MessageData GetAiMessageAt(int pos) => aiMessages[pos];
 }

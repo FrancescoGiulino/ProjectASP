@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMessenger : MonoBehaviour
+public class EnemyMessageSender : MonoBehaviour
 {
     [SerializeField] private EnemyTargetDetectionController visualDetection;
     [SerializeField] private EnemySoundListener soundDetection;
@@ -40,7 +40,7 @@ public class EnemyMessenger : MonoBehaviour
     {
         string coords = $"coordinates: x:{pos.x:F1}; y:{pos.y:F1}; z:{pos.z:F1}";
 
-        AiMessageEmitter.Instance.EmitMessage(
+        MessageBus.Instance.EmitMessage(
             "TargetDetectedMsg",
             "Eco-Sentinel",
             coords,
@@ -56,7 +56,7 @@ public class EnemyMessenger : MonoBehaviour
     {
         string msgString = $"coordinates: x:{soundPosition.x:F1}, y:{soundPosition.y:F1}, z:{soundPosition.z:F1}";
 
-        AiMessageEmitter.Instance.EmitMessage(
+        MessageBus.Instance.EmitMessage(
             "SuspiciousMovementMsg",
             "Eco-Sentinel",
             msgString,
@@ -70,7 +70,7 @@ public class EnemyMessenger : MonoBehaviour
 
     public void SendBatteryLow(float level)
     {
-        AiMessageEmitter.Instance.EmitMessage(
+        MessageBus.Instance.EmitMessage(
             "LowBatteryMsg",
             "Eco-Sentinel",
             $"battery: {level:F0}%",

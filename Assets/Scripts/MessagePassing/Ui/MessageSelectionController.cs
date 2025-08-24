@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AiSelectionController : MonoBehaviour
+public class MessageSelectionController : MonoBehaviour
 {
     [SerializeField] private ScrollRect scrollRect;
     public GameObject FirstSelectable { get; set; }

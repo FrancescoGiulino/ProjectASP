@@ -6,11 +6,11 @@ public class LevelUIManager : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private PauseManager pauseManager;
-    [SerializeField] private AiMessagePanelController aiMessagePanelController;
+    [SerializeField] private MessagePanelController aiMessagePanelController;
     [SerializeField] private MenuHandler menuHandler;
 
     public PauseManager PauseManager { get => pauseManager; set => pauseManager = value; }
-    public AiMessagePanelController AiMessagePanelController { get => aiMessagePanelController; set => aiMessagePanelController = value; }
+    public MessagePanelController AiMessagePanelController { get => aiMessagePanelController; set => aiMessagePanelController = value; }
 
     private void Awake()
     {

@@ -2,9 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MessageUIController : MonoBehaviour
+public class MessageUiItemController : MonoBehaviour
 {
-    private AiMessage message;
+    private MessageData message;
 
     [SerializeField] private TextMeshProUGUI enemyNameText;
     [SerializeField] private TextMeshProUGUI messageStateText;
@@ -14,9 +14,9 @@ public class MessageUIController : MonoBehaviour
     [SerializeField] private Image bgImage;
 
     // Espongo il messaggio per permettere i controlli da fuori
-    public AiMessage Message => message;
+    public MessageData Message => message;
 
-    public void Init(AiMessage msg)
+    public void Init(MessageData msg)
     {
         message = msg;
         RefreshUI();
@@ -36,7 +36,7 @@ public class MessageUIController : MonoBehaviour
     }
 
     // aggiorna con un messaggio già esistente
-    public void Refresh(AiMessage updatedMessage)
+    public void Refresh(MessageData updatedMessage)
     {
         message = updatedMessage;
         RefreshUI();
@@ -54,7 +54,7 @@ public class MessageUIController : MonoBehaviour
         if (message == null) return;
 
         // lo elimino anche dalla lista dell’emitter
-        AiMessageEmitter.Instance.GetAiMessages().Remove(message);
+        MessageBus.Instance.GetAiMessages().Remove(message);
 
         Destroy(gameObject);
     }

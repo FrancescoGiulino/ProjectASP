@@ -10984,6 +10984,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebd7d55cb1ff4e84a841ea4fc60348bc, type: 3}
+--- !u!1 &561212619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 406170856729083261, guid: a0ae704dbd162b844a6c0b7d4af586ba, type: 3}
+  m_PrefabInstance: {fileID: 427051783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &563210479
 Mesh:
   m_ObjectHideFlags: 0
@@ -19720,6 +19725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950926609}
   - component: {fileID: 950926610}
+  - component: {fileID: 950926611}
   m_Layer: 0
   m_Name: WorldInformationManager
   m_TagString: Untagged
@@ -19754,6 +19760,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cb0c3487d404842b8e0f1e6542802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expirationTime: 10
+--- !u!114 &950926611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950926608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9814bf4b28055f428698e060fb2eb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batteryChargers:
+  - {fileID: 1885464645}
+  - {fileID: 561212619}
+  - {fileID: 1697549816}
+  primaryAmmoChargers: []
+  secondaryAmmoChargers: []
 --- !u!1001 &953604343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34380,6 +34405,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7883490560967479314, guid: ee65b7ff84bfb4e4c909b0e3e78929a6, type: 3}
   m_PrefabInstance: {fileID: 1696113945}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1697549816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 406170856729083261, guid: a0ae704dbd162b844a6c0b7d4af586ba, type: 3}
+  m_PrefabInstance: {fileID: 1564543709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1699952630
 GameObject:
   m_ObjectHideFlags: 0
@@ -37641,6 +37671,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4770866526658394063, guid: eb3724a554dff5c4ab136d1d4fe0737e, type: 3}
   m_PrefabInstance: {fileID: 1884187347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1885464645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 406170856729083261, guid: a0ae704dbd162b844a6c0b7d4af586ba, type: 3}
+  m_PrefabInstance: {fileID: 1125305370}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1887908677
 PrefabInstance:

@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiMessageDisplayController : MonoBehaviour
+public class MessageDisplayController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject messagePrefab;
     [SerializeField] private Transform contentRoot;
-    [SerializeField] private AiSelectionController selectionController;
+    [SerializeField] private MessageSelectionController selectionController;
 
     [Header("Aggiornamento automatico")]
     [SerializeField] private float refreshInterval = 0.5f; // intervallo in secondi
 
     // Dizionario per tracciare i GameObject già creati per ogni messaggio
-    private Dictionary<AiMessage, GameObject> messageToGO = new Dictionary<AiMessage, GameObject>();
+    private Dictionary<MessageData, GameObject> messageToGO = new Dictionary<MessageData, GameObject>();
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class AiMessageDisplayController : MonoBehaviour
     {
         while (true)
         {
-            if (messagePrefab != null && contentRoot != null && AiMessageEmitter.Instance != null)
+            if (messagePrefab != null && contentRoot != null && MessageBus.Instance != null)
             {
                 RefreshMessages();
             }
@@ -47,7 +47,7 @@ public class AiMessageDisplayController : MonoBehaviour
     // Aggiorna i messaggi visualizzati senza distruggere i GameObject esistenti
     private void RefreshMessages()
     {
-        var messages = AiMessageEmitter.Instance.GetAiMessages();
+        var messages = MessageBus.Instance.GetAiMessages();
         GameObject firstMessage = null;
 
         foreach (var message in messages)
@@ -56,7 +56,7 @@ public class AiMessageDisplayController : MonoBehaviour
             {
                 // Nuovo messaggio --> creazione del GameObject
                 GameObject newGO = Instantiate(messagePrefab, contentRoot);
-                var uiController = newGO.GetComponent<MessageUIController>();
+                var uiController = newGO.GetComponent<MessageUiItemController>();
                 if (uiController != null)
                     uiController.Init(message);
                 else
@@ -74,7 +74,7 @@ public class AiMessageDisplayController : MonoBehaviour
             else
             {
                 // Messaggio esistente → aggiorna lo stato UI
-                var uiController = messageToGO[message].GetComponent<MessageUIController>();
+                var uiController = messageToGO[message].GetComponent<MessageUiItemController>();
                 uiController?.RefreshUI();
             }
         }

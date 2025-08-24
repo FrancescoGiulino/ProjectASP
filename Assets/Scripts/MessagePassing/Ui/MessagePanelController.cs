@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 
-public class AiMessagePanelController : MonoBehaviour
+public class MessagePanelController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject aiMessageDisplay;
-    [SerializeField] private AiSelectionController selectionController;
-    [SerializeField] private AiMessageDisplayController messageController;
+    [SerializeField] private GameObject messageDisplay;
+    [SerializeField] private MessageSelectionController selectionController;
+    [SerializeField] private MessageDisplayController messageController;
 
     private GameInput gameInput;
 
@@ -33,7 +33,7 @@ public class AiMessagePanelController : MonoBehaviour
 
     private void ToggleSidePanel(object sender, EventArgs e)
     {
-        if (aiMessageDisplay == null)
+        if (messageDisplay == null)
         {
             Debug.LogWarning("AiMessagePanelController: aiMessageDisplay non assegnato.");
             return;
@@ -41,8 +41,8 @@ public class AiMessagePanelController : MonoBehaviour
 
         if (LevelUIManager.Instance.PauseManager.IsPaused()) return;
 
-        bool isActive = !aiMessageDisplay.activeSelf;
-        aiMessageDisplay.SetActive(isActive);
+        bool isActive = !messageDisplay.activeSelf;
+        messageDisplay.SetActive(isActive);
 
         if (isActive)
         {
@@ -69,5 +69,5 @@ public class AiMessagePanelController : MonoBehaviour
             messageController.DisplayMessages();
     }
 
-    public GameObject GetAiMessageDisplay() => aiMessageDisplay;
+    public GameObject GetAiMessageDisplay() => messageDisplay;
 }
