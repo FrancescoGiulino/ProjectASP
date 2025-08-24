@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAnimationController : AnimationController
 {
-    private PlayerController playerController;
+    //private PlayerController playerController;
     private Rigidbody rb;
 
     [SerializeField] private Transform[] stealthBendTargets;
@@ -15,8 +15,8 @@ public class PlayerAnimationController : AnimationController
 
     private void Awake()
     {
-        if (!playerController)
-            playerController = GetComponent<PlayerController>();
+        //if (!playerController)
+        //    playerController = GetComponent<PlayerController>();
         if (!rb)
             rb = GetComponent<Rigidbody>();
     }
@@ -37,13 +37,17 @@ public class PlayerAnimationController : AnimationController
 
     private void LateUpdate()
     {
-        animator.SetBool("IsDead", playerController.GetHealthController().IsDead);
-        if (playerController.GetHealthController().IsDead) return; // If the player is dead, skip the rest of the update.
+        animator.SetBool("IsDead", PlayerController.Instance.GetHealthController().IsDead);
+        if (PlayerController.Instance.GetHealthController().IsDead) return; // If the player is dead, skip the rest of the update.
 
-        animator.SetFloat("Speed", playerController.GetInputMagnitude());
-        animator.SetBool("IsStealth", playerController.IsStealth());
+        if (PlayerController.Instance.CanMove)
+            animator.SetFloat("Speed", PlayerController.Instance.GetInputMagnitude());
+        else
+            animator.SetFloat("Speed", 0);
+        
+        animator.SetBool("IsStealth", PlayerController.Instance.IsStealth());
 
-        float target = playerController.IsStealth() ? 1f : 0f;
+        float target = PlayerController.Instance.IsStealth() ? 1f : 0f;
         bendLerp = Mathf.MoveTowards(bendLerp, target, bendSpeed / 90f * Time.deltaTime);
 
         if (stealthBendTargets != null && initialLocalRotations != null)

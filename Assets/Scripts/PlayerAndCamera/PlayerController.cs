@@ -98,6 +98,15 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (!CanMove)
+        {
+            moveDir = Vector3.zero;              // azzera la direzione
+            rb.linearVelocity = Vector3.zero;    // ferma il movimento orizzontale
+            rb.angularVelocity = Vector3.zero;   // ferma ogni rotazione residua
+            rb.MoveRotation(transform.rotation); // mantiene l'orientamento corrente
+            return;
+        }
+
         float currentSpeed = IsStealth() ? maxStealthSpeed : maxSpeed;
 
         // Raycast per proiezione su terreno
@@ -112,17 +121,13 @@ public class PlayerController : MonoBehaviour
             moveDirection = Vector3.ProjectOnPlane(moveDir, groundNormal).normalized;
         }
 
-        // Calcolo della velocità desiderata orizzontale
         Vector3 desiredVelocity = moveDirection * currentSpeed * inputMagnitude;
-
-        // Calcolo della differenza tra velocità desiderata e attuale
         Vector3 currentVelocity = rb.linearVelocity;
         Vector3 velocityChange = desiredVelocity - new Vector3(currentVelocity.x, 0, currentVelocity.z);
 
-        // Applica la forza come accelerazione (indipendente dalla massa)
         rb.AddForce(velocityChange, ForceMode.Acceleration);
 
-        // Rotazione fluida solo se stiamo muovendoci
+        // Rotazione fluida solo se ci si sta muovendo
         if (moveDir != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDir);
