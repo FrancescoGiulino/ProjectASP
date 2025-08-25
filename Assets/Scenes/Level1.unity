@@ -43522,6 +43522,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 827035080}
+    - target: {fileID: 3822256668198755552, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: resources.batteryIdleDrainRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3822256668198755552, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: resources.batteryRunningDrainRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3822256668198755552, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: resources.batteryWalkingDrainRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
       value: LumenSentinel

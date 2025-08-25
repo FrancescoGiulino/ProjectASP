@@ -101,7 +101,7 @@ public class EnemyMessageSender : MonoBehaviour
     public void SendBatteryDeplated()
     {
         MessageBus.Instance.EmitMessage(
-            "LowBatteryMsg",
+            "BatteryDepletedMsg",
             "Eco-Sentinel",
             $"battery: 0%",
             null
