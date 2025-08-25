@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class WorldInformationManager : MonoBehaviour
 {
@@ -18,10 +19,10 @@ public class WorldInformationManager : MonoBehaviour
 
         foreach (var charger in batteryChargers)
         {
-            float dist = Vector3.Distance(pos, charger.transform.position);
-            if (dist < nearestDistance)
+            float pathLength = GetPathLength(pos, charger.transform.position);
+            if (pathLength >= 0 && pathLength < nearestDistance) // >=0 significa che esiste un path valido
             {
-                nearestDistance = dist;
+                nearestDistance = pathLength;
                 nearestBatteryCharger = charger;
             }
         }
@@ -73,13 +74,31 @@ public class WorldInformationManager : MonoBehaviour
 
         foreach (var charger in chargers)
         {
-            float dist = Vector3.Distance(pos, charger.transform.position);
-            if (dist < nearestDistance)
+            float pathLength = GetPathLength(pos, charger.transform.position);
+            if (pathLength >= 0 && pathLength < nearestDistance)
             {
-                nearestDistance = dist;
+                nearestDistance = pathLength;
                 nearestAmmoCharger = charger;
             }
         }
         return nearestAmmoCharger;
+    }
+
+    // --- Utility ---
+    private float GetPathLength(Vector3 start, Vector3 end)
+    {
+        NavMeshPath path = new NavMeshPath();
+        if (!NavMesh.CalculatePath(start, end, NavMesh.AllAreas, path))
+            return -1f; // Nessun percorso valido
+
+        if (path.corners.Length < 2)
+            return -1f;
+
+        float length = 0f;
+        for (int i = 1; i < path.corners.Length; i++)
+        {
+            length += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+        }
+        return length;
     }
 }

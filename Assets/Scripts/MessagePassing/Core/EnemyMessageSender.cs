@@ -8,6 +8,8 @@ public class EnemyMessageSender : MonoBehaviour
     [SerializeField] private EnemyStateController enemy;
 
     private bool canSendTargetDetectionMsg = true;
+    private bool canSendLowBatteryMsg = true;
+    private bool canSendBatteryDeplatedMsg = true;
 
     private void Awake()
     {
@@ -23,13 +25,31 @@ public class EnemyMessageSender : MonoBehaviour
 
     private void Update()
     {
-        // Check if player was seen
+        var resources = enemy.Resources;
+
+        // Target Detected Message
         if (visualDetection.CheckForTargets() && canSendTargetDetectionMsg)
         {
             canSendTargetDetectionMsg = false;
             SendTargetDetected(visualDetection.GetDetectedTargetPosition());
         }
         if (enemy.GetCurrentState() != "ChaseState") canSendTargetDetectionMsg = true;
+
+        // Low Battery Message
+        if (resources.battery < resources.minBatteryBeforeRecharge && canSendLowBatteryMsg)
+        {
+            canSendLowBatteryMsg = false;
+            SendBatteryLow(enemy.Resources.battery);
+        }
+        if (resources.battery > resources.minBatteryBeforeRecharge) canSendLowBatteryMsg = true;
+
+        // Battery Depleted Message
+        if (resources.battery <= 0 && canSendBatteryDeplatedMsg)
+        {
+            canSendBatteryDeplatedMsg = false;
+            SendBatteryDeplated();
+        }
+        if (resources.battery > 0) canSendBatteryDeplatedMsg = true;
     }
 
     // -----------------------------------------------
@@ -75,6 +95,16 @@ public class EnemyMessageSender : MonoBehaviour
             "Eco-Sentinel",
             $"battery: {level:F0}%",
             new Dictionary<string, string> { { "level", level.ToString("F0") } }
+        );
+    }
+
+    public void SendBatteryDeplated()
+    {
+        MessageBus.Instance.EmitMessage(
+            "LowBatteryMsg",
+            "Eco-Sentinel",
+            $"battery: 0%",
+            null
         );
     }
 }
