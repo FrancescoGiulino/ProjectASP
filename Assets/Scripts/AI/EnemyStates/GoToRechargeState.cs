@@ -3,28 +3,31 @@ using UnityEngine;
 public class GoToRechargeState : IEnemyState
 {
     private bool reachedCharger;
+    private const float rechargeTolerance = 1.5f;
 
     public void Enter(EnemyStateController enemy)
     {
-        // Parti verso il charger già impostato
-        enemy.Agent.speed = enemy.Resources.walkSpeed;
+        // Imposta velocità e destinazione
+        enemy.Agent.speed = enemy.Resources.lowBatterySpeed;
+        enemy.Agent.stoppingDistance = rechargeTolerance; // fermati prima
         enemy.Agent.SetDestination(enemy.CheckPosition);
+
         reachedCharger = false;
     }
 
     public void Update(EnemyStateController enemy)
     {
-        // Se vede subito il target (+ batteria sufficiente) --> inseguimento
+        // Se vede subito un target e ha abbastanza batteria --> inseguimento
         if (enemy.Detection.CheckForTargets() && !enemy.HasLowBattery())
         {
             enemy.ChangeState(new ChaseState());
             return;
         }
 
-        // Controlla se è arrivato al charger
+        // Controlla arrivo con tolleranza
         if (!reachedCharger)
         {
-            if (!enemy.Agent.pathPending && enemy.Agent.remainingDistance < 0.3f)
+            if (!enemy.Agent.pathPending && enemy.Agent.remainingDistance <= rechargeTolerance)
             {
                 enemy.Agent.ResetPath();
                 reachedCharger = true;
@@ -36,12 +39,10 @@ public class GoToRechargeState : IEnemyState
             if (enemy.HealthController.CurrentHealth >= enemy.HealthController.MaxHealth)
                 enemy.ChangeState(new PatrolState());
         }
-
-        Debug.Log("[Enemy] Sono nello stato 'GoToRechargeState'.");
     }
 
     public void Exit(EnemyStateController enemy)
     {
-        // Eventuali cleanup, stop animazioni recharge
+        enemy.Agent.stoppingDistance = 0f;
     }
 }

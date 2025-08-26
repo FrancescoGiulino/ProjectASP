@@ -18,7 +18,6 @@ public class WorldInformationManager : MonoBehaviour
             return;
         }
         Instance = this;
-        // Nessun DontDestroyOnLoad --> NON persistente tra scene
     }
 
     // --- Battery Charger ---
@@ -40,10 +39,10 @@ public class WorldInformationManager : MonoBehaviour
         {
             if (charger == null) continue;
 
-            // Usa il path se disponibile, altrimenti fallback sulla distanza diretta
             float pathLength = GetPathLength(pos, charger.transform.position);
-            if (pathLength < 0) 
-                pathLength = Vector3.Distance(pos, charger.transform.position);
+
+            // Se il caricatore non è raggiungibile, scartalo
+            if (pathLength < 0) continue;
 
             if (pathLength < nearestDistance)
             {
@@ -100,8 +99,14 @@ public class WorldInformationManager : MonoBehaviour
 
         foreach (var charger in chargers)
         {
+            if (charger == null) continue;
+
             float pathLength = GetPathLength(pos, charger.transform.position);
-            if (pathLength >= 0 && pathLength < nearestDistance)
+
+            // Se non c'è path valido → scarta
+            if (pathLength < 0) continue;
+
+            if (pathLength < nearestDistance)
             {
                 nearestDistance = pathLength;
                 nearestAmmoCharger = charger;

@@ -12,6 +12,7 @@ public class EnemyResources
     [Header("Speeds and MinDistance")]
     public float walkSpeed = 1f;
     public float runSpeed = 3f;
+    public float lowBatterySpeed = 0.75f;
     public float minDistance = 1f;
 
     [Header("Drain Rates")]
