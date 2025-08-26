@@ -8,8 +8,7 @@ public class CameraSoundEventComponent : SoundEventComponent
     {
         Collider[] hits = Physics.OverlapSphere(securityCamera.GetTargetDetectionController().GetDetectedTargetPosition(), range);
 
-        if (securityCamera.Active)
-        {
+        if (securityCamera.Active){
             foreach (var hit in hits)
             {
                 EnemySoundListener listener = hit.GetComponentInParent<EnemySoundListener>();

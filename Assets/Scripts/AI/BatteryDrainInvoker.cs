@@ -15,6 +15,5 @@ public class BatteryDrainInvoker : MonoBehaviour
         else if (enemy.IsRunning) batteryConsume = enemy.Resources.batteryRunningDrainRate;
 
         enemy.HealthController.TakeDamage(batteryConsume);
-        Debug.Log($"Health: {enemy.HealthController.CurrentHealth}");
     }
 }

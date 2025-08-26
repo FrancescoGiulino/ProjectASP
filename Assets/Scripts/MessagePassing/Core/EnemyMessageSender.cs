@@ -7,7 +7,7 @@ public class EnemyMessageSender : MonoBehaviour
     [SerializeField] private EnemySoundListener soundDetection;
     [SerializeField] private EnemyStateController enemy;
 
-    //private bool canSendTargetDetectionMsg = true;
+    private bool canSendTargetDetectionMsg = true;
     private bool canSendLowBatteryMsg = true;
     private bool canSendBatteryDeplatedMsg = true;
 
@@ -26,12 +26,18 @@ public class EnemyMessageSender : MonoBehaviour
     private void Update()
     {
         // Target Detected Message
-        if (visualDetection.CheckForTargets() && enemy.GetCurrentState() != "ChaseState")
-            if (!enemy.HasLowBattery())
+        if (visualDetection.CheckForTargets())
+        {
+            if (!enemy.HasLowBattery() && canSendTargetDetectionMsg)
+            {
+                canSendTargetDetectionMsg = false;
                 SendTargetDetected(visualDetection.GetDetectedTargetPosition());
+            }
+        }
+        else canSendTargetDetectionMsg = true;
 
         // Low Battery Message
-        if (enemy.HasLowBattery() && canSendLowBatteryMsg)
+            if (enemy.HasLowBattery() && canSendLowBatteryMsg)
         {
             canSendLowBatteryMsg = false;
             SendBatteryLow(enemy.HealthController.CurrentHealth);
@@ -81,6 +87,8 @@ public class EnemyMessageSender : MonoBehaviour
                 { "z", soundPosition.z.ToString("F1") }
             }
         );
+
+        Debug.Log($"[EnemymessageSender] Suspicious Sound Detected!!!!");
     }
 
     public void SendBatteryLow(float level)

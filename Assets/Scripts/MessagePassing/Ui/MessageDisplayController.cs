@@ -83,7 +83,7 @@ public class MessageDisplayController : MonoBehaviour
         if (selectionController != null && selectionController.FirstSelectable == null && firstMessage != null)
             selectionController.FirstSelectable = firstMessage;
 
-        Debug.Log($"[RefreshMessages] caricati {messages.Count} messaggi.");
+        //Debug.Log($"[RefreshMessages] caricati {messages.Count} messaggi.");
     }
 
     public void DisplayMessages() => RefreshMessages();

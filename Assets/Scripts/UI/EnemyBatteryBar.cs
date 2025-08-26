@@ -54,7 +54,7 @@ public class EnemyBatteryBar : MonoBehaviour
         // Interpolazione tra pieno e vuoto
         batteryFill.color = Color.Lerp(emptyColor, fullColor, ratio);
 
-        Debug.Log($"Update Fill --> Battery: {batteryFill.fillAmount}");
+        //Debug.Log($"Update Fill --> Battery: {batteryFill.fillAmount}");
     }
 
     private void OnBatteryDepleted()

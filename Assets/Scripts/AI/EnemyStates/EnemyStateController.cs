@@ -165,10 +165,13 @@ public class EnemyStateController : MonoBehaviour
             return;
         }
 
+        // Imposta la destinazione
         CheckPosition = charger.transform.position;
-        ChangeState(new CheckState());
+
+        // Cambia stato in GoToRechargeState
+        ChangeState(new GoToRechargeState());
     }
-    
+
     // Getters
     public string GetCurrentState() => currentState?.ToString();
 }

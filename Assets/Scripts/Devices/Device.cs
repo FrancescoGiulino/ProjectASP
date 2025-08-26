@@ -4,7 +4,7 @@ using UnityEngine;
 public class Device : MonoBehaviour
 {
     [SerializeField] protected bool active = false;
-    public bool Active { get; set; }
+    public bool Active => active;
     [SerializeField] protected Interactable[] dipendencies;
 
     [Header("Animation Settings")]
