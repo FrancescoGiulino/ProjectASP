@@ -1,8 +1,7 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshObstacle))]
+//[RequireComponent(typeof(NavMeshObstacle))]
 public class Door : Device
 {
     private NavMeshObstacle obstacle;
@@ -11,18 +10,18 @@ public class Door : Device
 
     protected void Awake()
     {
-        obstacle = GetComponent<NavMeshObstacle>();
+        /*obstacle = GetComponent<NavMeshObstacle>();
         if (obstacle == null)
         {
             Debug.LogError("Door richiede un NavMeshObstacle sullo stesso GameObject.");
-        }
+        }*/
     }
 
     protected override void Start()
     {
         base.Start();
         // All'avvio allinea subito il NavMeshObstacle allo stato 'active'
-        ApplyState(force: true);
+        //ApplyState(force: true);
     }
 
     protected override void Update()

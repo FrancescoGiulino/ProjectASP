@@ -8,24 +8,50 @@ public class WorldInformationManager : MonoBehaviour
     [SerializeField] private GameObject[] primaryAmmoChargers;
     [SerializeField] private GameObject[] secondaryAmmoChargers;
 
+    public static WorldInformationManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // eliminazione duplicati
+            return;
+        }
+        Instance = this;
+        // Nessun DontDestroyOnLoad --> NON persistente tra scene
+    }
+
     // --- Battery Charger ---
     public GameObject GetBatteryCharger(int index) => batteryChargers[index];
     public GameObject[] GetBatteryChargers() => batteryChargers;
 
     public GameObject GetNearestBatteryCharger(Vector3 pos)
     {
+        if (batteryChargers == null || batteryChargers.Length == 0)
+        {
+            Debug.LogWarning("Nessun batteryCharger assegnato a WorldInformationManager!");
+            return null;
+        }
+
         GameObject nearestBatteryCharger = null;
         float nearestDistance = Mathf.Infinity;
 
         foreach (var charger in batteryChargers)
         {
+            if (charger == null) continue;
+
+            // Usa il path se disponibile, altrimenti fallback sulla distanza diretta
             float pathLength = GetPathLength(pos, charger.transform.position);
-            if (pathLength >= 0 && pathLength < nearestDistance) // >=0 significa che esiste un path valido
+            if (pathLength < 0) 
+                pathLength = Vector3.Distance(pos, charger.transform.position);
+
+            if (pathLength < nearestDistance)
             {
                 nearestDistance = pathLength;
                 nearestBatteryCharger = charger;
             }
         }
+
         return nearestBatteryCharger;
     }
 
@@ -89,7 +115,7 @@ public class WorldInformationManager : MonoBehaviour
     {
         NavMeshPath path = new NavMeshPath();
         if (!NavMesh.CalculatePath(start, end, NavMesh.AllAreas, path))
-            return -1f; // Nessun percorso valido
+            return -1f;
 
         if (path.corners.Length < 2)
             return -1f;

@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Device : MonoBehaviour
 {
     [SerializeField] protected bool active = false;
+    public bool Active { get; set; }
     [SerializeField] protected Interactable[] dipendencies;
 
     [Header("Animation Settings")]

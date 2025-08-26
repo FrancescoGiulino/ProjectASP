@@ -9,11 +9,17 @@ public class ChaseState : IEnemyState
 
     public void Update(EnemyStateController enemy)
     {
-        if (!enemy.Detection.IsTargetInChaseRange())
+        if (enemy.HasLowBattery())
         {
-            enemy.ChangeState(new LookState());
+            enemy.GoToNearestBatteryCharger();
             return;
         }
+
+        if (!enemy.Detection.IsTargetInChaseRange())
+            {
+                enemy.ChangeState(new LookState());
+                return;
+            }
 
         if (enemy.Target != null)
         {

@@ -29,9 +29,14 @@ public class EnemyStateController : MonoBehaviour
     [Header("EnemyFXController")]
     [SerializeField] private EnemyFXController enemyFXController;
 
+    [Header("Health")]
+    [SerializeField] private HealthController healthController;
+    public HealthController HealthController => healthController;
+
     private NavMeshAgent navMeshAgent;
     private IEnemyState currentState;
 
+    public bool CanHearSounds { get; private set; } = true;
     public bool IsWalking { get; private set; }
     public bool IsRunning { get; private set; }
     public Shooter Shooter { get { return shooter; } }
@@ -43,7 +48,7 @@ public class EnemyStateController : MonoBehaviour
     public float LookRotationTime => lookRotationTime;
     public float RotationSpeed => rotationSpeed;
     public float MaxLookTime => maxLookTime;
-    public Vector3 CheckPosition { get; private set; }
+    public Vector3 CheckPosition { get; set; }
 
     private void Awake()
     {
@@ -143,6 +148,27 @@ public class EnemyStateController : MonoBehaviour
         }
     }
 
+    public bool HasLowBattery() => HealthController.CurrentHealth <= Resources.minBatteryBeforeRecharge;
+    public bool HasNoBattery() => HealthController.CurrentHealth <= 0;
+    public void GoToNearestBatteryCharger()
+    {
+        if (WorldInformationManager.Instance == null)
+        {
+            Debug.LogError("WorldInformationManager.Instance è NULL: manca il manager in scena.");
+            return;
+        }
+
+        var charger = WorldInformationManager.Instance.GetNearestBatteryCharger(transform.position);
+        if (charger == null)
+        {
+            Debug.LogWarning("Nessun battery charger trovato o raggiungibile!");
+            return;
+        }
+
+        CheckPosition = charger.transform.position;
+        ChangeState(new CheckState());
+    }
+    
     // Getters
     public string GetCurrentState() => currentState?.ToString();
 }

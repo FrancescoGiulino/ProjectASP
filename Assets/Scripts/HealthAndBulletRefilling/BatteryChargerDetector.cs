@@ -46,7 +46,7 @@ public class BatteryChargerDetector : MonoBehaviour
                     soundEventComponent.PlaySound(SoundType.Heal);
 
                 // Avvia cooldown
-                    canHeal = false;
+                canHeal = false;
                 Invoke(nameof(ResetHeal), healCooldown);
 
                 break;
@@ -54,10 +54,7 @@ public class BatteryChargerDetector : MonoBehaviour
         }
     }
 
-    private void ResetHeal()
-    {
-        canHeal = true;
-    }
+    private void ResetHeal() => canHeal = true;
 
     private void OnDrawGizmosSelected()
     {

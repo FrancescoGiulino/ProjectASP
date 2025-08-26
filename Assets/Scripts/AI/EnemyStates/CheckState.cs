@@ -13,8 +13,8 @@ public class CheckState : IEnemyState
 
     public void Update(EnemyStateController enemy)
     {
-        // Se vede subito il target → inseguimento
-        if (enemy.Detection.CheckForTargets())
+        // Se vede subito il target (+ non ha la batteria scarica) --> inseguimento
+        if (enemy.Detection.CheckForTargets() && !enemy.HasLowBattery())
         {
             enemy.ChangeState(new ChaseState());
             return;

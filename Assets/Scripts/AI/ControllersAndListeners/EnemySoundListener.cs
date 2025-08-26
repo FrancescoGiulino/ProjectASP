@@ -17,8 +17,11 @@ public class EnemySoundListener : MonoBehaviour
 
     public void OnSoundHeard(Vector3 soundPosition)
     {
-        lastHeardSound = soundPosition;
-        Invoke(nameof(ReactToSound), reactionDelay);
+        if (!enemy.HasLowBattery())
+        {
+            lastHeardSound = soundPosition;
+            Invoke(nameof(ReactToSound), reactionDelay);
+        }
     }
 
     private Vector3 lastHeardSound;

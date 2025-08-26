@@ -33,6 +33,7 @@ public class HealthBarController : MonoBehaviour
     {
         // Limita il valore tra 0 e 1
         targetFill = Mathf.Clamp01(value);
+        Debug.Log($"Healthbar --> targetFill: {targetFill}");
     }
 
     private void Update()

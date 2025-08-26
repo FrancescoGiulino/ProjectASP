@@ -6,6 +6,15 @@ public class BatteryDrainInvoker : MonoBehaviour
 
     // Richiama la funzione "ConsumeBattery" ogni 1 secondo
     private void Start() => InvokeRepeating(nameof(ConsumeBattery), 1f, 1f);
-    
-    private void ConsumeBattery() => enemy.Resources.MovementBatteryConsume(enemy.IsWalking, enemy.IsRunning);
+
+    private void ConsumeBattery()
+    {
+        //enemy.Resources.MovementBatteryConsume(enemy.IsWalking, enemy.IsRunning);
+        var batteryConsume = enemy.Resources.batteryIdleDrainRate;
+        if (enemy.IsWalking) batteryConsume = enemy.Resources.batteryWalkingDrainRate;
+        else if (enemy.IsRunning) batteryConsume = enemy.Resources.batteryRunningDrainRate;
+
+        enemy.HealthController.TakeDamage(batteryConsume);
+        Debug.Log($"Health: {enemy.HealthController.CurrentHealth}");
+    }
 }

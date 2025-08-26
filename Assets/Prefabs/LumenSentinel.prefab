@@ -545,13 +545,16 @@ PrefabInstance:
       addedObject: {fileID: 8201241324635604304}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4055266374921121532}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2106744333967007516}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2272166006270760539}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6864281029701993413}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 14796116786176533}
   m_SourcePrefab: {fileID: 100100000, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
 --- !u!1 &6168199519798174706 stripped
 GameObject:
@@ -571,16 +574,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resources:
-    battery: 100
     minBatteryBeforeRecharge: 30
     primaryAmmo: 30
     secondaryAmmo: 5
-    walkSpeed: 1
+    walkSpeed: 2
     runSpeed: 3
     minDistance: 1.5
-    batteryIdleDrainRate: 0.1
-    batteryWalkingDrainRate: 0.2
-    batteryRunningDrainRate: 0.5
+    batteryIdleDrainRate: 5
+    batteryWalkingDrainRate: 10
+    batteryRunningDrainRate: 25
     batteryPrimaryWeaponDrainRate: 0.5
     batterySecondaryWeaponDrainRate: 1
   target: {fileID: 0}
@@ -596,6 +598,8 @@ MonoBehaviour:
   maxLookTime: 4
   shooter: {fileID: 2519417913679888451}
   enemyFXController: {fileID: 5382317009409128481}
+  healthController: {fileID: 6864281029701993413}
+  healthbarController: {fileID: 0}
 --- !u!114 &3072177655860989917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,26 +734,6 @@ MonoBehaviour:
   visualDetection: {fileID: 3072177655860989917}
   soundDetection: {fileID: 4945562079594784341}
   enemy: {fileID: 3822256668198755552}
---- !u!114 &4055266374921121532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6168199519798174706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f177f15d8492dc4a8b2e5545b676598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 3822256668198755552}
-  maxBattery: 100
-  currentBattery: 0
-  fullColor: {r: 0, g: 1, b: 0, a: 1}
-  emptyColor: {r: 1, g: 0, b: 0, a: 1}
-  canvas: {fileID: 1374030458094303004}
-  batteryFill: {fileID: 2060301432161535955}
-  forwardDirection: {x: 0, y: 0, z: 1}
 --- !u!136 &2106744333967007516
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -795,6 +779,39 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6864281029701993413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168199519798174706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f017a58bca8084299bc7ad15dddf33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  hasHealthbar: 1
+  healthbarController: {fileID: 0}
+--- !u!114 &14796116786176533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168199519798174706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f177f15d8492dc4a8b2e5545b676598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthController: {fileID: 6864281029701993413}
+  fullColor: {r: 0, g: 1, b: 0, a: 1}
+  emptyColor: {r: 1, g: 0, b: 0, a: 1}
+  canvas: {fileID: 1374030458094303004}
+  batteryFill: {fileID: 2060301432161535955}
+  forwardDirection: {x: 0, y: 0, z: 1}
 --- !u!4 &6832532814491973960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}

@@ -477,7 +477,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 64
+  m_VersionIndex: 91
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -585,9 +585,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4671174626895965156}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4262537221499212322}
   m_SourcePrefab: {fileID: 100100000, guid: 2103ee4bd1d4da943b47b702e587ac06, type: 3}
 --- !u!4 &1515498418836419747 stripped
 Transform:
@@ -671,8 +668,12 @@ MonoBehaviour:
   soundEntries:
   - soundType: 4
     clip: {fileID: 8300000, guid: 7a96dff03352e554195723631b6bd1e8, type: 3}
+    suspicious: 0
+    range: 5
   - soundType: 5
     clip: {fileID: 8300000, guid: 7a96dff03352e554195723631b6bd1e8, type: 3}
+    suspicious: 0
+    range: 5
   addPitch: 0
 --- !u!114 &4671174626895965156
 MonoBehaviour:
@@ -701,19 +702,3 @@ MonoBehaviour:
   hasSoundEmission: 0
   soundEventComponent: {fileID: 3375556368041452371}
   slidingDoorBoxCollider: {fileID: 5290607837331706981}
---- !u!208 &4262537221499212322
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2180852059779722777}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 2.5, y: 3.0000002, z: 2}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 3, z: 2}
-  m_TimeToStationary: 0.5

@@ -4,11 +4,7 @@ using UnityEngine.UI;
 public class EnemyBatteryBar : MonoBehaviour
 {
     [Header("Enemy")]
-    [SerializeField] private EnemyStateController enemy;
-
-    [Header("Battery Settings")]
-    [SerializeField] private float maxBattery = 100f;
-    [SerializeField] private float currentBattery;
+    [SerializeField] private HealthController healthController;
 
     [Header("Colors")]
     [SerializeField] private Color fullColor = Color.green;
@@ -24,7 +20,8 @@ public class EnemyBatteryBar : MonoBehaviour
 
     private void Awake()
     {
-        currentBattery = maxBattery;
+        if (healthController == null)
+            Debug.LogError("healthController non assegnato " + gameObject.name);
 
         if (canvas == null)
             Debug.LogError("Canvas non assegnato al nemico " + gameObject.name);
@@ -35,32 +32,33 @@ public class EnemyBatteryBar : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (canvas == null || enemy == null) return;
+        if (canvas == null || healthController == null) return;
 
         // Mantiene il canvas rivolto verso una direzione fissa
         canvas.transform.rotation = Quaternion.LookRotation(forwardDirection);
 
-        // Aggiorna la batteria in base allo stato del nemico
-        currentBattery = Mathf.Clamp(enemy.Resources.battery, 0, maxBattery);
+        // Aggiorna la barra batteria in base alla vita attuale
         UpdateBar();
 
-        if (currentBattery <= 0) OnBatteryDepleted();
+        if (healthController.IsDead)
+            OnBatteryDepleted();
     }
 
     private void UpdateBar()
     {
         if (batteryFill == null) return;
 
-        float ratio = currentBattery / maxBattery;
+        float ratio = healthController.CurrentHealth / healthController.MaxHealth;
         batteryFill.fillAmount = ratio;
 
         // Interpolazione tra pieno e vuoto
         batteryFill.color = Color.Lerp(emptyColor, fullColor, ratio);
-    }
 
+        Debug.Log($"Update Fill --> Battery: {batteryFill.fillAmount}");
+    }
 
     private void OnBatteryDepleted()
     {
-        Debug.Log(gameObject.name + " si è scaricato.");
+        //Debug.Log(gameObject.name + " si è scaricato.");
     }
 }

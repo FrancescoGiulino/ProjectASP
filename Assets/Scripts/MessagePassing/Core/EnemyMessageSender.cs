@@ -7,7 +7,7 @@ public class EnemyMessageSender : MonoBehaviour
     [SerializeField] private EnemySoundListener soundDetection;
     [SerializeField] private EnemyStateController enemy;
 
-    private bool canSendTargetDetectionMsg = true;
+    //private bool canSendTargetDetectionMsg = true;
     private bool canSendLowBatteryMsg = true;
     private bool canSendBatteryDeplatedMsg = true;
 
@@ -25,31 +25,26 @@ public class EnemyMessageSender : MonoBehaviour
 
     private void Update()
     {
-        var resources = enemy.Resources;
-
         // Target Detected Message
-        if (visualDetection.CheckForTargets() && canSendTargetDetectionMsg)
-        {
-            canSendTargetDetectionMsg = false;
-            SendTargetDetected(visualDetection.GetDetectedTargetPosition());
-        }
-        if (enemy.GetCurrentState() != "ChaseState") canSendTargetDetectionMsg = true;
+        if (visualDetection.CheckForTargets() && enemy.GetCurrentState() != "ChaseState")
+            if (!enemy.HasLowBattery())
+                SendTargetDetected(visualDetection.GetDetectedTargetPosition());
 
         // Low Battery Message
-        if (resources.battery < resources.minBatteryBeforeRecharge && canSendLowBatteryMsg)
+        if (enemy.HasLowBattery() && canSendLowBatteryMsg)
         {
             canSendLowBatteryMsg = false;
-            SendBatteryLow(enemy.Resources.battery);
+            SendBatteryLow(enemy.HealthController.CurrentHealth);
         }
-        if (resources.battery > resources.minBatteryBeforeRecharge) canSendLowBatteryMsg = true;
+        if (!enemy.HasLowBattery()) canSendLowBatteryMsg = true;
 
         // Battery Depleted Message
-        if (resources.battery <= 0 && canSendBatteryDeplatedMsg)
+        if (enemy.HasNoBattery() && canSendBatteryDeplatedMsg)
         {
             canSendBatteryDeplatedMsg = false;
             SendBatteryDeplated();
         }
-        if (resources.battery > 0) canSendBatteryDeplatedMsg = true;
+        if (enemy.HealthController.CurrentHealth > 0) canSendBatteryDeplatedMsg = true;
     }
 
     // -----------------------------------------------

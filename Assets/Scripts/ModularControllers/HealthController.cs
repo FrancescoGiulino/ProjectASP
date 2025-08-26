@@ -6,6 +6,7 @@ public class HealthController : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] bool hasHealthbar = false;
     [SerializeField] private HealthBarController healthbarController;
+    [SerializeField] private bool canHealIfDead = false;
     private float currentHealth;
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth;
@@ -17,7 +18,7 @@ public class HealthController : MonoBehaviour
     {
         currentHealth = maxHealth;
         if (hasHealthbar && !healthbarController)
-            healthbarController.GetComponent<HealthBarController>();
+            healthbarController = GetComponent<HealthBarController>();
     }
 
     public void TakeDamage(float amount)
@@ -36,9 +37,9 @@ public class HealthController : MonoBehaviour
 
     public void Heal(float amount)
     {
-        if (IsDead) return;
+        if (IsDead && !canHealIfDead) return;
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        
+
         if (hasHealthbar && healthbarController)
             healthbarController?.SetValue(currentHealth / maxHealth);
     }

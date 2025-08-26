@@ -16,6 +16,12 @@ public class LookState : IEnemyState
 
     public void Update(EnemyStateController enemy)
     {
+        if (enemy.HasLowBattery())
+        {
+            enemy.GoToNearestBatteryCharger();
+            return;
+        }
+        
         lookTimer += Time.deltaTime;
         lookToPatrolTimer += Time.deltaTime;
 
