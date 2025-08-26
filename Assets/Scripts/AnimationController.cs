@@ -27,6 +27,14 @@ public class AnimationController : MonoBehaviour
             Debug.LogWarning("Animator component is not assigned.");
     }
 
+    public void SetBool(string parameterName, bool value)
+    {
+        if (animator != null)
+            animator.SetBool(parameterName, value);
+        else
+            Debug.LogWarning("Animator component is not assigned.");
+    }
+
     public void SetAnimationSpeed(float speed)
     {
         if (animator != null)
