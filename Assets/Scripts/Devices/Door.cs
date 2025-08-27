@@ -43,7 +43,7 @@ public class Door : Device
                 animationController.PlayAnimation("Activate");
 
             // ma lascio il collider attivo → player non può entrare
-            boxCollider.enabled = true;
+            //boxCollider.enabled = true;
         }
     }
 
