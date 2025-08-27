@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyStateController : MonoBehaviour
 {
     [Header("Enemy Resources")]
+    [SerializeField] private EnemyProfile profile;
     [SerializeField] private EnemyResources resources;
     public EnemyResources Resources => resources;
 
@@ -53,6 +54,11 @@ public class EnemyStateController : MonoBehaviour
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        if (profile != null)
+            resources = profile.GenerateResources();
+        else
+            Debug.LogError($"No EnemyProfile assigned to {name}!");
     }
 
     private void Start()
