@@ -131,11 +131,15 @@
     <Compile Include="Assets\Scripts\SceneHandling\AsyncLoader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
     <None Include="Assets\Resources\Sounds\BackgroudMusic\Sc-Fi Music\Note.txt" />
+    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Buffers.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll" />
     <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\glitch-goblin-font\misc\License.txt" />
     <None Include="Assets\UnityTechnologies\AdventureGameEnvironment\Shaders\Toon\CustomLighting.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
@@ -145,6 +149,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\nitro-break-font\info.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\nitro-break-font\misc\NOTE  !!!!.txt" />
+    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll" />
     <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\exwayer-font\info.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\beautiful-police-officer-font\info.txt" />
@@ -158,14 +163,18 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\QuickOutline\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Assets\Scripts\SensorTemplate.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Materials\Day-Night Skyboxes\readme.txt" />
+    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngine.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Numerics.Vectors.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Memory.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -647,6 +656,22 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ThinkEngine">
+      <HintPath>Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Antlr4.Runtime.Standard">
+      <HintPath>Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
