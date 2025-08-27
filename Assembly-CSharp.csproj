@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Managers\HealthBarController.cs" />
     <Compile Include="Assets\InputActions\PlayerInputActions.cs" />
     <Compile Include="Assets\Scripts\MessagePassing\Core\MessageBus.cs" />
+    <Compile Include="Assets\Resources\ScriptableObjects\Message\AiMessageType.cs" />
     <Compile Include="Assets\Scripts\Managers\Audio\CameraSoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\Devices\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\AnimationController.cs" />
@@ -101,11 +102,11 @@
     <Compile Include="Assets\Scripts\AI\EnemyStates\CheckState.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\TargetDetectionController.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStates\LookState.cs" />
-    <Compile Include="Assets\Resources\ScriptableObjects\AiMessageType.cs" />
     <Compile Include="Assets\Scripts\Devices\Door.cs" />
     <Compile Include="Assets\Scripts\UI\DropdownScroller.cs" />
     <Compile Include="Assets\Scripts\Managers\IManager.cs" />
     <Compile Include="Assets\Scripts\MessagePassing\Ui\MessageSelectionController.cs" />
+    <Compile Include="Assets\Resources\ScriptableObjects\EnemyProfile\EnemyProfile.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyStates\IEnemyState.cs" />
     <Compile Include="Assets\Scripts\ModularControllers\Shooter.cs" />
     <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />

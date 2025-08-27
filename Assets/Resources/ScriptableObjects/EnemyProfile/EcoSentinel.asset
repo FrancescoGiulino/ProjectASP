@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c184b0673c96f408caa9f2bb64859b, type: 3}
+  m_Name: EcoSentinel
+  m_EditorClassIdentifier: 
+  minBatteryBeforeRecharge: {x: 32, y: 37}
+  primaryAmmo: {x: 7, y: 10}
+  secondaryAmmo: {x: 2, y: 6}
+  walkSpeed: {x: 1.5, y: 2}
+  runSpeed: {x: 2.7, y: 3.2}
+  lowBatterySpeed: {x: 0.6, y: 0.9}
+  minDistance: {x: 0.8, y: 1.1}
+  batteryIdleDrainRate: {x: 0.05, y: 0.15}
+  batteryWalkingDrainRate: {x: 0.2, y: 0.4}
+  batteryRunningDrainRate: {x: 0.7, y: 1}
+  batteryPrimaryWeaponDrainRate: {x: 2, y: 4}
+  batterySecondaryWeaponDrainRate: {x: 6, y: 8}

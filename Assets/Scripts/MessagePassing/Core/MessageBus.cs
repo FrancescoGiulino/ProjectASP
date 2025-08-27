@@ -18,7 +18,8 @@ public class MessageBus : MonoBehaviour
         { "LowBatteryMsg", 3 },
         { "SuspiciousMovementMsg", 4 },
         { "TargetDamagedMsg", 5 },
-        { "TargetDetectedMsg", 6 }
+        { "TargetDetectedLowBatteryMsg", 6 },
+        { "TargetDetectedMsg", 7 }
     };
 
     private void Awake()

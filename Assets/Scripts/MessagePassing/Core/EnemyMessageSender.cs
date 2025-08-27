@@ -8,6 +8,7 @@ public class EnemyMessageSender : MonoBehaviour
     [SerializeField] private EnemyStateController enemy;
 
     private bool canSendTargetDetectionMsg = true;
+    private bool canSendTargetDetectionLowBatteryMsg = true;
     private bool canSendLowBatteryMsg = true;
     private bool canSendBatteryDeplatedMsg = true;
 
@@ -36,8 +37,19 @@ public class EnemyMessageSender : MonoBehaviour
         }
         else canSendTargetDetectionMsg = true;
 
+        // Target Detected Message (With Low Battery)
+        if (visualDetection.CheckForTargets())
+        {
+            if (enemy.HasLowBattery() && canSendTargetDetectionLowBatteryMsg)
+            {
+                canSendTargetDetectionLowBatteryMsg = false;
+                SendTargetDetectedLowBattery(visualDetection.GetDetectedTargetPosition());
+            }
+        }
+        else canSendTargetDetectionLowBatteryMsg = true;
+
         // Low Battery Message
-            if (enemy.HasLowBattery() && canSendLowBatteryMsg)
+        if (enemy.HasLowBattery() && canSendLowBatteryMsg)
         {
             canSendLowBatteryMsg = false;
             SendBatteryLow(enemy.HealthController.CurrentHealth);
@@ -63,7 +75,23 @@ public class EnemyMessageSender : MonoBehaviour
 
         MessageBus.Instance.EmitMessage(
             "TargetDetectedMsg",
-            "Eco-Sentinel",
+            enemy.name,
+            coords,
+            new Dictionary<string, string> {
+                { "x", pos.x.ToString("F1") },
+                { "y", pos.y.ToString("F1") },
+                { "z", pos.z.ToString("F1") }
+            }
+        );
+    }
+
+    public void SendTargetDetectedLowBattery(Vector3 pos)
+    {
+        string coords = $"coordinates: x:{pos.x:F1}; y:{pos.y:F1}; z:{pos.z:F1}";
+
+        MessageBus.Instance.EmitMessage(
+            "TargetDetectedLowBatteryMsg",
+            enemy.name,
             coords,
             new Dictionary<string, string> {
                 { "x", pos.x.ToString("F1") },
@@ -79,7 +107,7 @@ public class EnemyMessageSender : MonoBehaviour
 
         MessageBus.Instance.EmitMessage(
             "SuspiciousMovementMsg",
-            "Eco-Sentinel",
+            enemy.name,
             msgString,
             new Dictionary<string, string> {
                 { "x", soundPosition.x.ToString("F1") },
@@ -95,7 +123,7 @@ public class EnemyMessageSender : MonoBehaviour
     {
         MessageBus.Instance.EmitMessage(
             "LowBatteryMsg",
-            "Eco-Sentinel",
+            enemy.name,
             $"battery: {level:F0}%",
             new Dictionary<string, string> { { "level", level.ToString("F0") } }
         );
@@ -105,7 +133,7 @@ public class EnemyMessageSender : MonoBehaviour
     {
         MessageBus.Instance.EmitMessage(
             "BatteryDepletedMsg",
-            "Eco-Sentinel",
+            enemy.name,
             $"battery: 0%",
             null
         );

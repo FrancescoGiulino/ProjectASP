@@ -3239,7 +3239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: LumenSentinel (5)
+      value: LumenSentinel (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11782,7 +11782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: LumenSentinel (6)
+      value: LumenSentinel (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17511,7 +17511,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3830739542729953785, guid: 8ca170333bf98814aad4080d6ee31313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.7
+      value: -19.4
       objectReference: {fileID: 0}
     - target: {fileID: 3830739542729953785, guid: 8ca170333bf98814aad4080d6ee31313, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17519,7 +17519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3830739542729953785, guid: 8ca170333bf98814aad4080d6ee31313, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.100002
+      value: -30.300001
       objectReference: {fileID: 0}
     - target: {fileID: 3830739542729953785, guid: 8ca170333bf98814aad4080d6ee31313, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20525,6 +20525,42 @@ MonoBehaviour:
   - {fileID: 284517224}
   primaryAmmoChargers: []
   secondaryAmmoChargers: []
+  patrolPoints:
+  - points:
+    - {x: 0.5, y: 0, z: -14}
+    - {x: 0.5, y: 0, z: -29}
+    - {x: -12, y: 0, z: -29}
+    - {x: -12, y: 0, z: -24}
+    - {x: 3, y: 0, z: -14}
+  - points:
+    - {x: 11, y: 0, z: -20}
+    - {x: 7, y: 0, z: -1}
+    - {x: 16, y: 0, z: -3}
+    - {x: 19, y: 0, z: -20}
+  - points:
+    - {x: 30, y: 0, z: -8}
+    - {x: 20.5, y: 0, z: -8}
+    - {x: 28, y: 0, z: -16}
+    - {x: 21.5, y: 0, z: -13.7}
+  - points:
+    - {x: 20, y: 0, z: 7.5}
+    - {x: 4, y: 0, z: 7.5}
+  - points:
+    - {x: -8.5, y: 0, z: -3}
+    - {x: -8.5, y: 0, z: -8.5}
+    - {x: -14.5, y: 0, z: -8.5}
+    - {x: -14.5, y: 0, z: -3}
+  - points:
+    - {x: 8, y: 0, z: 35.5}
+    - {x: 8, y: 0, z: 27}
+    - {x: 13, y: 0, z: 27}
+    - {x: 13, y: 0, z: 33}
+  - points:
+    - {x: 38, y: 0, z: 38.5}
+    - {x: 38, y: 0, z: 34.5}
+    - {x: 48, y: 0, z: 34.5}
+    - {x: 48, y: 0, z: 33.5}
+    - {x: 38, y: 0, z: 33.5}
 --- !u!1001 &953604343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28231,7 +28267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: LumenSentinel (4)
+      value: LumenSentinel (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30966,7 +31002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: LumenSentinel (7)
+      value: LumenSentinel (6)
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46176,7 +46212,7 @@ PrefabInstance:
       objectReference: {fileID: 827035080}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: LumenSentinel
+      value: LumenSentinel (0)
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46231,6 +46267,6 @@ SceneRoots:
   - {fileID: 83905634}
   - {fileID: 194083589}
   - {fileID: 1769455955}
-  - {fileID: 950926609}
   - {fileID: 414355600}
+  - {fileID: 950926609}
   - {fileID: 1738724689}

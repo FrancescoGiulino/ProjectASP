@@ -1,5 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
+[System.Serializable]
+public class PatrolPath
+{
+    public Vector3[] points;  // array di punti per un percorso
+}
 
 public class WorldInformationManager : MonoBehaviour
 {
@@ -7,6 +14,7 @@ public class WorldInformationManager : MonoBehaviour
     [SerializeField] private GameObject[] batteryChargers;
     [SerializeField] private GameObject[] primaryAmmoChargers;
     [SerializeField] private GameObject[] secondaryAmmoChargers;
+    [SerializeField] private List<PatrolPath> patrolPoints;
 
     public static WorldInformationManager Instance { get; private set; }
 
