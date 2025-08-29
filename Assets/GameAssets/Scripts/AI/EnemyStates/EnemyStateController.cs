@@ -17,7 +17,6 @@ public class EnemyStateController : MonoBehaviour
 
     [Header("Target")]
     [SerializeField] private Transform target;
-    //[SerializeField] private float runningSpeed = 3, walkingSpeed = 1;
     [SerializeField] private EnemyTargetDetectionController targetDetectionController;
 
     [Header("Patrol Settings")]

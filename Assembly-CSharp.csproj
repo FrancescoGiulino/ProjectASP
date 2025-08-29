@@ -68,14 +68,18 @@
     <Compile Include="Assets\Actions\EnemyAction.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\EnemyMessageSender.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\MessageData.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_AssignedTo.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AssignedOwners.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\UIHoverSelector.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_y.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_z.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\AudioManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\RbImpactSoundManager.cs" />
     <Compile Include="Assets\GameAssets\Resources\ScriptableObjects\Message\AiMessageType.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_ParametersText.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Interactable\Button.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\CustomScrollRect.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_ParametersText.cs" />
     <Compile Include="Assets\GameAssets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\ScrollToSelected.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\EnemyBatteryBar.cs" />
@@ -83,22 +87,27 @@
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\HealthController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Interactable\Interactable.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\PatrolState.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_ParametersKeys.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\GoToRechargeState.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessageUiItemController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyResources.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_MessageState.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\MessageBus.cs" />
     <Compile Include="Assets\ThinkEngineer\ThinkEngine\Scripts\ThinkEngineTrigger.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\LightController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\Bullet.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\PlayerSoundEventComponent.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_IsTaken.cs" />
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\PlayerController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Devices\Device.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AnimationController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessageSelectionController.cs" />
     <Compile Include="Assets\GameAssets\Resources\ScriptableObjects\EnemyProfile\EnemyProfile.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\ChaseState.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_IsTaken.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\CameraSoundEventComponent.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_MessageState.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\TargetDetectionController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\DropdownScroller.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\EnemyStateController.cs" />
@@ -107,7 +116,9 @@
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\Shooter.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\ControllersAndListeners\EnemySoundListener.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\MenuHandler.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_ParametersValues.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\IEnemyState.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_SenderName.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Devices\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_x.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessageDisplayController.cs" />
@@ -119,9 +130,13 @@
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\GameInput.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\WorldInformationManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\ParticleEmitter.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_ParametersValues.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\LookState.cs" />
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_AssignedTo.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\ControllersAndListeners\EnemyFXController.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_SenderName.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_ParametersKeys.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\HealthBarController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\BatteryDrainInvoker.cs" />
@@ -647,24 +662,12 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Antlr4.Runtime.Standard">
-      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Collections.Immutable">
-      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@031a54704bff\net40\unity-custom\nunit.framework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ThinkEngine">
@@ -675,8 +678,20 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@7dcdc439b230\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Antlr4.Runtime.Standard">
+      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

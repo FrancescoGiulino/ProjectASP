@@ -20680,6 +20680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expirationTime: 10
+  AssignedOwners: []
 --- !u!114 &950926611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20721,15 +20722,448 @@ MonoBehaviour:
     - MessageBus
     - AiMessages
     Count: 2
-  _toMapProperties: []
-  _propertyFeatures: []
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - SenderName
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - MessageState
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ParametersText
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ParametersKeys
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ParametersValues
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - AssignedTo
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - IsTaken
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    Count: 2
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - SenderName
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - MessageState
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - ParametersText
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - ParametersKeys
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - ParametersValues
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - AssignedTo
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - IsTaken
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedOwners
+    Count: 2
+  _toMapProperties:
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - SenderName
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - MessageState
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ParametersText
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ParametersKeys
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ParametersValues
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - AssignedTo
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - IsTaken
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - SenderName
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - MessageState
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - ParametersText
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - ParametersKeys
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - ParametersValues
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - AssignedTo
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - IsTaken
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedOwners
+    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - SenderName
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_SenderName
+    propertyAliasHash: 1114927182
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - MessageState
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_MessageState
+    propertyAliasHash: 2083262744
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - ParametersText
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_ParametersText
+    propertyAliasHash: -2080269349
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - ParametersKeys
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_ParametersKeys
+    propertyAliasHash: 292384360
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - ParametersValues
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_ParametersValues
+    propertyAliasHash: -2128951114
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - AssignedTo
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_AssignedTo
+    propertyAliasHash: 1466107019
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - IsTaken
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_IsTaken
+    propertyAliasHash: -2116906833
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedMessages
+      - MessageData
+      - SenderName
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedMessage_SenderName
+    propertyAliasHash: -1344098384
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedMessages
+      - MessageData
+      - MessageState
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedMessage_MessageState
+    propertyAliasHash: 159761574
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedMessages
+      - MessageData
+      - ParametersText
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedMessage_ParametersText
+    propertyAliasHash: 757915399
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedMessages
+      - MessageData
+      - ParametersKeys
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedMessage_ParametersKeys
+    propertyAliasHash: -1599574
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedMessages
+      - MessageData
+      - ParametersValues
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedMessage_ParametersValues
+    propertyAliasHash: -1533212572
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedMessages
+      - MessageData
+      - AssignedTo
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedMessage_AssignedTo
+    propertyAliasHash: -1897456193
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedMessages
+      - MessageData
+      - IsTaken
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedMessage_IsTaken
+    propertyAliasHash: 79769139
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedOwners
+      Count: 2
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedOwners
+    propertyAliasHash: 1917274858
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: worldInformationManagerSensor
   isInvariant: 0
   isFixedSize: 0
-  _serializableSensorsTypes: []
+  _serializableSensorsTypes:
+  - typeName: ThinkEngine.AiMessage_SenderName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_MessageState, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_ParametersText, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_ParametersKeys, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_ParametersValues, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_AssignedTo, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_IsTaken, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_SenderName, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_MessageState, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_ParametersText, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_ParametersKeys, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_ParametersValues, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_AssignedTo, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_IsTaken, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedOwners, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   recompile: 0
   teRecompile: 0
-  generatedScripts: []
+  generatedScripts:
+  - AiMessage_SenderName.cs
+  - AiMessage_MessageState.cs
+  - AiMessage_ParametersText.cs
+  - AiMessage_ParametersKeys.cs
+  - AiMessage_ParametersValues.cs
+  - AiMessage_AssignedTo.cs
+  - AiMessage_IsTaken.cs
+  - AssignedMessage_SenderName.cs
+  - AssignedMessage_MessageState.cs
+  - AssignedMessage_ParametersText.cs
+  - AssignedMessage_ParametersKeys.cs
+  - AssignedMessage_ParametersValues.cs
+  - AssignedMessage_AssignedTo.cs
+  - AssignedMessage_IsTaken.cs
+  - AssignedOwners.cs
 --- !u!1001 &953604343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46831,16 +47265,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: prefabBrain
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: _executeReasonerOn
+      value: EnemyTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: AIFilesPrefix.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: 'AIFilesPrefix.Array.data[0]'
-      value: 
+      value: enemyAi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

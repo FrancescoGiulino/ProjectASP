@@ -115,8 +115,6 @@ public class EnemyMessageSender : MonoBehaviour
                 { "z", soundPosition.z.ToString("F1") }
             }
         );
-
-        Debug.Log($"[EnemymessageSender] Suspicious Sound Detected!!!!");
     }
 
     public void SendBatteryLow(float level)

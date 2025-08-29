@@ -1,0 +1,117 @@
+using UnityEngine;
+using System;
+using System.Collections.Generic;
+using ThinkEngine.Mappers;
+using static ThinkEngine.Mappers.OperationContainer;
+namespace ThinkEngine
+{
+	public class worldInformationManagerSensor_ParametersKeys : Sensor
+	{
+		private int counter;
+		private object specificValue;
+		private Operation operation;
+		private BasicTypeMapper mapper;
+		private List<List<List<string>>> values = new List<List<List<string>>>();
+		public override void Initialize(SensorConfiguration sensorConfiguration)
+		{
+			this.gameObject = sensorConfiguration.gameObject;
+			ready = true;
+			int index = gameObject.GetInstanceID();
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			operation = mapper.OperationList()[0];
+			counter = 0;
+			mappingTemplate = "worldInformationManagerSensor_ParametersKeys(worldInformationManager,objectIndex("+index+"),{1},{2},{0})." + Environment.NewLine;
+		}
+		public override void Destroy()
+		{
+		}
+		public override void Update()
+		{
+			if(!ready)
+			{
+				return;
+			}
+			if(!invariant || first)
+			{
+				first = false;
+				MessageBus MessageBus_1 = gameObject.GetComponent<MessageBus>();
+				if(MessageBus_1 == null)
+				{
+					values.Clear();
+					return;
+				}
+				List<MessageData> AiMessages_2 = MessageBus_1.AiMessages;
+				if(AiMessages_2 == null)
+				{
+					values.Clear();
+					return;
+				}
+				else if(AiMessages_2.Count > values.Count)
+				{
+					for(int i = values.Count; i < AiMessages_2.Count; i++)
+					{
+						values.Add(new List<List<string>>());
+					}
+				}
+				else if(AiMessages_2.Count < values.Count)
+				{
+					for(int i = AiMessages_2.Count; i < values.Count; i++)
+					{
+						values.RemoveAt(values.Count - 1);
+					}
+				}
+				for(int i_2 = 0; i_2 < AiMessages_2.Count; i_2++)
+				{
+					List<string> ParametersKeys_3 = AiMessages_2[i_2].ParametersKeys;
+					if(ParametersKeys_3 == null)
+					{
+						values[i_2].Clear();
+						continue;
+					}
+					else if(ParametersKeys_3.Count > values[i_2].Count)
+					{
+						for(int i = values[i_2].Count; i < ParametersKeys_3.Count; i++)
+						{
+							values[i_2].Add(new List<string>());
+						}
+					}
+					else if(ParametersKeys_3.Count < values[i_2].Count)
+					{
+						for(int i = ParametersKeys_3.Count; i < values[i_2].Count; i++)
+						{
+							values[i_2].RemoveAt(values[i_2].Count - 1);
+						}
+					}
+					for(int i_3 = 0; i_3 < ParametersKeys_3.Count; i_3++)
+					{
+						if (values[i_2][i_3].Count == 1)
+						{
+							values[i_2][i_3].RemoveAt(0);
+						}
+						values[i_2][i_3].Add(ParametersKeys_3[i_3]);
+					}
+				}
+			}
+		}
+		public override string Map()
+		{
+			string mapping = string.Empty;
+			for(int i0 = 0; i0 < values.Count; i0++)
+			{
+				for(int i1 = 0; i1 < values[i0].Count; i1++)
+				{
+					object operationResult = operation(values[i0][i1], specificValue, counter);
+					if(operationResult != null)
+					{
+						mapping = string.Concat(mapping, string.Format(mappingTemplate, BasicTypeMapper.GetMapper(operationResult.GetType()).BasicMap(operationResult),i0,i1));
+					}
+					else
+					{
+						mapping = string.Concat(mapping, string.Format("{0}", Environment.NewLine));
+					}
+				}
+			}
+			return mapping;
+		}
+	}
+}

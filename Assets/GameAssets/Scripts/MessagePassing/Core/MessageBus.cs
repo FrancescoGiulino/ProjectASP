@@ -12,7 +12,9 @@ public class MessageBus : MonoBehaviour
     [SerializeField] private float expirationTime = 10f;
 
     // Assegnazioni: messaggio --> nome guardia
-    public Dictionary<MessageData, string> Assignments = new Dictionary<MessageData, string>();
+    //public Dictionary<MessageData, string> Assignments = new Dictionary<MessageData, string>();
+    public List<MessageData> AssignedMessages = new List<MessageData>();
+    public List<string> AssignedOwners = new List<string>();
 
     public Dictionary<string, int> MessageTypes = new Dictionary<string, int>() {
         { "AmmoDepletedMsg", 0 },
@@ -35,6 +37,8 @@ public class MessageBus : MonoBehaviour
         Instance = this;
 
         AiMessages = new List<MessageData>();
+        AssignedMessages = new List<MessageData>();
+        AssignedOwners = new List<string>();
     }
 
     private void Start()
@@ -90,4 +94,49 @@ public class MessageBus : MonoBehaviour
 
     public List<MessageData> GetAiMessages() => AiMessages;
     public MessageData GetAiMessageAt(int pos) => AiMessages[pos];
+
+    // ============================================================================================================
+    // ============ Gestione "multithreading" per evitare che più guardie prendano lo stesso messaggio ============
+    // ============================================================================================================
+
+    public List<MessageData> GetAvailableMessages()
+    {
+        List<MessageData> available = new List<MessageData>();
+        for (int i = 0; i < AiMessages.Count; i++)
+        {
+            if (AiMessages[i].MessageState == "Pending" && !AssignedMessages.Contains(AiMessages[i]))
+                available.Add(AiMessages[i]);
+        }
+        return available;
+    }
+
+    public bool RequestMessage(MessageData msg, string enemyName)
+    {
+        if (msg.MessageState != "Pending") return false;
+        if (AssignedMessages.Contains(msg)) return false;
+
+        AssignedMessages.Add(msg);
+        AssignedOwners.Add(enemyName);
+        msg.MessageState = "Assigned";
+        return true;
+    }
+
+    public void ReleaseMessage(MessageData msg)
+    {
+        int index = AssignedMessages.IndexOf(msg);
+        if (index >= 0)
+        {
+            AssignedMessages.RemoveAt(index);
+            AssignedOwners.RemoveAt(index);
+            msg.MessageState = "Pending";
+        }
+    }
+
+    public string GetMessageOwner(MessageData msg)
+    {
+        int index = AssignedMessages.IndexOf(msg);
+        if (index >= 0)
+            return AssignedOwners[index];
+        return null;
+    }
 }
