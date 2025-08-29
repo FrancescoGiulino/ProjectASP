@@ -65,117 +65,122 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Devices\Device.cs" />
-    <Compile Include="Assets\Scripts\Managers\HealthBarController.cs" />
-    <Compile Include="Assets\InputActions\PlayerInputActions.cs" />
-    <Compile Include="Assets\Scripts\MessagePassing\Core\MessageBus.cs" />
-    <Compile Include="Assets\Resources\ScriptableObjects\Message\AiMessageType.cs" />
-    <Compile Include="Assets\Scripts\Managers\Audio\CameraSoundEventComponent.cs" />
-    <Compile Include="Assets\Scripts\Devices\SecurityCamera.cs" />
-    <Compile Include="Assets\Scripts\AnimationController.cs" />
-    <Compile Include="Assets\Scripts\AI\ControllersAndListeners\EnemyFXController.cs" />
-    <Compile Include="Assets\Scripts\UI\ScrollToSelected.cs" />
-    <Compile Include="Assets\Scripts\PlayerAndCamera\GameInput.cs" />
-    <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\Scripts\MessagePassing\Ui\MessagePanelController.cs" />
-    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UIHoverSelector.cs" />
-    <Compile Include="Assets\Scripts\AI\WorldInformationManager.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyResources.cs" />
-    <Compile Include="Assets\Scripts\UI\CustomScrollRect.cs" />
-    <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
-    <Compile Include="Assets\Scripts\ModularControllers\ParticleEmitter.cs" />
-    <Compile Include="Assets\Scripts\Managers\Audio\SoundManager.cs" />
-    <Compile Include="Assets\Scripts\Devices\Turret.cs" />
-    <Compile Include="Assets\Scripts\MessagePassing\Core\MessageData.cs" />
-    <Compile Include="Assets\Scripts\ModularControllers\LightController.cs" />
-    <Compile Include="Assets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />
-    <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
-    <Compile Include="Assets\Scripts\AI\ControllersAndListeners\EnemyTargetDetectionController.cs" />
-    <Compile Include="Assets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
-    <Compile Include="Assets\Scripts\MessagePassing\Ui\MessageUiItemController.cs" />
-    <Compile Include="Assets\Scripts\AI\BatteryDrainInvoker.cs" />
-    <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyStates\EnemyStateController.cs" />
-    <Compile Include="Assets\Scripts\Managers\Audio\MusicManager.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyStates\CheckState.cs" />
-    <Compile Include="Assets\Scripts\ModularControllers\TargetDetectionController.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyStates\LookState.cs" />
-    <Compile Include="Assets\Scripts\Devices\Door.cs" />
-    <Compile Include="Assets\Scripts\UI\DropdownScroller.cs" />
-    <Compile Include="Assets\Scripts\Managers\IManager.cs" />
-    <Compile Include="Assets\Scripts\MessagePassing\Ui\MessageSelectionController.cs" />
-    <Compile Include="Assets\Resources\ScriptableObjects\EnemyProfile\EnemyProfile.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyStates\IEnemyState.cs" />
-    <Compile Include="Assets\Scripts\ModularControllers\Shooter.cs" />
-    <Compile Include="Assets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />
-    <Compile Include="Assets\Scripts\ModularControllers\Bullet.cs" />
-    <Compile Include="Assets\Scripts\AI\ControllersAndListeners\EnemySoundListener.cs" />
-    <Compile Include="Assets\Scripts\Managers\Audio\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\Audio\PlayerSoundEventComponent.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyStates\ChaseState.cs" />
-    <Compile Include="Assets\Scripts\UI\EnemyBatteryBar.cs" />
-    <Compile Include="Assets\Scripts\ModularControllers\HealthController.cs" />
-    <Compile Include="Assets\Scripts\MessagePassing\Ui\MessageDisplayController.cs" />
-    <Compile Include="Assets\Scripts\Managers\Audio\SoundEventComponent.cs" />
-    <Compile Include="Assets\Scripts\Interactable\Button.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyStates\GoToRechargeState.cs" />
-    <Compile Include="Assets\Scripts\UI\MenuHandler.cs" />
-    <Compile Include="Assets\Scripts\AI\EnemyStates\PatrolState.cs" />
-    <Compile Include="Assets\Scripts\UI\LevelUIManager.cs" />
-    <Compile Include="Assets\Scripts\MessagePassing\Core\EnemyMessageSender.cs" />
-    <Compile Include="Assets\Scripts\Managers\Audio\RbImpactSoundManager.cs" />
-    <Compile Include="Assets\Scripts\ModularControllers\RotationPatrol.cs" />
-    <Compile Include="Assets\Scripts\HealthAndBulletRefilling\BatteryChargerDetector.cs" />
-    <Compile Include="Assets\Scripts\SceneHandling\AsyncLoader.cs" />
+    <Compile Include="Assets\Actions\EnemyAction.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\EnemyMessageSender.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\MessageData.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\UI\UIHoverSelector.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_y.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_z.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\AudioManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\RbImpactSoundManager.cs" />
+    <Compile Include="Assets\GameAssets\Resources\ScriptableObjects\Message\AiMessageType.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Interactable\Button.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\UI\CustomScrollRect.cs" />
+    <Compile Include="Assets\GameAssets\QuickOutline\Scripts\Outline.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\UI\ScrollToSelected.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\UI\EnemyBatteryBar.cs" />
+    <Compile Include="Assets\GameAssets\InputActions\PlayerInputActions.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\ModularControllers\HealthController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Interactable\Interactable.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\PatrolState.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\GoToRechargeState.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessageUiItemController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyResources.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\MessageBus.cs" />
+    <Compile Include="Assets\ThinkEngineer\ThinkEngine\Scripts\ThinkEngineTrigger.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\ModularControllers\LightController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\ModularControllers\Bullet.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\PlayerSoundEventComponent.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\PlayerController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Devices\Device.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AnimationController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessageSelectionController.cs" />
+    <Compile Include="Assets\GameAssets\Resources\ScriptableObjects\EnemyProfile\EnemyProfile.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\ChaseState.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\CameraSoundEventComponent.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\MusicManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\ModularControllers\TargetDetectionController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\UI\DropdownScroller.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\EnemyStateController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\SoundEventComponent.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\ModularControllers\Shooter.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\ControllersAndListeners\EnemySoundListener.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\UI\MenuHandler.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\IEnemyState.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Devices\SecurityCamera.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_x.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessageDisplayController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Devices\Door.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\SceneHandling\AsyncLoader.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\IManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\ModularControllers\RotationPatrol.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessagePanelController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\GameInput.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\WorldInformationManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\ModularControllers\ParticleEmitter.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\LookState.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\PlayerAnimationController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\ControllersAndListeners\EnemyFXController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\HealthBarController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\PauseManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\BatteryDrainInvoker.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\UI\LevelUIManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\SettingsManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\HealthAndBulletRefilling\BatteryChargerDetector.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\ControllersAndListeners\EnemyTargetDetectionController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\CheckState.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Devices\Turret.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\SoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
-    <None Include="Assets\Resources\Sounds\BackgroudMusic\Sc-Fi Music\Note.txt" />
-    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Buffers.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll" />
-    <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\glitch-goblin-font\misc\License.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets\GameAssets\Resources\Sounds\BackgroudMusic\Sc-Fi Music\Note.txt" />
+    <None Include="Assets\Scripts\SensorTemplate.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\glitch-goblin-font\misc\License.txt" />
     <None Include="Assets\UnityTechnologies\AdventureGameEnvironment\Shaders\Toon\CustomLighting.hlsl" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\glitch-goblin-font\info.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\nitro-break-font\info.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\nitro-break-font\misc\NOTE  !!!!.txt" />
-    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll" />
-    <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\exwayer-font\info.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
-    <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\beautiful-police-officer-font\info.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\Materials\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\QuickOutline\Readme.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Assets\Scripts\SensorTemplate.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Materials\Day-Night Skyboxes\readme.txt" />
-    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngine.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Numerics.Vectors.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Memory.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\GameAssets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\glitch-goblin-font\info.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\nitro-break-font\info.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\nitro-break-font\misc\NOTE  !!!!.txt" />
+    <None Include="Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\exwayer-font\info.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
+    <None Include="Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Numerics.Vectors.dll" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Resources\Fonts &amp; Materials\Fonts\beautiful-police-officer-font\info.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\GameAssets\Materials\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Buffers.dll" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\GameAssets\QuickOutline\Readme.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll" />
+    <None Include="Assets\GameAssets\Materials\Day-Night Skyboxes\readme.txt" />
+    <None Include="Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngine.dll" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Memory.dll" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="Assets\GameAssets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\GameAssets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -642,6 +647,14 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.44f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Antlr4.Runtime.Standard">
+      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
@@ -650,28 +663,20 @@
       <HintPath>Library\PackageCache\com.unity.ext.nunit@031a54704bff\net40\unity-custom\nunit.framework.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ThinkEngine">
+      <HintPath>Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@7dcdc439b230\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ThinkEngine">
-      <HintPath>Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\ThinkEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Antlr4.Runtime.Standard">
-      <HintPath>Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\Antlr4.Runtime.Standard.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Collections.Immutable">
-      <HintPath>Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Collections.Immutable.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Assets\ThinkEngineer\ThinkEngine\Plugins\ThinkEngineDLL\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
