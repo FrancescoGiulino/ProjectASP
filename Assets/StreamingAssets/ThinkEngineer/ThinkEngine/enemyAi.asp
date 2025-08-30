@@ -29,11 +29,13 @@ self(SelfId, Name, ReasoningStyle, X, Y, Z, CurrentStateName, CurrentHealth, IsD
 { takeTask(TaskId,Sender,MessageState,X,Y,Z,TaskType) : task(TaskId,Sender,MessageState,X,Y,Z,TaskType), MessageState == "Pending" } <= 1.
 :~ #count{TaskId: takeTask(TaskId,Sender,MessageState,X,Y,Z,TaskType)}=0, task(_,_,_,_,_,_,_). [1@1]
 
+applyAction(1,"EnemyAction").
+actionArgument(1,"MessageIndex",TaskId) :- takeTask(TaskId,Sender,MessageState,X,Y,Z,TaskType).
+actionArgument(1,"EnemyName",Name) :- self(SelfId,Name,X,Y,Z,ReasoningStyle,CurrentStateName,CurrentHealth,IsDead).
+
 #show task/7.
 #show takeTask/7.
 #show self/9.
 %#show enemies/9.
-
-%applyAction(1,"EnemyAction").
-%actionArgument(1,"MessageIndex",TaskId) :- takeTask(TaskId,Sender,MessageState,X,Y,Z,TaskType).
-%actionArgument(1,"EnemyName",Name) :- self(SelfId,Name,X,Y,Z,ReasoningStyle,CurrentStateName,CurrentHealth,IsDead).
+#show applyAction/2.
+#show actionArgument/3.
