@@ -21211,6 +21211,12 @@ MonoBehaviour:
     - MessageData
     - IsTaken
     Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ID
+    Count: 4
   _toMapProperties:
   - myStrings:
     - MessageBus
@@ -21307,6 +21313,12 @@ MonoBehaviour:
     - AssignedMessages
     - MessageData
     - IsTaken
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ID
     Count: 4
   _propertyFeatures:
   - property:
@@ -21533,6 +21545,20 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - ID
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_ID
+    propertyAliasHash: 1193457109
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: worldInformationManagerSensor
   isInvariant: 0
   isFixedSize: 0
@@ -21569,6 +21595,8 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AssignedMessage_IsTaken, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   recompile: 0
   teRecompile: 0
   generatedScripts:
@@ -21588,6 +21616,7 @@ MonoBehaviour:
   - AssignedMessage_TaskType.cs
   - AssignedMessage_AssignedTo.cs
   - AssignedMessage_IsTaken.cs
+  - AiMessage_ID.cs
 --- !u!1001 &953604343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39662,11 +39691,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7216221221864225846, guid: 2dc909a01ae335d44b0af04885509020, type: 3}
   m_PrefabInstance: {fileID: 1776397610}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &1776397612 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1806123171231122113, guid: 2dc909a01ae335d44b0af04885509020, type: 3}
-  m_PrefabInstance: {fileID: 1776397610}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1789920856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48476,98 +48500,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1738724689}
     m_Modifications:
-    - target: {fileID: 1374030458094303004, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1776397612}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.data[5].Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.data[9].Count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.data[10].Count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.data[11].Count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.data[5].myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.data[9].myStrings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.data[10].myStrings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: _savedProperties.Array.data[11].myStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[5].myStrings.Array.data[1]'
-      value: EnemyStateController
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[5].myStrings.Array.data[2]'
-      value: Z
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[6].myStrings.Array.data[2]'
-      value: Y
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[7].myStrings.Array.data[2]'
-      value: X
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[8].myStrings.Array.data[2]'
-      value: name
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[9].myStrings.Array.data[0]'
-      value: scene
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[10].myStrings.Array.data[0]'
-      value: PlannerBrainsCoordinator
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[10].myStrings.Array.data[1]'
-      value: Transform
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[11].myStrings.Array.data[0]'
-      value: gameObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[11].myStrings.Array.data[1]'
-      value: Transform
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: '_savedProperties.Array.data[11].myStrings.Array.data[2]'
-      value: root
-      objectReference: {fileID: 0}
     - target: {fileID: 3822256668198755552, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 827035080}
-    - target: {fileID: 3822256668198755552, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: reasoningStyle
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -48621,10 +48557,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: debug
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -48635,14 +48567,6 @@ PrefabInstance:
     - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: _executeReasonerOn
       value: EnemyTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: AIFilesPrefix.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: 'AIFilesPrefix.Array.data[0]'
-      value: enemyAi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

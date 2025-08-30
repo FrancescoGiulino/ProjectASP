@@ -14,6 +14,7 @@ public class EnemyStateController : MonoBehaviour
     [SerializeField] private ReasoningStyles reasoningStyle;
     public ReasoningStyles ReasoningStyle { get { return reasoningStyle; } }
     public enum ReasoningStyles { EcoSentinel, OverrideStalker, CloseRangeEnforcer };
+    public string ReasoningStyleType="CloseRangeEnforcer";
 
     [Header("Target")]
     [SerializeField] private Transform target;
@@ -67,8 +68,9 @@ public class EnemyStateController : MonoBehaviour
             resources = profile.GenerateResources();
         else
             Debug.LogError($"No EnemyProfile assigned to {name}!");
-        
+
         EnemyId = gameObject.GetInstanceID();
+        ReasoningStyleType = reasoningStyle.ToString();
     }
 
     private void Start()

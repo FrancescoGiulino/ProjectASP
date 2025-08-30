@@ -688,6 +688,7 @@ MonoBehaviour:
     batteryPrimaryWeaponDrainRate: 0.5
     batterySecondaryWeaponDrainRate: 1
   reasoningStyle: 0
+  ReasoningStyleType: 
   target: {fileID: 0}
   targetDetectionController: {fileID: 3072177655860989917}
   patrolPoints:
@@ -1034,8 +1035,8 @@ MonoBehaviour:
   debug: 1
   maintainInputFile: 1
   _chosenSensorConfigurations:
-  - worldInformationManagerSensor
   - lumenSentinelSensor
+  - worldInformationManagerSensor
   AIFilesPath: C:/Users/franc/OneDrive/Desktop/Repository-Tesi/ProjectASP/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
   AIFilesPrefix:
   - enemyAi
@@ -1115,6 +1116,11 @@ MonoBehaviour:
     - EnemyStateController
     - EnemyId
     Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - ReasoningStyleType
+    Count: 3
   _toMapProperties:
   - myStrings:
     - gameObject
@@ -1155,6 +1161,11 @@ MonoBehaviour:
     - gameObject
     - EnemyStateController
     - EnemyId
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - ReasoningStyleType
     Count: 3
   _propertyFeatures:
   - property:
@@ -1261,6 +1272,19 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - ReasoningStyleType
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_ReasoningStyleType
+    propertyAliasHash: 1745935727
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: lumenSentinelSensor
   isInvariant: 0
   isFixedSize: 0
@@ -1279,7 +1303,11 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.lumenSentinelSensor_name, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  recompile: 1
+  - typeName: ThinkEngine.lumenSentinelSensor_EnemyId, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_ReasoningStyleType, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  recompile: 0
   teRecompile: 0
   generatedScripts:
   - lumenSentinelSensor_CurrentHealth.cs
@@ -1290,6 +1318,7 @@ MonoBehaviour:
   - lumenSentinelSensor_X.cs
   - lumenSentinelSensor_name.cs
   - lumenSentinelSensor_EnemyId.cs
+  - lumenSentinelSensor_ReasoningStyleType.cs
 --- !u!4 &6832532814491973960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}

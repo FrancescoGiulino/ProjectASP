@@ -73,6 +73,7 @@
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\MessageData.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_AssignedTo.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_Y.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_Z.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\UIHoverSelector.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_TaskType.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_y.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\GameAssets\Scripts\Interactable\Button.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\CustomScrollRect.cs" />
     <Compile Include="Assets\GameAssets\QuickOutline\Scripts\Outline.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_ReasoningStyleType.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\ScrollToSelected.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_TaskType.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_Z.cs" />
@@ -113,14 +115,17 @@
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\ChaseState.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_IsTaken.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\CameraSoundEventComponent.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_name.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\MusicManager.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_name.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_IsDead.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_MessageState.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_Y.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_currentStateName.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\TargetDetectionController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\DropdownScroller.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\EnemyStateController.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_Y.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\SoundEventComponent.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\Shooter.cs" />
@@ -135,6 +140,7 @@
     <Compile Include="Assets\GameAssets\Scripts\Devices\Door.cs" />
     <Compile Include="Assets\GameAssets\Scripts\SceneHandling\AsyncLoader.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\IManager.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_ID.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\RotationPatrol.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_X.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessagePanelController.cs" />
@@ -154,9 +160,11 @@
     <Compile Include="Assets\GameAssets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\HealthAndBulletRefilling\BatteryChargerDetector.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\ControllersAndListeners\EnemyTargetDetectionController.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_EnemyId.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\CheckState.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Devices\Turret.cs" />
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_X.cs" />
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\CameraTransparencyOccluder.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\SoundManager.cs" />
   </ItemGroup>
