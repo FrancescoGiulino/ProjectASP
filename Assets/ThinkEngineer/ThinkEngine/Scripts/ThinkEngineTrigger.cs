@@ -6,7 +6,7 @@ namespace ThinkEngine
     public class ThinkEngineTrigger : ScriptableObject
     {
         private float lastTriggerTime = 0f;
-        private const float interval = 0.1f;
+        private const float interval = 2f;
 
         public bool EnemyTrigger()
         {

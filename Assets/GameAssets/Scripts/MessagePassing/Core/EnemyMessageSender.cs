@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMessageSender : MonoBehaviour
@@ -77,11 +78,8 @@ public class EnemyMessageSender : MonoBehaviour
             "TargetDetectedMsg",
             enemy.name,
             coords,
-            new Dictionary<string, string> {
-                { "x", pos.x.ToString("F1") },
-                { "y", pos.y.ToString("F1") },
-                { "z", pos.z.ToString("F1") }
-            }
+            Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y), Mathf.RoundToInt(pos.z),
+            "reinforcement"
         );
     }
 
@@ -93,11 +91,8 @@ public class EnemyMessageSender : MonoBehaviour
             "TargetDetectedLowBatteryMsg",
             enemy.name,
             coords,
-            new Dictionary<string, string> {
-                { "x", pos.x.ToString("F1") },
-                { "y", pos.y.ToString("F1") },
-                { "z", pos.z.ToString("F1") }
-            }
+            Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y), Mathf.RoundToInt(pos.z),
+            "reinforcement"
         );
     }
 
@@ -109,11 +104,8 @@ public class EnemyMessageSender : MonoBehaviour
             "SuspiciousMovementMsg",
             enemy.name,
             msgString,
-            new Dictionary<string, string> {
-                { "x", soundPosition.x.ToString("F1") },
-                { "y", soundPosition.y.ToString("F1") },
-                { "z", soundPosition.z.ToString("F1") }
-            }
+            Mathf.RoundToInt(soundPosition.x), Mathf.RoundToInt(soundPosition.y), Mathf.RoundToInt(soundPosition.z),
+            "investigation"
         );
     }
 
@@ -123,7 +115,8 @@ public class EnemyMessageSender : MonoBehaviour
             "LowBatteryMsg",
             enemy.name,
             $"battery: {level:F0}%",
-            new Dictionary<string, string> { { "level", level.ToString("F0") } }
+            Mathf.RoundToInt(enemy.transform.position.x), Mathf.RoundToInt(enemy.transform.position.y), Mathf.RoundToInt(enemy.transform.position.z),
+            "information"
         );
     }
 
@@ -133,7 +126,8 @@ public class EnemyMessageSender : MonoBehaviour
             "BatteryDepletedMsg",
             enemy.name,
             $"battery: 0%",
-            null
+            Mathf.RoundToInt(enemy.transform.position.x), Mathf.RoundToInt(enemy.transform.position.y), Mathf.RoundToInt(enemy.transform.position.z),
+            "information"
         );
     }
 }

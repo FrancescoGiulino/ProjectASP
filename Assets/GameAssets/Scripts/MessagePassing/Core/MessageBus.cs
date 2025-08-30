@@ -49,7 +49,7 @@ public class MessageBus : MonoBehaviour
     }
 
     // Crea un nuovo messaggio e lo aggiunge alla lista. La UI verrà aggiornata leggendo la lista.
-    public MessageData EmitMessage(string messageType, string senderName, string parametersString, Dictionary<string, string> parametersData, string initialState = "Pending")
+    public MessageData EmitMessage(string messageType, string senderName, string parametersString, int x, int y, int z, string taskType = "information", string initialState = "Pending")
     {
         if (!MessageTypes.ContainsKey(messageType))
         {
@@ -64,7 +64,9 @@ public class MessageBus : MonoBehaviour
             senderName,
             initialState,
             parametersString,
-            parametersData
+            //parametersData,
+            x, y, z,
+            taskType
         );
 
         AiMessages.Add(message);

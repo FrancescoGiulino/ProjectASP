@@ -652,6 +652,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8099600235469570185}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2138493968264691120}
   m_SourcePrefab: {fileID: 100100000, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
 --- !u!1 &6168199519798174706 stripped
 GameObject:
@@ -684,6 +687,7 @@ MonoBehaviour:
     batteryRunningDrainRate: 2
     batteryPrimaryWeaponDrainRate: 0.5
     batterySecondaryWeaponDrainRate: 1
+  reasoningStyle: 0
   target: {fileID: 0}
   targetDetectionController: {fileID: 3072177655860989917}
   patrolPoints:
@@ -698,6 +702,11 @@ MonoBehaviour:
   shooter: {fileID: 2519417913679888451}
   enemyFXController: {fileID: 5382317009409128481}
   healthController: {fileID: 6864281029701993413}
+  X: 0
+  Y: 0
+  Z: 0
+  currentStateName: PatrolState
+  EnemyId: 0
 --- !u!114 &3072177655860989917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,7 +999,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168199519798174706}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1212236918, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
   m_Name: 
@@ -1002,7 +1011,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168199519798174706}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1504054938, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
   m_Name: 
@@ -1015,7 +1024,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168199519798174706}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 383103547, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
   m_Name: 
@@ -1023,11 +1032,13 @@ MonoBehaviour:
   borning: 0
   enableBrain: 1
   debug: 1
-  maintainInputFile: 0
+  maintainInputFile: 1
   _chosenSensorConfigurations:
-  - batteryChargingStationSensor
+  - worldInformationManagerSensor
+  - lumenSentinelSensor
   AIFilesPath: C:/Users/franc/OneDrive/Desktop/Repository-Tesi/ProjectASP/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
-  AIFilesPrefix: []
+  AIFilesPrefix:
+  - enemyAi
   prefabBrain: 1
   solverEnum: 1
   _executeReasonerOn: EnemyTrigger
@@ -1035,6 +1046,250 @@ MonoBehaviour:
   globalAIFile: 0
   solver_options: []
   _priority: 0
+--- !u!114 &2138493968264691120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168199519798174706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1612528518, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _savedProperties:
+  - myStrings:
+    - Transform
+    - position
+    - normalized
+    Count: 3
+  - myStrings:
+    - Transform
+    - position
+    Count: 2
+  - myStrings:
+    - gameObject
+    - HealthController
+    - CurrentHealth
+    Count: 3
+  - myStrings:
+    - gameObject
+    - HealthController
+    - IsDead
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - currentStateName
+    Count: 3
+  - myStrings:
+    - gameObject
+    Count: 1
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Z
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Y
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - X
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - name
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    Count: 2
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - EnemyId
+    Count: 3
+  _toMapProperties:
+  - myStrings:
+    - gameObject
+    - HealthController
+    - CurrentHealth
+    Count: 3
+  - myStrings:
+    - gameObject
+    - HealthController
+    - IsDead
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - currentStateName
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Z
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Y
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - X
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - name
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - EnemyId
+    Count: 3
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - gameObject
+      - HealthController
+      - CurrentHealth
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_CurrentHealth
+    propertyAliasHash: -845304275
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - HealthController
+      - IsDead
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_IsDead
+    propertyAliasHash: -511136968
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - currentStateName
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_currentStateName
+    propertyAliasHash: -2097681635
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Z
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_Z
+    propertyAliasHash: 1333474900
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Y
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_Y
+    propertyAliasHash: 1333474897
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - X
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_X
+    propertyAliasHash: 1333474898
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - name
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_name
+    propertyAliasHash: 1207513343
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - EnemyId
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_EnemyId
+    propertyAliasHash: -126913617
+    operation: 0
+    specificValue: 
+    counter: 0
+  _configurationName: lumenSentinelSensor
+  isInvariant: 0
+  isFixedSize: 0
+  _serializableSensorsTypes:
+  - typeName: ThinkEngine.lumenSentinelSensor_CurrentHealth, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_IsDead, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_currentStateName, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_Z, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_Y, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_X, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_name, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  recompile: 1
+  teRecompile: 0
+  generatedScripts:
+  - lumenSentinelSensor_CurrentHealth.cs
+  - lumenSentinelSensor_IsDead.cs
+  - lumenSentinelSensor_currentStateName.cs
+  - lumenSentinelSensor_Z.cs
+  - lumenSentinelSensor_Y.cs
+  - lumenSentinelSensor_X.cs
+  - lumenSentinelSensor_name.cs
+  - lumenSentinelSensor_EnemyId.cs
 --- !u!4 &6832532814491973960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}

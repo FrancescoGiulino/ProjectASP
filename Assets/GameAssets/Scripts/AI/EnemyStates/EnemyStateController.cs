@@ -38,8 +38,12 @@ public class EnemyStateController : MonoBehaviour
     [SerializeField] private HealthController healthController;
     public HealthController HealthController => healthController;
 
+    public int X, Y, Z; // Posizione approssimata
+
     private NavMeshAgent navMeshAgent;
     private IEnemyState currentState;
+    public string currentStateName = "PatrolState"; // serve a ThinkEngine
+    public int EnemyId;
 
     public bool CanHearSounds { get; private set; } = true;
     public bool IsWalking { get; private set; }
@@ -63,6 +67,8 @@ public class EnemyStateController : MonoBehaviour
             resources = profile.GenerateResources();
         else
             Debug.LogError($"No EnemyProfile assigned to {name}!");
+        
+        EnemyId = gameObject.GetInstanceID();
     }
 
     private void Start()
@@ -74,6 +80,10 @@ public class EnemyStateController : MonoBehaviour
     {
         currentState?.Update(this);
         UpdateMovementFlags();
+
+        X = Mathf.RoundToInt(transform.position.x);
+        Y = Mathf.RoundToInt(transform.position.y);
+        Z = Mathf.RoundToInt(transform.position.z);
     }
 
     public void ChangeState(IEnemyState newState)
@@ -82,6 +92,8 @@ public class EnemyStateController : MonoBehaviour
         currentState = newState;
         currentState?.Enter(this);
         enemyFXController.HandleFX(GetCurrentState());
+
+        currentStateName = currentState?.ToString();
     }
 
     // --- HELPERS ---

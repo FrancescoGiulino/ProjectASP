@@ -20724,6 +20724,10 @@ MonoBehaviour:
     Count: 2
   - myStrings:
     - MessageBus
+    - AssignedMessages
+    Count: 2
+  - myStrings:
+    - MessageBus
     - AiMessages
     - MessageData
     - SenderName
@@ -20738,19 +20742,25 @@ MonoBehaviour:
     - MessageBus
     - AiMessages
     - MessageData
-    - ParametersText
+    - X
     Count: 4
   - myStrings:
     - MessageBus
     - AiMessages
     - MessageData
-    - ParametersKeys
+    - Y
     Count: 4
   - myStrings:
     - MessageBus
     - AiMessages
     - MessageData
-    - ParametersValues
+    - Z
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - TaskType
     Count: 4
   - myStrings:
     - MessageBus
@@ -20767,10 +20777,6 @@ MonoBehaviour:
   - myStrings:
     - MessageBus
     - AssignedMessages
-    Count: 2
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
     - MessageData
     - SenderName
     Count: 4
@@ -20784,19 +20790,25 @@ MonoBehaviour:
     - MessageBus
     - AssignedMessages
     - MessageData
-    - ParametersText
+    - X
     Count: 4
   - myStrings:
     - MessageBus
     - AssignedMessages
     - MessageData
-    - ParametersKeys
+    - Y
     Count: 4
   - myStrings:
     - MessageBus
     - AssignedMessages
     - MessageData
-    - ParametersValues
+    - Z
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - TaskType
     Count: 4
   - myStrings:
     - MessageBus
@@ -20810,10 +20822,6 @@ MonoBehaviour:
     - MessageData
     - IsTaken
     Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedOwners
-    Count: 2
   _toMapProperties:
   - myStrings:
     - MessageBus
@@ -20831,19 +20839,25 @@ MonoBehaviour:
     - MessageBus
     - AiMessages
     - MessageData
-    - ParametersText
+    - X
     Count: 4
   - myStrings:
     - MessageBus
     - AiMessages
     - MessageData
-    - ParametersKeys
+    - Y
     Count: 4
   - myStrings:
     - MessageBus
     - AiMessages
     - MessageData
-    - ParametersValues
+    - Z
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - TaskType
     Count: 4
   - myStrings:
     - MessageBus
@@ -20873,19 +20887,25 @@ MonoBehaviour:
     - MessageBus
     - AssignedMessages
     - MessageData
-    - ParametersText
+    - X
     Count: 4
   - myStrings:
     - MessageBus
     - AssignedMessages
     - MessageData
-    - ParametersKeys
+    - Y
     Count: 4
   - myStrings:
     - MessageBus
     - AssignedMessages
     - MessageData
-    - ParametersValues
+    - Z
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AssignedMessages
+    - MessageData
+    - TaskType
     Count: 4
   - myStrings:
     - MessageBus
@@ -20899,10 +20919,6 @@ MonoBehaviour:
     - MessageData
     - IsTaken
     Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedOwners
-    Count: 2
   _propertyFeatures:
   - property:
       myStrings:
@@ -20937,12 +20953,12 @@ MonoBehaviour:
       - MessageBus
       - AiMessages
       - MessageData
-      - ParametersText
+      - X
       Count: 4
     windowWidth: 1
     configurationName: 
-    _propertyAlias: AiMessage_ParametersText
-    propertyAliasHash: -2080269349
+    _propertyAlias: AiMessage_X
+    propertyAliasHash: -1781724752
     operation: 0
     specificValue: 
     counter: 0
@@ -20951,12 +20967,12 @@ MonoBehaviour:
       - MessageBus
       - AiMessages
       - MessageData
-      - ParametersKeys
+      - Y
       Count: 4
     windowWidth: 1
     configurationName: 
-    _propertyAlias: AiMessage_ParametersKeys
-    propertyAliasHash: 292384360
+    _propertyAlias: AiMessage_Y
+    propertyAliasHash: -1781724751
     operation: 0
     specificValue: 
     counter: 0
@@ -20965,12 +20981,26 @@ MonoBehaviour:
       - MessageBus
       - AiMessages
       - MessageData
-      - ParametersValues
+      - Z
       Count: 4
     windowWidth: 1
     configurationName: 
-    _propertyAlias: AiMessage_ParametersValues
-    propertyAliasHash: -2128951114
+    _propertyAlias: AiMessage_Z
+    propertyAliasHash: -1781724754
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - TaskType
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_TaskType
+    propertyAliasHash: 51706721
     operation: 0
     specificValue: 
     counter: 0
@@ -21035,12 +21065,12 @@ MonoBehaviour:
       - MessageBus
       - AssignedMessages
       - MessageData
-      - ParametersText
+      - X
       Count: 4
     windowWidth: 1
     configurationName: 
-    _propertyAlias: AssignedMessage_ParametersText
-    propertyAliasHash: 757915399
+    _propertyAlias: AssignedMessage_X
+    propertyAliasHash: -228096610
     operation: 0
     specificValue: 
     counter: 0
@@ -21049,12 +21079,12 @@ MonoBehaviour:
       - MessageBus
       - AssignedMessages
       - MessageData
-      - ParametersKeys
+      - Y
       Count: 4
     windowWidth: 1
     configurationName: 
-    _propertyAlias: AssignedMessage_ParametersKeys
-    propertyAliasHash: -1599574
+    _propertyAlias: AssignedMessage_Y
+    propertyAliasHash: -228096611
     operation: 0
     specificValue: 
     counter: 0
@@ -21063,12 +21093,26 @@ MonoBehaviour:
       - MessageBus
       - AssignedMessages
       - MessageData
-      - ParametersValues
+      - Z
       Count: 4
     windowWidth: 1
     configurationName: 
-    _propertyAlias: AssignedMessage_ParametersValues
-    propertyAliasHash: -1533212572
+    _propertyAlias: AssignedMessage_Z
+    propertyAliasHash: -228096612
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AssignedMessages
+      - MessageData
+      - TaskType
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AssignedMessage_TaskType
+    propertyAliasHash: -745322515
     operation: 0
     specificValue: 
     counter: 0
@@ -21100,18 +21144,6 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedOwners
-      Count: 2
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedOwners
-    propertyAliasHash: 1917274858
-    operation: 0
-    specificValue: 
-    counter: 0
   _configurationName: worldInformationManagerSensor
   isInvariant: 0
   isFixedSize: 0
@@ -21120,12 +21152,14 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AiMessage_MessageState, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AiMessage_ParametersText, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AiMessage_ParametersKeys, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AiMessage_ParametersValues, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_X, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_Y, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_Z, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_TaskType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   - typeName: ThinkEngine.AiMessage_AssignedTo, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AiMessage_IsTaken, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
@@ -21134,36 +21168,37 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AssignedMessage_MessageState, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_ParametersText, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_ParametersKeys, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_ParametersValues, Assembly-CSharp, Version=0.0.0.0,
+  - typeName: ThinkEngine.AssignedMessage_X, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_Y, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_Z, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - typeName: ThinkEngine.AssignedMessage_TaskType, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AssignedMessage_AssignedTo, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AssignedMessage_IsTaken, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedOwners, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   recompile: 0
   teRecompile: 0
   generatedScripts:
   - AiMessage_SenderName.cs
   - AiMessage_MessageState.cs
-  - AiMessage_ParametersText.cs
-  - AiMessage_ParametersKeys.cs
-  - AiMessage_ParametersValues.cs
+  - AiMessage_X.cs
+  - AiMessage_Y.cs
+  - AiMessage_Z.cs
+  - AiMessage_TaskType.cs
   - AiMessage_AssignedTo.cs
   - AiMessage_IsTaken.cs
   - AssignedMessage_SenderName.cs
   - AssignedMessage_MessageState.cs
-  - AssignedMessage_ParametersText.cs
-  - AssignedMessage_ParametersKeys.cs
-  - AssignedMessage_ParametersValues.cs
+  - AssignedMessage_X.cs
+  - AssignedMessage_Y.cs
+  - AssignedMessage_Z.cs
+  - AssignedMessage_TaskType.cs
   - AssignedMessage_AssignedTo.cs
   - AssignedMessage_IsTaken.cs
-  - AssignedOwners.cs
 --- !u!1001 &953604343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47212,6 +47247,46 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1776397612}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: _savedProperties.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: _savedProperties.Array.data[10].Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: _savedProperties.Array.data[11].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: _savedProperties.Array.data[10].myStrings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: _savedProperties.Array.data[11].myStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: '_savedProperties.Array.data[10].myStrings.Array.data[0]'
+      value: gameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: '_savedProperties.Array.data[10].myStrings.Array.data[1]'
+      value: Transform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: '_savedProperties.Array.data[11].myStrings.Array.data[0]'
+      value: gameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: '_savedProperties.Array.data[11].myStrings.Array.data[1]'
+      value: Transform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138493968264691120, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: '_savedProperties.Array.data[11].myStrings.Array.data[2]'
+      value: root
+      objectReference: {fileID: 0}
     - target: {fileID: 3822256668198755552, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: target
       value: 
@@ -47219,6 +47294,14 @@ PrefabInstance:
     - target: {fileID: 3822256668198755552, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: reasoningStyle
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772825034969445992, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
@@ -47266,7 +47349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: debug
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: prefabBrain
