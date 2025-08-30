@@ -234,6 +234,7 @@ public class PlayerController : MonoBehaviour
     private void DeathEvent()
     {
         Debug.Log("Player has died.");
+        PauseManager.Instance.DisablePause = true;
         CanMove = false;
         rb.isKinematic = true; // Disable Rigidbody physics
         soundEventComponent.PlaySound(SoundType.Death); // Play death sound
@@ -245,6 +246,7 @@ public class PlayerController : MonoBehaviour
     // =============== PUBLIC METHODS ===============
     public Rigidbody GetRigidbody() => rb;
     public HealthController GetHealthController() => healthController;
+    public SoundEventComponent GetSoundEventComponent() => soundEventComponent;
     public float GetInputMagnitude() => inputMagnitude;
     public bool IsStealth() => stealth;
 }

@@ -103,6 +103,7 @@
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\LightController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\Bullet.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\PlayerSoundEventComponent.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\VictoryTrigger.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AssignedMessage_IsTaken.cs" />
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\PlayerController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Devices\Device.cs" />

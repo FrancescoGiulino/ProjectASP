@@ -2,36 +2,43 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
+    public static PauseManager Instance { get; private set; }
+
     [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private GameInput gameInput;
-    [SerializeField] private PlayerController playerController;
+
     private bool isPaused = false;
+    public bool DisablePause { get; set; } = false;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // elimina eventuali duplicati
+            return;
+        }
+        Instance = this;
+        // Non persistente, quindi non chiami DontDestroyOnLoad
+    }
 
     private void Start()
     {
-        // sempre assicura che la scena parta non in pausa
         Time.timeScale = 1f;
         isPaused = false;
 
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
-
-        if (!playerController)
-            Debug.LogWarning("PlayerController is null.");
     }
 
     private void OnEnable()
     {
-        if (gameInput != null)
-            gameInput.OnPauseAction += HandlePauseInput;
-        else
-            Debug.LogWarning("PauseManager: gameInput non assegnato!");
+        if (GameInput.Instance != null)
+            GameInput.Instance.OnPauseAction += HandlePauseInput;
     }
 
     private void OnDisable()
     {
-        if (gameInput != null)
-            gameInput.OnPauseAction -= HandlePauseInput;
+        if (GameInput.Instance != null)
+            GameInput.Instance.OnPauseAction -= HandlePauseInput;
     }
 
     private void HandlePauseInput(object sender, System.EventArgs e)
@@ -45,20 +52,18 @@ public class PauseManager : MonoBehaviour
     public void ResumeGame()
     {
         if (!isPaused) return;
-
         TogglePause();
     }
 
-    private void TogglePause()
+    public void TogglePause()
     {
-        if (PlayerController.Instance.GetHealthController().IsDead)
+        if (DisablePause || (PlayerController.Instance != null && PlayerController.Instance.GetHealthController().IsDead))
         {
             isPaused = true;
             return;
         }
 
         isPaused = !isPaused;
-
         Time.timeScale = isPaused ? 0f : 1f;
 
         if (pauseMenuUI != null)

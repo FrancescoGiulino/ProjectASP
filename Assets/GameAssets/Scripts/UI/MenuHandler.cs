@@ -10,11 +10,13 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject victoryUi;
 
     [Header("Navigation System")]
     [SerializeField] private GameObject defaultButton_MainMenu;
     [SerializeField] private GameObject defaultButton_Settings;
     [SerializeField] private GameObject defaultButton_GameOver;
+    [SerializeField] private GameObject defaultButton_Victory;
 
     [Header("Dropdown Fix")]
     [SerializeField] private TMP_Dropdown dropdown;
@@ -185,6 +187,15 @@ public class MenuHandler : MonoBehaviour
         optionsUI.SetActive(false);
         gameOverUI.SetActive(true);
         SetSelectedWithDelay(defaultButton_GameOver);
+    }
+
+    public void ShowVictoryScreen()
+    {
+        //PlayClickSound();
+        mainMenuUI.SetActive(false);
+        optionsUI.SetActive(false);
+        victoryUi.SetActive(true);
+        SetSelectedWithDelay(defaultButton_Victory);
     }
 
     public void PlayClickSound()
