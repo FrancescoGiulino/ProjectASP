@@ -27,7 +27,7 @@ public class MessageData
 
         TaskType = taskType;
 
-        AssignedTo = null;
+        AssignedTo = "null";
         IsTaken = false;
     }
 }

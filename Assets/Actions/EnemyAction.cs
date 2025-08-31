@@ -17,11 +17,13 @@ public class EnemyAction : Action
         if (MessageBus.Instance.RequestMessage(msg, EnemyName))
         {
             Debug.LogWarning($"{EnemyName} ha preso il messaggio {msg.Type.name} da {msg.SenderName}");
+            msg.IsTaken = true;
+            msg.AssignedTo = EnemyName;
         }
         else
         {
             Debug.LogWarning($"{EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name} da {msg.SenderName}");
-            Debug.LogWarning($"Il messaggio richiesto è occupato da: {MessageBus.Instance.GetMessageOwner(msg)}");
+            Debug.LogWarning($"{EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name}. Il messaggio richiesto è occupato da: {MessageBus.Instance.GetMessageOwner(msg)}");
             msg = null; // reset per evitare tentativi ripetuti
         }
     }
@@ -29,7 +31,7 @@ public class EnemyAction : Action
     // Controlla se l'azione può partire
     public override State Prerequisite()
     {
-        Debug.LogWarning($"EnemyAction Prerequisite chiamato per {EnemyName} con MessageIndex={MessageIndex}");
+        Debug.LogError($"{EnemyName} tenta di prendere il messaggio in posizione {MessageIndex}");
         // se la guardia ha già un messaggio, abort
         if (MessageBus.Instance.AssignedOwners.Contains(EnemyName))
         {
@@ -54,7 +56,6 @@ public class EnemyAction : Action
 
     public override void Do()
     {
-        Debug.LogWarning($"{EnemyName} sta tentando di prendere il messaggio {msg.ID} da {msg.SenderName}");
         TryGetMessage();
     }
 

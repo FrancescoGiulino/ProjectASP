@@ -14,7 +14,7 @@ public class EnemyStateController : MonoBehaviour
     [SerializeField] private ReasoningStyles reasoningStyle;
     public ReasoningStyles ReasoningStyle { get { return reasoningStyle; } }
     public enum ReasoningStyles { EcoSentinel, OverrideStalker, CloseRangeEnforcer };
-    public string ReasoningStyleType="CloseRangeEnforcer";
+    [HideInInspector] public string ReasoningStyleType="CloseRangeEnforcer";
 
     [Header("Target")]
     [SerializeField] private Transform target;
@@ -39,12 +39,12 @@ public class EnemyStateController : MonoBehaviour
     [SerializeField] private HealthController healthController;
     public HealthController HealthController => healthController;
 
-    public int X, Y, Z; // Posizione approssimata
+    [HideInInspector] public int X, Y, Z; // Posizione approssimata
 
     private NavMeshAgent navMeshAgent;
     private IEnemyState currentState;
-    public string currentStateName = "PatrolState"; // serve a ThinkEngine
-    public int EnemyId;
+    [HideInInspector] public string currentStateName = "PatrolState"; // serve a ThinkEngine
+    [HideInInspector] public int EnemyId;
 
     public bool CanHearSounds { get; private set; } = true;
     public bool IsWalking { get; private set; }

@@ -5,7 +5,7 @@ using ThinkEngine.Mappers;
 using static ThinkEngine.Mappers.OperationContainer;
 namespace ThinkEngine
 {
-	public class AssignedMessage_Y : Sensor
+	public class worldInformationManagerSensor_Distance : Sensor
 	{
 		private int counter;
 		private object specificValue;
@@ -20,7 +20,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "assignedMessage_Y(worldInformationManager,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
+			mappingTemplate = "worldInformationManagerSensor_Distance(worldInformationManager,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
 		}
 		public override void Destroy()
 		{
@@ -40,39 +40,39 @@ namespace ThinkEngine
 					values.Clear();
 					return;
 				}
-				List<MessageData> AssignedMessages_2 = MessageBus_1.AssignedMessages;
-				if(AssignedMessages_2 == null)
+				List<EnemyTaskDistance> EnemyTaskDistances_2 = MessageBus_1.EnemyTaskDistances;
+				if(EnemyTaskDistances_2 == null)
 				{
 					values.Clear();
 					return;
 				}
-				else if(AssignedMessages_2.Count > values.Count)
+				else if(EnemyTaskDistances_2.Count > values.Count)
 				{
-					for(int i = values.Count; i < AssignedMessages_2.Count; i++)
+					for(int i = values.Count; i < EnemyTaskDistances_2.Count; i++)
 					{
 						values.Add(new List<int>());
 					}
 				}
-				else if(AssignedMessages_2.Count < values.Count)
+				else if(EnemyTaskDistances_2.Count < values.Count)
 				{
-					for(int i = AssignedMessages_2.Count; i < values.Count; i++)
+					for(int i = EnemyTaskDistances_2.Count; i < values.Count; i++)
 					{
 						values.RemoveAt(values.Count - 1);
 					}
 				}
-				for(int i_2 = 0; i_2 < AssignedMessages_2.Count; i_2++)
+				for(int i_2 = 0; i_2 < EnemyTaskDistances_2.Count; i_2++)
 				{
-					if(AssignedMessages_2[i_2] == null)
+					if(EnemyTaskDistances_2[i_2] == null)
 					{
 						values[i_2].Clear();
 						continue;
 					}
-					int Y_3 = AssignedMessages_2[i_2].Y;
+					int Distance_3 = EnemyTaskDistances_2[i_2].Distance;
 					if (values[i_2].Count == 1)
 					{
 						values[i_2].RemoveAt(0);
 					}
-					values[i_2].Add(Y_3);
+					values[i_2].Add(Distance_3);
 				}
 			}
 		}

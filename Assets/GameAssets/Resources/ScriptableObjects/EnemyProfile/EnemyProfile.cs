@@ -7,6 +7,7 @@ public class EnemyProfile : ScriptableObject
     public Vector2 minBatteryBeforeRecharge = new Vector2(20f, 40f);
     public Vector2Int primaryAmmo = new Vector2Int(20, 40);
     public Vector2Int secondaryAmmo = new Vector2Int(2, 6);
+    public Vector2Int shootingDistance = new Vector2Int(2, 3);
 
     [Header("Speeds and MinDistance")]
     public Vector2 walkSpeed = new Vector2(0.8f, 1.2f);
@@ -29,6 +30,7 @@ public class EnemyProfile : ScriptableObject
             minBatteryBeforeRecharge = Random.Range(minBatteryBeforeRecharge.x, minBatteryBeforeRecharge.y),
             primaryAmmo = Random.Range(primaryAmmo.x, primaryAmmo.y + 1),
             secondaryAmmo = Random.Range(secondaryAmmo.x, secondaryAmmo.y + 1),
+            shootingDistance = Random.Range(shootingDistance.x, shootingDistance.y + 1),
 
             walkSpeed = Random.Range(walkSpeed.x, walkSpeed.y),
             runSpeed = Random.Range(runSpeed.x, runSpeed.y),

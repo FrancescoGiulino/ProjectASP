@@ -374,6 +374,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &9358705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+  m_PrefabInstance: {fileID: 8185141681759206555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &11148799 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6665157697028518431, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
@@ -1058,6 +1063,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a6d8f1af0ed7894fb6e35f47e595bb3, type: 3}
+--- !u!1 &56527556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+  m_PrefabInstance: {fileID: 777192224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &60177384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1851,6 +1861,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &92056740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+  m_PrefabInstance: {fileID: 1962238196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &93744267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7892409027652649608, guid: a45057e4e58976644b5add47f5314751, type: 3}
@@ -2989,7 +3004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: OverrideStalker (1)
+      value: OverrideStalker1
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3263,7 +3278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: CloseRangeEnforcer (4)
+      value: CloseRangeEnforcer4
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4473,6 +4488,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3724a554dff5c4ab136d1d4fe0737e, type: 3}
+--- !u!1 &206862535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+  m_PrefabInstance: {fileID: 169732893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &211878284
 Mesh:
   m_ObjectHideFlags: 0
@@ -10177,6 +10197,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2035449702877744130, guid: 4a2bcb6f87833b648b42efb99a24f4ea, type: 3}
   m_PrefabInstance: {fileID: 496509756}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &501275998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501276000}
+  - component: {fileID: 501275999}
+  m_Layer: 0
+  m_Name: LogFilter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &501275999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501275998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7bbc41db2443845b76bef336560ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &501276000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501275998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &502707074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12120,6 +12184,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &566917804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+  m_PrefabInstance: {fileID: 578395679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &570868512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12288,7 +12357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: OverrideStalker  (5)
+      value: OverrideStalker5
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17327,7 +17396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: EcoSentinel (2)
+      value: EcoSentinel2
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18727,6 +18796,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64bb1a3f82625454fb8bd2f68be15a99, type: 3}
+--- !u!1 &852920322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+  m_PrefabInstance: {fileID: 1390837052}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &853270722
 Mesh:
   m_ObjectHideFlags: 0
@@ -18892,6 +18966,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &857901093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+  m_PrefabInstance: {fileID: 168284335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &865259611
 Mesh:
   m_ObjectHideFlags: 0
@@ -19370,6 +19449,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1973193302582663486, guid: 2c7ff1723bfd37845be9e46bd3e14515, type: 3}
   m_PrefabInstance: {fileID: 882454049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &896840331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+  m_PrefabInstance: {fileID: 1507809553}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &897961782 stripped
 Transform:
@@ -21070,6 +21154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expirationTime: 10
   AssignedOwners: []
+  DistanceTimer: 0.1
+  EnemyTaskDistances: []
 --- !u!114 &950926611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21089,7 +21175,15 @@ MonoBehaviour:
   - {fileID: 284517224}
   PrimaryAmmoChargers: []
   SecondaryAmmoChargers: []
-  LumenSentinels: []
+  LumenSentinels:
+  - {fileID: 9358705}
+  - {fileID: 857901093}
+  - {fileID: 56527556}
+  - {fileID: 852920322}
+  - {fileID: 206862535}
+  - {fileID: 566917804}
+  - {fileID: 896840331}
+  - {fileID: 92056740}
   PatrolPoints: []
 --- !u!114 &950926612
 MonoBehaviour:
@@ -21106,213 +21200,111 @@ MonoBehaviour:
   _savedProperties:
   - myStrings:
     - MessageBus
-    Count: 1
+    - EnemyTaskDistances
+    Count: 2
+  - myStrings:
+    - MessageBus
+    - EnemyTaskDistances
+    - EnemyTaskDistance
+    - EnemyName
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - EnemyTaskDistances
+    - EnemyTaskDistance
+    - TaskId
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - EnemyTaskDistances
+    - EnemyTaskDistance
+    - Distance
+    Count: 4
   - myStrings:
     - MessageBus
     - AiMessages
     Count: 2
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    Count: 2
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - SenderName
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - MessageState
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - X
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - Y
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - Z
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - TaskType
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - AssignedTo
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - IsTaken
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - SenderName
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - MessageState
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - X
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - Y
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - Z
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - TaskType
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - AssignedTo
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - IsTaken
-    Count: 4
   - myStrings:
     - MessageBus
     - AiMessages
     - MessageData
     - ID
     Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - SenderName
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - MessageState
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ParametersText
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - X
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - Y
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - Z
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - TaskType
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - AssignedTo
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - IsTaken
+    Count: 4
+  - myStrings:
+    - MessageBus
+    Count: 1
   _toMapProperties:
   - myStrings:
     - MessageBus
-    - AiMessages
-    - MessageData
-    - SenderName
+    - EnemyTaskDistances
+    - EnemyTaskDistance
+    - EnemyName
     Count: 4
   - myStrings:
     - MessageBus
-    - AiMessages
-    - MessageData
-    - MessageState
+    - EnemyTaskDistances
+    - EnemyTaskDistance
+    - TaskId
     Count: 4
   - myStrings:
     - MessageBus
-    - AiMessages
-    - MessageData
-    - X
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - Y
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - Z
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - TaskType
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - AssignedTo
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AiMessages
-    - MessageData
-    - IsTaken
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - SenderName
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - MessageState
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - X
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - Y
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - Z
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - TaskType
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - AssignedTo
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - AssignedMessages
-    - MessageData
-    - IsTaken
+    - EnemyTaskDistances
+    - EnemyTaskDistance
+    - Distance
     Count: 4
   - myStrings:
     - MessageBus
@@ -21320,7 +21312,117 @@ MonoBehaviour:
     - MessageData
     - ID
     Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - SenderName
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - MessageState
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - ParametersText
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - X
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - Y
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - Z
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - TaskType
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - AssignedTo
+    Count: 4
+  - myStrings:
+    - MessageBus
+    - AiMessages
+    - MessageData
+    - IsTaken
+    Count: 4
   _propertyFeatures:
+  - property:
+      myStrings:
+      - MessageBus
+      - EnemyTaskDistances
+      - EnemyTaskDistance
+      - EnemyName
+      Count: 4
+    windowWidth: 1
+    configurationName: worldInformationManagerSensor
+    _propertyAlias: worldInformationManagerSensor_EnemyName
+    propertyAliasHash: 717522181
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - EnemyTaskDistances
+      - EnemyTaskDistance
+      - TaskId
+      Count: 4
+    windowWidth: 1
+    configurationName: worldInformationManagerSensor
+    _propertyAlias: worldInformationManagerSensor_TaskId
+    propertyAliasHash: -833923882
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - EnemyTaskDistances
+      - EnemyTaskDistance
+      - Distance
+      Count: 4
+    windowWidth: 1
+    configurationName: worldInformationManagerSensor
+    _propertyAlias: worldInformationManagerSensor_Distance
+    propertyAliasHash: 1104001155
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - ID
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_ID
+    propertyAliasHash: 1193457109
+    operation: 0
+    specificValue: 
+    counter: 0
   - property:
       myStrings:
       - MessageBus
@@ -21346,6 +21448,20 @@ MonoBehaviour:
     configurationName: 
     _propertyAlias: AiMessage_MessageState
     propertyAliasHash: 2083262744
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - AiMessages
+      - MessageData
+      - ParametersText
+      Count: 4
+    windowWidth: 1
+    configurationName: 
+    _propertyAlias: AiMessage_ParametersText
+    propertyAliasHash: -2080269349
     operation: 0
     specificValue: 
     counter: 0
@@ -21433,139 +21549,23 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedMessages
-      - MessageData
-      - SenderName
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedMessage_SenderName
-    propertyAliasHash: -1344098384
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedMessages
-      - MessageData
-      - MessageState
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedMessage_MessageState
-    propertyAliasHash: 159761574
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedMessages
-      - MessageData
-      - X
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedMessage_X
-    propertyAliasHash: -228096610
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedMessages
-      - MessageData
-      - Y
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedMessage_Y
-    propertyAliasHash: -228096611
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedMessages
-      - MessageData
-      - Z
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedMessage_Z
-    propertyAliasHash: -228096612
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedMessages
-      - MessageData
-      - TaskType
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedMessage_TaskType
-    propertyAliasHash: -745322515
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedMessages
-      - MessageData
-      - AssignedTo
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedMessage_AssignedTo
-    propertyAliasHash: -1897456193
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AssignedMessages
-      - MessageData
-      - IsTaken
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AssignedMessage_IsTaken
-    propertyAliasHash: 79769139
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - AiMessages
-      - MessageData
-      - ID
-      Count: 4
-    windowWidth: 1
-    configurationName: 
-    _propertyAlias: AiMessage_ID
-    propertyAliasHash: 1193457109
-    operation: 0
-    specificValue: 
-    counter: 0
   _configurationName: worldInformationManagerSensor
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes:
+  - typeName: ThinkEngine.worldInformationManagerSensor_EnemyName, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.worldInformationManagerSensor_TaskId, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.worldInformationManagerSensor_Distance, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   - typeName: ThinkEngine.AiMessage_SenderName, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AiMessage_MessageState, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.AiMessage_ParametersText, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AiMessage_X, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -21579,44 +21579,22 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AiMessage_IsTaken, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_SenderName, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_MessageState, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_X, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_Y, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_Z, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_TaskType, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_AssignedTo, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AssignedMessage_IsTaken, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.AiMessage_ID, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   recompile: 0
   teRecompile: 0
   generatedScripts:
+  - worldInformationManagerSensor_EnemyName.cs
+  - worldInformationManagerSensor_TaskId.cs
+  - worldInformationManagerSensor_Distance.cs
+  - AiMessage_ID.cs
   - AiMessage_SenderName.cs
   - AiMessage_MessageState.cs
+  - AiMessage_ParametersText.cs
   - AiMessage_X.cs
   - AiMessage_Y.cs
   - AiMessage_Z.cs
   - AiMessage_TaskType.cs
   - AiMessage_AssignedTo.cs
   - AiMessage_IsTaken.cs
-  - AssignedMessage_SenderName.cs
-  - AssignedMessage_MessageState.cs
-  - AssignedMessage_X.cs
-  - AssignedMessage_Y.cs
-  - AssignedMessage_Z.cs
-  - AssignedMessage_TaskType.cs
-  - AssignedMessage_AssignedTo.cs
-  - AssignedMessage_IsTaken.cs
-  - AiMessage_ID.cs
 --- !u!1001 &953604343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29671,7 +29649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: CloseRangeEnforcer (3)
+      value: CloseRangeEnforcer3
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32445,7 +32423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: OverrideStalker (6)
+      value: OverrideStalker6
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43244,7 +43222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: EcoSentinel (7)
+      value: EcoSentinel7
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48514,7 +48492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
-      value: CloseRangeEnforcer (0)
+      value: CloseRangeEnforcer0
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48585,3 +48563,4 @@ SceneRoots:
   - {fileID: 950926609}
   - {fileID: 1738724689}
   - {fileID: 294955904}
+  - {fileID: 501276000}

@@ -678,6 +678,7 @@ MonoBehaviour:
     minBatteryBeforeRecharge: 30
     primaryAmmo: 30
     secondaryAmmo: 5
+    shootingDistance: 2
     walkSpeed: 2
     runSpeed: 3
     lowBatterySpeed: 0.75
@@ -1042,7 +1043,7 @@ MonoBehaviour:
   - enemyAi
   prefabBrain: 1
   solverEnum: 1
-  _executeReasonerOn: EnemyTrigger
+  _executeReasonerOn: When Sensors are ready
   specificAIFile: 0
   globalAIFile: 0
   solver_options: []
@@ -1110,10 +1111,6 @@ MonoBehaviour:
   - myStrings:
     - gameObject
     - EnemyStateController
-    Count: 2
-  - myStrings:
-    - gameObject
-    - EnemyStateController
     - EnemyId
     Count: 3
   - myStrings:
@@ -1121,6 +1118,65 @@ MonoBehaviour:
     - EnemyStateController
     - ReasoningStyleType
     Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - minBatteryBeforeRecharge
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - shootingDistance
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batteryIdleDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batteryWalkingDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batteryRunningDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batteryPrimaryWeaponDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batterySecondaryWeaponDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - primaryAmmo
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - secondaryAmmo
+    Count: 4
   _toMapProperties:
   - myStrings:
     - gameObject
@@ -1167,6 +1223,60 @@ MonoBehaviour:
     - EnemyStateController
     - ReasoningStyleType
     Count: 3
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - minBatteryBeforeRecharge
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - shootingDistance
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batteryIdleDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batteryWalkingDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batteryRunningDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batteryPrimaryWeaponDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - batterySecondaryWeaponDrainRate
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - primaryAmmo
+    Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    - Resources
+    - secondaryAmmo
+    Count: 4
   _propertyFeatures:
   - property:
       myStrings:
@@ -1285,6 +1395,132 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - minBatteryBeforeRecharge
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_minBatteryBeforeRecharge
+    propertyAliasHash: 558126323
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - shootingDistance
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_shootingDistance
+    propertyAliasHash: 478723900
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - batteryIdleDrainRate
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_batteryIdleDrainRate
+    propertyAliasHash: 1261173535
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - batteryWalkingDrainRate
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_batteryWalkingDrainRate
+    propertyAliasHash: 610274426
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - batteryRunningDrainRate
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_batteryRunningDrainRate
+    propertyAliasHash: 1855558866
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - batteryPrimaryWeaponDrainRate
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_batteryPrimaryWeaponDrainRate
+    propertyAliasHash: 325840665
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - batterySecondaryWeaponDrainRate
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_batterySecondaryWeaponDrainRate
+    propertyAliasHash: -1682252989
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - primaryAmmo
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_primaryAmmo
+    propertyAliasHash: -1571533178
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - gameObject
+      - EnemyStateController
+      - Resources
+      - secondaryAmmo
+      Count: 4
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_secondaryAmmo
+    propertyAliasHash: -495998570
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: lumenSentinelSensor
   isInvariant: 0
   isFixedSize: 0
@@ -1307,6 +1543,24 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.lumenSentinelSensor_ReasoningStyleType, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_minBatteryBeforeRecharge, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_shootingDistance, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_batteryIdleDrainRate, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_batteryWalkingDrainRate, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_batteryRunningDrainRate, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_batteryPrimaryWeaponDrainRate, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_batterySecondaryWeaponDrainRate, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_primaryAmmo, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_secondaryAmmo, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   recompile: 0
   teRecompile: 0
   generatedScripts:
@@ -1319,6 +1573,15 @@ MonoBehaviour:
   - lumenSentinelSensor_name.cs
   - lumenSentinelSensor_EnemyId.cs
   - lumenSentinelSensor_ReasoningStyleType.cs
+  - lumenSentinelSensor_minBatteryBeforeRecharge.cs
+  - lumenSentinelSensor_shootingDistance.cs
+  - lumenSentinelSensor_batteryIdleDrainRate.cs
+  - lumenSentinelSensor_batteryWalkingDrainRate.cs
+  - lumenSentinelSensor_batteryRunningDrainRate.cs
+  - lumenSentinelSensor_batteryPrimaryWeaponDrainRate.cs
+  - lumenSentinelSensor_batterySecondaryWeaponDrainRate.cs
+  - lumenSentinelSensor_primaryAmmo.cs
+  - lumenSentinelSensor_secondaryAmmo.cs
 --- !u!4 &6832532814491973960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}

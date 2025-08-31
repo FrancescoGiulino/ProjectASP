@@ -8,6 +8,7 @@ public class EnemyResources
     public float minBatteryBeforeRecharge = 30f;
     public int primaryAmmo = 30;
     public int secondaryAmmo = 5;
+    public int shootingDistance = 2;
 
     [Header("Speeds and MinDistance")]
     public float walkSpeed = 1f;

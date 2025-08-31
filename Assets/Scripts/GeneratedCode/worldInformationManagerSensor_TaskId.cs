@@ -5,22 +5,22 @@ using ThinkEngine.Mappers;
 using static ThinkEngine.Mappers.OperationContainer;
 namespace ThinkEngine
 {
-	public class AssignedMessage_IsTaken : Sensor
+	public class worldInformationManagerSensor_TaskId : Sensor
 	{
 		private int counter;
 		private object specificValue;
 		private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<List<bool>> values = new List<List<bool>>();
+		private List<List<string>> values = new List<List<string>>();
 		public override void Initialize(SensorConfiguration sensorConfiguration)
 		{
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "assignedMessage_IsTaken(worldInformationManager,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
+			mappingTemplate = "worldInformationManagerSensor_TaskId(worldInformationManager,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
 		}
 		public override void Destroy()
 		{
@@ -40,39 +40,44 @@ namespace ThinkEngine
 					values.Clear();
 					return;
 				}
-				List<MessageData> AssignedMessages_2 = MessageBus_1.AssignedMessages;
-				if(AssignedMessages_2 == null)
+				List<EnemyTaskDistance> EnemyTaskDistances_2 = MessageBus_1.EnemyTaskDistances;
+				if(EnemyTaskDistances_2 == null)
 				{
 					values.Clear();
 					return;
 				}
-				else if(AssignedMessages_2.Count > values.Count)
+				else if(EnemyTaskDistances_2.Count > values.Count)
 				{
-					for(int i = values.Count; i < AssignedMessages_2.Count; i++)
+					for(int i = values.Count; i < EnemyTaskDistances_2.Count; i++)
 					{
-						values.Add(new List<bool>());
+						values.Add(new List<string>());
 					}
 				}
-				else if(AssignedMessages_2.Count < values.Count)
+				else if(EnemyTaskDistances_2.Count < values.Count)
 				{
-					for(int i = AssignedMessages_2.Count; i < values.Count; i++)
+					for(int i = EnemyTaskDistances_2.Count; i < values.Count; i++)
 					{
 						values.RemoveAt(values.Count - 1);
 					}
 				}
-				for(int i_2 = 0; i_2 < AssignedMessages_2.Count; i_2++)
+				for(int i_2 = 0; i_2 < EnemyTaskDistances_2.Count; i_2++)
 				{
-					if(AssignedMessages_2[i_2] == null)
+					if(EnemyTaskDistances_2[i_2] == null)
 					{
 						values[i_2].Clear();
 						continue;
 					}
-					bool IsTaken_3 = AssignedMessages_2[i_2].IsTaken;
+					string TaskId_3 = EnemyTaskDistances_2[i_2].TaskId;
+					if(TaskId_3 == null)
+					{
+						values[i_2].Clear();
+						continue;
+					}
 					if (values[i_2].Count == 1)
 					{
 						values[i_2].RemoveAt(0);
 					}
-					values[i_2].Add(IsTaken_3);
+					values[i_2].Add(TaskId_3);
 				}
 			}
 		}

@@ -146,7 +146,7 @@ public class WorldInformationManager : MonoBehaviour
 
             float pathLength = GetPathLength(pos, enemy.transform.position);
 
-            // se non c’è path valido → scarta
+            // se non c’è path valido --> scarta
             if (pathLength < 0) continue;
 
             if (pathLength < nearestDistance)
@@ -182,7 +182,26 @@ public class WorldInformationManager : MonoBehaviour
         return distances;
     }
 
-    // --- Utility ---
+    public Dictionary<string, float> GetEnemiesDistancesFromTask(MessageData task)
+    {
+        Dictionary<string, float> distances = new Dictionary<string, float>();
+
+        if (LumenSentinels == null || LumenSentinels.Length == 0)
+            return distances;
+
+        Vector3 taskPos = new Vector3(task.X, task.Y, task.Z);
+
+        foreach (var enemy in LumenSentinels)
+        {
+            if (enemy == null) continue;
+
+            float pathLength = GetPathLength(enemy.transform.position, taskPos);
+            distances[enemy.name] = pathLength;
+        }
+
+        return distances;
+    }
+
     private float GetPathLength(Vector3 start, Vector3 end)
     {
         NavMeshPath path = new NavMeshPath();

@@ -12,9 +12,12 @@ public class MessageBus : MonoBehaviour
     [SerializeField] private float expirationTime = 10f;
 
     // Assegnazioni: messaggio --> nome guardia
-    //public Dictionary<MessageData, string> Assignments = new Dictionary<MessageData, string>();
     public List<MessageData> AssignedMessages = new List<MessageData>();
     public List<string> AssignedOwners = new List<string>();
+
+    // Distanze guardie-task (per ThinkEngine)
+    [SerializeField] private float DistanceTimer = 0.1f;
+    public List<EnemyTaskDistance> EnemyTaskDistances = new List<EnemyTaskDistance>();
 
     public Dictionary<string, int> MessageTypes = new Dictionary<string, int>() {
         { "AmmoDepletedMsg", 0 },
@@ -46,6 +49,27 @@ public class MessageBus : MonoBehaviour
         allMessageTypes = Resources.LoadAll<AIMessageType>("ScriptableObjects");
         if (allMessageTypes == null || allMessageTypes.Length == 0)
             Debug.LogError("Nessun AIMessageType trovato in Resources/ScriptableObjects!");
+
+        StartCoroutine(UpdateEnemyTaskDistancesRoutine());
+    }
+
+    // Serve a mantenere aggiornata la lista delle distanze guardie-task.
+    // Siccome dobbiamo calcolare i NavMeshPath, non lo facciamo ogni frame, ma ogni "DistanceTimer" secondi per migliorare le prestazioni.
+    private IEnumerator UpdateEnemyTaskDistancesRoutine()
+    {
+        var wait = new WaitForSeconds(DistanceTimer);
+        while (true)
+        {
+            EnemyTaskDistances = GetEnemyTaskDistances();
+            // prova ----------------------------------------------------
+            //Debug.LogError($"MessageBus: {AiMessages.Count} messaggi presenti.");
+            //foreach (var msg in AiMessages)
+            //{
+            //    Debug.LogError($"MessageBus: Messaggio {msg.ID} - MessageState: {msg.MessageState} - IsTaken: {msg.IsTaken}, AssignedTo: {msg.AssignedTo}");
+            //}
+            // ----------------------------------------------------------
+            yield return wait;
+        }
     }
 
     // Crea un nuovo messaggio e lo aggiunge alla lista. La UI verrà aggiornata leggendo la lista.
@@ -96,6 +120,36 @@ public class MessageBus : MonoBehaviour
 
     public List<MessageData> GetAiMessages() => AiMessages;
     public MessageData GetAiMessageAt(int pos) => AiMessages[pos];
+
+    // Serve a ThinkEngine per sapere da dove prendere i dati sulle distanze guardie-task.
+    public List<EnemyTaskDistance> GetEnemyTaskDistances()
+    {
+        List<EnemyTaskDistance> list = new List<EnemyTaskDistance>();
+
+        if (WorldInformationManager.Instance == null) return list;
+
+        foreach (var task in AiMessages)
+        {
+            if (task.MessageState != "Pending") continue;
+            if (task.TaskType == "information") continue;
+
+            var distances = WorldInformationManager.Instance.GetEnemiesDistancesFromTask(task);
+
+            foreach (var dist in distances)
+            {
+                list.Add(new EnemyTaskDistance(
+                    dist.Key,
+                    task.ID.ToString(),
+                    dist.Value
+                ));
+
+                //Debug.LogError($"MessageBus: GetEnemyTaskDistances - Enemy: {dist.Key}, TaskId: {task.ID}, Distance: {dist.Value}");
+            }
+        }
+        return list;
+    }
+
+
 
     // ============================================================================================================
     // ============ Gestione "multithreading" per evitare che più guardie prendano lo stesso messaggio ============

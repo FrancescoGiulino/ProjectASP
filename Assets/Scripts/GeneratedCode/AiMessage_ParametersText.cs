@@ -5,7 +5,7 @@ using ThinkEngine.Mappers;
 using static ThinkEngine.Mappers.OperationContainer;
 namespace ThinkEngine
 {
-	public class AssignedMessage_SenderName : Sensor
+	public class AiMessage_ParametersText : Sensor
 	{
 		private int counter;
 		private object specificValue;
@@ -20,7 +20,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "assignedMessage_SenderName(worldInformationManager,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
+			mappingTemplate = "aiMessage_ParametersText(worldInformationManager,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
 		}
 		public override void Destroy()
 		{
@@ -40,35 +40,35 @@ namespace ThinkEngine
 					values.Clear();
 					return;
 				}
-				List<MessageData> AssignedMessages_2 = MessageBus_1.AssignedMessages;
-				if(AssignedMessages_2 == null)
+				List<MessageData> AiMessages_2 = MessageBus_1.AiMessages;
+				if(AiMessages_2 == null)
 				{
 					values.Clear();
 					return;
 				}
-				else if(AssignedMessages_2.Count > values.Count)
+				else if(AiMessages_2.Count > values.Count)
 				{
-					for(int i = values.Count; i < AssignedMessages_2.Count; i++)
+					for(int i = values.Count; i < AiMessages_2.Count; i++)
 					{
 						values.Add(new List<string>());
 					}
 				}
-				else if(AssignedMessages_2.Count < values.Count)
+				else if(AiMessages_2.Count < values.Count)
 				{
-					for(int i = AssignedMessages_2.Count; i < values.Count; i++)
+					for(int i = AiMessages_2.Count; i < values.Count; i++)
 					{
 						values.RemoveAt(values.Count - 1);
 					}
 				}
-				for(int i_2 = 0; i_2 < AssignedMessages_2.Count; i_2++)
+				for(int i_2 = 0; i_2 < AiMessages_2.Count; i_2++)
 				{
-					if(AssignedMessages_2[i_2] == null)
+					if(AiMessages_2[i_2] == null)
 					{
 						values[i_2].Clear();
 						continue;
 					}
-					string SenderName_3 = AssignedMessages_2[i_2].SenderName;
-					if(SenderName_3 == null)
+					string ParametersText_3 = AiMessages_2[i_2].ParametersText;
+					if(ParametersText_3 == null)
 					{
 						values[i_2].Clear();
 						continue;
@@ -77,7 +77,7 @@ namespace ThinkEngine
 					{
 						values[i_2].RemoveAt(0);
 					}
-					values[i_2].Add(SenderName_3);
+					values[i_2].Add(ParametersText_3);
 				}
 			}
 		}
