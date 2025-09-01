@@ -118,6 +118,7 @@
     <Compile Include="Assets\GameAssets\Resources\ScriptableObjects\EnemyProfile\EnemyProfile.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\ChaseState.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_IsTaken.cs" />
+    <Compile Include="Assets\Actions\EnemyDebugMessage.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\CameraSoundEventComponent.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_name.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\Audio\MusicManager.cs" />

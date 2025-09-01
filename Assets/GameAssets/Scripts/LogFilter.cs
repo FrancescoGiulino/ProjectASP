@@ -38,14 +38,14 @@ public class LogManager : MonoBehaviour
         else
         {
             // Se avevo accumulato log "level" e adesso arriva altro → stampo il blocco
-            FlushLevelLogs();
+            //FlushLevelLogs();
         }
     }
 
     private void LateUpdate()
     {
         // Se alla fine del frame restano log "level" in sospeso, li stampo
-        FlushLevelLogs();
+        //FlushLevelLogs();
     }
 
     private void FlushLevelLogs()

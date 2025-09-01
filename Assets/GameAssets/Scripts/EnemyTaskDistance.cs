@@ -4,10 +4,10 @@ using UnityEngine;
 public class EnemyTaskDistance
 {
     public string EnemyName;
-    public string TaskId;
+    public int TaskId;
     public int Distance;
 
-    public EnemyTaskDistance(string enemyName, string taskId, float distance)
+    public EnemyTaskDistance(string enemyName, int taskId, float distance)
     {
         EnemyName = enemyName;
         TaskId = taskId;

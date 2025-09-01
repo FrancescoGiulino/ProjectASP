@@ -10,6 +10,7 @@ public class MessageUiItemController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI messageStateText;
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private TextMeshProUGUI parametersText;
+    [SerializeField] private TextMeshProUGUI assignedToText;
     [SerializeField] private Image iconImage;
     [SerializeField] private Image bgImage;
 
@@ -30,6 +31,8 @@ public class MessageUiItemController : MonoBehaviour
         if (messageStateText != null) messageStateText.text = message.MessageState;
         if (messageText != null && message.Type != null) messageText.text = message.Type.text;
         if (parametersText != null) parametersText.text = message.ParametersText;
+        if (assignedToText != null) assignedToText.text = "Assigned To: " + message.AssignedTo +
+                                    "\nDistance: " + MessageBus.Instance.GetEnemiesDistanceFromTask(message.AssignedTo, message.ID)+" m";
 
         if (iconImage != null && message.Type != null) iconImage.sprite = message.Type.image;
         if (bgImage != null && message.Type != null) bgImage.color = message.Type.backgroundColor;

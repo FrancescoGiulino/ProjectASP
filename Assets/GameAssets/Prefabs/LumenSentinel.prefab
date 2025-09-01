@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168199519798174706}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1212236918, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
   m_Name: 
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168199519798174706}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1504054938, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
   m_Name: 
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168199519798174706}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 383103547, guid: 06783fc4099d1e04ba318698c43e592c, type: 3}
   m_Name: 
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   - enemyAi
   prefabBrain: 1
   solverEnum: 1
-  _executeReasonerOn: When Sensors are ready
+  _executeReasonerOn: EnemyTrigger
   specificAIFile: 0
   globalAIFile: 0
   solver_options: []

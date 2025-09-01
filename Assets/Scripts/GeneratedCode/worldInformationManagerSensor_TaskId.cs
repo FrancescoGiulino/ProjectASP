@@ -11,13 +11,13 @@ namespace ThinkEngine
 		private object specificValue;
 		private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<List<string>> values = new List<List<string>>();
+		private List<List<int>> values = new List<List<int>>();
 		public override void Initialize(SensorConfiguration sensorConfiguration)
 		{
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
 			mappingTemplate = "worldInformationManagerSensor_TaskId(worldInformationManager,objectIndex("+index+"),{1},{0})." + Environment.NewLine;
@@ -50,7 +50,7 @@ namespace ThinkEngine
 				{
 					for(int i = values.Count; i < EnemyTaskDistances_2.Count; i++)
 					{
-						values.Add(new List<string>());
+						values.Add(new List<int>());
 					}
 				}
 				else if(EnemyTaskDistances_2.Count < values.Count)
@@ -67,12 +67,7 @@ namespace ThinkEngine
 						values[i_2].Clear();
 						continue;
 					}
-					string TaskId_3 = EnemyTaskDistances_2[i_2].TaskId;
-					if(TaskId_3 == null)
-					{
-						values[i_2].Clear();
-						continue;
-					}
+					int TaskId_3 = EnemyTaskDistances_2[i_2].TaskId;
 					if (values[i_2].Count == 1)
 					{
 						values[i_2].RemoveAt(0);

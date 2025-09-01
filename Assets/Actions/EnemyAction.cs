@@ -14,16 +14,16 @@ public class EnemyAction : Action
         if (msg == null)
             return;
 
-        if (MessageBus.Instance.RequestMessage(msg, EnemyName))
+        if (MessageBus.Instance.RequestMessage(msg))
         {
-            Debug.LogWarning($"{EnemyName} ha preso il messaggio {msg.Type.name} da {msg.SenderName}");
             msg.IsTaken = true;
             msg.AssignedTo = EnemyName;
+            Debug.LogWarning($"[DEBUG] {EnemyName} ha preso il messaggio {msg.ID} --> msg.AssignedTo: {msg.AssignedTo}");
         }
         else
         {
-            Debug.LogWarning($"{EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name} da {msg.SenderName}");
-            Debug.LogWarning($"{EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name}. Il messaggio richiesto è occupato da: {MessageBus.Instance.GetMessageOwner(msg)}");
+            Debug.LogWarning($"[DEBUG] {EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name} da {msg.SenderName}");
+            Debug.LogWarning($"[DEBUG] {EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name}. Il messaggio richiesto è occupato da: {MessageBus.Instance.GetMessageOwner(msg)}");
             msg = null; // reset per evitare tentativi ripetuti
         }
     }
@@ -31,26 +31,25 @@ public class EnemyAction : Action
     // Controlla se l'azione può partire
     public override State Prerequisite()
     {
-        Debug.LogError($"{EnemyName} tenta di prendere il messaggio in posizione {MessageIndex}");
+        var message= MessageBus.Instance.AiMessages[MessageIndex];
+        Debug.LogError($"[DEBUG] {EnemyName} tenta di prendere il messaggio in posizione {MessageIndex}");
+
         // se la guardia ha già un messaggio, abort
-        if (MessageBus.Instance.AssignedOwners.Contains(EnemyName))
+        if (MessageBus.Instance.EnemyHasMessage(EnemyName))
         {
             msg = null;
-            Debug.LogWarning($"{EnemyName} ha già un messaggio assegnato.");
+            Debug.LogWarning($"[DEBUG] {EnemyName} ha già un messaggio assegnato.");
             return State.ABORT;
         }
 
-        // se non ci sono messaggi disponibili, abort
-        var availableMessages = MessageBus.Instance.GetAvailableMessages();
-        if (availableMessages.Count == 0 || MessageIndex > availableMessages.Count - 1)
+        if (message.AssignedTo != "null")
         {
             msg = null;
-            Debug.LogWarning("Nessun messaggio disponibile da prendere.");
+            Debug.LogWarning($"[DEBUG] {EnemyName} Il messaggio in posizione {MessageIndex} è già stato preso da {message.AssignedTo}.");
             return State.ABORT;
         }
 
-        // assegna il messaggio che vogliamo prendere
-        msg = availableMessages[MessageIndex];
+        msg = message;
         return State.READY;
     }
 

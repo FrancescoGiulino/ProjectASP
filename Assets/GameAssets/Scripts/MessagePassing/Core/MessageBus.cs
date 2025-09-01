@@ -12,8 +12,8 @@ public class MessageBus : MonoBehaviour
     [SerializeField] private float expirationTime = 10f;
 
     // Assegnazioni: messaggio --> nome guardia
-    public List<MessageData> AssignedMessages = new List<MessageData>();
-    public List<string> AssignedOwners = new List<string>();
+    //public List<MessageData> AssignedMessages = new List<MessageData>();
+    //public List<string> AssignedOwners = new List<string>();
 
     // Distanze guardie-task (per ThinkEngine)
     [SerializeField] private float DistanceTimer = 0.1f;
@@ -40,8 +40,7 @@ public class MessageBus : MonoBehaviour
         Instance = this;
 
         AiMessages = new List<MessageData>();
-        AssignedMessages = new List<MessageData>();
-        AssignedOwners = new List<string>();
+        //AssignedMessages = new List<MessageData>();
     }
 
     private void Start()
@@ -61,13 +60,6 @@ public class MessageBus : MonoBehaviour
         while (true)
         {
             EnemyTaskDistances = GetEnemyTaskDistances();
-            // prova ----------------------------------------------------
-            //Debug.LogError($"MessageBus: {AiMessages.Count} messaggi presenti.");
-            //foreach (var msg in AiMessages)
-            //{
-            //    Debug.LogError($"MessageBus: Messaggio {msg.ID} - MessageState: {msg.MessageState} - IsTaken: {msg.IsTaken}, AssignedTo: {msg.AssignedTo}");
-            //}
-            // ----------------------------------------------------------
             yield return wait;
         }
     }
@@ -130,7 +122,7 @@ public class MessageBus : MonoBehaviour
 
         foreach (var task in AiMessages)
         {
-            if (task.MessageState != "Pending") continue;
+            if (task.MessageState != "Pending" && task.MessageState != "Assigned") continue;
             if (task.TaskType == "information") continue;
 
             var distances = WorldInformationManager.Instance.GetEnemiesDistancesFromTask(task);
@@ -139,17 +131,21 @@ public class MessageBus : MonoBehaviour
             {
                 list.Add(new EnemyTaskDistance(
                     dist.Key,
-                    task.ID.ToString(),
+                    task.ID,
                     dist.Value
                 ));
-
-                //Debug.LogError($"MessageBus: GetEnemyTaskDistances - Enemy: {dist.Key}, TaskId: {task.ID}, Distance: {dist.Value}");
             }
         }
         return list;
     }
 
-
+    public string GetEnemiesDistanceFromTask(string enemyName, int taskId)
+    {
+        var entry = EnemyTaskDistances.Find(d => d.EnemyName == enemyName && d.TaskId == taskId);
+        if (entry != null)
+            return ""+entry.Distance;
+        return "<???>";
+    }
 
     // ============================================================================================================
     // ============ Gestione "multithreading" per evitare che più guardie prendano lo stesso messaggio ============
@@ -158,41 +154,47 @@ public class MessageBus : MonoBehaviour
     public List<MessageData> GetAvailableMessages()
     {
         List<MessageData> available = new List<MessageData>();
-        for (int i = 0; i < AiMessages.Count; i++)
+        foreach (var msg in AiMessages)
         {
-            if (AiMessages[i].MessageState == "Pending" && !AssignedMessages.Contains(AiMessages[i]))
-                available.Add(AiMessages[i]);
+            //if (msg.MessageState == "Pending" && !AssignedMessages.Contains(msg) && !msg.IsTaken && msg.AssignedTo == "null")
+            if (msg.MessageState == "Pending" && msg.AssignedTo == "null")
+                available.Add(msg);
         }
         return available;
     }
 
-    public bool RequestMessage(MessageData msg, string enemyName)
+    public bool RequestMessage(MessageData msg)
     {
         if (msg.MessageState != "Pending") return false;
-        if (AssignedMessages.Contains(msg)) return false;
+        //if (AssignedMessages.Contains(msg)) return false;
+        if (/*msg.IsTaken || */msg.AssignedTo != "null") return false;
 
-        AssignedMessages.Add(msg);
-        AssignedOwners.Add(enemyName);
+        //AssignedMessages.Add(msg);
         msg.MessageState = "Assigned";
         return true;
     }
 
     public void ReleaseMessage(MessageData msg)
     {
-        int index = AssignedMessages.IndexOf(msg);
-        if (index >= 0)
-        {
-            AssignedMessages.RemoveAt(index);
-            AssignedOwners.RemoveAt(index);
-            msg.MessageState = "Pending";
-        }
+        //int index = AssignedMessages.IndexOf(msg);
+        //if (index >= 0)
+        //{
+        //    AssignedMessages.RemoveAt(index);
+        //    msg.MessageState = "Pending";
+        //}
     }
 
     public string GetMessageOwner(MessageData msg)
     {
-        int index = AssignedMessages.IndexOf(msg);
-        if (index >= 0)
-            return AssignedOwners[index];
-        return null;
+        //if (!AssignedMessages.Contains(msg)) return "null";
+        return msg.AssignedTo;
+    }
+
+    public bool EnemyHasMessage(string EnemyName)
+    {
+        foreach (var message in AiMessages)
+            if (message.AssignedTo == EnemyName)
+                return true;
+        return false;
     }
 }

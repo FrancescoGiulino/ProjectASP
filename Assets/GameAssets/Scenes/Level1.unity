@@ -3002,6 +3002,14 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3].z
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772825034969445992, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
       value: OverrideStalker1
@@ -3049,6 +3057,14 @@ PrefabInstance:
     - target: {fileID: 6864281029701993413, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: canHealIfDead
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: prefabBrain
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3276,6 +3292,14 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3].z
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772825034969445992, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
       value: CloseRangeEnforcer4
@@ -3319,6 +3343,10 @@ PrefabInstance:
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12355,6 +12383,14 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3].z
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772825034969445992, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
       value: OverrideStalker5
@@ -12398,6 +12434,10 @@ PrefabInstance:
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17394,6 +17434,14 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3].z
       value: -13.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772825034969445992, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
       value: EcoSentinel2
@@ -17437,6 +17485,10 @@ PrefabInstance:
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21153,7 +21205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expirationTime: 10
-  AssignedOwners: []
   DistanceTimer: 0.1
   EnemyTaskDistances: []
 --- !u!114 &950926611
@@ -21207,12 +21258,6 @@ MonoBehaviour:
     - EnemyTaskDistances
     - EnemyTaskDistance
     - EnemyName
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - EnemyTaskDistances
-    - EnemyTaskDistance
-    - TaskId
     Count: 4
   - myStrings:
     - MessageBus
@@ -21287,18 +21332,18 @@ MonoBehaviour:
   - myStrings:
     - MessageBus
     Count: 1
+  - myStrings:
+    - MessageBus
+    - EnemyTaskDistances
+    - EnemyTaskDistance
+    - TaskId
+    Count: 4
   _toMapProperties:
   - myStrings:
     - MessageBus
     - EnemyTaskDistances
     - EnemyTaskDistance
     - EnemyName
-    Count: 4
-  - myStrings:
-    - MessageBus
-    - EnemyTaskDistances
-    - EnemyTaskDistance
-    - TaskId
     Count: 4
   - myStrings:
     - MessageBus
@@ -21366,6 +21411,12 @@ MonoBehaviour:
     - MessageData
     - IsTaken
     Count: 4
+  - myStrings:
+    - MessageBus
+    - EnemyTaskDistances
+    - EnemyTaskDistance
+    - TaskId
+    Count: 4
   _propertyFeatures:
   - property:
       myStrings:
@@ -21378,20 +21429,6 @@ MonoBehaviour:
     configurationName: worldInformationManagerSensor
     _propertyAlias: worldInformationManagerSensor_EnemyName
     propertyAliasHash: 717522181
-    operation: 0
-    specificValue: 
-    counter: 0
-  - property:
-      myStrings:
-      - MessageBus
-      - EnemyTaskDistances
-      - EnemyTaskDistance
-      - TaskId
-      Count: 4
-    windowWidth: 1
-    configurationName: worldInformationManagerSensor
-    _propertyAlias: worldInformationManagerSensor_TaskId
-    propertyAliasHash: -833923882
     operation: 0
     specificValue: 
     counter: 0
@@ -21549,13 +21586,25 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - MessageBus
+      - EnemyTaskDistances
+      - EnemyTaskDistance
+      - TaskId
+      Count: 4
+    windowWidth: 1
+    configurationName: worldInformationManagerSensor
+    _propertyAlias: worldInformationManagerSensor_TaskId
+    propertyAliasHash: -833923882
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: worldInformationManagerSensor
   isInvariant: 0
   isFixedSize: 0
   _serializableSensorsTypes:
   - typeName: ThinkEngine.worldInformationManagerSensor_EnemyName, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - typeName: ThinkEngine.worldInformationManagerSensor_TaskId, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.worldInformationManagerSensor_Distance, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -21579,11 +21628,12 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.AiMessage_IsTaken, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - typeName: ThinkEngine.worldInformationManagerSensor_TaskId, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   recompile: 0
   teRecompile: 0
   generatedScripts:
   - worldInformationManagerSensor_EnemyName.cs
-  - worldInformationManagerSensor_TaskId.cs
   - worldInformationManagerSensor_Distance.cs
   - AiMessage_ID.cs
   - AiMessage_SenderName.cs
@@ -21595,6 +21645,7 @@ MonoBehaviour:
   - AiMessage_TaskType.cs
   - AiMessage_AssignedTo.cs
   - AiMessage_IsTaken.cs
+  - worldInformationManagerSensor_TaskId.cs
 --- !u!1001 &953604343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29647,6 +29698,14 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1].z
       value: 7.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772825034969445992, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
       value: CloseRangeEnforcer3
@@ -29689,6 +29748,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: prefabBrain
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -32421,6 +32488,14 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[4].z
       value: 33.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772825034969445992, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
       value: OverrideStalker6
@@ -32464,6 +32539,10 @@ PrefabInstance:
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43220,6 +43299,14 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3].z
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5018239431048205039, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772825034969445992, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6168199519798174706, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_Name
       value: EcoSentinel7
@@ -43263,6 +43350,10 @@ PrefabInstance:
     - target: {fileID: 6832532814491973960, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
