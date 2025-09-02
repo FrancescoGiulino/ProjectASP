@@ -66,7 +66,7 @@ hasActiveTask :- task(_,_,_,_,_,_,_,Name,_), self(_,Name,_,_,_,_,_,_,_).
     :~ takeTask(TaskId,_,_,_,_,_,_), distanceSelfToTask(TaskId,Distance), Distance>10. [Distance@2,TaskId,Distance]
 % =================================================================================================================================
 % ACTIONS:
-    applyAction(1,"EnemyAction") :- takeTask(_,_,_,_,_,_,_).
+    applyAction(1,"TakeTask") :- takeTask(_,_,_,_,_,_,_).
     actionArgument(1,"MessageIndex",TaskId) :- takeTask(TaskId,_,_,_,_,_,_).
     actionArgument(1,"EnemyName",Name) :- takeTask(_,_,_,_,_,_,_), self(_,Name,_,_,_,_,_,_,_).
 

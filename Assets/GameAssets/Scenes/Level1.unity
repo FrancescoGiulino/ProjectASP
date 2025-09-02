@@ -17490,6 +17490,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: prefabBrain
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32328,6 +32332,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1305794540}
+    - target: {fileID: 9148005344217207334, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9199085912048033932, guid: 49c09dcc67d6523499aa53ec33e943dd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -48636,6 +48644,18 @@ PrefabInstance:
     - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
       propertyPath: _executeReasonerOn
       value: EnemyTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: AIFilesPrefix.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: 'AIFilesPrefix.Array.data[0]'
+      value: optimization_
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
+      propertyPath: 'AIFilesPrefix.Array.data[1]'
+      value: rules
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

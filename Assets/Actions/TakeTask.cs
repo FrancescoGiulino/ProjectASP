@@ -1,7 +1,7 @@
 using ThinkEngine.Planning;
 using UnityEngine;
 
-public class EnemyAction : Action
+public class TakeTask : Action
 {
     public int MessageIndex { get; set; }
     public string EnemyName { get; set; }
@@ -18,12 +18,12 @@ public class EnemyAction : Action
         {
             msg.IsTaken = true;
             msg.AssignedTo = EnemyName;
-            Debug.LogWarning($"[DEBUG] {EnemyName} ha preso il messaggio {msg.ID} --> msg.AssignedTo: {msg.AssignedTo}");
+            //Debug.LogWarning($"[DEBUG] {EnemyName} ha preso il messaggio {msg.ID} --> msg.AssignedTo: {msg.AssignedTo}");
         }
         else
         {
-            Debug.LogWarning($"[DEBUG] {EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name} da {msg.SenderName}");
-            Debug.LogWarning($"[DEBUG] {EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name}. Il messaggio richiesto è occupato da: {MessageBus.Instance.GetMessageOwner(msg)}");
+            //Debug.LogWarning($"[DEBUG] {EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name} da {msg.SenderName}");
+            //Debug.LogWarning($"[DEBUG] {EnemyName} NON è riuscito a prendere il messaggio {msg.Type.name}. Il messaggio richiesto è occupato da: {MessageBus.Instance.GetMessageOwner(msg)}");
             msg = null; // reset per evitare tentativi ripetuti
         }
     }
@@ -32,20 +32,20 @@ public class EnemyAction : Action
     public override State Prerequisite()
     {
         var message= MessageBus.Instance.AiMessages[MessageIndex];
-        Debug.LogError($"[DEBUG] {EnemyName} tenta di prendere il messaggio in posizione {MessageIndex}");
+        //Debug.LogWarning($"[DEBUG] {EnemyName} tenta di prendere il messaggio in posizione {MessageIndex}");
 
         // se la guardia ha già un messaggio, abort
         if (MessageBus.Instance.EnemyHasMessage(EnemyName))
         {
             msg = null;
-            Debug.LogWarning($"[DEBUG] {EnemyName} ha già un messaggio assegnato.");
+            //Debug.LogWarning($"[DEBUG] {EnemyName} ha già un messaggio assegnato.");
             return State.ABORT;
         }
 
         if (message.AssignedTo != "null")
         {
             msg = null;
-            Debug.LogWarning($"[DEBUG] {EnemyName} Il messaggio in posizione {MessageIndex} è già stato preso da {message.AssignedTo}.");
+            //Debug.LogWarning($"[DEBUG] {EnemyName} Il messaggio in posizione {MessageIndex} è già stato preso da {message.AssignedTo}.");
             return State.ABORT;
         }
 

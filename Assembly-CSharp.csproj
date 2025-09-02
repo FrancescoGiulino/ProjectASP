@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_X.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\worldInformationManagerSensor_TaskId.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_Z.cs" />
-    <Compile Include="Assets\Actions\EnemyAction.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_X.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\EnemyMessageSender.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_batteryRunningDrainRate.cs" />
@@ -169,6 +168,7 @@
     <Compile Include="Assets\GameAssets\Scripts\AI\ControllersAndListeners\EnemyTargetDetectionController.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_EnemyId.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\CheckState.cs" />
+    <Compile Include="Assets\Actions\TakeTask.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_shootingDistance.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Devices\Turret.cs" />
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />

@@ -27,7 +27,8 @@ public class GameInput : MonoBehaviour
 
         playerInputActions.Player.Interact.performed += Event_InteractPerformed;
         playerInputActions.Player.Stealth.performed += Event_StealthPerformed;
-        playerInputActions.Player.Pause.performed += ctx => OnPauseAction?.Invoke(this, EventArgs.Empty);
+        // Associa l'input di pausa
+        playerInputActions.Player.Pause.performed += ctx => { OnPauseAction?.Invoke(this, EventArgs.Empty); };
         playerInputActions.Player.ToggleSidePanel.performed += Event_ToggleSidePanelPerformed;
     }
 

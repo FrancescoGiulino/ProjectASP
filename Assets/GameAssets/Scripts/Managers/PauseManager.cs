@@ -22,23 +22,26 @@ public class PauseManager : MonoBehaviour
 
     private void Start()
     {
+        if (GameInput.Instance != null)
+            GameInput.Instance.OnPauseAction += HandlePauseInput;
+        else
+            Debug.LogError("PauseManager --> GameInput.Instance is NULL at OnEnable!");
+
         Time.timeScale = 1f;
         isPaused = false;
+        DisablePause = false; // resetto sempre all'avvio della scena
 
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        if (GameInput.Instance != null)
-            GameInput.Instance.OnPauseAction += HandlePauseInput;
-    }
-
     private void OnDisable()
     {
         if (GameInput.Instance != null)
+        {
+            Debug.Log("PauseManager → unsubscribing from OnPauseAction");
             GameInput.Instance.OnPauseAction -= HandlePauseInput;
+        }
     }
 
     private void HandlePauseInput(object sender, System.EventArgs e)
@@ -57,12 +60,23 @@ public class PauseManager : MonoBehaviour
 
     public void TogglePause()
     {
-        if (DisablePause || (PlayerController.Instance != null && PlayerController.Instance.GetHealthController().IsDead))
+        // Caso 1: pausa disabilitata esplicitamente
+        if (DisablePause)
+            return;
+
+        // Caso 2: player morto --> blocca il gioco ma senza menu di pausa
+        if (PlayerController.Instance != null && PlayerController.Instance.GetHealthController().IsDead)
         {
+            Time.timeScale = 0f;
             isPaused = true;
+
+            if (pauseMenuUI != null)
+                pauseMenuUI.SetActive(false); // assicura che il menu non appaia
+
             return;
         }
 
+        // Caso 3: toggle normale
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
 
