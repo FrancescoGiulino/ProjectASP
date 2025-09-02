@@ -1,5 +1,4 @@
 % RICORDA: Per identificare i nemici nelle regole usa il nome, l'id a volte dà problemi!
-
 % =================================================================================================================================
 % PENALIZZAZIONI:
 % Penalizzazione se non si prende nessun task quando ce n'è almeno uno (del tipo ottimo) disponibile:
@@ -27,5 +26,8 @@
 %#show hasActiveTask/0.
 #show distanceSelfToTask/2.
 #show distanceEnemyToTask/3.
+#show minDistance/2.
+#show nearestEnemyToTask/3.
+
 #show applyAction/2.
 #show actionArgument/3.
