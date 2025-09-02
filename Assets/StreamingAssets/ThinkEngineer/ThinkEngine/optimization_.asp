@@ -45,21 +45,14 @@ hasActiveTask :- task(_,_,_,_,_,_,_,Name,_), self(_,Name,_,_,_,_,_,_,_).
 
 % =================================================================================================================================
 % PENALIZZAZIONI:
-% Penalizzazione se non si prende nessun task quando ce n'è almeno uno disponibile:
-    :~ #count{TaskId: takeTask(TaskId,Sender,MessageState,X,Y,Z,TaskType)}=0, task(_,_,"Pending",_,_,_,_,_,_), not hasActiveTask. [1@3]
+% Penalizzazione se non si prende nessun task quando ce n'è almeno uno (del tipo ottimo) disponibile:
+:~ #count{TaskId: takeTask(TaskId,_,"Pending",_,_,_,"investigation")}=0,
+    self(_,Name,"EcoSentinel",_,_,_,_,_,_),
+    task(_,_,"Pending",_,_,_,"investigation",_,_). [1@3]
 
-% Penalizzazioni per tipo di task:
-    % se una EcoSentinel prende un task "reinforcement", allora penitenza.
-    %:~ self(_,_,"EcoSentinel",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,"reinforcement"). [1@1]
-    % se un OverrideStalker prende un task di "investigation"
-    %:~ self(_,_,"OverrideStalker",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,"investigation"). [1@1]
-    % se ci sono sia task di "investigation" che di "reinforcement" ed un CloseRangeEnforcer sceglie di prendere un task di "investigation", allora penitenza.
-    %:~ self(_,_,"CloseRangeEnforcer",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,"investigation"), task(_,_,"Pending",_,_,"reinforcement",_). [1@1]
-
-    % se c'è un task di "investigation" ed EcoSentinel non lo prende, allora penitenza.
-    :~ self(_,Name,"EcoSentinel",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,TaskType), TaskType!="investigation". [1@1]
-    % se c'è un task di "reinforcement" ed OverrideStalker non lo prende, allora penitenza.
-    :~ self(_,Name,"OverrideStalker",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,TaskType), TaskType!="reinforcement". [1@1]
+:~ #count{TaskId: takeTask(TaskId,_,"Pending",_,_,_,"reinforcement")}=0,
+    self(_,Name,"OverrideStalker",_,_,_,_,_,_),
+    task(_,_,"Pending",_,_,_,"reinforcement",_,_). [1@3]
 
 % Penalizzazione per distanza:
     % se si prende un task che dista più di 10 unità, allora penitenza proporzionale alla distanza
@@ -69,15 +62,6 @@ hasActiveTask :- task(_,_,_,_,_,_,_,Name,_), self(_,Name,_,_,_,_,_,_,_).
     applyAction(1,"TakeTask") :- takeTask(_,_,_,_,_,_,_).
     actionArgument(1,"MessageIndex",TaskId) :- takeTask(TaskId,_,_,_,_,_,_).
     actionArgument(1,"EnemyName",Name) :- takeTask(_,_,_,_,_,_,_), self(_,Name,_,_,_,_,_,_,_).
-
-% DEBUG ACTION:
-    applyAction(2,"EnemyDebugMessage") :- self(_,Name,"EcoSentinel",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,TaskType), TaskType!="investigation".
-    actionArgument(2,"EnemyName",Name) :- self(_,Name,"EcoSentinel",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,TaskType), TaskType!="investigation".
-    actionArgument(2,"DebugMessage","Penality: 1@3"):- self(_,Name,"EcoSentinel",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,TaskType), TaskType!="investigation".
-
-    applyAction(3,"EnemyDebugMessage") :- self(_,Name,"OverrideStalker",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,TaskType), TaskType!="reinforcement".
-    actionArgument(3,"EnemyName",Name) :- self(_,Name,"OverrideStalker",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,TaskType), TaskType!="reinforcement".
-    actionArgument(3,"DebugMessage","Penality: 1@3"):- self(_,Name,"OverrideStalker",_,_,_,_,_,_), takeTask(_,_,_,_,_,_,TaskType), TaskType!="reinforcement".
 
 %#show self/9.
 %#show enemies/9.
