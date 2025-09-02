@@ -48645,18 +48645,6 @@ PrefabInstance:
       propertyPath: _executeReasonerOn
       value: EnemyTrigger
       objectReference: {fileID: 0}
-    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: AIFilesPrefix.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: 'AIFilesPrefix.Array.data[0]'
-      value: optimization_
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099600235469570185, guid: e0c6fc0795fdd4f458b4bfd7c0f6f89a, type: 3}
-      propertyPath: 'AIFilesPrefix.Array.data[1]'
-      value: rules
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

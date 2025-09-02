@@ -1040,7 +1040,9 @@ MonoBehaviour:
   - worldInformationManagerSensor
   AIFilesPath: C:/Users/franc/OneDrive/Desktop/Repository-Tesi/ProjectASP/Assets/StreamingAssets\ThinkEngineer\ThinkEngine
   AIFilesPrefix:
-  - optimization_
+  - enemy_optimization
+  - enemy_sensing
+  - enemy_rules
   prefabBrain: 1
   solverEnum: 1
   _executeReasonerOn: EnemyTrigger
