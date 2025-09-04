@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 96d1a5b8d759f484aa1b9312de8b865b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 96d1a5b8d759f484aa1b9312de8b865b, type: 3}
       propertyPath: m_Name
       value: PalletVisual
@@ -192,6 +196,8 @@ MonoBehaviour:
   soundEntries:
   - soundType: 2
     clip: {fileID: 8300000, guid: ecf22c7caa5905649bedd1592faa5bbf, type: 3}
+    suspicious: 0
+    range: 5
   addPitch: 0.3
 --- !u!114 &6850501642074107364
 MonoBehaviour:

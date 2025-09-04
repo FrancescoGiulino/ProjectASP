@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class CheckState : IEnemyState
+public class CheckState : EnemyState
 {
     private bool reachedPosition;
     private float elapsedTime;
     private const float maxCheckTime = 15f;
 
-    public void Enter(EnemyStateController enemy)
+    public override void Enter(EnemyStateController enemy)
     {
         enemy.Agent.speed = enemy.Resources.walkSpeed;
         enemy.Agent.stoppingDistance = 0f; // si ferma esattamente sul punto di check
@@ -16,14 +16,15 @@ public class CheckState : IEnemyState
         elapsedTime = 0f;
     }
 
-    public void Update(EnemyStateController enemy)
+    public override void Update(EnemyStateController enemy)
     {
         // Se vede subito il target (+ non ha la batteria scarica) --> inseguimento
-        if (enemy.Detection.CheckForTargets() && !enemy.HasLowBattery())
-        {
-            enemy.ChangeState(new ChaseState());
-            return;
-        }
+        //if (enemy.Detection.CheckForTargets() && !enemy.HasLowBattery())
+        //{
+        //    enemy.ChangeState(new ChaseState());
+        //    return;
+        //}
+        base.Update(enemy);
 
         // Aggiorna timer
         elapsedTime += Time.deltaTime;
@@ -52,5 +53,5 @@ public class CheckState : IEnemyState
         }
     }
 
-    public void Exit(EnemyStateController enemy){}
+    public override void Exit(EnemyStateController enemy){}
 }

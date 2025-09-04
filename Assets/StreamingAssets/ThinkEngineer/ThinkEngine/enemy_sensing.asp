@@ -24,6 +24,12 @@ self(SelfId, Name, ReasoningStyle, X, Y, Z, CurrentStateName, CurrentHealth, IsD
     currentBrainID(SelfId),
     enemies(objectIndex(SelfId), Name, ReasoningStyle, X, Y, Z, CurrentStateName, CurrentHealth, IsDead).
 
+enemyMinBattery(EnemyName,MinBattery):-
+    enemies(ID,EnemyName,RS,X,Y,Z,CurrentStateName,Battery,IsDead),
+    lumenSentinelSensor_minBatteryBeforeRecharge(WIM,ID,MinBattery).
+
+selfMinBattery(MinBattery) :- self(_,SelfName,_,_,_,_,_,_,_), enemyMinBattery(SelfName,MinBattery).
+
 distanceEnemyToTask(Name,TaskId,Distance) :-
     worldInformationManagerSensor_EnemyName(WIM, objectIndex(EnemyId), Index, Name),
     worldInformationManagerSensor_TaskId(WIM, objectIndex(EnemyId), Index, TaskId),

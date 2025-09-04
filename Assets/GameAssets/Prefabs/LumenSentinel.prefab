@@ -1124,11 +1124,6 @@ MonoBehaviour:
     - gameObject
     - EnemyStateController
     - Resources
-    Count: 3
-  - myStrings:
-    - gameObject
-    - EnemyStateController
-    - Resources
     - minBatteryBeforeRecharge
     Count: 4
   - myStrings:
@@ -1179,6 +1174,10 @@ MonoBehaviour:
     - Resources
     - secondaryAmmo
     Count: 4
+  - myStrings:
+    - gameObject
+    - EnemyStateController
+    Count: 2
   _toMapProperties:
   - myStrings:
     - gameObject

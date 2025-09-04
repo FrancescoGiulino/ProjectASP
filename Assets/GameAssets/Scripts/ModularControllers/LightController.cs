@@ -19,6 +19,14 @@ public class LightController : MonoBehaviour
         lightComponent.enabled = lightOnAtStart;
     }
 
+    private void FixedUpdate()
+    {
+        if (Vector3.Distance(PlayerController.Instance.transform.position, transform.position) > 30f && lightComponent.enabled)
+            TurnOff();
+        else if (Vector3.Distance(PlayerController.Instance.transform.position, transform.position) <= 30f && !lightComponent.enabled)
+            TurnOn();
+    }
+
     // === Setters ===
     public void TurnOn() => lightComponent.enabled = true;
     public void TurnOff() => lightComponent.enabled = false;

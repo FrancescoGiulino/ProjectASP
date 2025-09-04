@@ -1,13 +1,13 @@
-public class PatrolState : IEnemyState
+public class PatrolState : EnemyState
 {
-    public void Enter(EnemyStateController enemy)
+    public override void Enter(EnemyStateController enemy)
     {
         enemy.GoToNextPatrolPoint();
     }
 
-    public void Update(EnemyStateController enemy)
+    public override void Update(EnemyStateController enemy)
     {
-        if (enemy.HasLowBattery())
+        /*if (enemy.HasLowBattery())
         {
             enemy.GoToNearestBatteryCharger();
             return;
@@ -17,7 +17,8 @@ public class PatrolState : IEnemyState
         {
             enemy.ChangeState(new ChaseState());
             return;
-        }
+        }*/
+        base.Update(enemy);
 
         if (!enemy.Agent.pathPending && enemy.Agent.remainingDistance < 0.3f)
         {
@@ -25,5 +26,5 @@ public class PatrolState : IEnemyState
         }
     }
 
-    public void Exit(EnemyStateController enemy) { }
+    public override void Exit(EnemyStateController enemy) { }
 }

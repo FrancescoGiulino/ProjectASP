@@ -1,26 +1,14 @@
 using UnityEngine;
 
-public class ChaseState : IEnemyState
+public class ChaseState : EnemyState
 {
-    public void Enter(EnemyStateController enemy)
+    public override void Enter(EnemyStateController enemy)
     {
         enemy.Agent.speed = enemy.Resources.runSpeed;
     }
 
-    public void Update(EnemyStateController enemy)
+    public override void Update(EnemyStateController enemy)
     {
-        if (enemy.HasLowBattery())
-        {
-            enemy.GoToNearestBatteryCharger();
-            return;
-        }
-
-        if (!enemy.Detection.IsTargetInChaseRange())
-            {
-                enemy.ChangeState(new LookState());
-                return;
-            }
-
         if (enemy.Target != null)
         {
             Vector3 direction = enemy.Target.position - enemy.transform.position;
@@ -48,8 +36,11 @@ public class ChaseState : IEnemyState
                 // Fermati se troppo vicino
                 enemy.Agent.ResetPath();
             }
+
+            base.CheckGoToNearestBatteryChargerState(enemy);
+            base.CheckLookState(enemy);
         }
     }
 
-    public void Exit(EnemyStateController enemy) { }
+    public override void Exit(EnemyStateController enemy) { }
 }

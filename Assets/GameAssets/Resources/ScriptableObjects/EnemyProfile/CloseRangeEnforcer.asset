@@ -15,12 +15,13 @@ MonoBehaviour:
   minBatteryBeforeRecharge: {x: 27, y: 31}
   primaryAmmo: {x: 12, y: 16}
   secondaryAmmo: {x: 4, y: 6}
+  shootingDistance: {x: 2, y: 3}
   walkSpeed: {x: 2.3, y: 2.6}
   runSpeed: {x: 3.1, y: 3.7}
   lowBatterySpeed: {x: 0.8, y: 1}
   minDistance: {x: 1.3, y: 1.5}
   batteryIdleDrainRate: {x: 0.1, y: 0.13}
   batteryWalkingDrainRate: {x: 0.4, y: 0.7}
-  batteryRunningDrainRate: {x: 1.2, y: 1.4}
+  batteryRunningDrainRate: {x: 12, y: 14}
   batteryPrimaryWeaponDrainRate: {x: 2, y: 3}
   batterySecondaryWeaponDrainRate: {x: 5, y: 7}

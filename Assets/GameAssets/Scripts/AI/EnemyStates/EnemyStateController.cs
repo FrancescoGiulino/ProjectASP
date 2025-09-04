@@ -42,7 +42,8 @@ public class EnemyStateController : MonoBehaviour
     [HideInInspector] public int X, Y, Z; // Posizione approssimata
 
     private NavMeshAgent navMeshAgent;
-    private IEnemyState currentState;
+    private EnemyState currentState;
+    public EnemyState CurrentState => currentState;
     [HideInInspector] public string currentStateName = "PatrolState"; // serve a ThinkEngine
     [HideInInspector] public int EnemyId;
 
@@ -59,6 +60,7 @@ public class EnemyStateController : MonoBehaviour
     public float RotationSpeed => rotationSpeed;
     public float MaxLookTime => maxLookTime;
     public Vector3 CheckPosition { get; set; }
+    public Vector3 BatteryPosition { get; set; }
 
     private void Awake()
     {
@@ -88,7 +90,7 @@ public class EnemyStateController : MonoBehaviour
         Z = Mathf.RoundToInt(transform.position.z);
     }
 
-    public void ChangeState(IEnemyState newState)
+    public void ChangeState(EnemyState newState)
     {
         currentState?.Exit(this);
         currentState = newState;
@@ -182,17 +184,20 @@ public class EnemyStateController : MonoBehaviour
             return;
         }
 
-        var charger = WorldInformationManager.Instance.GetNearestBatteryCharger(transform.position);
-        if (charger == null)
+        // Ottieni il punto più vicino sulla NavMesh
+        GameObject nearestCharger = WorldInformationManager.Instance.GetNearestBatteryCharger(transform.position);
+        Vector3? nearestNavPoint = nearestCharger != null ? (Vector3?)nearestCharger.transform.position : null;
+        if (nearestNavPoint == null)
         {
-            Debug.LogWarning("Nessun battery charger trovato o raggiungibile!");
+            Debug.LogWarning("Nessun battery charger raggiungibile trovato!");
             return;
         }
 
-        // Imposta la destinazione
-        CheckPosition = charger.transform.position;
+        // Imposta la destinazione proiettata sulla NavMesh
+        BatteryPosition = nearestNavPoint.Value;
+        //Debug.LogError($"[{name}] Destinazione charger impostata a {BatteryPosition}");
 
-        // Cambia stato in GoToRechargeState
+        // Cambia stato
         ChangeState(new GoToRechargeState());
     }
 

@@ -18,6 +18,7 @@
 %lumenSentinelSensor_batterySecondaryWeaponDrainRate(overrideStalker1,objectIndex(Index),Value).
 %lumenSentinelSensor_primaryAmmo(overrideStalker1,objectIndex(Index),Value).
 %lumenSentinelSensor_secondaryAmmo(overrideStalker1,objectIndex(Index),Value).
+
 %worldInformationManagerSensor_EnemyName(worldInformationManager,objectIndex(Index),Index1,Value).
 %worldInformationManagerSensor_TaskId(worldInformationManager,objectIndex(Index),Index1,Value).
 %worldInformationManagerSensor_Distance(worldInformationManager,objectIndex(Index),Index1,Value).
