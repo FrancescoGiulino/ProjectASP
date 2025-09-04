@@ -704,6 +704,7 @@ MonoBehaviour:
   shooter: {fileID: 2519417913679888451}
   enemyFXController: {fileID: 5382317009409128481}
   healthController: {fileID: 6864281029701993413}
+  healthValue: 0
   X: 0
   Y: 0
   Z: 0
@@ -1283,6 +1284,19 @@ MonoBehaviour:
     - EnemyStateController
     - EnemyId
     Count: 2
+  - myStrings:
+    - EnemyStateController
+    - HealthController
+    Count: 2
+  - myStrings:
+    - EnemyStateController
+    - HealthController
+    - IsDead
+    Count: 3
+  - myStrings:
+    - EnemyStateController
+    - healthValue
+    Count: 2
   _toMapProperties:
   - myStrings:
     - gameObject
@@ -1483,6 +1497,15 @@ MonoBehaviour:
   - myStrings:
     - EnemyStateController
     - EnemyId
+    Count: 2
+  - myStrings:
+    - EnemyStateController
+    - HealthController
+    - IsDead
+    Count: 3
+  - myStrings:
+    - EnemyStateController
+    - healthValue
     Count: 2
   _propertyFeatures:
   - property:
@@ -2005,6 +2028,31 @@ MonoBehaviour:
     operation: 0
     specificValue: 
     counter: 0
+  - property:
+      myStrings:
+      - EnemyStateController
+      - HealthController
+      - IsDead
+      Count: 3
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_HealthController_IsDead
+    propertyAliasHash: 1687929505
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - EnemyStateController
+      - healthValue
+      Count: 2
+    windowWidth: 1
+    configurationName: lumenSentinelSensor
+    _propertyAlias: lumenSentinelSensor_healthValue
+    propertyAliasHash: 183034379
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: lumenSentinelSensor
   isInvariant: 0
   isFixedSize: 0
@@ -2089,6 +2137,10 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - typeName: ThinkEngine.lumenSentinelSensor_EnemyStateController_EnemyId, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_HealthController_IsDead, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - typeName: ThinkEngine.lumenSentinelSensor_healthValue, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   recompile: 0
   teRecompile: 0
   generatedScripts:
@@ -2132,6 +2184,8 @@ MonoBehaviour:
   - lumenSentinelSensor_EnemyStateController_Z.cs
   - lumenSentinelSensor_EnemyStateController_currentStateName.cs
   - lumenSentinelSensor_EnemyStateController_EnemyId.cs
+  - lumenSentinelSensor_HealthController_IsDead.cs
+  - lumenSentinelSensor_healthValue.cs
 --- !u!4 &6832532814491973960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}

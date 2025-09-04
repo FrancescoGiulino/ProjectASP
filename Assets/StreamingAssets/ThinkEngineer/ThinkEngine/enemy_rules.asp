@@ -26,11 +26,11 @@ nEnemiesNearerToTask(Enemy,Task,N) :-
     distanceEnemyToTask(Enemy,Task,_),
     N = #count{NearEnemy : enemyNearerToTask(NearEnemy,Enemy,Task)}.
 
-%#show self/9.
-%#show enemies/9.
+#show self/9.
+#show enemies/9.
 #show task/9.
 #show takeTask/7.
-%#show hasActiveTask/0.
+#show hasActiveTask/0.
 %#show distanceSelfToTask/2.
 #show distanceEnemyToTask/3.
 %#show minDistance/2.

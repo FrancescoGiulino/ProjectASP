@@ -147,6 +147,17 @@ public class MessageBus : MonoBehaviour
         return "<???>";
     }
 
+    public void MarkTaskAsFailedByEnemyName(string enemyName)
+    {
+        foreach (var message in AiMessages) {
+            if (message.AssignedTo == enemyName)
+            {
+                message.AssignedTo = "null";
+                message.MessageState = "Failed";
+            }
+        }
+    }
+
     // ============================================================================================================
     // ============ Gestione "multithreading" per evitare che più guardie prendano lo stesso messaggio ============
     // ============================================================================================================

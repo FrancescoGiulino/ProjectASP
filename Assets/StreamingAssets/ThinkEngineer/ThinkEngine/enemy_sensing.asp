@@ -11,14 +11,15 @@ task(Id,Sender,MessageState,X,Y,Z,TaskType,AssignedTo,IsTaken) :-   aiMessage_ID
                                                                     %MessageState != "Expired".
 
 enemies(SelfId,Name,ReasoningStyle,X,Y,Z,CurrentStateName,CurrentHealth,IsDead) :-
-    lumenSentinelSensor_name(EcoSentinel,SelfId,Name),
-    lumenSentinelSensor_ReasoningStyleType(EcoSentinel,SelfId,ReasoningStyle),
-    lumenSentinelSensor_X(EcoSentinel,SelfId,X),
-    lumenSentinelSensor_Y(EcoSentinel,SelfId,Y),
-    lumenSentinelSensor_Z(EcoSentinel,SelfId,Z),
-    lumenSentinelSensor_currentStateName(EcoSentinel,SelfId,CurrentStateName),
-    lumenSentinelSensor_CurrentHealth(EcoSentinel,SelfId,CurrentHealth),
-    lumenSentinelSensor_IsDead(EcoSentinel,SelfId,IsDead).
+    lumenSentinelSensor_name(Enemy,SelfId,Name),
+    lumenSentinelSensor_ReasoningStyleType(Enemy,SelfId,ReasoningStyle),
+    lumenSentinelSensor_X(Enemy,SelfId,X),
+    lumenSentinelSensor_Y(Enemy,SelfId,Y),
+    lumenSentinelSensor_Z(Enemy,SelfId,Z),
+    lumenSentinelSensor_currentStateName(Enemy,SelfId,CurrentStateName),
+    %lumenSentinelSensor_CurrentHealth(Enemy,SelfId,CurrentHealth),
+    lumenSentinelSensor_healthValue(Enemy,SelfId,CurrentHealth),
+    lumenSentinelSensor_IsDead(Enemy,SelfId,IsDead).
 
 self(SelfId, Name, ReasoningStyle, X, Y, Z, CurrentStateName, CurrentHealth, IsDead) :-
     currentBrainID(SelfId),

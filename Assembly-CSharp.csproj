@@ -136,8 +136,8 @@
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\TargetDetectionController.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_runSpeed.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\DropdownScroller.cs" />
-    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_Resources_batterySecondaryWeaponDrainRate.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_Resources_batteryWalkingDrainRate.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_Resources_batterySecondaryWeaponDrainRate.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_Resources_batteryPrimaryWeaponDrainRate.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\EnemyStateController.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_Y.cs" />
@@ -158,6 +158,7 @@
     <Compile Include="Assets\GameAssets\Scripts\SceneHandling\AsyncLoader.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Managers\IManager.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_ID.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_healthValue.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\RotationPatrol.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_primaryAmmo.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_secondaryAmmo.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_EnemyId.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\CheckState.cs" />
     <Compile Include="Assets\Actions\TakeTask.cs" />
+    <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_HealthController_IsDead.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_shootingDistance.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Devices\Turret.cs" />
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\CameraHolderMovement.cs" />

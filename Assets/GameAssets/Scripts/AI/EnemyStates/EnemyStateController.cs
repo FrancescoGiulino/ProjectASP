@@ -38,6 +38,7 @@ public class EnemyStateController : MonoBehaviour
     [Header("Health")]
     [SerializeField] private HealthController healthController;
     public HealthController HealthController => healthController;
+    public int healthValue;
 
     [HideInInspector] public int X, Y, Z; // Posizione approssimata
 
@@ -88,6 +89,8 @@ public class EnemyStateController : MonoBehaviour
         X = Mathf.RoundToInt(transform.position.x);
         Y = Mathf.RoundToInt(transform.position.y);
         Z = Mathf.RoundToInt(transform.position.z);
+
+        healthValue =Mathf.RoundToInt(healthController.CurrentHealth);
     }
 
     public void ChangeState(EnemyState newState)
@@ -196,6 +199,9 @@ public class EnemyStateController : MonoBehaviour
         // Imposta la destinazione proiettata sulla NavMesh
         BatteryPosition = nearestNavPoint.Value;
         //Debug.LogError($"[{name}] Destinazione charger impostata a {BatteryPosition}");
+
+        // Siccome la batteria è scarica, tutti i task assegnati falliranno.
+        MessageBus.Instance.MarkTaskAsFailedByEnemyName(name);
 
         // Cambia stato
         ChangeState(new GoToRechargeState());

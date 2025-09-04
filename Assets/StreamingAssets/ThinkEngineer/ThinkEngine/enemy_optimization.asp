@@ -12,7 +12,7 @@
 
 % Batteria: --------------------------------
 % Non prendere task se hai batteria insufficiente.
-:- takeTask(TaskId,_,_,_,_,_,_), self(_,SelfName,_,_,_,_,_,Battery,_), selfMinBattery(MinBattery), Battery<MinBattery.
+:- takeTask(TaskId,_,_,_,_,_,_), self(_,SelfName,_,_,_,_,_,Battery,_), selfMinBattery(MinBattery), Battery<=MinBattery.
 
 % =================================================================================================================================
 % PENALIZZAZIONI:
