@@ -5,7 +5,7 @@ public class EnemyResources
 {
     [Header("Energy & Ammo")]
     //public float battery = 100f;
-    public float minBatteryBeforeRecharge = 30f;
+    public int minBatteryBeforeRecharge = 30;
     public int primaryAmmo = 30;
     public int secondaryAmmo = 5;
     public int shootingDistance = 2;

@@ -11,13 +11,13 @@ namespace ThinkEngine
 		private object specificValue;
 		private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<float> values = new List<float>();
+		private List<int> values = new List<int>();
 		public override void Initialize(SensorConfiguration sensorConfiguration)
 		{
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(float));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
 			mappingTemplate = "lumenSentinelSensor_minBatteryBeforeRecharge(lumenSentinel,objectIndex("+index+"),{0})." + Environment.NewLine;
@@ -67,7 +67,7 @@ namespace ThinkEngine
 					values.Clear();
 					return;
 				}
-				float minBatteryBeforeRecharge_4 = Resources_3.minBatteryBeforeRecharge;
+				int minBatteryBeforeRecharge_4 = Resources_3.minBatteryBeforeRecharge;
 				if (values.Count == 1)
 				{
 					values.RemoveAt(0);

@@ -5,7 +5,7 @@ using ThinkEngine.Mappers;
 using static ThinkEngine.Mappers.OperationContainer;
 namespace ThinkEngine
 {
-	public class lumenSentinelSensor_EnemyStateController_Y : Sensor
+	public class lumenSentinelSensor_Resources_secondaryAmmo : Sensor
 	{
 		private int counter;
 		private object specificValue;
@@ -20,7 +20,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "lumenSentinelSensor_EnemyStateController_Y(lumenSentinel,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "lumenSentinelSensor_Resources_secondaryAmmo(lumenSentinel,objectIndex("+index+"),{0})." + Environment.NewLine;
 		}
 		public override void Destroy()
 		{
@@ -45,12 +45,23 @@ namespace ThinkEngine
 					values.Clear();
 					return;
 				}
-				int Y_2 = EnemyStateController_1.Y;
+				EnemyResources Resources_2 = EnemyStateController_1.Resources;
+				if(Resources_2 == null)
+				{
+					values.Clear();
+					return;
+				}
+				if(Resources_2 == null)
+				{
+					values.Clear();
+					return;
+				}
+				int secondaryAmmo_3 = Resources_2.secondaryAmmo;
 				if (values.Count == 1)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Y_2);
+				values.Add(secondaryAmmo_3);
 			}
 		}
 		public override string Map()

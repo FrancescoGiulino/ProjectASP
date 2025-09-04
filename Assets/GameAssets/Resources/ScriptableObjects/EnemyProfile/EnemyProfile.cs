@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyProfile : ScriptableObject
 {
     [Header("Energy & Ammo")]
-    public Vector2 minBatteryBeforeRecharge = new Vector2(20f, 40f);
+    public Vector2 minBatteryBeforeRecharge = new Vector2(20, 40);
     public Vector2Int primaryAmmo = new Vector2Int(20, 40);
     public Vector2Int secondaryAmmo = new Vector2Int(2, 6);
     public Vector2Int shootingDistance = new Vector2Int(2, 3);
@@ -27,7 +27,7 @@ public class EnemyProfile : ScriptableObject
     {
         EnemyResources res = new EnemyResources
         {
-            minBatteryBeforeRecharge = Random.Range(minBatteryBeforeRecharge.x, minBatteryBeforeRecharge.y),
+            minBatteryBeforeRecharge = (int)Random.Range(minBatteryBeforeRecharge.x, minBatteryBeforeRecharge.y),
             primaryAmmo = Random.Range(primaryAmmo.x, primaryAmmo.y + 1),
             secondaryAmmo = Random.Range(secondaryAmmo.x, secondaryAmmo.y + 1),
             shootingDistance = Random.Range(shootingDistance.x, shootingDistance.y + 1),

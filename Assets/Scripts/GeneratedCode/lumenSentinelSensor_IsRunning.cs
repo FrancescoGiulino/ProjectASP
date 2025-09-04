@@ -5,22 +5,22 @@ using ThinkEngine.Mappers;
 using static ThinkEngine.Mappers.OperationContainer;
 namespace ThinkEngine
 {
-	public class lumenSentinelSensor_EnemyStateController_Y : Sensor
+	public class lumenSentinelSensor_IsRunning : Sensor
 	{
 		private int counter;
 		private object specificValue;
 		private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<int> values = new List<int>();
+		private List<bool> values = new List<bool>();
 		public override void Initialize(SensorConfiguration sensorConfiguration)
 		{
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(bool));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "lumenSentinelSensor_EnemyStateController_Y(lumenSentinel,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "lumenSentinelSensor_IsRunning(lumenSentinel,objectIndex("+index+"),{0})." + Environment.NewLine;
 		}
 		public override void Destroy()
 		{
@@ -45,12 +45,12 @@ namespace ThinkEngine
 					values.Clear();
 					return;
 				}
-				int Y_2 = EnemyStateController_1.Y;
+				bool IsRunning_2 = EnemyStateController_1.IsRunning;
 				if (values.Count == 1)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Y_2);
+				values.Add(IsRunning_2);
 			}
 		}
 		public override string Map()

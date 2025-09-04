@@ -10,14 +10,6 @@ hasActiveTask :- task(_,_,_,_,_,_,_,Name,_), self(_,Name,_,_,_,_,_,_,_).
 } <= 1.
 
 % =================================================================================================================================
-% Regole basate sulla distanza:
-
-%distanceEnemyToTask(Name,TaskId,Distance) :-
-%    worldInformationManagerSensor_EnemyName(WIM, objectIndex(EnemyId), Index, Name),
-%    worldInformationManagerSensor_TaskId(WIM, objectIndex(EnemyId), Index, TaskId),
-%    worldInformationManagerSensor_Distance(WIM, objectIndex(EnemyId), Index, Distance).
-
-%distanceSelfToTask(TaskId,Distance) :- self(_,Name,_,_,_,_,_,_,_), distanceEnemyToTask(Name,TaskId,Distance).
 
 %minDistance(Task,MinDistance) :- distanceEnemyToTask(_,Task,MinDistance), #min{D: distanceEnemyToTask(_,Task,D)} = MinDistance.
 %nearestEnemyToTask(Task,Enemy,Distance) :- distanceEnemyToTask(Enemy,Task,Distance), minDistance(Task,Distance).
@@ -46,5 +38,5 @@ nEnemiesNearerToTask(Enemy,Task,N) :-
 %#show enemyNearerToTask/3.
 %#show nEnemiesNearerToTask/3.
 
-%#show selfMinBattery/1.
-%#show enemyMinBattery/2.
+#show selfMinBattery/1.
+#show enemyMinBattery/2.

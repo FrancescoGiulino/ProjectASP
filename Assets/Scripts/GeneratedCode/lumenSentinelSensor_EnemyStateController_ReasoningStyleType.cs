@@ -5,22 +5,22 @@ using ThinkEngine.Mappers;
 using static ThinkEngine.Mappers.OperationContainer;
 namespace ThinkEngine
 {
-	public class lumenSentinelSensor_EnemyStateController_Y : Sensor
+	public class lumenSentinelSensor_EnemyStateController_ReasoningStyleType : Sensor
 	{
 		private int counter;
 		private object specificValue;
 		private Operation operation;
 		private BasicTypeMapper mapper;
-		private List<int> values = new List<int>();
+		private List<string> values = new List<string>();
 		public override void Initialize(SensorConfiguration sensorConfiguration)
 		{
 			this.gameObject = sensorConfiguration.gameObject;
 			ready = true;
 			int index = gameObject.GetInstanceID();
-			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
+			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(string));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "lumenSentinelSensor_EnemyStateController_Y(lumenSentinel,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "lumenSentinelSensor_EnemyStateController_ReasoningStyleType(lumenSentinel,objectIndex("+index+"),{0})." + Environment.NewLine;
 		}
 		public override void Destroy()
 		{
@@ -45,12 +45,17 @@ namespace ThinkEngine
 					values.Clear();
 					return;
 				}
-				int Y_2 = EnemyStateController_1.Y;
+				string ReasoningStyleType_2 = EnemyStateController_1.ReasoningStyleType;
+				if(ReasoningStyleType_2 == null)
+				{
+					values.Clear();
+					return;
+				}
 				if (values.Count == 1)
 				{
 					values.RemoveAt(0);
 				}
-				values.Add(Y_2);
+				values.Add(ReasoningStyleType_2);
 			}
 		}
 		public override string Map()
