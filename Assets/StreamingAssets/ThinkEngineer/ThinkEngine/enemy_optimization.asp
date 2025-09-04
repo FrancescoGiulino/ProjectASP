@@ -7,6 +7,9 @@
 % Se non sono tra i primi 5 più vicini ad un dato task, non lo prendo.
 :- takeTask(TaskId,_,_,_,_,_,_), nEnemiesNearerToTask(SelfName,TaskId,N), self(_,SelfName,_,_,_,_,_,_,_), N > 5.
 
+% Se sono colui che ha pubblicato il task, non posso prenderlo.
+:- takeTask(TaskId,_,_,_,_,_,_), self(_,Name,_,_,_,_,_,_,_), task(TaskId,Name,_,_,_,_,_,_,_).
+
 % Batteria:
 % Non prendere task se hai batteria insufficiente.
 %:- takeTask(TaskId,_,_,_,_,_,_), self(_,SelfName,_,_,_,_,_,Battery,_), selfMinBattery(MinBattery), Battery<MinBattery.
