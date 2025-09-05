@@ -90,7 +90,7 @@ public class EnemyStateController : MonoBehaviour
         Y = Mathf.RoundToInt(transform.position.y);
         Z = Mathf.RoundToInt(transform.position.z);
 
-        healthValue =Mathf.RoundToInt(healthController.CurrentHealth);
+        healthValue=Mathf.RoundToInt(healthController.CurrentHealth);
     }
 
     public void ChangeState(EnemyState newState)
@@ -201,7 +201,7 @@ public class EnemyStateController : MonoBehaviour
         //Debug.LogError($"[{name}] Destinazione charger impostata a {BatteryPosition}");
 
         // Siccome la batteria è scarica, tutti i task assegnati falliranno.
-        MessageBus.Instance.MarkTaskAsFailedByEnemyName(name);
+        MessageBus.Instance.ChangeTaskStateByEnemyName(name,"Failed");
 
         // Cambia stato
         ChangeState(new GoToRechargeState());

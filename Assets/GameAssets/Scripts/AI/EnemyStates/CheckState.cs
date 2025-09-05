@@ -18,12 +18,6 @@ public class CheckState : EnemyState
 
     public override void Update(EnemyStateController enemy)
     {
-        // Se vede subito il target (+ non ha la batteria scarica) --> inseguimento
-        //if (enemy.Detection.CheckForTargets() && !enemy.HasLowBattery())
-        //{
-        //    enemy.ChangeState(new ChaseState());
-        //    return;
-        //}
         base.Update(enemy);
 
         // Aggiorna timer
@@ -37,6 +31,9 @@ public class CheckState : EnemyState
                 enemy.Agent.ResetPath();
                 reachedPosition = true;
 
+                Debug.LogError($"{enemy.name} Trying to change state to an 'Investigation Task' --> done.");
+                MessageBus.Instance.ChangeTaskStateByEnemyName(enemy.name,"Done","investigation");
+
                 // Quando arriva --> passa a LookState
                 enemy.ChangeState(new LookState());
                 return;
@@ -47,7 +44,9 @@ public class CheckState : EnemyState
             {
                 enemy.Agent.ResetPath();
                 enemy.ChangeState(new PatrolState());
-                Debug.Log($"[{enemy.name}]: Non sono arrivato al punto di controllo in tempo... Torno a pattugliare.");
+                //Debug.LogError($"[{enemy.name}]: Non sono arrivato al punto di controllo in tempo... Torno a pattugliare.");
+                Debug.LogError($"{enemy.name} Trying to change state to an 'Investigation Task' --> failed.");
+                MessageBus.Instance.ChangeTaskStateByEnemyName(enemy.name,"Failed","investigation");
                 return;
             }
         }

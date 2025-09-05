@@ -147,13 +147,28 @@ public class MessageBus : MonoBehaviour
         return "<???>";
     }
 
-    public void MarkTaskAsFailedByEnemyName(string enemyName)
+    public void ChangeTaskStateByEnemyName(string enemyName, string newState, string taskType="all")
     {
+        Debug.LogError($"Calling 'ChangeTaskStateByEnemyName' --> enemyName: {enemyName}, newState: {newState}, taskType: {taskType}");
         foreach (var message in AiMessages) {
-            if (message.AssignedTo == enemyName)
-            {
-                message.AssignedTo = "null";
-                message.MessageState = "Failed";
+            if (taskType=="all"){
+                if (message.AssignedTo == enemyName)
+                {
+                    Debug.LogError($"Message Id: {message.ID}, Type: {message.Type}, CurrentState: {message.MessageState}, newState: {newState}");
+                    message.AssignedTo = "null";
+                    message.MessageState = newState;
+                }
+            } else {
+                if (message.AssignedTo == enemyName)
+                {
+                    if (message.TaskType == taskType){
+                        Debug.LogError($"Message Id: {message.ID}, Type: {message.Type}, CurrentState: {message.MessageState}, newState: {newState}");
+                        message.AssignedTo = "null";
+                        message.MessageState = newState;
+                    }else{
+                        Debug.LogError("################### TaskType not valid!");
+                    }
+                }
             }
         }
     }

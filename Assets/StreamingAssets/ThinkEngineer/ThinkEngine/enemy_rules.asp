@@ -26,11 +26,17 @@ nEnemiesNearerToTask(Enemy,Task,N) :-
     distanceEnemyToTask(Enemy,Task,_),
     N = #count{NearEnemy : enemyNearerToTask(NearEnemy,Enemy,Task)}.
 
+% =================================================================================================================================
+% Controlla se sei in stato di chasing.
+%self(SelfId, Name, ReasoningStyle, X, Y, Z, CurrentStateName, CurrentHealth, IsDead)
+isInChaseState :- self(_,_,_,_,_,_,"ChaseState",_,_).
+
 #show self/9.
 #show enemies/9.
 #show task/9.
 #show takeTask/7.
 #show hasActiveTask/0.
+#show isInChaseState/0.
 %#show distanceSelfToTask/2.
 #show distanceEnemyToTask/3.
 %#show minDistance/2.
