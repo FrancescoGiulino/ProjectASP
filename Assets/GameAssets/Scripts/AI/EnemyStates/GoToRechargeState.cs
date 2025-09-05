@@ -5,7 +5,6 @@ public class GoToRechargeState : EnemyState
 {
     private bool reachedCharger;
     private const float rechargeTolerance = 1.5f;
-    //private float pathDistance = -1f;
 
     public override void Enter(EnemyStateController enemy)
     {
@@ -15,7 +14,6 @@ public class GoToRechargeState : EnemyState
         // Imposta destinazione e resetta flag
         enemy.Agent.SetDestination(enemy.BatteryPosition);
         reachedCharger = false;
-        //pathDistance = -1f;
 
         //Debug.LogError($"[Enter] Posizione nemico: {enemy.transform.position}");
         //Debug.LogError($"[Enter] Destinazione impostata a {enemy.BatteryPosition}");
@@ -34,7 +32,6 @@ public class GoToRechargeState : EnemyState
         // Calcola distanza reale solo una volta
         if (!pathReadyLogged && agent.hasPath)
         {
-            //pathDistance = CalculatePathDistance(agent);
             //Debug.LogError($"[Update] Distanza NavMesh calcolata: {pathDistance:F2}");
             pathReadyLogged = true;
         }
@@ -51,7 +48,7 @@ public class GoToRechargeState : EnemyState
         if (reachedCharger && enemy.HealthController.CurrentHealth >= enemy.HealthController.MaxHealth)
             enemy.ChangeState(new PatrolState());
 
-        base.CheckChaseState(enemy);
+        //base.CheckChaseState(enemy);
     }
 
     public override void Exit(EnemyStateController enemy)

@@ -149,7 +149,6 @@ public class MessageBus : MonoBehaviour
 
     public void ChangeTaskStateByEnemyName(string enemyName, string newState, string taskType="all")
     {
-        Debug.LogError($"Calling 'ChangeTaskStateByEnemyName' --> enemyName: {enemyName}, newState: {newState}, taskType: {taskType}");
         foreach (var message in AiMessages) {
             if (taskType=="all"){
                 if (message.AssignedTo == enemyName)
@@ -166,7 +165,7 @@ public class MessageBus : MonoBehaviour
                         message.AssignedTo = "null";
                         message.MessageState = newState;
                     }else{
-                        Debug.LogError("################### TaskType not valid!");
+                        Debug.LogError($"################### TaskType not found! -- message.TaskType: {message.TaskType} - taskType: {taskType}");
                     }
                 }
             }

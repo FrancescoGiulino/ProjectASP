@@ -11,6 +11,8 @@ public class ChaseState : EnemyState
     {
         if (enemy.Target != null)
         {
+            //Debug.LogError($"{enemy.name} Trying to change state to a 'Reinforcement Task' --> done.");
+            MessageBus.Instance.ChangeTaskStateByEnemyName(enemy.name,"Done");
             Vector3 direction = enemy.Target.position - enemy.transform.position;
             float distance = direction.magnitude;
 
@@ -38,7 +40,7 @@ public class ChaseState : EnemyState
             }
 
             base.CheckGoToNearestBatteryChargerState(enemy);
-            base.CheckLookState(enemy);
+            //base.CheckLookState(enemy);
         }
     }
 

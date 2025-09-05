@@ -76,6 +76,7 @@
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Core\MessageData.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_EnemyStateController_Z.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\UIHoverSelector.cs" />
+    <Compile Include="Assets\Actions\SetState.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_TaskType.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_y.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_currentStateName.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Assets\GameAssets\Scripts\ModularControllers\RotationPatrol.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_primaryAmmo.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_secondaryAmmo.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\EnemyStateSwitcher.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_lowBatterySpeed.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MessagePassing\Ui\MessagePanelController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\PlayerAndCamera\GameInput.cs" />

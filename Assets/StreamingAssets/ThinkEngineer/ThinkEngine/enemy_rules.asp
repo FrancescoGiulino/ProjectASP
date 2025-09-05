@@ -3,6 +3,10 @@
 nTasks(N) :- #count{Id: task(Id,_,MessageState,_,_,_,_,_,_), MessageState="Pending"} = N.
 hasActiveTask :- task(_,_,_,_,_,_,_,Name,_), self(_,Name,_,_,_,_,_,_,_).
 
+% Controlla se sei in stato di chasing.
+isInChaseState :- self(_,_,_,_,_,_,"ChaseState",_,_).
+hasActiveTask :- isInChaseState.
+
 {takeTask(TaskId,Sender,MessageState,X,Y,Z,TaskType) :
     task(TaskId,Sender,MessageState,X,Y,Z,TaskType,AssignedTo,IsTaken),
     MessageState="Pending", AssignedTo="null", IsTaken=false,
@@ -27,9 +31,6 @@ nEnemiesNearerToTask(Enemy,Task,N) :-
     N = #count{NearEnemy : enemyNearerToTask(NearEnemy,Enemy,Task)}.
 
 % =================================================================================================================================
-% Controlla se sei in stato di chasing.
-%self(SelfId, Name, ReasoningStyle, X, Y, Z, CurrentStateName, CurrentHealth, IsDead)
-isInChaseState :- self(_,_,_,_,_,_,"ChaseState",_,_).
 
 #show self/9.
 #show enemies/9.

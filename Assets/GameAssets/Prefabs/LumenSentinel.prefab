@@ -597,6 +597,9 @@ PrefabInstance:
       addedObject: {fileID: 3822256668198755552}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 178161274889586970}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 3072177655860989917}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1743a09b684a82e45b9110a70d14ca4b, type: 3}
       insertIndex: -1
@@ -692,6 +695,7 @@ MonoBehaviour:
   ReasoningStyleType: 
   target: {fileID: 0}
   targetDetectionController: {fileID: 3072177655860989917}
+  enemyStateSwitcher: {fileID: 178161274889586970}
   patrolPoints:
   - {x: 0.5, y: 0, z: -14}
   - {x: 0.5, y: 0, z: -29}
@@ -710,6 +714,19 @@ MonoBehaviour:
   Z: 0
   currentStateName: PatrolState
   EnemyId: 0
+--- !u!114 &178161274889586970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168199519798174706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c64ca5e53df8804d88be074f83fac81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3822256668198755552}
 --- !u!114 &3072177655860989917
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,6 +20,9 @@ public class EnemyStateController : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private EnemyTargetDetectionController targetDetectionController;
 
+    [Header("EnemyStates")]
+    [SerializeField] private EnemyStateSwitcher enemyStateSwitcher;
+
     [Header("Patrol Settings")]
     [SerializeField] private Vector3[] patrolPoints;
     private int currentPatrolIndex = 0;
@@ -45,6 +48,7 @@ public class EnemyStateController : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private EnemyState currentState;
     public EnemyState CurrentState => currentState;
+    public EnemyState PrevState { get; set; }
     [HideInInspector] public string currentStateName = "PatrolState"; // serve a ThinkEngine
     [HideInInspector] public int EnemyId;
 
@@ -83,6 +87,7 @@ public class EnemyStateController : MonoBehaviour
 
     private void Update()
     {
+        enemyStateSwitcher.CalculateCorrectState();
         currentState?.Update(this);
         UpdateMovementFlags();
 

@@ -7,17 +7,6 @@ public class PatrolState : EnemyState
 
     public override void Update(EnemyStateController enemy)
     {
-        /*if (enemy.HasLowBattery())
-        {
-            enemy.GoToNearestBatteryCharger();
-            return;
-        }
-        
-        if (enemy.Detection.CheckForChaseTrigger())
-        {
-            enemy.ChangeState(new ChaseState());
-            return;
-        }*/
         base.Update(enemy);
 
         if (!enemy.Agent.pathPending && enemy.Agent.remainingDistance < 0.3f)

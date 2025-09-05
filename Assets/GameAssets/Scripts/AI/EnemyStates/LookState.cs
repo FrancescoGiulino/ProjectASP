@@ -16,21 +16,6 @@ public class LookState : EnemyState
 
     public override void Update(EnemyStateController enemy)
     {
-        /*
-        if (enemy.HasLowBattery())
-        {
-            enemy.GoToNearestBatteryCharger();
-            return;
-        }
-
-        // Se vede il target --> Chase
-        // Se vede il target (sphere piccolo) → Chase
-        if (enemy.Detection.CheckForChaseTrigger())
-        {
-            enemy.ChangeState(new ChaseState());
-            return;
-        }
-        */
         base.Update(enemy);
         
         lookTimer += Time.deltaTime;
