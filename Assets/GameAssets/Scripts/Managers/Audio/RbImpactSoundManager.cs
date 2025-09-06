@@ -29,7 +29,7 @@ public class RbImpactSoundHandler : MonoBehaviour
         {
             float normalized = Mathf.InverseLerp(minVelocity, maxVelocity, impact);
             soundComponent.Volume = normalized;
-            soundComponent.PlaySoundWithVolume(impactSound);
+            soundComponent.PlaySoundWithVolume(impactSound,soundComponent.Volume);
         }
     }
 
@@ -41,7 +41,7 @@ public class RbImpactSoundHandler : MonoBehaviour
         if (Time.time - lastSoundTime > minInterval)
         {
             soundComponent.Volume = 1f;
-            soundComponent.PlaySoundWithVolume(impactSound);
+            soundComponent.PlaySoundWithVolume(impactSound,soundComponent.Volume);
             lastSoundTime = Time.time;
         }
     }

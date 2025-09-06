@@ -4,8 +4,8 @@
 % Distanza: -------------------------------
 % Non prendere task troppo lontani (oltre 100 unità).
 %:- takeTask(TaskId,_,_,_,_,_,_), self(_,SelfName,_,_,_,_,_,_,_), distanceSelfToTask(TaskId,Distance), Distance > 100.
-% Se non sono tra i primi 5 più vicini ad un dato task, non lo prendo.
-:- takeTask(TaskId,_,_,_,_,_,_), nEnemiesNearerToTask(SelfName,TaskId,N), self(_,SelfName,_,_,_,_,_,_,_), N > 5.
+% Se non sono tra i primi 4 più vicini ad un dato task, non lo prendo.
+:- takeTask(TaskId,_,_,_,_,_,_), nEnemiesNearerToTask(SelfName,TaskId,N), self(_,SelfName,_,_,_,_,_,_,_), N > 4.
 
 % Se sono colui che ha pubblicato il task, non posso prenderlo.
 :- takeTask(TaskId,_,_,_,_,_,_), self(_,Name,_,_,_,_,_,_,_), task(TaskId,Name,_,_,_,_,_,_,_).
