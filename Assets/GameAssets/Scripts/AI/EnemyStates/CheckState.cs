@@ -4,7 +4,7 @@ public class CheckState : EnemyState
 {
     private bool reachedPosition;
     private float elapsedTime;
-    private const float maxCheckTime = 15f;
+    private const float maxCheckTime = 40f;
 
     public override void Enter(EnemyStateController enemy)
     {
@@ -31,7 +31,7 @@ public class CheckState : EnemyState
                 enemy.Agent.ResetPath();
                 reachedPosition = true;
 
-                Debug.LogError($"{enemy.name} Trying to change state to an 'Investigation Task' --> done.");
+                //Debug.LogError($"{enemy.name} Trying to change state to an 'Investigation Task' --> done.");
                 MessageBus.Instance.ChangeTaskStateByEnemyName(enemy.name,"Done");
 
                 // Quando arriva --> passa a LookState
@@ -45,7 +45,7 @@ public class CheckState : EnemyState
                 enemy.Agent.ResetPath();
                 //enemy.ChangeState(new PatrolState());
                 //Debug.LogError($"[{enemy.name}]: Non sono arrivato al punto di controllo in tempo... Torno a pattugliare.");
-                Debug.LogError($"{enemy.name} Trying to change state to an 'Investigation Task' --> failed.");
+                //Debug.LogError($"{enemy.name} Trying to change state to an 'Investigation Task' --> failed.");
 
                 // Non specifico il tipo di task che fallisce perché è la stessa condizione di fallimento
                 // sia per task di reinforcement, che per task di investigation.

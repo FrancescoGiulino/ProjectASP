@@ -13,8 +13,17 @@ public class EnemyStateSwitcher : MonoBehaviour
 
     public void CheckChaseState()
     {
+        // controlla se il nemico vede il player --> se sì, passa allo stato di chase.
         if (enemy.Detection.CheckForChaseTrigger() && !enemy.HasLowBattery())
-            enemy.ChangeState(new ChaseState());
+        {
+            // controllo extra: target non morto
+            if (enemy.Target != null && enemy.Target.TryGetComponent(out HealthController playerHealth) && !playerHealth.IsDead)
+            {
+                enemy.ChangeState(new ChaseState());
+                return;
+            }
+        }
+
     }
     public void CheckGoToNearestBatteryChargerState()
     {
@@ -38,21 +47,12 @@ public class EnemyStateSwitcher : MonoBehaviour
         return null;
     }
 
-    private void ChangeState(EnemyState newState)
-    {
-        if (enemy.PrevState == null || enemy.PrevState.GetType() != newState.GetType())
-        {
-            enemy.PrevState = enemy.CurrentState;
-            enemy.ChangeState(newState);
-        }
-    }
-
     public void CalculateCorrectState()
     {
         // se il nemico ha poca batteria, va a ricaricarla
         if (enemy.HasLowBattery())
         {
-            enemy.PrevState = enemy.CurrentState;
+            //enemy.PrevState = enemy.CurrentState;
             enemy.GoToNearestBatteryCharger();
             return;
         }
@@ -60,13 +60,13 @@ public class EnemyStateSwitcher : MonoBehaviour
         MessageData activeTask = GetActiveTask();
 
         // controlla se c'è un task attivo (oppure se è in chase state e non ha nient'altro da fare).
-        if (activeTask != null || (enemy.GetCurrentState() == "ChaseState" && GetActiveTask() == null))
+        if (activeTask != null || ((enemy.GetCurrentState() == "ChaseState" || enemy.GetCurrentState()=="LookState" || enemy.GetCurrentState()=="CheckState") && GetActiveTask() == null))
         {
             // se c'è un task attivo ed il nemico è in stato di patrol, allora, vai a controllare nella posizione del task.
             if (enemy.GetCurrentState() == "PatrolState")
             {
                 enemy.CheckPosition = new Vector3(activeTask.X, activeTask.Y, activeTask.Z);
-                ChangeState(new CheckState());
+                enemy.ChangeState(new CheckState());
             }
         }
         // altrimenti, se non c'è un task attivo torna allo stato di patrol.
@@ -74,13 +74,13 @@ public class EnemyStateSwitcher : MonoBehaviour
         {
             if (enemy.PrevState != null)
                 if (enemy.PrevState.ToString() != "ChaseState" || enemy.PrevState.ToString() != "CheckState")
-                    ChangeState(new PatrolState());
+                    enemy.ChangeState(new PatrolState());
                 else
-                    ChangeState(new LookState());
+                    enemy.ChangeState(new LookState());
         }
         else if (enemy.PrevState.ToString() == "GoToRechargeState" && enemy.HealthController.CurrentHealth >= 95)
         {
-            ChangeState(new PatrolState());
+            enemy.ChangeState(new PatrolState());
         }
 
         // ----------------------------------------
@@ -88,7 +88,7 @@ public class EnemyStateSwitcher : MonoBehaviour
         // controlla se il nemico vede il player --> se sì, passa allo stato di chase.
         if (enemy.Detection.CheckForChaseTrigger() && !enemy.HasLowBattery())
         {
-            ChangeState(new ChaseState());
+            enemy.ChangeState(new ChaseState());
             return;
         }
 

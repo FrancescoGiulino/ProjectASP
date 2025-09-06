@@ -1,4 +1,5 @@
 using ThinkEngine.Planning;
+using UnityEngine;
 
 public class TakeTask : Action
 {
@@ -27,10 +28,32 @@ public class TakeTask : Action
         }
     }
 
+    private MessageData FindMessage()
+    {
+        foreach (var tempMessage in MessageBus.Instance.AiMessages)
+        {
+            if (tempMessage.ID == MessageIndex)
+                return tempMessage;
+        }
+        return null;
+    }
+
     // Controlla se l'azione può partire
     public override State Prerequisite()
     {
-        var message= MessageBus.Instance.AiMessages[MessageIndex];
+        if (MessageIndex >= MessageBus.Instance.AiMessages.Count)
+        {
+            Debug.LogError($"MessageIndex: {MessageIndex} - AiMessage.Count: {MessageBus.Instance.AiMessages.Count}");
+            return State.ABORT;
+        }
+
+        var message = FindMessage();
+        if (message == null)
+        {
+            Debug.LogError($"Message {MessageIndex} not found.");
+            return State.ABORT;
+        }
+        //var message= MessageBus.Instance.AiMessages[MessageIndex];
         //Debug.LogWarning($"[DEBUG] {EnemyName} tenta di prendere il messaggio in posizione {MessageIndex}");
 
         // se la guardia ha già un messaggio, abort

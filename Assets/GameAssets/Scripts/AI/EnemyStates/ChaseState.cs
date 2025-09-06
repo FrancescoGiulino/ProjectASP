@@ -21,6 +21,15 @@ public class ChaseState : EnemyState
     {
         if (enemy.Target == null) return;
 
+        // Se il player è morto --> non sparare né inseguire
+        if (enemy.Target.TryGetComponent(out HealthController playerHealth) && playerHealth.IsDead)
+        {
+            enemy.Agent.ResetPath();   // ferma il movimento
+            isShooting = false;        // disabilita la raffica
+            enemy.ChangeState(new PatrolState());
+            return; // resta nello stato corrente, sarà lo StateSwitcher a decidere cosa fare
+        }
+
         Vector3 direction = enemy.Target.position - enemy.transform.position;
         float distance = direction.magnitude;
 
@@ -43,7 +52,8 @@ public class ChaseState : EnemyState
             // Spara colpi a intervalli regolari
             if (shotTimer >= shotInterval && shotsFired < 3)
             {
-                enemy.Shooter.Shoot();   // Qui richiami il tuo sistema di sparo
+                enemy.Shooter.Shoot();
+                enemy.Shooter.GetComponent<SoundEventComponent>()?.PlaySound(SoundType.Attack);
                 shotsFired++;
                 shotTimer = 0f;
             }

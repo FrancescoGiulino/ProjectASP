@@ -153,7 +153,7 @@ public class MessageBus : MonoBehaviour
             if (taskType=="all"){
                 if (message.AssignedTo == enemyName)
                 {
-                    Debug.LogError($"Message Id: {message.ID}, Type: {message.Type}, CurrentState: {message.MessageState}, newState: {newState}");
+                    //Debug.LogError($"Message Id: {message.ID}, Type: {message.Type}, CurrentState: {message.MessageState}, newState: {newState}");
                     message.AssignedTo = "null";
                     message.MessageState = newState;
                 }
@@ -161,11 +161,11 @@ public class MessageBus : MonoBehaviour
                 if (message.AssignedTo == enemyName)
                 {
                     if (message.TaskType == taskType){
-                        Debug.LogError($"Message Id: {message.ID}, Type: {message.Type}, CurrentState: {message.MessageState}, newState: {newState}");
+                        //Debug.LogError($"Message Id: {message.ID}, Type: {message.Type}, CurrentState: {message.MessageState}, newState: {newState}");
                         message.AssignedTo = "null";
                         message.MessageState = newState;
                     }else{
-                        Debug.LogError($"################### TaskType not found! -- message.TaskType: {message.TaskType} - taskType: {taskType}");
+                        //Debug.LogError($"################### TaskType not found! -- message.TaskType: {message.TaskType} - taskType: {taskType}");
                     }
                 }
             }

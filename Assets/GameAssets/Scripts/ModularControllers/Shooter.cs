@@ -8,6 +8,9 @@ public class Shooter : MonoBehaviour
     [SerializeField] private float bulletSpeed = 20f;
     [SerializeField] private float bulletFireRate = 1f; // Proiettili al secondo
 
+    [Header("Sound")]
+    [SerializeField] private SoundEventComponent soundComponent;
+
     public float BulletFireRate => bulletFireRate;
 
     public void Shoot()
@@ -30,6 +33,10 @@ public class Shooter : MonoBehaviour
                 if (point != null) SpawnBullet(point);
             }
         }
+        //GetComponent<SoundEventComponent>()?.PlaySound(SoundType.Attack);
+
+
+        soundComponent?.PlaySound(SoundType.Attack);
     }
 
     private void SpawnBullet(Transform spawnPoint)

@@ -24,120 +24,89 @@ public class SoundTypeClipPair
     public float range = 5f; // raggio della percezione sonora
 }
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundEventComponent : MonoBehaviour
 {
-    [SerializeField] protected List<SoundTypeClipPair> soundEntries = new List<SoundTypeClipPair>();
+    [SerializeField] private List<SoundTypeClipPair> soundEntries = new List<SoundTypeClipPair>();
+    [SerializeField, Range(0f, 1f)] private float addPitch = 0f;
 
-    [Tooltip("Pitch da applicare quando si riproduce un suono.")] [Range(0f, 1f)]
-    [SerializeField] protected float addPitch = 0f;
-    public float AddPitch => addPitch;
-
+    private AudioSource audioSource;
     private float volume = 1f;
     public float Volume { get => volume; set => volume = Mathf.Clamp01(value); }
 
-    private List<AudioSource> activeSources = new List<AudioSource>();
-
-    private SoundTypeClipPair GetEntry(SoundType soundType)
+    private void Awake()
     {
-        foreach (var entry in soundEntries)
-            if (entry.soundType == soundType)
-                return entry;
-        return null;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1f; // 3D sound
     }
 
-    public void PlaySound(SoundType soundType)
+    private SoundTypeClipPair GetEntry(SoundType type)
     {
-        PlayInternal(soundType, 1f);
+        return soundEntries.Find(e => e.soundType == type);
     }
 
-    public void PlaySoundWithVolume(SoundType soundType)
-    {
-        PlayInternal(soundType, volume);
-    }
+    public void PlaySound(SoundType type) => PlayInternal(type, 1f);
 
-    public void PlayLoopingSound(SoundType soundType)
+    public void PlaySoundWithVolume(SoundType type) => PlayInternal(type, volume);
+
+    private void PlayInternal(SoundType type, float customVolume)
     {
-        var entry = GetEntry(soundType);
-        if (entry?.clip != null)
+        var entry = GetEntry(type);
+        if (entry?.clip == null)
         {
-            SoundManager sm = GameManager.Instance.GetSoundManager();
-            var applyPitch = UnityEngine.Random.Range(1f - addPitch, 1f + addPitch);
-            if (sm != null)
-            {
-                AudioSource source = sm.Play3DSoundLoop(entry.clip, transform.position, volume, applyPitch);
-                if (source != null)
-                    activeSources.Add(source);
-
-                // Se il suono è sospetto → notifica i nemici
-                if (entry.suspicious)
-                    EmitSoundWave(entry.range);
-            }
+            Debug.LogWarning($"[{name}] Nessun clip definito per {type}");
+            return;
         }
-        else
-            Debug.LogWarning($"Looping clip per {soundType} non definito in {gameObject.name}");
+
+        float pitch = UnityEngine.Random.Range(1f - addPitch, 1f + addPitch);
+        audioSource.pitch = pitch;
+        audioSource.volume = customVolume;
+        audioSource.loop = false;
+        audioSource.clip = null;
+        audioSource.PlayOneShot(entry.clip);
+
+        if (entry.suspicious)
+            EmitSoundWave(entry.range);
     }
 
-    private void PlayInternal(SoundType soundType, float customVolume)
+    public void PlayLoopingSound(SoundType type)
     {
-        var entry = GetEntry(soundType);
-        if (entry?.clip != null)
+        var entry = GetEntry(type);
+        if (entry?.clip == null)
         {
-            SoundManager sm = GameManager.Instance.GetSoundManager();
-            var applyPitch = UnityEngine.Random.Range(1f - addPitch, 1f + addPitch);
-            if (sm != null)
-            {
-                AudioSource source = sm.Play3DSound(entry.clip, transform.position, customVolume, applyPitch);
-                if (source != null)
-                    activeSources.Add(source);
-
-                // Se il suono è sospetto --> notifica i nemici
-                if (entry.suspicious)
-                    EmitSoundWave(entry.range);
-            }
+            Debug.LogWarning($"[{name}] Nessun clip definito per {type}");
+            return;
         }
-        else
+
+        audioSource.pitch = 1f;
+        audioSource.volume = volume;
+        audioSource.clip = entry.clip;
+        audioSource.loop = true;
+        audioSource.Play();
+
+        if (entry.suspicious)
+            EmitSoundWave(entry.range);
+    }
+
+    public void StopAllSounds()
+    {
+        if (audioSource.isPlaying)
         {
-            Debug.LogWarning($"Clip per {soundType} non definito in {gameObject.name}");
+            audioSource.Stop();
+            audioSource.loop = false;
+            audioSource.clip = null;
         }
     }
 
     protected virtual void EmitSoundWave(float range)
     {
-        // Trova tutti i colliders nel raggio
         Collider[] hits = Physics.OverlapSphere(transform.position, range);
-
         foreach (var hit in hits)
         {
-            // Cerca anche nei parent (utile se EnemySoundListener è sul root e il collider su un figlio)
-            EnemySoundListener listener = hit.GetComponentInParent<EnemySoundListener>();
+            var listener = hit.GetComponentInParent<EnemySoundListener>();
             if (listener != null)
                 listener.OnSoundHeard(transform.position);
-        }
-    }
-
-    public void StopAllSounds()
-    {
-        for (int i = activeSources.Count - 1; i >= 0; i--)
-        {
-            if (activeSources[i] != null)
-            {
-                activeSources[i].Stop();
-                Destroy(activeSources[i].gameObject); // se sono oggetti temporanei
-            }
-        }
-        activeSources.Clear();
-    }
-
-    private void Update()
-    {
-        for (int i = activeSources.Count - 1; i >= 0; i--)
-        {
-            if (activeSources[i] == null || !activeSources[i].isPlaying)
-            {
-                if (activeSources[i] != null)
-                    Destroy(activeSources[i].gameObject);
-                activeSources.RemoveAt(i);
-            }
         }
     }
 }

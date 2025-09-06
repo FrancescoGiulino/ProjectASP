@@ -7,9 +7,22 @@ public class EnemyTargetDetectionController : TargetDetectionController
     private Collider[] chaseTargetsInRange;
 
     // Controlla se il bersaglio è visibile nello sphere piccolo (trigger per passare a Chase).
-    public bool CheckForChaseTrigger()
+    /*public bool CheckForChaseTrigger()
     {
         return CheckForTargets(); // eredita la logica dallo sphere piccolo
+    }*/
+
+    public bool CheckForChaseTrigger()
+    {
+        Collider[] targets = Physics.OverlapSphere(spherePosition, sphereRadius, targetLayer);
+
+        foreach (Collider target in targets)
+        {
+            if (target.TryGetComponent(out HealthController healthController) && !healthController.IsDead)
+                return true;
+        }
+
+        return false;
     }
 
     // Controlla se il bersaglio rimane nel range grande (se esce da qui -> ritorno a Patrol).

@@ -43,6 +43,9 @@ public class EnemyStateController : MonoBehaviour
     public HealthController HealthController => healthController;
     public int healthValue;
 
+    [Header("Sound")]
+    [SerializeField] public SoundEventComponent SoundComponent { get; private set; }
+
     [HideInInspector] public int X, Y, Z; // Posizione approssimata
 
     private NavMeshAgent navMeshAgent;
@@ -70,6 +73,9 @@ public class EnemyStateController : MonoBehaviour
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        if (!SoundComponent) SoundComponent = GetComponent<SoundEventComponent>();
+        if (!SoundComponent) Debug.LogError($"[ENEMY {name}] SoundEventComponent not found!");
 
         if (profile != null)
             resources = profile.GenerateResources();
@@ -100,11 +106,19 @@ public class EnemyStateController : MonoBehaviour
 
     public void ChangeState(EnemyState newState)
     {
+        // Se il nuovo stato è dello stesso tipo di quello corrente, non fare nulla
+        if (currentState != null && currentState.GetType() == newState.GetType())
+            return;
+
+        // Salva lo stato precedente
+        PrevState = currentState;
+
+        // Cambia stato
         currentState?.Exit(this);
         currentState = newState;
         currentState?.Enter(this);
-        enemyFXController.HandleFX(GetCurrentState());
 
+        enemyFXController.HandleFX(GetCurrentState());
         currentStateName = currentState?.ToString();
     }
 
