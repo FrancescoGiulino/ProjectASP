@@ -15,6 +15,7 @@ MonoBehaviour:
   minBatteryBeforeRecharge: {x: 20, y: 25}
   primaryAmmo: {x: 17, y: 22}
   secondaryAmmo: {x: 7, y: 13}
+  shootingDistance: {x: 6, y: 8}
   walkSpeed: {x: 2.8, y: 3.2}
   runSpeed: {x: 4, y: 4.3}
   lowBatterySpeed: {x: 0.9, y: 1.3}

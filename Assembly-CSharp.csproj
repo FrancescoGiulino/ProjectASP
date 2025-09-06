@@ -95,6 +95,7 @@
     <Compile Include="Assets\GameAssets\Scripts\UI\ScrollToSelected.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_Resources_minBatteryBeforeRecharge.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_Z.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\EnemyState.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\EnemyBatteryBar.cs" />
     <Compile Include="Assets\GameAssets\InputActions\PlayerInputActions.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_batterySecondaryWeaponDrainRate.cs" />
@@ -148,7 +149,6 @@
     <Compile Include="Assets\GameAssets\Scripts\AI\ControllersAndListeners\EnemySoundListener.cs" />
     <Compile Include="Assets\GameAssets\Scripts\UI\MenuHandler.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\lumenSentinelSensor_walkSpeed.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\AI\EnemyStates\IEnemyState.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\AiMessage_SenderName.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Devices\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\GeneratedCode\batteryChargingStationSensor_x.cs" />
