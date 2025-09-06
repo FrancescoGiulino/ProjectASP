@@ -52,35 +52,42 @@ public class EnemyStateSwitcher : MonoBehaviour
         // se il nemico ha poca batteria, va a ricaricarla
         if (enemy.HasLowBattery())
         {
-            //enemy.PrevState = enemy.CurrentState;
             enemy.GoToNearestBatteryCharger();
             return;
         }
 
         MessageData activeTask = GetActiveTask();
 
-        // controlla se c'è un task attivo (oppure se è in chase state e non ha nient'altro da fare).
-        if (activeTask != null || ((enemy.GetCurrentState() == "ChaseState" || enemy.GetCurrentState()=="LookState" || enemy.GetCurrentState()=="CheckState") && GetActiveTask() == null))
+        // --- Gestione Task Attivi ---
+        if (activeTask != null)
         {
-            // se c'è un task attivo ed il nemico è in stato di patrol, allora, vai a controllare nella posizione del task.
+            Vector3 taskPos = new Vector3(activeTask.X, activeTask.Y, activeTask.Z);
+
+            // Se sono in Patrol e ricevo un task --> vado a controllare
             if (enemy.GetCurrentState() == "PatrolState")
             {
-                enemy.CheckPosition = new Vector3(activeTask.X, activeTask.Y, activeTask.Z);
+                enemy.CheckPosition = taskPos;
                 enemy.ChangeState(new CheckState());
             }
+            // Se sono già in CheckState --> aggiorno costantemente la posizione
+            else if (enemy.GetCurrentState() == "CheckState")
+            {
+                enemy.CheckPosition = taskPos;
+            }
         }
-        // altrimenti, se non c'è un task attivo torna allo stato di patrol.
-        else if (activeTask == null && enemy.GetCurrentState() != "ChaseState" && enemy.GetCurrentState() != "GoToRechargeState")
+        // --- Nessun task ---
+        else if (activeTask == null 
+                && enemy.GetCurrentState() != "ChaseState" 
+                && enemy.GetCurrentState() != "GoToRechargeState"
+                && enemy.GetCurrentState() != "CheckState") // <-- aggiunto filtro
         {
             if (enemy.PrevState != null)
-                if (enemy.PrevState.ToString() != "ChaseState" || enemy.PrevState.ToString() != "CheckState")
+            {
+                if (enemy.PrevState.ToString() != "ChaseState" && enemy.PrevState.ToString() != "CheckState")
                     enemy.ChangeState(new PatrolState());
                 else
                     enemy.ChangeState(new LookState());
-        }
-        else if (enemy.PrevState.ToString() == "GoToRechargeState" && enemy.HealthController.CurrentHealth >= 95)
-        {
-            enemy.ChangeState(new PatrolState());
+            }
         }
 
         // ----------------------------------------
@@ -91,9 +98,5 @@ public class EnemyStateSwitcher : MonoBehaviour
             enemy.ChangeState(new ChaseState());
             return;
         }
-
-        // se lo stato precedente è chase o check, allora il successivo sarà look
-        //if (enemy.PrevState.ToString() == "ChaseState" || enemy.PrevState.ToString() == "CheckState")
-
     }
 }

@@ -53,7 +53,6 @@ public class ChaseState : EnemyState
             if (shotTimer >= shotInterval && shotsFired < 3)
             {
                 enemy.Shooter.Shoot();
-                enemy.Shooter.GetComponent<SoundEventComponent>()?.PlaySound(SoundType.Attack);
                 shotsFired++;
                 shotTimer = 0f;
             }
@@ -93,6 +92,9 @@ public class ChaseState : EnemyState
         }
 
         base.CheckGoToNearestBatteryChargerState(enemy);
+
+        // contrassegna come completo qualsiasi task ha preso in carico:
+        MessageBus.Instance.ChangeTaskStateByEnemyName(enemy.name,"Done");
     }
 
     public override void Exit(EnemyStateController enemy)

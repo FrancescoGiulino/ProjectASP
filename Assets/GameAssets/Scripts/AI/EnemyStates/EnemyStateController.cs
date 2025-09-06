@@ -88,6 +88,7 @@ public class EnemyStateController : MonoBehaviour
 
     private void Start()
     {
+        PrevState = new PatrolState();
         ChangeState(new PatrolState()); // Stato iniziale
     }
 

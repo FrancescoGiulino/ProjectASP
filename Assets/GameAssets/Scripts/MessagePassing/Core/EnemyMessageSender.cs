@@ -1,6 +1,5 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyMessageSender : MonoBehaviour
 {
@@ -8,73 +7,117 @@ public class EnemyMessageSender : MonoBehaviour
     [SerializeField] private EnemySoundListener soundDetection;
     [SerializeField] private EnemyStateController enemy;
 
-    private bool canSendTargetDetectionMsg = true;
-    private bool canSendTargetDetectionLowBatteryMsg = true;
-    private bool canSendLowBatteryMsg = true;
-    private bool canSendBatteryDeplatedMsg = true;
+    [SerializeField] private float investigationCooldown = 8f;
+    [SerializeField] private float reinforcementCooldown = 8f;
+
+    private MessageData activeDetectionMessage;
+
+    // Cooldown per messaggi temporizzati
+    private Dictionary<string, float> messageCooldowns;
+    private Dictionary<string, float> lastSentTimes = new Dictionary<string, float>();
+
+    // Flag per messaggi di tipo informazione
+    private bool lowBatterySent = false;
+    private bool batteryDepletedSent = false;
 
     private void Awake()
     {
+        messageCooldowns = new Dictionary<string, float>
+        {
+            { "SuspiciousSound", investigationCooldown },
+            { "TargetDetected", reinforcementCooldown },
+            { "TargetDetectedLowBattery", reinforcementCooldown }
+        };
+
         if (soundDetection != null)
             soundDetection.OnSuspiciousSoundHeard += SendSuspiciousSoundDetected;
     }
 
-    private void OnDestroy()
-    {
-        if (soundDetection != null)
-            soundDetection.OnSuspiciousSoundHeard -= SendSuspiciousSoundDetected;
-    }
-
     private void Update()
     {
-        // Target Detected Message
-        if (visualDetection.CheckForTargets())
-        {
-            if (!enemy.HasLowBattery() && canSendTargetDetectionMsg)
-            {
-                canSendTargetDetectionMsg = false;
-                SendTargetDetected(visualDetection.GetDetectedTargetPosition());
-            }
-        }
-        else canSendTargetDetectionMsg = true;
-
-        // Target Detected Message (With Low Battery)
-        if (visualDetection.CheckForTargets())
-        {
-            if (enemy.HasLowBattery() && canSendTargetDetectionLowBatteryMsg)
-            {
-                canSendTargetDetectionLowBatteryMsg = false;
-                SendTargetDetectedLowBattery(visualDetection.GetDetectedTargetPosition());
-            }
-        }
-        else canSendTargetDetectionLowBatteryMsg = true;
-
-        // Low Battery Message
-        if (enemy.HasLowBattery() && canSendLowBatteryMsg)
-        {
-            canSendLowBatteryMsg = false;
-            SendBatteryLow(enemy.HealthController.CurrentHealth);
-        }
-        if (!enemy.HasLowBattery()) canSendLowBatteryMsg = true;
-
-        // Battery Depleted Message
-        if (enemy.HasNoBattery() && canSendBatteryDeplatedMsg)
-        {
-            canSendBatteryDeplatedMsg = false;
-            SendBatteryDeplated();
-        }
-        if (enemy.HealthController.CurrentHealth > 0) canSendBatteryDeplatedMsg = true;
+        HandleTargetDetection();
+        HandleBatteryMessages();
     }
 
-    // -----------------------------------------------
-    // Messaggi
-    // -----------------------------------------------
+    // ---------------------------------------------------
+    // Gestione Target Detection
+    // ---------------------------------------------------
+    private void HandleTargetDetection()
+    {
+        if (visualDetection.CheckForTargets())
+        {
+            Vector3 playerPos = visualDetection.GetDetectedTargetPosition();
 
-    public void SendTargetDetected(Vector3 pos)
+            if (activeDetectionMessage == null)
+            {
+                if (!enemy.HasLowBattery() && CanSend("TargetDetected"))
+                {
+                    activeDetectionMessage = SendTargetDetected(playerPos);
+                    MarkSent("TargetDetected");
+                }
+                else if (enemy.HasLowBattery() && CanSend("TargetDetectedLowBattery"))
+                {
+                    activeDetectionMessage = SendTargetDetectedLowBattery(playerPos);
+                    MarkSent("TargetDetectedLowBattery");
+                }
+            }
+            else
+            {
+                activeDetectionMessage.X = Mathf.RoundToInt(playerPos.x);
+                activeDetectionMessage.Y = Mathf.RoundToInt(playerPos.y);
+                activeDetectionMessage.Z = Mathf.RoundToInt(playerPos.z);
+                activeDetectionMessage.ParametersText =
+                    $"coordinates: x:{playerPos.x:F1}; y:{playerPos.y:F1}; z:{playerPos.z:F1}";
+            }
+        }
+        else
+        {
+            activeDetectionMessage = null;
+        }
+    }
+
+    // ---------------------------------------------------
+    // Gestione messaggi batteria
+    // ---------------------------------------------------
+    private void HandleBatteryMessages()
+    {
+        if (enemy.HasLowBattery() && !lowBatterySent)
+        {
+            SendBatteryLow(enemy.HealthController.CurrentHealth);
+            lowBatterySent = true;
+        }
+
+        if (enemy.HasNoBattery() && !batteryDepletedSent)
+        {
+            SendBatteryDeplated();
+            batteryDepletedSent = true;
+        }
+    }
+
+    // ---------------------------------------------------
+    // Cooldown helpers
+    // ---------------------------------------------------
+    private bool CanSend(string key)
+    {
+        if (!lastSentTimes.TryGetValue(key, out float lastTime))
+            return true;
+
+        float cooldown = messageCooldowns[key];
+        return (Time.time - lastTime) >= cooldown;
+    }
+
+    private void MarkSent(string key)
+    {
+        lastSentTimes[key] = Time.time;
+    }
+
+    // ---------------------------------------------------
+    // Messaggi
+    // ---------------------------------------------------
+    public MessageData SendTargetDetected(Vector3 pos)
     {
         string coords = $"coordinates: x:{pos.x:F1}; y:{pos.y:F1}; z:{pos.z:F1}";
-
-        MessageBus.Instance.EmitMessage(
+        return MessageBus.Instance.EmitMessage(
             "TargetDetectedMsg",
             enemy.name,
             coords,
@@ -83,11 +126,10 @@ public class EnemyMessageSender : MonoBehaviour
         );
     }
 
-    public void SendTargetDetectedLowBattery(Vector3 pos)
+    public MessageData SendTargetDetectedLowBattery(Vector3 pos)
     {
         string coords = $"coordinates: x:{pos.x:F1}; y:{pos.y:F1}; z:{pos.z:F1}";
-
-        MessageBus.Instance.EmitMessage(
+        return MessageBus.Instance.EmitMessage(
             "TargetDetectedLowBatteryMsg",
             enemy.name,
             coords,
@@ -98,8 +140,10 @@ public class EnemyMessageSender : MonoBehaviour
 
     public void SendSuspiciousSoundDetected(Vector3 soundPosition)
     {
-        string msgString = $"coordinates: x:{soundPosition.x:F1}, y:{soundPosition.y:F1}, z:{soundPosition.z:F1}";
+        if (!CanSend("SuspiciousSound"))
+            return;
 
+        string msgString = $"coordinates: x:{soundPosition.x:F1}, y:{soundPosition.y:F1}, z:{soundPosition.z:F1}";
         MessageBus.Instance.EmitMessage(
             "SuspiciousMovementMsg",
             enemy.name,
@@ -107,6 +151,7 @@ public class EnemyMessageSender : MonoBehaviour
             Mathf.RoundToInt(soundPosition.x), Mathf.RoundToInt(soundPosition.y), Mathf.RoundToInt(soundPosition.z),
             "investigation"
         );
+        MarkSent("SuspiciousSound");
     }
 
     public void SendBatteryLow(float level)
