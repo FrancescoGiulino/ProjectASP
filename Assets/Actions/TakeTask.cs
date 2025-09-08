@@ -41,11 +41,11 @@ public class TakeTask : Action
     // Controlla se l'azione può partire
     public override State Prerequisite()
     {
-        if (MessageIndex >= MessageBus.Instance.AiMessages.Count)
+        /*if (MessageIndex >= MessageBus.Instance.AiMessages.Count)
         {
             Debug.LogError($"MessageIndex: {MessageIndex} - AiMessage.Count: {MessageBus.Instance.AiMessages.Count}");
             return State.ABORT;
-        }
+        }*/
 
         var message = FindMessage();
         if (message == null)
