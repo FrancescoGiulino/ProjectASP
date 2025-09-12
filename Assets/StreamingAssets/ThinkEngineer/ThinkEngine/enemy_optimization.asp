@@ -1,19 +1,5 @@
 % RICORDA: Per identificare i nemici nelle regole usa il nome, l'id a volte dà problemi!
 
-% VINCOLI:
-% Distanza: -------------------------------
-% Non prendere task troppo lontani (oltre 100 unità).
-%:- takeTask(TaskId,_,_,_,_,_,_), self(_,SelfName,_,_,_,_,_,_,_), distanceSelfToTask(TaskId,Distance), Distance > 100.
-% Se non sono tra i primi 4 più vicini ad un dato task, non lo prendo.
-:- takeTask(TaskId,_,_,_,_,_,_), nEnemiesNearerToTask(SelfName,TaskId,N), self(_,SelfName,_,_,_,_,_,_,_), N > 4.
-
-% Se sono colui che ha pubblicato il task, non posso prenderlo.
-:- takeTask(TaskId,_,_,_,_,_,_), self(_,Name,_,_,_,_,_,_,_), task(TaskId,Name,_,_,_,_,_,_,_).
-
-% Batteria: --------------------------------
-% Non prendere task se hai batteria insufficiente.
-:- takeTask(TaskId,_,_,_,_,_,_), self(_,SelfName,_,_,_,_,_,Battery,_), selfMinBattery(MinBattery), Battery<=MinBattery.
-
 % =================================================================================================================================
 % PENALIZZAZIONI:
 % Penalizzazione se non si prende nessun task quando ce n'è almeno uno (del tipo ottimo) disponibile:

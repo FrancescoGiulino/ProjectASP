@@ -11,10 +11,6 @@ public class MessageBus : MonoBehaviour
     public List<MessageData> AiMessages = new List<MessageData>();
     [SerializeField] private float expirationTime = 10f;
 
-    // Assegnazioni: messaggio --> nome guardia
-    //public List<MessageData> AssignedMessages = new List<MessageData>();
-    //public List<string> AssignedOwners = new List<string>();
-
     // Distanze guardie-task (per ThinkEngine)
     [SerializeField] private float DistanceTimer = 0.1f;
     public List<EnemyTaskDistance> EnemyTaskDistances = new List<EnemyTaskDistance>();
@@ -40,7 +36,6 @@ public class MessageBus : MonoBehaviour
         Instance = this;
 
         AiMessages = new List<MessageData>();
-        //AssignedMessages = new List<MessageData>();
     }
 
     private void Start()
@@ -153,7 +148,6 @@ public class MessageBus : MonoBehaviour
             if (taskType=="all"){
                 if (message.AssignedTo == enemyName)
                 {
-                    //Debug.LogError($"Message Id: {message.ID}, Type: {message.Type}, CurrentState: {message.MessageState}, newState: {newState}");
                     message.AssignedTo = "null";
                     message.MessageState = newState;
                 }
@@ -161,11 +155,8 @@ public class MessageBus : MonoBehaviour
                 if (message.AssignedTo == enemyName)
                 {
                     if (message.TaskType == taskType){
-                        //Debug.LogError($"Message Id: {message.ID}, Type: {message.Type}, CurrentState: {message.MessageState}, newState: {newState}");
                         message.AssignedTo = "null";
                         message.MessageState = newState;
-                    }else{
-                        //Debug.LogError($"################### TaskType not found! -- message.TaskType: {message.TaskType} - taskType: {taskType}");
                     }
                 }
             }
@@ -191,27 +182,14 @@ public class MessageBus : MonoBehaviour
     public bool RequestMessage(MessageData msg)
     {
         if (msg.MessageState != "Pending") return false;
-        //if (AssignedMessages.Contains(msg)) return false;
-        if (/*msg.IsTaken || */msg.AssignedTo != "null") return false;
+        if (msg.AssignedTo != "null") return false;
 
-        //AssignedMessages.Add(msg);
         msg.MessageState = "Assigned";
         return true;
     }
 
-    public void ReleaseMessage(MessageData msg)
-    {
-        //int index = AssignedMessages.IndexOf(msg);
-        //if (index >= 0)
-        //{
-        //    AssignedMessages.RemoveAt(index);
-        //    msg.MessageState = "Pending";
-        //}
-    }
-
     public string GetMessageOwner(MessageData msg)
     {
-        //if (!AssignedMessages.Contains(msg)) return "null";
         return msg.AssignedTo;
     }
 

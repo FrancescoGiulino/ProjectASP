@@ -13,7 +13,9 @@ public class MessageData
     public string AssignedTo;
     public bool IsTaken;
 
-    public MessageData(AIMessageType type, string senderName, string messageState, string parametersText, int x, int y, int z, string taskType)
+    public MessageData(
+        AIMessageType type, string senderName, string messageState, string parametersText, int x, int y, int z, string taskType
+    )
     {
         ID = GlobalId++;
         Type = type;

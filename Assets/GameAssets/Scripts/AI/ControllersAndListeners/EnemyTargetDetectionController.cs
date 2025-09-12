@@ -6,12 +6,6 @@ public class EnemyTargetDetectionController : TargetDetectionController
     [SerializeField] private float chaseRangeRadius = 5f; // Sphere cast grande
     private Collider[] chaseTargetsInRange;
 
-    // Controlla se il bersaglio è visibile nello sphere piccolo (trigger per passare a Chase).
-    /*public bool CheckForChaseTrigger()
-    {
-        return CheckForTargets(); // eredita la logica dallo sphere piccolo
-    }*/
-
     public bool CheckForChaseTrigger()
     {
         Collider[] targets = Physics.OverlapSphere(spherePosition, sphereRadius, targetLayer);

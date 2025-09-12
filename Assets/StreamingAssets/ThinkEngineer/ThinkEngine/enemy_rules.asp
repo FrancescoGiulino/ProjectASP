@@ -15,9 +15,6 @@ hasActiveTask :- isInChaseState.
 
 % =================================================================================================================================
 
-%minDistance(Task,MinDistance) :- distanceEnemyToTask(_,Task,MinDistance), #min{D: distanceEnemyToTask(_,Task,D)} = MinDistance.
-%nearestEnemyToTask(Task,Enemy,Distance) :- distanceEnemyToTask(Enemy,Task,Distance), minDistance(Task,Distance).
-
 % Un nemico NearEnemy è più vicino di FarEnemy al task
 enemyNearerToTask(NearEnemy,FarEnemy,Task) :-
     distanceEnemyToTask(NearEnemy,Task,D1),
@@ -31,6 +28,18 @@ nEnemiesNearerToTask(Enemy,Task,N) :-
     N = #count{NearEnemy : enemyNearerToTask(NearEnemy,Enemy,Task)}.
 
 % =================================================================================================================================
+% VINCOLI:
+% Distanza: -------------------------------
+% Se non sono tra i primi 4 più vicini ad un dato task, non lo prendo.
+:- takeTask(TaskId,_,_,_,_,_,_), nEnemiesNearerToTask(SelfName,TaskId,N), self(_,SelfName,_,_,_,_,_,_,_), N > 4.
+
+% Se sono colui che ha pubblicato il task, non posso prenderlo.
+:- takeTask(TaskId,_,_,_,_,_,_), self(_,Name,_,_,_,_,_,_,_), task(TaskId,Name,_,_,_,_,_,_,_).
+
+% Batteria: --------------------------------
+% Non prendere task se hai batteria insufficiente.
+:- takeTask(TaskId,_,_,_,_,_,_), self(_,SelfName,_,_,_,_,_,Battery,_), selfMinBattery(MinBattery), Battery<=MinBattery.
+
 
 #show self/9.
 #show enemies/9.
