@@ -10621,7 +10621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &501275999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22479,7 +22479,7 @@ MonoBehaviour:
   - typeName: ThinkEngine.worldInformationManagerSensor_TaskId, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   recompile: 0
-  teRecompile: 1
+  teRecompile: 0
   generatedScripts:
   - worldInformationManagerSensor_EnemyName.cs
   - worldInformationManagerSensor_Distance.cs
