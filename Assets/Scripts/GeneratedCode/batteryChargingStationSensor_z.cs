@@ -20,7 +20,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(float));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "batteryChargingStationSensor_z(batteryChargingStation1,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "batteryChargingStationSensor_z(batteryChargingStation,objectIndex("+index+"),{0})." + Environment.NewLine;
 		}
 		public override void Destroy()
 		{

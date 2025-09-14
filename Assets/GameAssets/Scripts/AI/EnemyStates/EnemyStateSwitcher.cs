@@ -56,6 +56,16 @@ public class EnemyStateSwitcher : MonoBehaviour
             return;
         }
 
+        // Se il nemico è in ChaseState ma il player non è più in range, passa a LookState
+        if (enemy.GetCurrentState() == "ChaseState")
+        {
+            if (!enemy.Detection.IsTargetInChaseRange())
+            {
+                enemy.ChangeState(new LookState());
+                return; // esci subito, non forzare ChaseState
+            }
+        }
+
         MessageData activeTask = GetActiveTask();
 
         // --- Gestione Task Attivi ---

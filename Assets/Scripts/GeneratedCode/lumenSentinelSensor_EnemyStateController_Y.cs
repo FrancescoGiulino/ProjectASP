@@ -20,7 +20,7 @@ namespace ThinkEngine
 			mapper = (BasicTypeMapper)MapperManager.GetMapper(typeof(int));
 			operation = mapper.OperationList()[0];
 			counter = 0;
-			mappingTemplate = "lumenSentinelSensor_EnemyStateController_Y(ecoSentinel7,objectIndex("+index+"),{0})." + Environment.NewLine;
+			mappingTemplate = "lumenSentinelSensor_EnemyStateController_Y(lumenSentinel,objectIndex("+index+"),{0})." + Environment.NewLine;
 		}
 		public override void Destroy()
 		{

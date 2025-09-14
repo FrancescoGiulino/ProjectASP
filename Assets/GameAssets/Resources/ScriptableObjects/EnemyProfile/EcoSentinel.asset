@@ -17,7 +17,7 @@ MonoBehaviour:
   secondaryAmmo: {x: 2, y: 6}
   shootingDistance: {x: 3, y: 5}
   walkSpeed: {x: 1.5, y: 2}
-  runSpeed: {x: 2.7, y: 3.2}
+  runSpeed: {x: 2.5, y: 2.7}
   lowBatterySpeed: {x: 0.6, y: 0.9}
   minDistance: {x: 1.3, y: 1.7}
   batteryIdleDrainRate: {x: 0.05, y: 0.15}
